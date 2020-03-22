@@ -1,0 +1,41 @@
+$height: 50rpx;
+
+.progressBar{
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E8E8E8;
+  height: $height;
+  // line-height: $height;
+  border-radius: $height;
+  overflow: hidden;
+  font-size: 24rpx;
+  .node{
+    box-sizing: border-box;
+    flex: 1;
+    color: #333;
+    text-align: center;
+    z-index: 1;
+  }
+  .nodeFirst{
+    border-radius: $height 0 0 $height;
+  }
+  .nodeLast{
+    border-radius: 0 $height $height 0;
+  }
+  .nodeActive{
+    color: #FDFFFD;
+  }
+  .process{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    border-radius: $height;
+    background-color: #1890FF;
+    z-index: 0;
+  }
+}

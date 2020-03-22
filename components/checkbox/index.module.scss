@@ -1,0 +1,26 @@
+.checkbox{
+  display: inline-block;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+  &:nth-last-child(1){
+    margin-right: 0;
+  }
+  .container{
+    display: flex;
+    align-items: center;
+    .icon{
+      font-size: 48rpx;
+      width: 48rpx;
+      height: 48rpx;
+    }
+    .label{
+      margin-left: 20rpx;
+      color: #333;
+      white-space: nowrap;
+    }
+  }
+}
+
+.group{
+
+}

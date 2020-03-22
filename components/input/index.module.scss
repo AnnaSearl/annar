@@ -1,0 +1,25 @@
+@import '../style/theme.scss';
+
+.input{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    .aInput{
+      padding: 0;
+      font-size: 28rpx;
+      text-align: right;
+      height: 42rpx;
+      line-height: 42rpx;
+      width: 100%;
+      color: $font-color-1;
+      background-color: $view-bg-color;
+    }
+  }
+  .unit{
+    padding-left: 10rpx;
+  }
+}

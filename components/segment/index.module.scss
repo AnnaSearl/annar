@@ -1,0 +1,28 @@
+@import '../style/theme.scss';
+
+.segment{
+  display: flex;
+  border-radius: 10rpx;
+  background-color: $view-bg-color;
+  overflow: hidden;
+  .item{
+    flex: 1;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: $font-color;
+  }
+  .selected{
+    color: #1890FF;
+    font-weight: 500;
+    background-color: $btn-bg-color;
+  }
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}

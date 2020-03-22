@@ -1,0 +1,31 @@
+.loading{
+  position: relative;
+  display: inline-block;
+  animation: loading .6s linear infinite;
+  overflow: hidden;
+  .round{
+    box-sizing: border-box;
+    width: 42rpx;
+    height: 42rpx;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2rpx solid #999;
+  }
+  .empty{
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 50%;
+    margin-top: -5rpx;
+    height: 10rpx;
+    background-color: #FDFFFD;
+  }
+}
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

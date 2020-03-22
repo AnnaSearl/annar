@@ -1,0 +1,73 @@
+@import '../style/theme.scss';
+
+$large-height: 80rpx;
+
+.button{
+  display: inline-block;
+  .default{
+    display: inline-block;
+    padding: 0 40rpx;
+    background-color: $btn-bg-color;
+    height: 64rpx;
+    line-height: 66rpx;
+    border-radius: 64rpx;
+    color: $color-brand;
+    font-weight: 500;
+    font-size: 28rpx;
+    margin-right: 20rpx;
+    &:nth-last-child(1){
+      margin-right: 0;
+    }
+  }
+  .small{
+    padding: 0 30rpx;
+    height: 52rpx;
+    line-height: 54rpx;
+    border-radius: 52rpx;
+    font-size: 24rpx;
+  }
+  .large{
+    padding: 0 42rpx;
+    height: $large-height;
+    line-height: $large-height + 2;
+    border-radius: $large-height;
+  }
+  .primary{
+    background-color: $color-brand;
+    color: $view-bg-color;
+  }
+  .disabled{
+    opacity: 0.4;
+    color: hsla(0,0%,100%,.6) !important;
+  }
+}
+
+.widthFixButton{
+  height: $large-height;
+  display: inline-block;
+  overflow: hidden;
+  .default{
+    display: inline-block;
+    width: 200%;
+    height: 200%;
+    font-size: 28rpx * 2;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    text-align: center;
+    &:nth-last-child(1){
+      margin-right: 0;
+    }
+  }
+  .large{
+    line-height: $large-height * 2;
+    border-radius: $large-height * 2;
+  }
+  .primary{
+    background-color: $color-brand;
+    color: $view-bg-color;
+  }
+  .disabled{
+    opacity: 0.4;
+    color: hsla(0,0%,100%,.6) !important;
+  }
+}

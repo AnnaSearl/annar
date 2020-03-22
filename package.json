@@ -1,0 +1,58 @@
+{
+  "name": "anna-remax-ui",
+  "version": "1.0.15",
+  "description": "基于remax的小程序UI库",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "keywords": [
+    "remax",
+    "remax-ui",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:cjs": "tsc --module CommonJS --jsx react --outDir cjs",
+    "build:esm": "node ./scripts/copy.js && tsc",
+    "dev": "node ./scripts/copy.js && tsc -w",
+    "clean": "rimraf esm cjs",
+    "prebuild": "npm run clean",
+    "prebuild:esm": "rimraf esm",
+    "prebuild:cjs": "rimraf cjs",
+    "watch:esm": "npm run build:esm -- -w",
+    "watch:cjs": "npm run build:cjs -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndJuly/anna-remax-ui.git"
+  },
+  "files": [
+    "esm"
+  ],
+  "author": "Anna",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/lodash-es": "^4.17.3",
+    "@types/react": "^16.9.23",
+    "@types/react-reconciler": "^0.18.0",
+    "classnames": "^2.2.6",
+    "copyfiles": "^2.2.0",
+    "dayjs": "^1.8.23",
+    "lodash-es": "^4.17.15",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.0",
+    "remax": "^1.17.2",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.4.1",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  },
+  "types": "./esm/index.d.ts"
+}

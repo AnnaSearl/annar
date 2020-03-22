@@ -1,0 +1,27 @@
+@import '../style/theme.scss';
+
+.card{
+  position: relative;
+  overflow: hidden;
+  border-radius: 16rpx;
+  padding: 0 20rpx 30rpx 20rpx;
+  margin-bottom: 20rpx;
+  background-color: $view-bg-color;
+  font-size: 28rpx;
+  color: $font-color;
+  .header{
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    .title{
+      font-size: 32rpx;
+    }
+    .extra{
+      font-size: 28rpx;
+    }
+  }
+  .content{
+
+  }
+}

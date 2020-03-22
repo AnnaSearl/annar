@@ -1,0 +1,13 @@
+@import '../style/theme.scss';
+
+.textarea{
+  .default{
+    padding: 0;
+    font-size: 28rpx;
+    color: $font-color-1;
+    background-color: $view-bg-color;
+  }
+  .placeholder{
+    font-size: 28rpx;
+  }
+}
