@@ -60,5 +60,15 @@
     "typescript": "^3.8.3",
     "validate-commit-msg": "^2.14.0"
   },
-  "types": "./esm/index.d.ts"
+  "types": "./esm/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg"
+    }
+  }
 }
