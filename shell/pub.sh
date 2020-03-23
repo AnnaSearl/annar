@@ -14,5 +14,5 @@ then
   git add CHANGELOG.md package.json
   git commit -m "docs(CHANGELOG): :pencil: changelog for v $VERSION"
   npm version $VERSION -m 'chore(release): %s'
-  git push origin develop
+  git push origin
 fi
