@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.0.19...v1.1.0) (2020-03-23)
+
+
+### Bug Fixes
+
+* :bug: 修改shell/pub ([a13d61b](https://github.com/AnnaSearl/anna-remax-ui/commit/a13d61b091a848889ea5554bd72b82f2cb83924c))
+
+
+
 ## [1.0.19](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.0.18...v1.0.19) (2020-03-23)
 
 
