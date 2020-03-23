@@ -1,3 +1,12 @@
+## [1.0.19](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.0.18...v1.0.19) (2020-03-23)
+
+
+### Bug Fixes
+
+* :bug: ignore pakage-lock.json ([84073f4](https://github.com/AnnaSearl/anna-remax-ui/commit/84073f4144fbed61996ba5fbf99f261b06d1d449))
+
+
+
 ## 1.0.18 (2020-03-23)
 
 
