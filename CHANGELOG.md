@@ -3,6 +3,16 @@
 
 ### Bug Fixes
 
+* :bug: 修改shell/pub ([7c97706](https://github.com/AnnaSearl/anna-remax-ui/commit/7c977067e728887eadd5507b39e12263ec38d972))
+* :bug: 修改shell/pub ([a13d61b](https://github.com/AnnaSearl/anna-remax-ui/commit/a13d61b091a848889ea5554bd72b82f2cb83924c))
+
+
+
+# [1.1.0](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.0.19...v1.1.0) (2020-03-23)
+
+
+### Bug Fixes
+
 * :bug: 修改shell/pub ([a13d61b](https://github.com/AnnaSearl/anna-remax-ui/commit/a13d61b091a848889ea5554bd72b82f2cb83924c))
 
 
