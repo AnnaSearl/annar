@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "基于remax的小程序UI库",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -21,7 +21,9 @@
     "prebuild:esm": "rimraf esm",
     "prebuild:cjs": "rimraf cjs",
     "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w"
+    "watch:cjs": "npm run build:cjs -- -w",
+    "pub": "sh shell/pub.sh",
+    "commit": "sh shell/commit.sh"
   },
   "repository": {
     "type": "git",
@@ -39,8 +41,11 @@
     "@types/react": "^16.9.23",
     "@types/react-reconciler": "^0.18.0",
     "classnames": "^2.2.6",
+    "commitizen": "^4.0.3",
     "copyfiles": "^2.2.0",
+    "cz-conventional-changelog": "^3.1.0",
     "dayjs": "^1.8.23",
+    "husky": "^4.2.3",
     "lodash-es": "^4.17.15",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
@@ -52,7 +57,8 @@
     "rollup-plugin-postcss": "^2.4.1",
     "rollup-plugin-typescript2": "^0.26.0",
     "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "validate-commit-msg": "^2.14.0"
   },
   "types": "./esm/index.d.ts"
 }
