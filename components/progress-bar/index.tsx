@@ -63,7 +63,7 @@ const ProgressBar = (props: ProgressBarProps) => {
       }
       {
         data.length === 0
-          ? <Loading emptyColor="#E8E8E8" />
+          ? <Loading type="gap" gapColor="#E8E8E8" />
           : null
       }
       <View 

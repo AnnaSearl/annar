@@ -4,38 +4,49 @@ import styles from './index.module.scss';
 
 
 export interface LoadingProps {
+  type?: string;
   color?: string;
-  emptyColor?: string;
-  size?: string;
+  gapColor?: string;
+  radius?: string;
 }
 
 const Loading = (props: LoadingProps) => {
 
   const {
+    type,
     color = '#999',
-    emptyColor = '#FDFFFD',
-    size = '42rpx',
+    gapColor = '#FDFFFD',
+    radius = '42rpx',
   } = props;
 
+  if (type === "gap") {
+    return (
+      <View 
+        className={styles.loadingGap}
+        style={{
+          height: radius,
+          width: radius,
+          border: `2rpx solid ${color}`,
+        }}
+      >
+        <View 
+          className={styles.gap}
+          style={{
+            backgroundColor: gapColor,
+          }}
+        />
+      </View>
+    )
+  }
   return (
     <View 
       className={styles.loading}
-    >
-      <View 
-        className={styles.round}
-        style={{
-          height: size,
-          width: size,
-          border: `2rpx solid ${color}`,
-        }}
-      />
-      <View 
-        className={styles.empty}
-        style={{
-          backgroundColor: emptyColor,
-        }}
-      />
-    </View>
+      style={{
+        height: radius,
+        width: radius,
+        borderColor: `${color} ${color} transparent`,
+      }}
+    />
   )
 };
 
