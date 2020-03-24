@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.1.0...v1.2.0) (2020-03-24)
+
+
+### Features
+
+* :sparkles: button新增形状 加载状态 块级属性，loading增加type属性 ([953f151](https://github.com/AnnaSearl/anna-remax-ui/commit/953f15138b4d19e6155928f64e2d3b542c1e04e8))
+
+
+
 # [1.1.0](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.0.19...v1.1.0) (2020-03-23)
 
 
