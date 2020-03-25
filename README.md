@@ -2,7 +2,7 @@
 
 一款基于 `Remax` 框架开发的小程序 UI 组件库
 
-![Image text](https://raw.githubusercontent.com/AnnaSearl/react-fly-carousel/master/mdimages/button.png?token=AGJONQSQNV6EKQQWK55LZC26PIT7K)
+![Image text](https://smebimage.fuliaoyi.com/FieJW3acKIv-AsoFQvCHyacWpE6m)
 
 ## 特性
 
