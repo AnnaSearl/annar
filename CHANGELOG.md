@@ -3,6 +3,16 @@
 
 ### Bug Fixes
 
+* :bug: lock ([99e43d7](https://github.com/AnnaSearl/anna-remax-ui/commit/99e43d70c851242dcbb139f1710feae3cf4c2bf2))
+* :bug: 添加依赖 ([ff9d648](https://github.com/AnnaSearl/anna-remax-ui/commit/ff9d648845e4b0c327525b346fd1751a1a7e1d5f))
+
+
+
+## [1.2.1](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.0...v1.2.1) (2020-03-25)
+
+
+### Bug Fixes
+
 * :bug: 添加依赖 ([ff9d648](https://github.com/AnnaSearl/anna-remax-ui/commit/ff9d648845e4b0c327525b346fd1751a1a7e1d5f))
 
 
