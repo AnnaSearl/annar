@@ -1,6 +1,20 @@
 ## [1.2.4](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.3...v1.2.4) (2020-03-26)
 
 
+### Bug Fixes
+
+* :bug: lock ([628b280](https://github.com/AnnaSearl/anna-remax-ui/commit/628b280cf0b35c0e2ebb2c57347c72ef2eccb807))
+
+
+### Features
+
+* :sparkles: 增加对微信小程序的支持 ([4340421](https://github.com/AnnaSearl/anna-remax-ui/commit/4340421e4c17c83f4242342b3ec5e90b75b8cf88))
+
+
+
+## [1.2.4](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.3...v1.2.4) (2020-03-26)
+
+
 ### Features
 
 * :sparkles: 增加对微信小程序的支持 ([4340421](https://github.com/AnnaSearl/anna-remax-ui/commit/4340421e4c17c83f4242342b3ec5e90b75b8cf88))
