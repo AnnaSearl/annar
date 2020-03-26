@@ -1,3 +1,12 @@
+## [1.2.5](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.4...v1.2.5) (2020-03-26)
+
+
+### Bug Fixes
+
+* :bug: 修改md文件 ([2c2ae27](https://github.com/AnnaSearl/anna-remax-ui/commit/2c2ae27434ce3e01ac6a0e082cf2b0d3b3fa91c4))
+
+
+
 ## [1.2.4](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.3...v1.2.4) (2020-03-26)
 
 
