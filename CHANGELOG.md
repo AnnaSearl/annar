@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.1...v1.3.0) (2020-03-26)
+
+
+### Bug Fixes
+
+* :bug: 添加md图片 ([eddd242](https://github.com/AnnaSearl/anna-remax-ui/commit/eddd2428b275f50f4531ab401f7c0c1c7cb1de73))
+
+
+### Features
+
+* :sparkles: 新增Icon组件，修改Cell组件，取消部分组件的cssModule，加入anna样式前缀 ([c3d765f](https://github.com/AnnaSearl/anna-remax-ui/commit/c3d765f0ffaee649097b872b32610015be19c44e))
+
+
+
 ## [1.2.1](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.0...v1.2.1) (2020-03-25)
 
 
