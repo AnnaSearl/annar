@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/alipay';
+import { View } from 'remax/one';
 import classNames from 'classnames';
 import Loading from '../loading';
 import styles from './index.module.scss';

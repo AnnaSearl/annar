@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { View, Textarea as ATextarea } from 'remax/alipay';
+import { View, Textarea as ATextarea } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.scss';
 

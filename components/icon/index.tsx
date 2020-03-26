@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text } from 'remax/alipay';
+import { Text } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';

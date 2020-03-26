@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { View } from 'remax/alipay';
+import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.scss';
 

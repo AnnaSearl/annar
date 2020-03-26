@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react'
-import { View, Text, Input } from 'remax/alipay';
+import { View, Text, Input } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.scss';
 

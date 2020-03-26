@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/alipay';
+import { View, Text } from 'remax/one';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
 import './index.scss';
