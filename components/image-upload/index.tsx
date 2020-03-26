@@ -4,8 +4,11 @@ import { View, Text, Image, chooseImage, hideLoading, previewImage } from 'remax
 import classNames from 'classnames';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('image-upload');
 
 export interface ImageProps {
   key: string;
@@ -64,7 +67,6 @@ const ImageUpload = (props: ImageUploadProps) => {
       params.sourceType = sourceType
     }
     const [errc, resc] = await to(sync(chooseImage, params));
-    console.log('resc----',resc);
     if (errc) {
       return;
     }
@@ -85,18 +87,18 @@ const ImageUpload = (props: ImageUploadProps) => {
   }
 
   return (
-    <View className={styles.imageUpload}>
+    <View className={prefixCls}>
       {
         files.map((item: DataItem, index: number) => (
           <View
             key={(item as ImageProps).key || index}
-            className={styles.item}
+            className={`${prefixCls}-item`}
             onClick={() => handleClickImage(index)}
           >
-            <View className={styles.delete} >
+            <View className={`${prefixCls}-item-delete`}>
               <View
                 className={classNames({
-                  [styles.icon]: true,
+                  [`${prefixCls}-item-delete-icon`]: true,
                   'iconfont': true,
                   'icon-close': true,
                 })}
@@ -111,12 +113,12 @@ const ImageUpload = (props: ImageUploadProps) => {
         ))
       }
       <View 
-        className={styles.add}
+        className={`${prefixCls}-add`}
         onClick={handleAdd}
       >
         <Text
           className={classNames({
-            [styles.icon]: true,
+            [`${prefixCls}-add-icon`]: true,
             'iconfont': true,
             'icon-add': true,
           })}

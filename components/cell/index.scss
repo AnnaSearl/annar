@@ -1,0 +1,55 @@
+@import '../style/index.scss';
+
+$cell-prefix-cls: #{$anna-prefix}-cell;
+
+.#{$cell-prefix-cls} {
+  position: relative;
+  padding: 20rpx 32rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  background-color: $view-bg-color;
+  margin-bottom: 1PX;
+  &-verticality{
+    &-label{
+      color: $font-color-1;
+      padding-bottom: 20rpx;
+    }
+    &-value{
+      color: $font-color-3;
+    }
+  }
+  &-container{
+    display: flex;
+    align-items: center;
+    &-label{
+      box-sizing: border-box;
+      color: $font-color-1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      &-required{
+        color: #f5222d;
+        margin-right: 4rpx;
+      }
+    }
+    &-value{
+      flex: 1;
+      color: $font-color-3;
+      margin-left: 20rpx;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+  &-border{
+    position: absolute;
+    left: 32rpx;
+    right: 0;
+    bottom: -1PX;
+    height: 1PX;
+    background-color: #e8e8e8;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}

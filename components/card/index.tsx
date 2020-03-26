@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { View } from 'remax/alipay';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
+
+
+const prefixCls = getPrefixCls('card');
 
 export interface CardProps {
   title?: React.ReactNode;
@@ -11,20 +15,20 @@ export interface CardProps {
  const Card = ({ title, extra, children }: CardProps) => {
 
   return (
-    <View className={styles.card}>
+    <View className={prefixCls}>
       {
         title || extra
-          ? <View className={styles.header}>
-              <View className={styles.title}>
+          ? <View className={`${prefixCls}-header`}>
+              <View className={`${prefixCls}-header-title`}>
                 {title}
               </View>
-              <View className={styles.extra}>
+              <View className={`${prefixCls}-header-extra`}>
                 {extra}
               </View>
             </View>
           : <View style={{height: '30rpx'}} />
       }
-      <View className={styles.content}>
+      <View className={`${prefixCls}-content`}>
         {children}
       </View>
     </View>

@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { View, Text } from 'remax/alipay';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
+
+
+const prefixCls = getPrefixCls('cell');
 
 export interface ItemProps {
   label?: React.ReactNode;
@@ -8,8 +13,12 @@ export interface ItemProps {
   style?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
   valueStyle?: React.CSSProperties;
-  childrenNodes?: any[];
   verticality?: boolean;
+  icon?: string;
+  required?: boolean;
+  border?: boolean;
+  arrow?: boolean;
+  defaultNullValue?: string;
 }
 
 const Cell = (props: ItemProps) => {
@@ -20,22 +29,26 @@ const Cell = (props: ItemProps) => {
     labelStyle, 
     valueStyle, 
     children,
-    childrenNodes,
     verticality,
+    icon,
+    border = true,
+    arrow,
+    required,
+    defaultNullValue = '',
   } = props;
 
   if (verticality) {
     return (
-      <View className={styles.cell} style={style}>
-        <View className={styles.verticalityContainer}>
+      <View className={prefixCls} style={style}>
+        <View className={`${prefixCls}-verticality`}>
           {
             label 
-              ? <View className={styles.label} style={labelStyle}>
+              ? <View className={`${prefixCls}-verticality-label`} style={labelStyle}>
                   {label}
                 </View>
               : null
           }
-          <View className={styles.value} style={valueStyle}>
+          <View className={`${prefixCls}-verticality-value`} style={valueStyle}>
             {children}
           </View>
         </View>
@@ -44,46 +57,33 @@ const Cell = (props: ItemProps) => {
   }
 
   return (
-    <View className={styles.cell} style={style}>
-      <View className={styles.container}>
-        <Text className={styles.label} style={labelStyle}>
-          {label}
-        </Text>
-        <View className={styles.value} style={valueStyle}>
-          {(children || children === 0) ? children : '-'}
+    <View className={prefixCls} style={style}>
+      <View className={`${prefixCls}-container`}>
+        <View className={`${prefixCls}-container-label`} style={labelStyle}>
+          {
+            required
+              ? <Text className={`${prefixCls}-container-label-required`}>*</Text>
+              : null
+          }
+          {
+            icon ? <Icon type={icon} style={{marginRight: '10rpx'}} color="#333" /> : null
+          }
+          <Text>{label}</Text>
+        </View>
+        <View className={`${prefixCls}-container-value`} style={valueStyle}>
+          <Text>
+            {(children || children === 0) ? children : defaultNullValue}
+          </Text>
+          {
+            arrow ? <Icon type="right" style={{marginLeft: '10rpx'}} /> : null
+          }
         </View>
       </View>
       {
-        childrenNodes 
-        ? <View className={styles.childrenNodes}>
-            {
-              childrenNodes.map((item, index) => (
-                <View
-                  key={index}
-                  className={styles.childrenNode}
-                >
-                  <View 
-                    className={styles.childrenNodeContainer}
-                  >
-                    <View
-                      className={styles.childrenNodeLabel}
-                    >
-                      {item.label}
-                    </View>
-                    <View
-                      className={styles.childrenNodeValue}
-                    >
-                      {item.value}
-                    </View>
-                  </View>
-                  <View className={styles.line} />
-                </View>
-              ))
-            }
-          </View>
-        : null
+        border
+          ? <View className={`${prefixCls}-border`} />
+          : null
       }
-      
     </View>
   )
 }

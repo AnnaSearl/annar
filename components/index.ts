@@ -4,6 +4,8 @@ export { default as Button } from './button';
 
 export { default as Fab } from './fab';
 
+export { default as Icon } from './icon';
+
 // 导航
 
 export { default as Segment } from './segment';
@@ -30,7 +32,7 @@ export { default as Switch } from './switch';
 
 export { default as DatePicker } from './date-picker';
 
-export { default as imageUpload } from './image-upload';
+export { default as ImageUpload } from './image-upload';
 
 export { default as Cascade } from './cascade';
 

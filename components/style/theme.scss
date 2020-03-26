@@ -1,7 +1,10 @@
-// 主色
+// The prefix to use on all css classes from anna.
+$anna-prefix: anna;
+
+// primary
 $color-brand: #1890FF;
 
-// 浅色
+// default
 $page-bg-color: #F2F2F2;
 $view-bg-color: #FDFFFD;
 $btn-bg-color: #EDEDEF;
@@ -11,11 +14,11 @@ $font-color-1: #333;
 $font-color-2: #666;
 $font-color-3: #999;
 
-// 其他
+// other
 $color-danger: #ff4d4f;
 
 
-// 深色
+// dark
 // $page-bg-color: #000;
 // $view-bg-color: #1C1C1D;
 // $btn-bg-color: #313134;

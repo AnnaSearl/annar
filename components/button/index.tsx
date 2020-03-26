@@ -3,8 +3,11 @@ import { View, Text } from 'remax/alipay';
 import classNames from 'classnames';
 import { tuple } from '../_util/type';
 import Loading from '../loading';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('button');
 
 const ButtonTypes = tuple('default', 'primary');
 export type ButtonType = typeof ButtonTypes[number];
@@ -48,50 +51,50 @@ const Button = (props: ButtonProps) => {
     onClick?.();
   }
 
-  if (width) {
-    return (
-      <View
-        className={styles.widthFixButton}
-        style={{
-          width: `${width}rpx`,
-        }}
-        onClick={handleClick}
-      >
-        <Text 
-          className={classNames({
-            [styles.default]: true,
-            [styles.large]: size === 'large',
-            [styles.primary]: type === 'primary',
-            [styles.disabled]: disabled,
-          })}
-          style={style}
-        >
-          {children}
-        </Text>
-      </View>
-    )
-  }
+  // if (width) {
+  //   return (
+  //     <View
+  //       className={styles.widthFixButton}
+  //       style={{
+  //         width: `${width}rpx`,
+  //       }}
+  //       onClick={handleClick}
+  //     >
+  //       <Text 
+  //         className={classNames({
+  //           [`${prefixCls}default]: true,
+  //           [`${prefixCls}large]: size === 'large',
+  //           [`${prefixCls}primary]: type === 'primary',
+  //           [`${prefixCls}disabled]: disabled,
+  //         })}
+  //         style={style}
+  //       >
+  //         {children}
+  //       </Text>
+  //     </View>
+  //   )
+  // }
 
   return (
     <View
       className={classNames({
-        [styles.default]: true,
-        [styles.small]: size === 'small',
-        [styles.large]: size === 'large',
-        [styles.primary]: type === 'primary',
-        [styles.disabled]: disabled,
-        [styles.dangerDefault]: danger,
-        [styles.danger]: type === 'primary' && danger,
-        [styles.square]: square,
-        [styles.block]: block,
-        [styles.loading]: loading,
+        [prefixCls]: true,
+        [`${prefixCls}-small`]: size === 'small',
+        [`${prefixCls}-large`]: size === 'large',
+        [`${prefixCls}-primary`]: type === 'primary',
+        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-dangerDefault`]: danger,
+        [`${prefixCls}-danger`]: type === 'primary' && danger,
+        [`${prefixCls}-square`]: square,
+        [`${prefixCls}-block`]: block,
+        [`${prefixCls}-loading`]: loading,
       })}
       onClick={handleClick}
       style={style}
     >
       {
         loading
-          ? <Text className={styles.loadingIcon}>
+          ? <Text className={`${prefixCls}-loading-icon`}>
               <Loading color="#FDFFFD" radius="36rpx" />
             </Text>
           : null

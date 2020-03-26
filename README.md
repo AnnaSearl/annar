@@ -2,7 +2,7 @@
 
 一款基于 `Remax` 框架开发的小程序 UI 组件库
 
-![Image text](https://smebimage.fuliaoyi.com/FieJW3acKIv-AsoFQvCHyacWpE6m)
+![Image text](https://smebimage.fuliaoyi.com/FjMomAWXPUzaSAcAkLzr920trN-p)
 
 ## 特性
 

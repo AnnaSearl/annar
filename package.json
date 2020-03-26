@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "基于remax的小程序UI库",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -50,7 +50,7 @@
     "cz-conventional-changelog": "^3.1.0",
     "husky": "^4.2.3",
     "react": "^16.13.0",
-    "remax": "^1.17.2",
+    "remax": "^1.18.4",
     "rimraf": "^3.0.2",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.3.0",

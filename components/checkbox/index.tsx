@@ -1,8 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { View } from 'remax/alipay';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import Icon from '../icon';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('checkbox');
 
 export interface CheckboxProps {
   label?: React.ReactNode;
@@ -30,27 +33,21 @@ const Checkbox = (props: CheckboxProps) => {
 
   return (
     <View 
-      className={styles.checkbox}
+      className={prefixCls}
       style={style}
     >
       <View 
-        className={styles.container}
+        className={`${prefixCls}-container`}
         onClick={handleClick}
       >
-        <View
-          className={classNames({
-            [styles.icon]: true,
-            'iconfont': true,
-            'icon-round': !checked,
-            'icon-roundcheckfill': checked,
-          })}
-          style={{
-            color: checked ? "#1890FF" : "#999",
-          }}
-        />
-        <View className={styles.label}>{label}</View>
+        {
+          checked
+            ? <Icon type="roundcheckfill" size="48rpx" color="#1890FF" />
+            : <Icon type="round" size="48rpx" color="#999" />
+        }
+        <View className={`${prefixCls}-container-label`}>{label}</View>
       </View>
-      <View className={styles.extra}>
+      <View className={`${prefixCls}-extra`}>
         {extra}
       </View>
     </View>
@@ -100,8 +97,7 @@ Checkbox.Group = (props: GroupProps) => {
   const checkboxs = getCheckboxs(children, value, onChange);
 
   return (
-    <View 
-      className={styles.group}
+    <View
       style={{
         display: "flex",
         flexDirection: direction,

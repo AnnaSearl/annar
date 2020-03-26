@@ -1,6 +1,8 @@
-@import '../style/theme.scss';
+@import '../style/index.scss';
 
-.card{
+$card-prefix-cls: #{$anna-prefix}-card;
+
+.#{$card-prefix-cls} {
   position: relative;
   overflow: hidden;
   border-radius: 16rpx;
@@ -9,19 +11,19 @@
   background-color: $view-bg-color;
   font-size: 28rpx;
   color: $font-color;
-  .header{
+  &-header{
     padding: 30rpx 0;
     display: flex;
     justify-content: space-between;
     font-weight: 500;
-    .title{
+    &-title{
       font-size: 32rpx;
     }
-    .extra{
+    &-extra{
       font-size: 28rpx;
     }
   }
-  .content{
+  &-content{
 
   }
 }

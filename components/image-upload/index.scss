@@ -1,14 +1,18 @@
-.imageUpload{
+@import '../style/index.scss';
+
+$image-upload-prefix-cls: #{$anna-prefix}-image-upload;
+
+.#{$image-upload-prefix-cls} {
   display: grid;
   grid-template-columns: repeat(auto-fill, 170rpx);
   row-gap: 20rpx;
   column-gap: 20rpx;
-  .add{
+  &-add{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 170rpx;
-    .icon{
+    &-icon{
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -16,7 +20,7 @@
       color: #999;
     }
   }
-  .item{
+  &-item{
     position: relative;
     display: flex;
     justify-content: center;
@@ -25,7 +29,7 @@
     border-radius: 10rpx;
     background-color: #e8e8e8;
     overflow: hidden;
-    .delete{
+    &-delete{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,7 +41,7 @@
       background-color: #999;
       opacity: 0.8;
       border-radius: 50%;
-      .icon{
+      &-icon{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -52,32 +56,3 @@
     }
   }
 }
-
-
-// .imageUpload{
-//   display: flex;
-//   flex-wrap: wrap;
-//   .add{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 170rpx;
-//     width: 170rpx;
-//   }
-//   .item{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     width: 170rpx;
-//     height: 170rpx;
-//     margin-right: 10rpx;
-//     border-radius: 10rpx;
-//     background-color: #e8e8e8;
-//     &:nth-last-child(2){
-//       margin-right: 0;
-//     }
-//     >image{
-//       width: 100%;
-//     }
-//   }
-// }

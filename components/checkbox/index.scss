@@ -1,26 +1,26 @@
-.checkbox{
+@import '../style/index.scss';
+
+$checkbox-prefix-cls: #{$anna-prefix}-checkbox;
+
+.#{$checkbox-prefix-cls} {
   display: inline-block;
   margin-right: 30rpx;
   font-size: 28rpx;
   &:nth-last-child(1){
     margin-right: 0;
   }
-  .container{
+  &-container{
     display: flex;
     align-items: center;
-    .icon{
+    &-icon{
       font-size: 48rpx;
       width: 48rpx;
       height: 48rpx;
     }
-    .label{
+    &-label{
       margin-left: 20rpx;
       color: #333;
       white-space: nowrap;
     }
   }
-}
-
-.group{
-
 }
