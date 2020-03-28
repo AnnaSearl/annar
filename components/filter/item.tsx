@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { View, Text, ScrollView } from 'remax/alipay';
-import styles from './item.module.scss';
+import { getPrefixCls } from '../common';
+import './item.scss';
 
+const prefixCls = getPrefixCls('filter-item');
 
 export interface ItemProps {
   open?: boolean;
@@ -26,23 +28,23 @@ const Item = (props: ItemProps) => {
   }
 
   return (
-    <View className={styles.item}>
+    <View className={prefixCls}>
       <View 
-        className={styles.label}
-        onClick={handleClick}
+        className={`${prefixCls}-label`}
+        onTap={handleClick}
       >
-        <Text className={styles.text}>
+        <Text className={`${prefixCls}-label-text`}>
           {label}
         </Text>
         {
           open
-            ? <View className={styles.chevronUp} />
-            : <View className={styles.chevronDown} />
+            ? <View className={`${prefixCls}-label-chevronUp`} />
+            : <View className={`${prefixCls}-label-chevronDown`} />
         }
       </View>
       <ScrollView
         scrollY
-        className={styles.value}
+        className={`${prefixCls}-value`}
         style={{
           height: open ? height : 0,
         }}

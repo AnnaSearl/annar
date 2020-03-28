@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import classNames from 'classnames';
 import { View } from 'remax/one';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('rate');
 
 export interface RateProps {
   number?: number;
@@ -33,28 +36,26 @@ const Rate = (props: RateProps) => {
   }, [number])
 
   return (
-    <View className={styles.rate}>
+    <View className={prefixCls}>
       {
         label 
-          ? <View className={styles.label}>{label}</View> 
+          ? <View className={`${prefixCls}-label`}>{label}</View> 
           : null
       }
-      <View className={styles.value}>
+      <View className={`${prefixCls}-value`}>
         {
           stars.map((item, index) => (
             <View
               key={index}
-              className={classNames({
-                [styles.star]: true,
-                'iconfont': true,
-                'icon-favor': value < index,
-                'icon-favorfill': value >= index,
-              })}
-              style={{
-                color: value >= index ? "#FFD700" : "#999",
-              }}
-              onClick={() => {handleClick(index)}}
-            />
+              className={`${prefixCls}-value-star`}
+              onTap={() => {handleClick(index)}}
+            >
+              {
+                value >= index
+                  ? <Icon type="favorfill" size="48rpx" color="#FFD700" />
+                  : <Icon type="favor" size="48rpx" color="#999" />
+              }
+            </View>
           ))
         }
       </View>

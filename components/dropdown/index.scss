@@ -1,0 +1,28 @@
+@import '../style/index.scss';
+
+$dropdown-prefix-cls: #{$anna-prefix}-dropdown;
+
+.#{$dropdown-prefix-cls} {
+  &-content{
+    padding-left: 40rpx;
+    &-option{
+      height: 88rpx;
+      line-height: 88rpx;
+      font-size: 26rpx;
+      color: #666;
+      border-bottom: 1rpx solid #EEEEEE;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:nth-last-child(1){
+        border-bottom: none;
+      }
+      &-check{
+        display: flex;
+        align-items: center;
+        padding-right: 40rpx;
+        padding-top: 28rpx;
+      }
+    }
+  }
+}

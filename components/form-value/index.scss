@@ -1,0 +1,12 @@
+@import '../style/index.scss';
+
+$form-value-prefix-cls: #{$anna-prefix}-form-value;
+
+.#{$form-value-prefix-cls} {
+  min-height: 42rpx;
+  font-size: 28rpx;
+  color: $font-color-1;
+  &-placeholder{
+    color: $font-color-2;
+  }
+}

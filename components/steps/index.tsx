@@ -1,9 +1,12 @@
 
 import * as React from 'react';
 import { View, Text } from 'remax/one';
-import classNames from 'classnames';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('steps');
 
 export interface StepProps {
   title?: React.ReactNode;
@@ -20,39 +23,37 @@ const Steps = (props: StepsProps): React.ReactElement => {
   const { steps } = props;
 
   return (
-    <View className={styles.steps}>
-      {/* <View className={styles.firstStep}>
+    <View className={prefixCls}>
+      {/* <View className={`${prefixCls}-first_step`}>
         <View className={styles.line} />
       </View> */}
       {
         steps?.map((item, index) => (
           <View
             key={index}
-            className={styles.step}
+            className={`${prefixCls}-step`}
           >
             {
               index === 0
-                ? <View className={styles.circleCurrent}>
+                ? <View className={`${prefixCls}-circle_current`}>
                     <Text
-                      className={classNames({
-                        [styles.icon]: true,
-                        'iconfont': true,
-                        'icon-roundcheckfill': true,
-                      })}
-                    />
+                      className={`${prefixCls}-circle_current-icon`}
+                    >
+                      <Icon type="roundcheckfill" size="40rpx" color="#1890FF" />
+                    </Text>
                   </View>
-                : <View className={styles.circle} />
+                : <View className={`${prefixCls}-circle`} />
             }
-            <View className={styles.line} />
-            <View className={styles.header}>
-              <View className={styles.title}>
+            <View className={`${prefixCls}-line`} />
+            <View className={`${prefixCls}-step-header`}>
+              <View className={`${prefixCls}-step-header-title`}>
                 {item.title}
               </View>
-              <View className={styles.extra}>
+              <View className={`${prefixCls}-step-header-extra`}>
                 {item.extra}
               </View>
             </View>
-            <View className={styles.description}>
+            <View className={`${prefixCls}-step-description`}>
               {item.description}
             </View>
           </View>

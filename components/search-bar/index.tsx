@@ -2,7 +2,12 @@ import * as React from 'react';
 import { useState } from 'react'
 import { View, Text, Input } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
+
+
+const prefixCls = getPrefixCls('search_bar');
 
 export interface SearchBarProps {
   value?: string;
@@ -77,20 +82,20 @@ const SearchBar = (props: SearchBarProps) => {
 
   return (
     <View 
-      className={styles.searchBar}
+      className={prefixCls}
       style={style}
     >
       <View 
-        className={styles.input}
+        className={`${prefixCls}-input`}
         style={inputStyle}
       >
         <View
           className={classNames({
-            [styles.synthetic]: true,
-            [styles.isLeft]: active,
+            [`${prefixCls}-input-synthetic`]: true,
+            [`${prefixCls}-input-is_left`]: active,
           })}
         >
-          <View className={styles.syntheticIcon}>
+          <View className={`${prefixCls}-input-synthetic-icon`}>
             <Text 
               className="iconfont icon-search" 
               style={{
@@ -99,7 +104,7 @@ const SearchBar = (props: SearchBarProps) => {
             />
           </View>
           <View 
-            className={styles.syntheticPlaceholder}
+            className={`${prefixCls}-input-synthetic-placeholder`}
             style={{
               visibility: active ? 'hidden' : 'visible',
             }}
@@ -108,9 +113,8 @@ const SearchBar = (props: SearchBarProps) => {
           </View>
         </View>
         <Input
-          className={styles.value}
+          className={`${prefixCls}-input-value`}
           type="search"
-          confirmType="search"
           value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -119,13 +123,14 @@ const SearchBar = (props: SearchBarProps) => {
           focus={focus}
         />
         <View 
-          className={styles.clear}
-          onClick={handleClear}
+          className={`${prefixCls}-input-clear`}
+          onTap={handleClear}
         >
-          <Text 
-            className="iconfont icon-roundclosefill"
+          <Icon 
+            type="roundclosefill" 
+            size="36rpx" 
+            color="#999"
             style={{
-              fontSize: '36rpx',
               visibility: value ? 'visible' : 'hidden',
             }}
           />
@@ -135,10 +140,10 @@ const SearchBar = (props: SearchBarProps) => {
         !hideActionButton
           ? <View
               className={classNames({
-                [styles.actionButton]: true,
-                [styles.showActionButton]: keepShowActionButton ? showBtn : active,
+                [`${prefixCls}-action_button`]: true,
+                [`${prefixCls}-show_action_button`]: keepShowActionButton ? showBtn : active,
               })}
-              onClick={handleActionClick}
+              onTap={handleActionClick}
             >
               {actionName}
             </View>

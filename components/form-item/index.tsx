@@ -1,8 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { View, Text } from 'remax/one';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('form_item');
 
 export interface ItemProps {
   reqiured?: boolean;
@@ -35,26 +39,26 @@ const Item = (props: ItemProps) => {
     return (
       <View
         className={classNames({
-          [styles.formItem]: true,
+          [prefixCls]: true,
           [className]: true,
         })}
         style={style}
       >
-        <View className={styles.verticalityItem}>
+        <View className={`${prefixCls}-verticality`}>
           <View
-            className={styles.label}
+            className={`${prefixCls}-verticality-label`}
             style={labelStyle}
           >
             {
               reqiured
-                ? <Text className={styles.required}>*</Text>
+                ? <Text className={`${prefixCls}-verticality-label-required`}>*</Text>
                 : null
             }
             <Text>{label}</Text>
           </View>
           <View
-            onClick={onClick}
-            className={styles.value}
+            onTap={onClick}
+            className={`${prefixCls}-verticality-value`}
           >
             {children}
           </View>
@@ -62,7 +66,7 @@ const Item = (props: ItemProps) => {
         {
           unline
             ? null
-            : <View className={styles.unline} />
+            : <View className={`${prefixCls}-unline`} />
         }
       </View>
     )
@@ -71,39 +75,33 @@ const Item = (props: ItemProps) => {
   return (
     <View
       className={classNames({
-        [styles.formItem]: true,
+        [prefixCls]: true,
         [className]: true,
       })}
       style={style}
     >
-      <View className={styles.item}>
+      <View className={`${prefixCls}-item`}>
         <Text
-          className={styles.label}
+          className={`${prefixCls}-item-label`}
           style={labelStyle}
         >
           {
             reqiured
-              ? <Text className={styles.required}>*</Text>
+              ? <Text className={`${prefixCls}-item-label-required`}>*</Text>
               : null
           }
           <Text>{label}</Text>
         </Text>
         <View
-          onClick={onClick}
-          className={styles.value}
+          onTap={onClick}
+          className={`${prefixCls}-item-value`}
         >
           {children}
         </View>
         {
           arrow
-            ? <Text className={styles.arrow}>
-                <Text
-                  className={classNames({
-                    [styles.icon]: true,
-                    'iconfont': true,
-                    'icon-right': true,
-                  })}
-                />
+            ? <Text className={`${prefixCls}-item-value-arrow`}>
+                <Icon type="right" size="28rpx" color="#666" />
               </Text>
             : null
         }
@@ -111,7 +109,7 @@ const Item = (props: ItemProps) => {
       {
         unline
           ? null
-          : <View className={styles.unline} />
+          : <View className={`${prefixCls}-unline`} />
       }
     </View>
   )

@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
+
+
+const prefixCls = getPrefixCls('tag');
 
 export interface TagProps {
   type?: string;
@@ -9,7 +13,7 @@ export interface TagProps {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  onClick?: () => void;
+  onTap?: () => void;
 }
 
 const Tag = (props: TagProps): React.ReactElement => {
@@ -20,24 +24,26 @@ const Tag = (props: TagProps): React.ReactElement => {
     className = '',
     style,
     children,
-    onClick,
+    onTap,
   } = props;
 
   return (
-    <View 
-      className={classNames({
-        [styles.default]: true,
-        [styles.small]: size === 'small',
-        [styles.large]: size === 'large',
-        [styles.info]: type === 'info',
-        [styles.success]: type === 'success',
-        [styles.error]: type === 'error',
-        [className]: true,
-      })}
-      style={style}
-      onClick={onClick}
-    >
-      {children}
+    <View className={prefixCls}>
+      <View 
+        className={classNames({
+          [`${prefixCls}-default`]: true,
+          [`${prefixCls}-small`]: size === 'small',
+          [`${prefixCls}-large`]: size === 'large',
+          [`${prefixCls}-info`]: type === 'info',
+          [`${prefixCls}-success`]: type === 'success',
+          [`${prefixCls}-error`]: type === 'error',
+          [className]: true,
+        })}
+        style={style}
+        onTap={onTap}
+      >
+        {children}
+      </View>
     </View>
   )
 }
@@ -63,10 +69,10 @@ Tag.CheckableTag = (props: CheckableTagProps) => {
       size="large"
       {...props}
       className={classNames({
-        [styles.checked]: checked,
+        [`${prefixCls}-checked`]: checked,
         [className]: true,
       })}
-      onClick={() => { onChange?.(!checked) }}
+      onTap={() => { onChange?.(!checked) }}
     >
       {children}
     </Tag>

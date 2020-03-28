@@ -2,8 +2,11 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import Loading from '../loading';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('progress_bar');
 
 export interface ItemProps {
   key: string;
@@ -43,7 +46,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 
   return (
     <View 
-      className={styles.progressBar}
+      className={prefixCls}
       style={style}
     >
       {
@@ -51,10 +54,10 @@ const ProgressBar = (props: ProgressBarProps) => {
           <View
             key={item.key}
             className={classNames({
-              [styles.node]: true,
-              [styles.nodeFirst]: index === 0,
-              [styles.nodeLast]: index === curIndex,
-              [styles.nodeActive]: index <= curIndex,
+              [`${prefixCls}-node`]: true,
+              [`${prefixCls}-node_first`]: index === 0,
+              [`${prefixCls}-node_last`]: index === curIndex,
+              [`${prefixCls}-node_active`]: index <= curIndex,
             })}
           >
             {item.value}
@@ -67,7 +70,7 @@ const ProgressBar = (props: ProgressBarProps) => {
           : null
       }
       <View 
-        className={styles.process}
+        className={`${prefixCls}-process`}
         style={{
           width: move ? `${moveX}%` : 0,
           transition: `width ${(curIndex + 1) * 0.3}s ease-in`,

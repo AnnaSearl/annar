@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { View, Image, previewImage } from 'remax/alipay';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('images');
 
 export interface ImageProps {
   key: string;
@@ -34,13 +37,13 @@ const Images = (props: ImagesProps) => {
   }
 
   return (
-    <View className={styles.images}>
+    <View className={prefixCls}>
       {
         data && data.map((item: DataItem, index: number) => (
           <View
             key={(item as ImageProps).key || index}
-            className={styles.item}
-            onClick={() => handleClickImage(index)}
+            className={`${prefixCls}-item`}
+            onTap={() => handleClickImage(index)}
           >
             <Image
               mode='widthFix'

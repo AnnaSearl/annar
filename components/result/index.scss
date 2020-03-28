@@ -1,0 +1,43 @@
+@import '../style/index.scss';
+
+$result-prefix-cls: #{$anna-prefix}-result;
+
+.#{$result-prefix-cls} {
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 100rpx 30rpx;
+  background-color: #FDFFFD;
+  &-icon{
+    margin-bottom: 48rpx;
+    text-align: center;
+    &-status{
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 144rpx;
+      height: 144rpx;
+      border-radius: 50%;
+    }
+  }
+  &-title{
+    color: #333;
+    font-size: 48rpx;
+    line-height: 1.8;
+    text-align: center;
+  }
+  &-sub_title{
+    color: #999;
+    font-size: 28rpx;
+    line-height: 1.6;
+    text-align: center;
+  }
+  &-content{
+    margin-top: 48rpx;
+    padding: 24rpx 40rpx;
+    background-color: #fafafa;
+  }
+  &-extra{
+    margin-top: 64rpx;
+    text-align: center;
+  }
+}

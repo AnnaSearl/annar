@@ -1,8 +1,10 @@
-
 import * as React from 'react';
 import { View } from 'remax/one';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('form-value');
 
 export interface ValueProps {
   placeholder?: string;
@@ -17,12 +19,12 @@ export interface ValueProps {
 
   return (
     <View
-      className={styles.value}
+      className={prefixCls}
     >
       {
         (children || children === 0)
           ? children
-          : <View className={styles.placeholder}>
+          : <View className={`${prefixCls}-placeholder`}>
               { placeholder }
             </View>
       }

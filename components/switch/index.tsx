@@ -1,8 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { View, Checkbox } from 'remax/alipay';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('switch');
 
 export interface SwitchProps {
   checked?: boolean;
@@ -21,19 +24,17 @@ const Switch = (props: SwitchProps) => {
   }
 
   return (
-    <View className={styles.switch}>
+    <View className={prefixCls}>
       <Checkbox 
         className={classNames({
-          [styles.default]: true,
-          [styles.checked]: checked,
+          [`${prefixCls}-default`]: true,
+          [`${prefixCls}-checked`]: checked,
         })} 
         onChange={handleChange}
         value={checked ? "on" : "off"}
         checked={checked}
       />
-      <View className={styles.checkbox}>
-
-      </View>
+      <View className={`${prefixCls}-checkbox`} />
     </View>
   )
 };

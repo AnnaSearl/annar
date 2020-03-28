@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('radio');
 
 export interface RadioProps {
   children?: React.ReactNode;
@@ -29,21 +32,23 @@ const Radio = (props: RadioProps) => {
 
   return (
     <View 
-      className={styles.radio}
+      className={prefixCls}
       style={style}
     >
       <View 
-        className={styles.container}
-        onClick={handleClick}
+        className={`${prefixCls}-container`}
+        onTap={handleClick}
       >
         {
           checked
-            ? <View className={styles.checked}><View className={styles.roundFill} /></View>
-            : <View className={styles.notChecked} />
+            ? <View className={`${prefixCls}-container-checked`}>
+                <View className={`${prefixCls}-container-checked-round_fill`} />
+              </View>
+            : <View className={`${prefixCls}-container-not_checked`} />
         }
-        <View className={styles.children}>{children}</View>
+        <View className={`${prefixCls}-container-children`}>{children}</View>
       </View>
-      <View className={styles.extra}>
+      <View className={`${prefixCls}-extra`}>
         {extra}
       </View>
     </View>
@@ -95,8 +100,7 @@ Radio.Group = (props: GroupProps) => {
   const radios = getRadios(children, value, onChange);
 
   return (
-    <View 
-      className={styles.group}
+    <View
       style={{
         display: "flex",
         flexDirection: direction,

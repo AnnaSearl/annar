@@ -1,17 +1,10 @@
 import to from './to';
 import sync from './sync';
-import {
-  plus,
-  minus,
-  times,
-  divide,
-} from './math';
+
+export * from './type';
+export * from './utils';
 
 export {
   sync,
   to,
-  plus,
-  minus,
-  times,
-  divide,
 }

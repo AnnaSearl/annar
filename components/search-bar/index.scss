@@ -1,0 +1,64 @@
+@import '../style/index.scss';
+
+$search_bar-prefix-cls: #{$anna-prefix}-search_bar;
+
+.#{$search_bar-prefix-cls} {
+  display: flex;
+  align-items: center;
+  overflow: hidden; //防止取消按钮露出
+  &-input{
+    max-width: 100%; //防止input长度超出
+    box-sizing: border-box;
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 72rpx;
+    border-radius: 72rpx;
+    padding: 16rpx;
+    background-color: #F6F6F6;
+    &-synthetic{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      display: flex;
+      align-items: center;
+      color: #999;
+      &-icon{
+        color: #666;
+        font-size: 36rpx;
+      }
+      &-placeholder{
+        padding-left: 10rpx;
+        font-size: 30rpx;
+      }
+    }
+    &-is_left{
+      left: 16rpx;
+      transform: translate(0, -50%);
+    }
+    &-value{
+      flex: 1;
+      padding: 0 10rpx 0 46rpx;
+      background-color: transparent;
+      color: #333;
+      font-size: 30rpx;
+    }
+    &-clear{
+      color: #CCC;
+      font-size: 36rpx;
+    }
+  }
+  &-action_button{
+    padding-left: 20rpx;
+    margin-right: -100rpx;
+    font-size: 32rpx;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  &-show_action_button{
+    margin-right: 0;
+  }
+}

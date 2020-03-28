@@ -93,7 +93,7 @@ const ImageUpload = (props: ImageUploadProps) => {
           <View
             key={(item as ImageProps).key || index}
             className={`${prefixCls}-item`}
-            onClick={() => handleClickImage(index)}
+            onTap={() => handleClickImage(index)}
           >
             <View className={`${prefixCls}-item-delete`}>
               <View
@@ -102,7 +102,7 @@ const ImageUpload = (props: ImageUploadProps) => {
                   'iconfont': true,
                   'icon-close': true,
                 })}
-                onClick={(e) => {handleDelete(e, index)}}
+                onTap={(e) => {handleDelete(e, index)}}
               />
             </View>
             <Image
@@ -114,7 +114,7 @@ const ImageUpload = (props: ImageUploadProps) => {
       }
       <View 
         className={`${prefixCls}-add`}
-        onClick={handleAdd}
+        onTap={handleAdd}
       >
         <Text
           className={classNames({

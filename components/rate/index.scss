@@ -1,0 +1,25 @@
+@import '../style/index.scss';
+
+$rate-prefix-cls: #{$anna-prefix}-rate;
+
+.#{$rate-prefix-cls} {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30rpx;
+  &:nth-last-child(1){
+    padding-bottom: 0;
+  }
+  &-label{
+    padding-right: 40rpx;
+  }
+  &-value{
+    flex: 1;
+    display: flex;
+    &-star{
+      margin-right: 30rpx;
+      &:nth-last-child(1){
+        margin-right: 0;
+      }
+    }
+  }
+}

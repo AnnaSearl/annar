@@ -3,8 +3,11 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('selector');
 
 export interface OptionProps {
   key: string;
@@ -61,33 +64,32 @@ const Selector = (props: SelectorProps) => {
 
   return (
     <View 
-      className={styles.selector}
+      className={prefixCls}
       style={style}
     >
-      <View className={styles.parent}>
+      <View className={`${prefixCls}-parent`}>
         {
           parentData?.map((option, index) => (
             <View
               key={option.key}
               className={classNames({
-                [styles.option]: true,
-                [styles.parentOption]: true,
-                [styles.active]: activeParent === option.key,
+                [`${prefixCls}-option`]: true,
+                [`${prefixCls}-active`]: activeParent === option.key,
               })}
-              onClick={() => {handleClickParentOption(option)}}
+              onTap={() => {handleClickParentOption(option)}}
             >
               {option.value}
               {
                 (activeParent === option.key && index !== 0)
-                  ? <View className={styles.roundedTop}>
-                      <View className={styles.circle} />
+                  ? <View className={`${prefixCls}-option-rounded_top`}>
+                      <View className={`${prefixCls}-option-rounded_top-circle`} />
                     </View>
                   : null
               }
               {
                 activeParent === option.key
-                  ? <View className={styles.roundedBottom}>
-                      <View className={styles.circle} />
+                  ? <View className={`${prefixCls}-option-rounded_bottom`}>
+                      <View className={`${prefixCls}-option-rounded_bottom-circle`} />
                     </View>
                   : null
               }
@@ -95,16 +97,16 @@ const Selector = (props: SelectorProps) => {
           ))
         }
       </View>
-      <View className={styles.children}>
+      <View className={`${prefixCls}-children`}>
         {
           childrenData?.map((option) => (
             <View
               key={option.key}
               className={classNames({
-                [styles.option]: true,
-                [styles.active]: value?.[1] === option.key,
+                [`${prefixCls}-option`]: true,
+                [`${prefixCls}-active`]: value?.[1] === option.key,
               })}
-              onClick={() => {handleClickChildrenOption(option)}}
+              onTap={() => {handleClickChildrenOption(option)}}
             >
               {option.value}
             </View>

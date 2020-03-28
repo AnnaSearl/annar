@@ -1,0 +1,15 @@
+@import '../style/index.scss';
+
+$textarea-prefix-cls: #{$anna-prefix}-textarea;
+
+.#{$textarea-prefix-cls} {
+  &-default{
+    padding: 0;
+    font-size: 28rpx;
+    color: $font-color-1;
+    background-color: $view-bg-color;
+  }
+  &-placeholder{
+    font-size: 28rpx;
+  }
+}

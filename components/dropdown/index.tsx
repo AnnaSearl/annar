@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { View, Text } from 'remax/one';
-import classNames from 'classnames';
-import styles from './index.module.scss';
+import { View } from 'remax/one';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('dropdown');
 
 export interface OptionProps {
   key: string;
@@ -24,16 +27,16 @@ const Dropdown = (props: DropdownProps) => {
   } = props;
 
   return (
-    <View className={styles.dropdown}>
+    <View className={prefixCls}>
       <View
-        className={styles.content}
+        className={`${prefixCls}-content`}
       >
         {
           options.map((item) => (
             <View
-              className={styles.option}
+              className={`${prefixCls}-content-option`}
               key={item.key}
-              onClick={() => onChange?.(item)}
+              onTap={() => onChange?.(item)}
               style={
                 item.key === value ? {
                   color: '#1890FF',
@@ -44,14 +47,8 @@ const Dropdown = (props: DropdownProps) => {
               {item.value}
               {
                 item.key === value
-                  ? <View className={styles.check}>
-                      <Text
-                        className={classNames({
-                          [styles.icon]: true,
-                          'iconfont': true,
-                          'icon-check': true,
-                        })}
-                      />
+                  ? <View className={`${prefixCls}-content-option-check`}>
+                      <Icon type="check" size="28rpx" color="#1890FF" />
                     </View>
                   : null
               }

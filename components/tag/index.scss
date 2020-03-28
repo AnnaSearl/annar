@@ -1,0 +1,61 @@
+@import '../style/index.scss';
+
+$tag-prefix-cls: #{$anna-prefix}-tag;
+
+.#{$tag-prefix-cls} {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 10rpx;
+  &:nth-last-child(1){
+    margin-right: 0;
+  }
+  &-default{
+    box-sizing: border-box;
+    display: inline-block;
+    // type
+    color: #333;
+    background-color: #F4F4F4;
+    border: 2rpx solid #F4F4F4;
+    // size
+    height: 44rpx;
+    line-height: 42rpx;
+    padding: 0 14rpx;
+    border-radius: 8rpx;
+    font-size: 24rpx;
+  }
+  &-small{
+    height: 40rpx;
+    line-height: 38rpx;
+    padding: 0 12rpx;
+    border-radius: 6rpx;
+    font-size: 22rpx;
+  }
+  &-large{
+    height: 52rpx;
+    line-height: 50rpx;
+    padding: 0 20rpx;
+    border-radius: 8rpx;
+    font-size: 24rpx;
+    margin-right: 14rpx;
+  }
+  &-info{
+    color: #1890FF;
+    background-color: #e6f7ff;
+    border: 2rpx solid #91d5ff;
+  }
+  &-success{
+    color: #52c41a;
+    background-color: #f6ffed;
+    border: 2rpx solid #b7eb8f;
+  }
+  &-error{
+    color: #f5222d;
+    background-color: #fff1f0;
+    border: 2rpx solid #ffa39e;
+  }
+  &-checked{
+    color: #FDFFFD;
+    background-color: #1890FF;
+    border: 2rpx solid #1890FF;
+  }
+}

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import classNames from 'classnames';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('result');
 
 const getIconNameByStatus = (status: any): any => {
   let obj = {
@@ -71,40 +74,35 @@ const Result = (props: ResultProps) => {
 
   return (
     <View 
-      className={styles.result}
+      className={prefixCls}
     >
-      <View className={styles.icon}>
+      <View className={`${prefixCls}-icon`}>
         {
           isCustomIcon
             ? icon
-            : <View className={styles.status}>
-                <View
-                  className={classNames({
-                    [styles.iconDefault]: true,
-                    'iconfont': true,
-                    [`icon-${iconObj.name}`]: true,
-                  })}
-                  style={{
-                    color: iconObj.color,
-                  }}
+            : <View className={`${prefixCls}-icon-status`}>
+                <Icon 
+                  type={iconObj.name}
+                  color={iconObj.color}
+                  size="168rpx"
                 />
               </View>
         }
       </View>
-      <View className={styles.title}>
+      <View className={`${prefixCls}-title`}>
         {title}
       </View>
-      <View className={styles.subTitle}>
+      <View className={`${prefixCls}-sub_title`}>
         {subTitle}
       </View>
       {
         children
-          ? <View className={styles.content}>
+          ? <View className={`${prefixCls}-content`}>
               {children}
             </View>
           : null
       }
-      <View className={styles.extra}>
+      <View className={`${prefixCls}-extra`}>
         {extra}
       </View>
     </View>

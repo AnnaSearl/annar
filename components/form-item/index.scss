@@ -1,0 +1,65 @@
+@import '../style/index.scss';
+
+$form_item-prefix-cls: #{$anna-prefix}-form_item;
+
+.#{$form_item-prefix-cls} {
+  position: relative;
+  padding: 24rpx 20rpx;
+  color: $font-color-1;
+  background-color: $view-bg-color;
+  margin-bottom: 1PX;
+  &-verticality{
+    .label{
+      font-size: 28rpx;
+      padding-bottom: 24rpx;
+      font-weight: 500;
+      .required{
+        color: #f5222d;
+        margin-right: 4rpx;
+      }
+    }
+  }
+  &-item{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; // stretch可以使高度撑满父元素
+    &-label{
+      margin-right: 16rpx;
+      width: 192rpx;
+      font-size: 28rpx;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      &-required{
+        color: #f5222d;
+        margin-right: 4rpx;
+      }
+    }
+    &-value{
+      flex: 1;
+      line-height: 1.5;
+      // display: flex;
+      // justify-content: flex-end;
+      text-align: right;
+    }
+    &-arrow{
+      padding-left: 20rpx;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  &-unline{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1PX;
+    height: 1PX;
+    background-color: #e8e8e8;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}
+

@@ -1,0 +1,42 @@
+@import '../style/index.scss';
+
+$radio-prefix-cls: #{$anna-prefix}-radio;
+
+.#{$radio-prefix-cls} {
+  display: inline-block;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+  &:nth-last-child(1){
+    margin-right: 0;
+  }
+  &-container{
+    display: flex;
+    align-items: center;
+    &-not_checked{
+      box-sizing: border-box;
+      width: 38rpx;
+      height: 38rpx;
+      border-radius: 50%;
+      border: 1rpx solid #999;
+    }
+    &-checked{
+      box-sizing: border-box;
+      width: 38rpx;
+      height: 38rpx;
+      border-radius: 50%;
+      border: 2rpx solid #1890FF;
+      padding: 7rpx;
+      &-round_fill{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #1890FF;
+      }
+    }
+    &-children{
+      margin-left: 20rpx;
+      color: #333;
+      white-space: nowrap;
+    }
+  }
+}

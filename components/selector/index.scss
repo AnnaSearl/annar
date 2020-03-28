@@ -1,0 +1,66 @@
+@import '../style/index.scss';
+
+$selector-prefix-cls: #{$anna-prefix}-selector;
+
+.#{$selector-prefix-cls} {
+  display: flex;
+  text-align: left;
+  &-parent{
+    width: 280rpx;
+    background-color: #F6F6F6;
+  }
+  &-children{
+    flex: 1;
+  }
+  &-option{
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx;
+    color: #666;
+    &-rounded_bottom{
+      position: absolute;
+      bottom: -12rpx;
+      right: 0;
+      width: 12rpx;
+      height: 12rpx;
+      background-color: #FDFFFD;
+      overflow: hidden;
+      &-circle{
+        position: absolute;
+        width: 24rpx;
+        height: 24rpx;
+        border-radius: 50%;
+        left: -12rpx;
+        right: -12rpx;
+        background-color: #F6F6F6;
+      }
+    }
+    &-rounded_top{
+      position: absolute;
+      top: -12rpx;
+      right: 0;
+      width: 12rpx;
+      height: 12rpx;
+      background-color: #FDFFFD;
+      overflow: hidden;
+      transform: rotate(90deg);
+      &-circle{
+        position: absolute;
+        width: 24rpx;
+        height: 24rpx;
+        border-radius: 50%;
+        left: -12rpx;
+        right: -12rpx;
+        background-color: #F6F6F6;
+      }
+    }
+  }
+  &-active{
+    color: #1890FF;
+    font-weight: 500;
+    background-color: #FDFFFD;
+  }
+}

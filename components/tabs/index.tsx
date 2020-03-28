@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { View } from 'remax/one';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('tab');
 
 export interface TabTitleProps {
   key?: string;
@@ -65,31 +68,31 @@ const Tab = (props: TabProps): React.ReactElement => {
 
   return (
     <View 
-      className={styles.tab}
+      className={prefixCls}
     >
       <View
-        className={styles.header}
+        className={`${prefixCls}-header`}
         style={{
           ...fixedStyle,
           ...headerStyle,
         }}
       >
-        <View className={styles.titles}>
-          <View className={styles.titlesBg}>
-            <View className={styles.titlesContainer}>
+        <View className={`${prefixCls}-header-titles`}>
+          <View className={`${prefixCls}-header-titles-bg`}>
+            <View className={`${prefixCls}-header-titles-bg-container`}>
               {
                 tabs.map((item: TabTitleProps) => (
                   <View
                     key={item.key}
-                    className={styles.title}
-                    onClick={() => {handleTabClick(item)}}
+                    className={`${prefixCls}-header-titles-bg-container-title`}
+                    onTap={() => {handleTabClick(item)}}
                   >
                     {item.title}
                   </View>
                 ))
               }
               <View 
-                className={styles.active}
+                className={`${prefixCls}-header-titles-bg-container-active`}
                 style={{
                   transform: `translateX(${curIndex * 100}%)`,
                 }}
@@ -98,11 +101,11 @@ const Tab = (props: TabProps): React.ReactElement => {
           </View>
           { extra }
         </View>
-        <View className={styles.headerContent}>
+        <View className={`${prefixCls}-header-content`}>
           { headerContent }
         </View>
       </View>
-      <View className={styles.content}>
+      <View className={`${prefixCls}-content`}>
         { children }
       </View>
     </View>
@@ -116,7 +119,7 @@ const TabContent: React.FC = (props: TabContentProps): (React.ReactElement | nul
     return null;
   }
   return (
-    <View className={styles.tabContent}>
+    <View>
       {children}
     </View>
   )

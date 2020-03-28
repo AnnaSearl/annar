@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('loading');
 
 export interface LoadingProps {
   type?: string;
@@ -22,7 +25,7 @@ const Loading = (props: LoadingProps) => {
   if (type === "gap") {
     return (
       <View 
-        className={styles.loadingGap}
+        className={`${prefixCls}_gap`}
         style={{
           height: radius,
           width: radius,
@@ -30,7 +33,7 @@ const Loading = (props: LoadingProps) => {
         }}
       >
         <View 
-          className={styles.gap}
+          className={`${prefixCls}_gap-gap`}
           style={{
             backgroundColor: gapColor,
           }}
@@ -40,7 +43,7 @@ const Loading = (props: LoadingProps) => {
   }
   return (
     <View 
-      className={styles.loading}
+      className={prefixCls}
       style={{
         height: radius,
         width: radius,

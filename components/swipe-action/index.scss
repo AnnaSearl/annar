@@ -1,0 +1,31 @@
+@import '../style/index.scss';
+
+$swipe_action-prefix-cls: #{$anna-prefix}-swipe_action;
+
+.#{$swipe_action-prefix-cls} {
+  overflow: hidden;
+  &-container{
+    position: relative;
+    font-size: 30rpx;
+    font-weight: 400;
+    transition: all 0.3s;
+    &-actions{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+      background-color: #FFFFFF;
+      color: #FFFFFF;
+      font-size: 40rpx;
+      display: flex;
+      &-action{
+        padding: 0 34rpx;
+        background-color: #ff0000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+      }
+    }
+  }
+}

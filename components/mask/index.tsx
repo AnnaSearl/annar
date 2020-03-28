@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
+
+
+const prefixCls = getPrefixCls('mask');
 
 export interface MaskProps {
   show?: boolean;
-  onClick?: () => void;
+  onTap?: () => void;
   zIndex?: number;
   style?: React.CSSProperties;
   children?: React.ReactNode;
@@ -15,7 +19,7 @@ const Mask = (props: MaskProps): React.ReactElement => {
   
   const { 
     show, 
-    onClick, 
+    onTap, 
     zIndex, 
     style,
     children,
@@ -24,14 +28,14 @@ const Mask = (props: MaskProps): React.ReactElement => {
   return (
     <View
       className={classNames({
-        [styles.mask]: true,
-        [styles.maskActive]: show,
+        [prefixCls]: true,
+        [`${prefixCls}_active`]: show,
       })}
       style={{
         ...style,
         zIndex: zIndex,
       }}
-      onClick={onClick}
+      onTap={onTap}
     >
       {children}
     </View>

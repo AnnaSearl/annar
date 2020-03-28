@@ -1,0 +1,30 @@
+@import '../style/index.scss';
+
+$spin-prefix-cls: #{$anna-prefix}-spin;
+
+.#{$spin-prefix-cls} {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-loading{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    border: 2rpx solid #999;
+    border-bottom-color: transparent;
+    animation: loading .5s linear infinite;
+    margin: 0 auto;
+  }
+  &-default{
+    width: 50rpx;
+    height: 50rpx;
+  }
+  @keyframes loading {
+    from {
+       transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -38,7 +38,7 @@ const Checkbox = (props: CheckboxProps) => {
     >
       <View 
         className={`${prefixCls}-container`}
-        onClick={handleClick}
+        onTap={handleClick}
       >
         {
           checked

@@ -2,8 +2,11 @@
 import * as React from 'react';
 import { View, Textarea as ATextarea } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('textarea');
 
 export interface TextareaProps {
   className?: string;
@@ -47,15 +50,15 @@ export interface TextareaProps {
 
   return (
     <View
-      className={styles.textarea}
+      className={prefixCls}
     >
       <ATextarea
         className={classNames({
-          [styles.default]: true,
+          [`${prefixCls}-default`]: true,
           [className]: true,
         })}
         // @ts-ignore
-        placeholderClass={styles.placeholder}
+        placeholderClass={`${prefixCls}-placeholder`}
         name={name}
         value={value}
         placeholder={placeholder}

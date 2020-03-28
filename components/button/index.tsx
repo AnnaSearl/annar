@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text } from 'remax/one';
 import classNames from 'classnames';
-import { tuple } from '../_util/type';
+import { tuple } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
 import './index.scss';
@@ -58,7 +58,7 @@ const Button = (props: ButtonProps) => {
   //       style={{
   //         width: `${width}rpx`,
   //       }}
-  //       onClick={handleClick}
+  //       onTap={handleClick}
   //     >
   //       <Text 
   //         className={classNames({
@@ -89,7 +89,7 @@ const Button = (props: ButtonProps) => {
         [`${prefixCls}-block`]: block,
         [`${prefixCls}-loading`]: loading,
       })}
-      onClick={handleClick}
+      onTap={handleClick}
       style={style}
     >
       {

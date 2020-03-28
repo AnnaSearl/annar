@@ -2,8 +2,12 @@ import * as React from 'react';
 import { View, Text, ScrollView } from 'remax/alipay';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('cascade');
 
 export interface CascadeProps {
   name?: string;
@@ -105,7 +109,7 @@ const Cascade = (props: CascadeProps) => {
   return (
     <View
       className={classNames({
-        [styles.cascade]: true,
+        [prefixCls]: true,
         [className]: true,
       })}
       style={{
@@ -114,7 +118,7 @@ const Cascade = (props: CascadeProps) => {
     >
       <View
         className={classNames({
-          [styles.selectedOptions]: true,
+          [`${prefixCls}-selected_options`]: true,
           'class_selectedOptions': true,
         })}
       >
@@ -122,35 +126,29 @@ const Cascade = (props: CascadeProps) => {
         value.map((item, index) => (
           <View 
             key={item.id} 
-            className={styles.step}
-            onClick={() => {handleReChoose(item, index)}}
+            className={`${prefixCls}-selected_options-step`}
+            onTap={() => {handleReChoose(item, index)}}
           >
-            <View className={styles.line}>
+            <View className={`${prefixCls}-selected_options-step-line`}>
               {
                 (index === (value.length - 1))
                   ? null
-                  : <View className={styles.dotLineActive} />
+                  : <View className={`${prefixCls}-selected_options-step-line-dot_line_active`} />
               }
-              <Text className={styles.dot} style={{backgroundColor: '#1890FF'}} />
+              <Text className={`${prefixCls}-selected_options-step-line-dot`} style={{backgroundColor: '#1890FF'}} />
             </View>
-            <View className={styles.container}>
-              <View className={styles.content}>
-                <View className={styles.main}>
-                  <View className={styles.left}>
+            <View className={`${prefixCls}-selected_options-step-container`}>
+              <View className={`${prefixCls}-selected_options-step-container-content`}>
+                <View className={`${prefixCls}-selected_options-step-container-content-main`}>
+                  <View className={`${prefixCls}-selected_options-step-container-content-main-left`}>
                     {item.name}
                   </View>
-                  <View className={styles.right}>
-                    <View className={styles.rightText}>
+                  <View className={`${prefixCls}-selected_options-step-container-content-main-right`}>
+                    <View className={`${prefixCls}-selected_options-step-container-content-main-right-text`}>
                       {prompt?.(index)}
                     </View>
-                    <View className={styles.arrow}>
-                      <Text
-                        className={classNames({
-                          [styles.icon]: true,
-                          'iconfont': true,
-                          'icon-right': true,
-                        })}
-                      />
+                    <View className={`${prefixCls}-selected_options-step-container-content-main-right-arrow`}>
+                      <Icon type="right" size="24rpx" color="#999" />
                     </View>
                   </View>
                 </View>
@@ -161,29 +159,29 @@ const Cascade = (props: CascadeProps) => {
       }
       </View>
       <View>
-      <ScrollView
-        scrollY
-        className={styles.showedOptions}
-        scrollTop={scrollTop}
-        style={{
-          height: `calc(${height} - ${h + 80}rpx)`,
-        }}
-      >
-        <View className={styles.title}>{`选择${name}`}</View>
-        {
-          showedOptions.map((i) => (
-            <View 
-              key={i.id}
-              className={styles.category}
-              onClick={() => {
-                handleClick(i)
-              }}
-            >
-              {i.name}
-            </View>
-          ))
-        }
-      </ScrollView>
+        <ScrollView
+          scrollY
+          className={`${prefixCls}-showed_options`}
+          scrollTop={scrollTop}
+          style={{
+            height: `calc(${height} - ${h + 80}rpx)`,
+          }}
+        >
+          <View className={`${prefixCls}-showed_options-title`}>{`选择${name}`}</View>
+          {
+            showedOptions.map((i) => (
+              <View 
+                key={i.id}
+                className={`${prefixCls}-showed_options-title-category`}
+                onTap={() => {
+                  handleClick(i)
+                }}
+              >
+                {i.name}
+              </View>
+            ))
+          }
+        </ScrollView>
       </View>
     </View>
   );

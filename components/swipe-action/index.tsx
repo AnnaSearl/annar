@@ -3,9 +3,12 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, createSelectorQuery } from 'remax/alipay';
-import classNames from 'classnames'
-import styles from './index.module.scss'
+import classNames from 'classnames';
+import { getPrefixCls } from '../common';
+import './index.scss'
 
+
+const prefixCls = getPrefixCls('swipe_action');
 
 class SwipeAction extends React.Component {
 
@@ -119,7 +122,7 @@ class SwipeAction extends React.Component {
 
   setActionsWidth = async () => {
     createSelectorQuery()
-    .select('.class_swipeAction .class_actions')
+    .select(`.${prefixCls}_class .${prefixCls}-container-actions_class`)
     .boundingClientRect( async (rect) => {
       this.actionsWidth = rect.width
     })
@@ -136,13 +139,13 @@ class SwipeAction extends React.Component {
     return (
       <View
         className={classNames({
-          [styles.swipeAction]: true,
-          'class_swipeAction': true
+          [prefixCls]: true,
+          [`${prefixCls}_class`]: true
         })}
         style={options && options[options.length - 1] && options[options.length - 1].style}
       >
         <View
-          className={styles.container}
+          className={`${prefixCls}-container`}
           onTouchStart={this.handleTouchStart}
           onTouchMove={this.handleTouchMove}
           onTouchEnd={this.handleTouchEnd}
@@ -156,16 +159,16 @@ class SwipeAction extends React.Component {
           {this.props.children}
           <View
             className={classNames({
-              [styles.actions]: true,
-              'class_actions': true
+              [`${prefixCls}-container-actions`]: true,
+              [`${prefixCls}-container-actions_class`]: true
             })}
           >
             {
               options.map((item, index) => (
                 <View
                   key={index}
-                  className={styles.action}
-                  onClick={() => this.handleDelete(item)}
+                  className={`${prefixCls}-container-actions-action`}
+                  onTap={() => this.handleDelete(item)}
                   style={item.style}
                 >
                   {item.text}

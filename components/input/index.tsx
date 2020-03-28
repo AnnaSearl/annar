@@ -2,8 +2,11 @@
 import * as React from 'react';
 import { View, Text, Input as AInput } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('input');
 
 export interface InputProps {
   name?: string;
@@ -15,10 +18,9 @@ export interface InputProps {
   className?: string;
   onChange?: (e: any) => void;
   formatFunc?: (v?: string) => any;
-  controlled?: boolean;
 }
 
- const Input = (props: InputProps) => {
+const Input = (props: InputProps) => {
   const { 
     name, 
     type, 
@@ -29,7 +31,6 @@ export interface InputProps {
     disabled,
     unit,
     formatFunc,
-    controlled = false,
   } = props;
 
   const handleChangeInput = (e: any) => {
@@ -42,13 +43,13 @@ export interface InputProps {
 
   return (
     <View
-      className={styles.input}
+      className={prefixCls}
       style={{height: '42rpx'}}
     >
-      <View className={styles.main}>
+      <View className={`${prefixCls}-main`}>
         <AInput
           className={classNames({
-            [styles.aInput]: true,
+            [`${prefixCls}-main-input`]: true,
             [className]: true,
           })}
           name={name}
@@ -57,11 +58,10 @@ export interface InputProps {
           placeholder={placeholder}
           onInput={handleChangeInput}
           disabled={disabled}
-          controlled={controlled}
         />
       </View>
       {
-        unit ? <Text className={styles.unit}>{unit}</Text> : null
+        unit ? <Text className={`${prefixCls}-unit`}>{unit}</Text> : null
       }
     </View>
   );

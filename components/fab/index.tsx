@@ -1,21 +1,24 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('fab');
 
 export interface FabProps {
-  onClick?: () => void;
+  onTap?: () => void;
   children?: React.ReactNode;
 }
 
 const Fab = (props: FabProps) => {
 
-  const { onClick, children } = props;
+  const { onTap, children } = props;
   
   return (
     <View 
-      className={styles.app}
-      onClick={onClick}
+      className={prefixCls}
+      onTap={onTap}
     >
       {children}
     </View>

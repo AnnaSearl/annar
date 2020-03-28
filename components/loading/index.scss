@@ -1,0 +1,45 @@
+@import '../style/index.scss';
+
+$loading-prefix-cls: #{$anna-prefix}-loading;
+
+.#{$loading-prefix-cls}_gap{
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  border: 2rpx solid #999;
+  background-color: transparent;
+  animation: loading .6s linear infinite;
+  overflow: hidden;
+  .gap{
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 50%;
+    margin-top: -5rpx;
+    height: 10rpx;
+    background-color: #FDFFFD;
+  }
+}
+
+.#{$loading-prefix-cls} {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  border: 2rpx solid #FDFFFD;
+  border-bottom-color: transparent;
+  animation: loading .5s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

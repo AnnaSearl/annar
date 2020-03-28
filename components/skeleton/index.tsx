@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import { getPrefixCls } from '../common';
+import './index.scss';
+
+
+const prefixCls = getPrefixCls('skeleton');
 
 export interface SkeletonParagraphProps {
   rows?: number;
@@ -53,20 +57,20 @@ const Skeleton = (props: SkeletonProps) => {
 
   if (!loadingEnd) {
     return (
-      <View className={styles.skeleton}>
+      <View className={prefixCls}>
         {
           <View
             className={classNames({
-              [styles.skeletonContainer]: true,
-              [styles.skeletonContainerActive]: !isLoading,
+              [`${prefixCls}-container`]: true,
+              [`${prefixCls}-container_active`]: !isLoading,
             })}
           >
             {
               image
                 ? <View 
                     className={classNames({
-                      [styles.image]: true,
-                      [styles.active]: active,
+                      [`${prefixCls}-container-image`]: true,
+                      [`${prefixCls}-active`]: active,
                     })}
                   />
                 : null
@@ -74,23 +78,23 @@ const Skeleton = (props: SkeletonProps) => {
             {
               avatar 
                 ? <View 
-                    className={styles.avatar}
+                    className={`${prefixCls}-container-avatar`}
                   >
                     <View
                       className={classNames({
-                        [styles.left]: true,
-                        [styles.active]: active,
+                        [`${prefixCls}-container-avatar-left`]: true,
+                        [`${prefixCls}-active`]: active,
                       })}
                     />
-                    <View className={styles.right}>
+                    <View className={`${prefixCls}-container-avatar-right`}>
                       <View className={classNames({
-                          [styles.text]: true,
-                          [styles.active]: active,
+                          [`${prefixCls}-container-avatar-right-text`]: true,
+                          [`${prefixCls}-active`]: active,
                         })} 
                       />
                       <View className={classNames({
-                          [styles.text]: true,
-                          [styles.active]: active,
+                          [`${prefixCls}-container-avatar-right-text`]: true,
+                          [`${prefixCls}-active`]: active,
                         })} 
                       />
                     </View>
@@ -101,8 +105,8 @@ const Skeleton = (props: SkeletonProps) => {
               title 
                 ? <View 
                     className={classNames({
-                      [styles.title]: true,
-                      [styles.active]: active,
+                      [`${prefixCls}-container-title`]: true,
+                      [`${prefixCls}-active`]: active,
                     })}
                   />
                 : null
@@ -112,8 +116,8 @@ const Skeleton = (props: SkeletonProps) => {
                 <View
                   key={item}
                   className={classNames({
-                    [styles.row]: true,
-                    [styles.active]: active,
+                    [`${prefixCls}-container-row`]: true,
+                    [`${prefixCls}-active`]: active,
                   })}
                 />
               ))
@@ -125,11 +129,11 @@ const Skeleton = (props: SkeletonProps) => {
   }
   
   return (
-    <View className={styles.skeleton}>
+    <View className={prefixCls}>
       <View
         className={classNames({
-          [styles.childrenContainer]: true,
-          [styles.childrenContainerActive]: renderStart,
+          [`${prefixCls}-child_container`]: true,
+          [`${prefixCls}-child_container_active`]: renderStart,
         })}
       >
         {children}

@@ -2,8 +2,12 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import Mask from '../mask';
-import styles from './index.module.scss'
+import Icon from '../icon';
+import { getPrefixCls } from '../common';
+import './index.scss';
 
+
+const prefixCls = getPrefixCls('popup');
 
 export interface PopupProps {
   open?: boolean;
@@ -29,36 +33,34 @@ const Popup = (props: PopupProps): React.ReactElement => {
 
   return (
     <View
-      className={styles.popup}
+      className={prefixCls}
     >
       <View
         className={classNames({
-          [styles.container]: true,
-          [styles.containerActive]: open,
+          [`${prefixCls}-container`]: true,
+          [`${prefixCls}-container_active`]: open,
         })}
       >
         {
           title
-            ? <View className={styles.title}>{title}</View>
+            ? <View className={`${prefixCls}-container-title`}>{title}</View>
             : null
         }
         {children}
         {
           closeable ?
             <View
-              className={classNames({
-                [styles.close]: true,
-                'iconfont': true,
-                'icon-close': true,
-              })}
-              onClick={() => {onClose?.()}}
-            />
+              className={`${prefixCls}-container-close`}
+              onTap={() => {onClose?.()}}
+            >
+              <Icon type="close" size="40rpx" color="#999" />
+            </View>
           : null
         }
       </View>
       <Mask 
         show={open}
-        onClick={handleClickMask}
+        onTap={handleClickMask}
       />
     </View>
   )
