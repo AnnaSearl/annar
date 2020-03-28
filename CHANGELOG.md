@@ -1,3 +1,12 @@
+## [1.2.6](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.5...v1.2.6) (2020-03-28)
+
+
+### Features
+
+* :sparkles: 新增组件库文档，去除CSSModule， 规范组件css命名规范 ([87ff874](https://github.com/AnnaSearl/anna-remax-ui/commit/87ff8744e02017f40c4f804109086c639b425218))
+
+
+
 ## [1.2.5](https://github.com/AnnaSearl/anna-remax-ui/compare/v1.2.4...v1.2.5) (2020-03-26)
 
 
