@@ -9,4 +9,4 @@ declare module '*.scss';
 declare module '*.sass';
 declare module '*.styl';
 
-declare type Path = any;
+declare type Path = unknown;

@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "基于remax的小程序UI库",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -18,12 +18,12 @@
     "dev": "node ./scripts/copy.js && tsc -w",
     "clean": "rimraf esm cjs",
     "prebuild": "npm run clean",
-    "prebuild:esm": "rimraf esm",
-    "prebuild:cjs": "rimraf cjs",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",
     "pub": "sh shell/pub.sh",
-    "commit": "sh shell/commit.sh"
+    "commit": "sh shell/commit.sh",
+    "docs": "gulp",
+    "lint": "eslint components --fix --ext .ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -45,13 +45,21 @@
     "@types/lodash-es": "^4.17.3",
     "@types/react": "^16.9.23",
     "@types/react-reconciler": "^0.18.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
     "browser-sync": "^2.26.7",
     "commitizen": "^4.0.3",
     "copyfiles": "^2.2.0",
     "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
     "gulp": "^4.0.2",
     "gulp-typedoc": "^2.2.4",
     "husky": "^4.2.3",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
     "react": "^16.13.0",
     "remax": "^1.18.5-d0f22330.0",
     "remax-one": "0.0.3-a50f5ad6.0",
@@ -74,7 +82,13 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "commit-msg": "validate-commit-msg"
     }
+  },
+  "lint-staged": {
+    "./components/**/*.{ts,tsx}": [
+      "npm run lint"
+    ]
   }
 }

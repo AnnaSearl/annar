@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('segment');
 
@@ -24,29 +25,27 @@ const Segment = (props: SegmentProps) => {
   const { value, options, onChange, fixed, style } = props;
 
   return (
-    <View 
+    <View
       className={classNames({
         [prefixCls]: true,
         [`${prefixCls}_fixed`]: fixed,
-      })}
-    >
-      {
-        options.map((item) => (
-          <View
-            key={item.key}
-            className={classNames({
-              [`${prefixCls}-item`]: true,
-              [`${prefixCls}-selected`]: value === item.key,
-            })}
-            style={style}
-            onTap={() => {onChange?.(item)}}
-          >
-            {item.value}
-          </View>
-        ))
-      }
+      })}>
+      {options.map(item => (
+        <View
+          key={item.key}
+          className={classNames({
+            [`${prefixCls}-item`]: true,
+            [`${prefixCls}-selected`]: value === item.key,
+          })}
+          style={style}
+          onTap={() => {
+            onChange?.(item);
+          }}>
+          {item.value}
+        </View>
+      ))}
     </View>
-  )
-}
+  );
+};
 
 export default Segment;

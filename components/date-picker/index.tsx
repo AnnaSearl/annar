@@ -1,9 +1,9 @@
+/** @format */
 
 import * as React from 'react';
 import dayjs from 'dayjs';
 import { View, showToast, datePicker } from 'remax/alipay';
 import { to, sync } from '../_util';
-
 
 export interface DateTimeProps {
   value?: string;
@@ -16,24 +16,17 @@ export interface DateTimeProps {
 }
 
 const DateTime = (props: DateTimeProps) => {
-
-  const {
-    value,
-    start,
-    format = "yyyy-MM-dd",
-    placeholder,
-    onChange,
-    onOpen,
-    onComplete,
-  } = props;
+  const { value, start, format = 'yyyy-MM-dd', placeholder, onChange, onOpen, onComplete } = props;
 
   const handleClick = async () => {
     onOpen?.();
-    const [err, res] = await to(sync(datePicker, {
-      format,
-      currentDate: start ? start : dayjs().format(format),
-      complete: onComplete,
-    }));
+    const [err, res] = await to(
+      sync(datePicker, {
+        format,
+        currentDate: start ? start : dayjs().format(format),
+        complete: onComplete,
+      }),
+    );
     if (err) {
       showToast({
         type: 'none',
@@ -43,15 +36,14 @@ const DateTime = (props: DateTimeProps) => {
       return;
     }
     onChange?.(res.date);
-  }
+  };
 
   return (
-    <View 
+    <View
       style={{
         height: '42rpx',
       }}
-      onTap={handleClick}
-    >
+      onTap={handleClick}>
       {value ? value : placeholder}
     </View>
   );

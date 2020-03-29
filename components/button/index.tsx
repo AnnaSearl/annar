@@ -1,3 +1,5 @@
+/** @format */
+
 import * as React from 'react';
 import { View, Text } from 'remax/one';
 import classNames from 'classnames';
@@ -5,7 +7,6 @@ import { tuple } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('button');
 
@@ -28,7 +29,6 @@ export interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-
   const {
     type,
     size,
@@ -36,7 +36,7 @@ const Button = (props: ButtonProps) => {
     children,
     onClick,
     disabled,
-    width,
+    // width,
     danger,
     square,
     block,
@@ -47,9 +47,9 @@ const Button = (props: ButtonProps) => {
   const handleClick = () => {
     if (disabled) {
       return;
-    } 
+    }
     onClick?.();
-  }
+  };
 
   // if (width) {
   //   return (
@@ -60,7 +60,7 @@ const Button = (props: ButtonProps) => {
   //       }}
   //       onTap={handleClick}
   //     >
-  //       <Text 
+  //       <Text
   //         className={classNames({
   //           [`${prefixCls}default]: true,
   //           [`${prefixCls}large]: size === 'large',
@@ -90,18 +90,13 @@ const Button = (props: ButtonProps) => {
         [`${prefixCls}-loading`]: loading,
       })}
       onTap={handleClick}
-      style={style}
-    >
-      {
-        loading
-          ? <Text className={`${prefixCls}-loading-icon`}>
-              <Loading color="#FDFFFD" radius="36rpx" />
-            </Text>
-          : null
-      }
-      <Text>
-        {(loading && loadingText) ? loadingText : children}
-      </Text>
+      style={style}>
+      {loading ? (
+        <Text className={`${prefixCls}-loading-icon`}>
+          <Loading color="#FDFFFD" radius="36rpx" />
+        </Text>
+      ) : null}
+      <Text>{loading && loadingText ? loadingText : children}</Text>
     </View>
   );
 };

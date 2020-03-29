@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('skeleton');
 
@@ -22,16 +23,7 @@ export interface SkeletonProps {
 }
 
 const Skeleton = (props: SkeletonProps) => {
-
-  const { 
-    title = true,
-    active, 
-    avatar, 
-    loading,
-    image,
-    paragraph = {},
-    children,
-  } = props;
+  const { title = true, active, avatar, loading, image, paragraph = {}, children } = props;
 
   const [loadingEnd, setLoadingEnd] = React.useState(false);
   const [renderStart, setRenderStart] = React.useState(false);
@@ -40,20 +32,22 @@ const Skeleton = (props: SkeletonProps) => {
     if (!loading) {
       setTimeout(() => {
         setLoadingEnd(true);
-      }, 300)
+      }, 300);
     }
-  }, [loading])
+  }, [loading]);
 
   React.useEffect(() => {
     if (loadingEnd) {
       setTimeout(() => {
         setRenderStart(true);
-      }, 100)
+      }, 100);
     }
-  }, [loadingEnd])
+  }, [loadingEnd]);
 
   const isLoading = loading === undefined ? true : loading;
-  const rows = React.useMemo(() => paragraph.rows ? [...new Array(paragraph.rows).keys()] : [], [paragraph]);
+  const rows = React.useMemo(() => (paragraph.rows ? [...new Array(paragraph.rows).keys()] : []), [
+    paragraph,
+  ]);
 
   if (!loadingEnd) {
     return (
@@ -63,83 +57,73 @@ const Skeleton = (props: SkeletonProps) => {
             className={classNames({
               [`${prefixCls}-container`]: true,
               [`${prefixCls}-container_active`]: !isLoading,
-            })}
-          >
-            {
-              image
-                ? <View 
-                    className={classNames({
-                      [`${prefixCls}-container-image`]: true,
-                      [`${prefixCls}-active`]: active,
-                    })}
-                  />
-                : null
-            }
-            {
-              avatar 
-                ? <View 
-                    className={`${prefixCls}-container-avatar`}
-                  >
-                    <View
-                      className={classNames({
-                        [`${prefixCls}-container-avatar-left`]: true,
-                        [`${prefixCls}-active`]: active,
-                      })}
-                    />
-                    <View className={`${prefixCls}-container-avatar-right`}>
-                      <View className={classNames({
-                          [`${prefixCls}-container-avatar-right-text`]: true,
-                          [`${prefixCls}-active`]: active,
-                        })} 
-                      />
-                      <View className={classNames({
-                          [`${prefixCls}-container-avatar-right-text`]: true,
-                          [`${prefixCls}-active`]: active,
-                        })} 
-                      />
-                    </View>
-                  </View>
-                : null
-            }
-            {
-              title 
-                ? <View 
-                    className={classNames({
-                      [`${prefixCls}-container-title`]: true,
-                      [`${prefixCls}-active`]: active,
-                    })}
-                  />
-                : null
-            }
-            {
-              rows.map((item) => (
+            })}>
+            {image ? (
+              <View
+                className={classNames({
+                  [`${prefixCls}-container-image`]: true,
+                  [`${prefixCls}-active`]: active,
+                })}
+              />
+            ) : null}
+            {avatar ? (
+              <View className={`${prefixCls}-container-avatar`}>
                 <View
-                  key={item}
                   className={classNames({
-                    [`${prefixCls}-container-row`]: true,
+                    [`${prefixCls}-container-avatar-left`]: true,
                     [`${prefixCls}-active`]: active,
                   })}
                 />
-              ))
-            }
+                <View className={`${prefixCls}-container-avatar-right`}>
+                  <View
+                    className={classNames({
+                      [`${prefixCls}-container-avatar-right-text`]: true,
+                      [`${prefixCls}-active`]: active,
+                    })}
+                  />
+                  <View
+                    className={classNames({
+                      [`${prefixCls}-container-avatar-right-text`]: true,
+                      [`${prefixCls}-active`]: active,
+                    })}
+                  />
+                </View>
+              </View>
+            ) : null}
+            {title ? (
+              <View
+                className={classNames({
+                  [`${prefixCls}-container-title`]: true,
+                  [`${prefixCls}-active`]: active,
+                })}
+              />
+            ) : null}
+            {rows.map(item => (
+              <View
+                key={item}
+                className={classNames({
+                  [`${prefixCls}-container-row`]: true,
+                  [`${prefixCls}-active`]: active,
+                })}
+              />
+            ))}
           </View>
         }
       </View>
-    )
+    );
   }
-  
+
   return (
     <View className={prefixCls}>
       <View
         className={classNames({
           [`${prefixCls}-child_container`]: true,
           [`${prefixCls}-child_container_active`]: renderStart,
-        })}
-      >
+        })}>
         {children}
       </View>
     </View>
-  )
+  );
 };
 
 export default Skeleton;

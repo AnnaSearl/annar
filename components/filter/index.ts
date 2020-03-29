@@ -1,3 +1,5 @@
+/** @format */
+
 import Filter from './filter';
 import Item from './item';
 

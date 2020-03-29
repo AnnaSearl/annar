@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('spin');
 
@@ -15,27 +16,25 @@ export interface SpinProps {
 }
 
 const Spin = (props: SpinProps) => {
-  
   const { loading, children, className, style } = props;
 
   return (
-    <View 
+    <View
       className={classNames({
         [prefixCls]: true,
         [className]: true,
-      })} 
+      })}
       style={{
         ...style,
-      }}
-    >
-      {
-        loading 
-          ? <View className={`${prefixCls}-loading`} />
-          : <View className={`${prefixCls}-default`} /> 
-      }
+      }}>
+      {loading ? (
+        <View className={`${prefixCls}-loading`} />
+      ) : (
+        <View className={`${prefixCls}-default`} />
+      )}
       <View>{children}</View>
     </View>
-  )
-}
+  );
+};
 
 export default Spin;

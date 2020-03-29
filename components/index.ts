@@ -1,3 +1,5 @@
+/** @format */
+
 // 通用
 
 export { default as Button } from './button';
@@ -77,4 +79,3 @@ export { default as Skeleton } from './skeleton';
 // 手势
 
 export { default as SwipeAction } from './swipe-action';
-

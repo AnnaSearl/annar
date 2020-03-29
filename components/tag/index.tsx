@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('tag');
 
@@ -17,19 +18,11 @@ export interface TagProps {
 }
 
 const Tag = (props: TagProps): React.ReactElement => {
-  
-  const { 
-    type,
-    size,
-    className = '',
-    style,
-    children,
-    onTap,
-  } = props;
+  const { type, size, className = '', style, children, onTap } = props;
 
   return (
     <View className={prefixCls}>
-      <View 
+      <View
         className={classNames({
           [`${prefixCls}-default`]: true,
           [`${prefixCls}-small`]: size === 'small',
@@ -40,13 +33,12 @@ const Tag = (props: TagProps): React.ReactElement => {
           [className]: true,
         })}
         style={style}
-        onTap={onTap}
-      >
+        onTap={onTap}>
         {children}
       </View>
     </View>
-  )
-}
+  );
+};
 
 export interface CheckableTagProps {
   className?: string;
@@ -56,13 +48,7 @@ export interface CheckableTagProps {
 }
 
 Tag.CheckableTag = (props: CheckableTagProps) => {
-
-  const {
-    className = '',
-    checked, 
-    onChange,
-    children,
-  } = props;
+  const { className = '', checked, onChange, children } = props;
 
   return (
     <Tag
@@ -72,11 +58,12 @@ Tag.CheckableTag = (props: CheckableTagProps) => {
         [`${prefixCls}-checked`]: checked,
         [className]: true,
       })}
-      onTap={() => { onChange?.(!checked) }}
-    >
+      onTap={() => {
+        onChange?.(!checked);
+      }}>
       {children}
     </Tag>
-  )
-}
+  );
+};
 
 export default Tag;

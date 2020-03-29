@@ -1,3 +1,4 @@
+/** @format */
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
@@ -5,7 +6,6 @@ import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('selector');
 
@@ -27,14 +27,7 @@ export interface SelectorProps {
 let currentParent: any = null;
 
 const Selector = (props: SelectorProps) => {
-  
-  const { 
-    value = [],
-    options = [],
-    style,
-    onChange,
-    onChangeParentOption,
-  } = props;
+  const { value = [], options = [], style, onChange, onChangeParentOption } = props;
 
   const [parentData, setParentData] = useState<OptionProps[]>([]);
   const [childrenData, setChildrenData] = useState<OptionProps[]>([]);
@@ -48,7 +41,7 @@ const Selector = (props: SelectorProps) => {
       setParentData(options);
       setChildrenData(data);
     }
-  }, [options])
+  }, [options]);
 
   const handleClickParentOption = (option: OptionProps) => {
     const data = option.children || [];
@@ -56,65 +49,56 @@ const Selector = (props: SelectorProps) => {
     setChildrenData(data);
     setActiveParent(option.key);
     onChangeParentOption?.(option);
-  }
+  };
 
   const handleClickChildrenOption = (option: OptionProps) => {
     onChange?.([currentParent.key, option.key], `${currentParent.value} ${option.value}`);
-  }
+  };
 
   return (
-    <View 
-      className={prefixCls}
-      style={style}
-    >
+    <View className={prefixCls} style={style}>
       <View className={`${prefixCls}-parent`}>
-        {
-          parentData?.map((option, index) => (
-            <View
-              key={option.key}
-              className={classNames({
-                [`${prefixCls}-option`]: true,
-                [`${prefixCls}-active`]: activeParent === option.key,
-              })}
-              onTap={() => {handleClickParentOption(option)}}
-            >
-              {option.value}
-              {
-                (activeParent === option.key && index !== 0)
-                  ? <View className={`${prefixCls}-option-rounded_top`}>
-                      <View className={`${prefixCls}-option-rounded_top-circle`} />
-                    </View>
-                  : null
-              }
-              {
-                activeParent === option.key
-                  ? <View className={`${prefixCls}-option-rounded_bottom`}>
-                      <View className={`${prefixCls}-option-rounded_bottom-circle`} />
-                    </View>
-                  : null
-              }
-            </View>
-          ))
-        }
+        {parentData?.map((option, index) => (
+          <View
+            key={option.key}
+            className={classNames({
+              [`${prefixCls}-option`]: true,
+              [`${prefixCls}-active`]: activeParent === option.key,
+            })}
+            onTap={() => {
+              handleClickParentOption(option);
+            }}>
+            {option.value}
+            {activeParent === option.key && index !== 0 ? (
+              <View className={`${prefixCls}-option-rounded_top`}>
+                <View className={`${prefixCls}-option-rounded_top-circle`} />
+              </View>
+            ) : null}
+            {activeParent === option.key ? (
+              <View className={`${prefixCls}-option-rounded_bottom`}>
+                <View className={`${prefixCls}-option-rounded_bottom-circle`} />
+              </View>
+            ) : null}
+          </View>
+        ))}
       </View>
       <View className={`${prefixCls}-children`}>
-        {
-          childrenData?.map((option) => (
-            <View
-              key={option.key}
-              className={classNames({
-                [`${prefixCls}-option`]: true,
-                [`${prefixCls}-active`]: value?.[1] === option.key,
-              })}
-              onTap={() => {handleClickChildrenOption(option)}}
-            >
-              {option.value}
-            </View>
-          ))
-        }
+        {childrenData?.map(option => (
+          <View
+            key={option.key}
+            className={classNames({
+              [`${prefixCls}-option`]: true,
+              [`${prefixCls}-active`]: value?.[1] === option.key,
+            })}
+            onTap={() => {
+              handleClickChildrenOption(option);
+            }}>
+            {option.value}
+          </View>
+        ))}
       </View>
     </View>
-  )
-}
+  );
+};
 
 export default Selector;

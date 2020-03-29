@@ -1,8 +1,9 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('loading');
 
@@ -14,35 +15,28 @@ export interface LoadingProps {
 }
 
 const Loading = (props: LoadingProps) => {
+  const { type, color = '#999', gapColor = '#FDFFFD', radius = '42rpx' } = props;
 
-  const {
-    type,
-    color = '#999',
-    gapColor = '#FDFFFD',
-    radius = '42rpx',
-  } = props;
-
-  if (type === "gap") {
+  if (type === 'gap') {
     return (
-      <View 
+      <View
         className={`${prefixCls}_gap`}
         style={{
           height: radius,
           width: radius,
           border: `2rpx solid ${color}`,
-        }}
-      >
-        <View 
+        }}>
+        <View
           className={`${prefixCls}_gap-gap`}
           style={{
             backgroundColor: gapColor,
           }}
         />
       </View>
-    )
+    );
   }
   return (
-    <View 
+    <View
       className={prefixCls}
       style={{
         height: radius,
@@ -50,7 +44,7 @@ const Loading = (props: LoadingProps) => {
         borderColor: `${color} ${color} transparent`,
       }}
     />
-  )
+  );
 };
 
 export default Loading;

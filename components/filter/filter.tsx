@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import Mask from '../mask';
 import { getPrefixCls } from '../common';
 import './filter.scss';
-
 
 const prefixCls = getPrefixCls('filter');
 
@@ -14,15 +15,12 @@ export interface FilterProps {
 }
 
 const Filter = (props: FilterProps) => {
-
   const { showMask, onClickMask, children } = props;
 
   return (
     <View className={prefixCls}>
-      <View className={`${prefixCls}-items`}>
-        {children}
-      </View>
-      <Mask 
+      <View className={`${prefixCls}-items`}>{children}</View>
+      <Mask
         show={showMask}
         onTap={onClickMask}
         style={{
@@ -32,8 +30,8 @@ const Filter = (props: FilterProps) => {
         }}
       />
     </View>
-  )
-}
+  );
+};
 
 export default Filter;
 

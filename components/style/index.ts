@@ -1,1 +1,3 @@
+/** @format */
+
 import './index.scss';

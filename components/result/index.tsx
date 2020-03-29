@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { View } from 'remax/one';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('result');
 
@@ -35,9 +36,9 @@ const getIconNameByStatus = (status: any): any => {
       break;
   }
   return obj;
-}
+};
 
-export interface iconProps {
+export interface IconProps {
   name: string;
   color?: string;
 }
@@ -48,19 +49,11 @@ export interface ResultProps {
   subTitle?: React.ReactNode;
   extra?: React.ReactNode;
   children?: React.ReactNode;
-  icon?: React.ReactNode | iconProps;
+  icon?: React.ReactNode | IconProps;
 }
 
 const Result = (props: ResultProps) => {
-
-  const {
-    status,
-    title,
-    subTitle,
-    extra,
-    children,
-    icon,
-  } = props;
+  const { status, title, subTitle, extra, children, icon } = props;
 
   let isCustomIcon = false;
   let iconObj = getIconNameByStatus(status);
@@ -73,40 +66,22 @@ const Result = (props: ResultProps) => {
   }
 
   return (
-    <View 
-      className={prefixCls}
-    >
+    <View className={prefixCls}>
       <View className={`${prefixCls}-icon`}>
-        {
-          isCustomIcon
-            ? icon
-            : <View className={`${prefixCls}-icon-status`}>
-                <Icon 
-                  type={iconObj.name}
-                  color={iconObj.color}
-                  size="168rpx"
-                />
-              </View>
-        }
+        {isCustomIcon ? (
+          icon
+        ) : (
+          <View className={`${prefixCls}-icon-status`}>
+            <Icon type={iconObj.name} color={iconObj.color} size="168rpx" />
+          </View>
+        )}
       </View>
-      <View className={`${prefixCls}-title`}>
-        {title}
-      </View>
-      <View className={`${prefixCls}-sub_title`}>
-        {subTitle}
-      </View>
-      {
-        children
-          ? <View className={`${prefixCls}-content`}>
-              {children}
-            </View>
-          : null
-      }
-      <View className={`${prefixCls}-extra`}>
-        {extra}
-      </View>
+      <View className={`${prefixCls}-title`}>{title}</View>
+      <View className={`${prefixCls}-sub_title`}>{subTitle}</View>
+      {children ? <View className={`${prefixCls}-content`}>{children}</View> : null}
+      <View className={`${prefixCls}-extra`}>{extra}</View>
     </View>
-  )
-}
+  );
+};
 
 export default Result;

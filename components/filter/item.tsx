@@ -1,3 +1,5 @@
+/** @format */
+
 import * as React from 'react';
 import { View, Text, ScrollView } from 'remax/alipay';
 import { getPrefixCls } from '../common';
@@ -14,45 +16,32 @@ export interface ItemProps {
 }
 
 const Item = (props: ItemProps) => {
-
-  const { 
-    open, 
-    label, 
-    height, 
-    onClick, 
-    children,
-  } = props;
+  const { open, label, height, onClick, children } = props;
 
   const handleClick = () => {
     onClick?.(!open);
-  }
+  };
 
   return (
     <View className={prefixCls}>
-      <View 
-        className={`${prefixCls}-label`}
-        onTap={handleClick}
-      >
-        <Text className={`${prefixCls}-label-text`}>
-          {label}
-        </Text>
-        {
-          open
-            ? <View className={`${prefixCls}-label-chevronUp`} />
-            : <View className={`${prefixCls}-label-chevronDown`} />
-        }
+      <View className={`${prefixCls}-label`} onTap={handleClick}>
+        <Text className={`${prefixCls}-label-text`}>{label}</Text>
+        {open ? (
+          <View className={`${prefixCls}-label-chevronUp`} />
+        ) : (
+          <View className={`${prefixCls}-label-chevronDown`} />
+        )}
       </View>
       <ScrollView
         scrollY
         className={`${prefixCls}-value`}
         style={{
           height: open ? height : 0,
-        }}
-      >
+        }}>
         {children}
       </ScrollView>
     </View>
-  )
-}
+  );
+};
 
 export default Item;

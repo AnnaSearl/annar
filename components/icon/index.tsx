@@ -1,9 +1,10 @@
+/** @format */
+
 import * as React from 'react';
 import { Text } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
-
 
 const prefixCls = getPrefixCls('icon');
 
@@ -11,24 +12,18 @@ export interface IconProps {
   type?: string;
   color?: string;
   size?: string;
-  style?:  React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 const Icon = (props: IconProps) => {
-  
-  const { 
-    type,
-    color,
-    size,
-    style,
-  } = props;
+  const { type, color, size, style } = props;
 
   return (
     <Text className={prefixCls}>
       <Text
         className={classNames({
           [`${prefixCls}-inner`]: true,
-          'iconfont': true,
+          iconfont: true,
           [`icon-${type}`]: true,
         })}
         style={{
@@ -38,7 +33,7 @@ const Icon = (props: IconProps) => {
         }}
       />
     </Text>
-  )
-}
+  );
+};
 
 export default Icon;
