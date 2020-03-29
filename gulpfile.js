@@ -6,7 +6,7 @@ const runTypeDoc = () => gulp
     .src(['components'])
     .pipe(typedoc({
         out: './docs',
-        // 这个文件里都是 export * from '...' 就没必要导出文档了
+        // 这个文件里都是 export * from '...' 就没必要导出文档了 
         exclude: ['components/index.ts', 'components/_util/*.ts'],
         tsconfig: 'tsconfig.json',
     }))

@@ -6,7 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "declaration": true,
-    "jsx": "preserve", //preserve
+    "jsx": "preserve",
     "outDir": "./esm",
     // "rootDir": "./components",
     "baseUrl": "./",

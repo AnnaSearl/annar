@@ -4,7 +4,7 @@ node_modules
 docs
 # don't lint scripts
 scripts
-# don't lint build output (make sure it's set to your correct build folder name)
+# don't lint build output (make sure it's set to your correct build folder name) 
 cjs
 esm
 # don't lint gulpfile

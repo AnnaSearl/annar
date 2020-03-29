@@ -5,7 +5,8 @@
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { View, createSelectorQuery } from 'remax/alipay';
+import { View } from 'remax/one';
+import { createSelectorQuery } from '../one/api';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';

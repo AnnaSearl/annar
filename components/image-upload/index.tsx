@@ -1,7 +1,8 @@
 /** @format */
 
 import * as React from 'react';
-import { View, Text, Image, chooseImage, hideLoading, previewImage } from 'remax/alipay';
+import { View, Text, Image } from 'remax/one';
+import { chooseImage, hideLoading, previewImage } from '../one/api';
 import classNames from 'classnames';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';

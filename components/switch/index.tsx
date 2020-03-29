@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import { View, Checkbox } from 'remax/alipay';
+import { View } from 'remax/one';
+import { Checkbox } from '../one/base';
 import { getPrefixCls } from '../common';
 import './index.scss';
 

@@ -2,7 +2,9 @@
 
 import * as React from 'react';
 import dayjs from 'dayjs';
-import { View, showToast, datePicker } from 'remax/alipay';
+import { View } from 'remax/one';
+import { datePicker } from '../one/api';
+import showToast from '../one/api/showToast';
 import { to, sync } from '../_util';
 
 export interface DateTimeProps {

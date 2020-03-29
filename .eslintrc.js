@@ -26,7 +26,7 @@ module.exports = {
       "version": "detect"
     }
   },
-  parserOptions: { //指定ESLint可以解析JSX语法，注：解析JSX并不代表能解析React
+  parserOptions: { //指定ESLint可以解析JSX语法，注：解析JSX并不代表能解析React.
     "ecmaVersion": 2020,
     "sourceType": 'module',
     "ecmaFeatures":{
