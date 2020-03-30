@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "基于remax的小程序UI库",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -61,7 +61,7 @@
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
     "react": "^16.13.0",
-    "remax": "^1.18.5-d0f22330.0",
+    "remax": "^1.19.0",
     "remax-one": "0.0.3-a50f5ad6.0",
     "rimraf": "^3.0.2",
     "rollup-plugin-commonjs": "^10.1.0",

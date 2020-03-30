@@ -21,9 +21,7 @@
 
 npm install anna-remax-ui
 
-由于要使用跨平台解决方案，所以要安装 remax@alpha 和 remax-cli@alpha
-
-npm install remax@alpha remax-cli@alpha
+注意：需要 remax 和 remax-cli 的版本在1.19.0以上，低于1.19.0请 npm update remax remax-cli
 
 ## 使用
 
