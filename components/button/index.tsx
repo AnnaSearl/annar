@@ -28,7 +28,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button = (props: ButtonProps) => {
+const Button = (props: ButtonProps): React.ReactElement => {
   const {
     type,
     size,

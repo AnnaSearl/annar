@@ -21,6 +21,10 @@
 
 npm install anna-remax-ui
 
+由于要使用跨平台解决方案，所以要安装 remax@alpha 和 remax-cli@alpha
+
+npm install remax@alpha remax-cli@alpha
+
 ## 使用
 
 在代码中 `import` 需要的组件
