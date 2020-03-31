@@ -15,7 +15,7 @@ $large-height: 80rpx;
   border-radius: 64rpx;
   color: $color-brand;
   font-weight: 500;
-  font-size: 28rpx;
+  font-size: 24rpx;
   text-align: center;
   &-small{
     padding: 0 30rpx;
@@ -25,10 +25,24 @@ $large-height: 80rpx;
     font-size: 24rpx;
   }
   &-large{
+    font-size: 28rpx;
     padding: 0 42rpx;
     height: $large-height;
     line-height: $large-height + 2;
     border-radius: $large-height;
+  }
+  &-superlarge{
+    font-size: 30rpx;
+    padding: 0 42rpx;
+    height: 84rpx;
+    line-height: 86rpx;
+    border-radius: 84rpx;
+  }
+  &-simple{
+    height: 68rpx;
+    color: #666;
+    border: 1rpx solid #666;
+    background-color: transparent;
   }
   &-primary{
     background-color: $color-brand;
@@ -46,18 +60,19 @@ $large-height: 80rpx;
     color: $view-bg-color;
   }
   &-square{
-    border-radius: 4rpx;
+    border-radius: 12rpx;
   }
   &-block{
     width: 100%;
   }
   &-loading{
+    opacity: 0.4;
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
   &-loading-icon{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-right: 16rpx;

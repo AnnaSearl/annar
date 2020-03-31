@@ -11,6 +11,7 @@ const prefixCls = getPrefixCls('cell');
 export interface ItemProps {
   label?: React.ReactNode;
   children?: React.ReactNode;
+  description?: React.ReactNode;
   style?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
   valueStyle?: React.CSSProperties;
@@ -20,6 +21,7 @@ export interface ItemProps {
   border?: boolean;
   arrow?: boolean;
   defaultNullValue?: string;
+  onTap?: () => void;
 }
 
 const Cell = (props: ItemProps) => {
@@ -29,17 +31,19 @@ const Cell = (props: ItemProps) => {
     labelStyle,
     valueStyle,
     children,
+    description,
     verticality,
     icon,
     border = true,
     arrow,
     required,
     defaultNullValue = '',
+    onTap,
   } = props;
 
   if (verticality) {
     return (
-      <View className={prefixCls} style={style}>
+      <View className={prefixCls} style={style} onTap={onTap}>
         <View className={`${prefixCls}-verticality`}>
           {label ? (
             <View className={`${prefixCls}-verticality-label`} style={labelStyle}>
@@ -55,16 +59,23 @@ const Cell = (props: ItemProps) => {
   }
 
   return (
-    <View className={prefixCls} style={style}>
+    <View className={prefixCls} style={style} onTap={onTap}>
       <View className={`${prefixCls}-container`}>
-        <View className={`${prefixCls}-container-label`} style={labelStyle}>
-          {required ? <Text className={`${prefixCls}-container-label-required`}>*</Text> : null}
-          {icon ? <Icon type={icon} style={{ marginRight: '10rpx' }} color="#333" /> : null}
-          <Text>{label}</Text>
+        <View className={`${prefixCls}-container-left`}>
+          <View className={`${prefixCls}-container-left-label`} style={labelStyle}>
+            {required ? (
+              <Text className={`${prefixCls}-container-left-label-required`}>*</Text>
+            ) : null}
+            {icon ? <Icon type={icon} style={{ marginRight: '10rpx' }} color="#333" /> : null}
+            <Text>{label}</Text>
+          </View>
+          {description ? (
+            <View className={`${prefixCls}-container-left-description`}>{description}</View>
+          ) : null}
         </View>
         <View className={`${prefixCls}-container-value`} style={valueStyle}>
           <Text>{children || children === 0 ? children : defaultNullValue}</Text>
-          {arrow ? <Icon type="right" style={{ marginLeft: '10rpx' }} /> : null}
+          {arrow ? <Icon type="right" style={{ marginLeft: '10rpx' }} color="#666" /> : null}
         </View>
       </View>
       {border ? <View className={`${prefixCls}-border`} /> : null}

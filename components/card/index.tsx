@@ -11,11 +11,14 @@ export interface CardProps {
   title?: React.ReactNode;
   extra?: React.ReactNode;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
 }
 
-const Card = ({ title, extra, children }: CardProps) => {
+const Card = (props: CardProps) => {
+  const { title, extra, children, style, contentStyle } = props;
   return (
-    <View className={prefixCls}>
+    <View className={prefixCls} style={style}>
       {title || extra ? (
         <View className={`${prefixCls}-header`}>
           <View className={`${prefixCls}-header-title`}>{title}</View>
@@ -24,7 +27,9 @@ const Card = ({ title, extra, children }: CardProps) => {
       ) : (
         <View style={{ height: '30rpx' }} />
       )}
-      <View className={`${prefixCls}-content`}>{children}</View>
+      <View className={`${prefixCls}-content`} style={contentStyle}>
+        {children}
+      </View>
     </View>
   );
 };

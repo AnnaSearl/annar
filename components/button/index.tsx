@@ -10,7 +10,7 @@ import './index.scss';
 
 const prefixCls = getPrefixCls('button');
 
-const ButtonTypes = tuple('default', 'primary');
+const ButtonTypes = tuple('default', 'primary', 'simple');
 export type ButtonType = typeof ButtonTypes[number];
 
 export interface ButtonProps {
@@ -25,7 +25,7 @@ export interface ButtonProps {
   block?: boolean;
   loading?: boolean;
   loadingText?: string;
-  onClick?: () => void;
+  onTap?: () => void;
 }
 
 const Button = (props: ButtonProps): React.ReactElement => {
@@ -34,7 +34,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
     size,
     style,
     children,
-    onClick,
+    onTap,
     disabled,
     // width,
     danger,
@@ -48,7 +48,10 @@ const Button = (props: ButtonProps): React.ReactElement => {
     if (disabled) {
       return;
     }
-    onClick?.();
+    if (loading) {
+      return;
+    }
+    onTap?.();
   };
 
   // if (width) {
@@ -81,20 +84,22 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [prefixCls]: true,
         [`${prefixCls}-small`]: size === 'small',
         [`${prefixCls}-large`]: size === 'large',
+        [`${prefixCls}-superlarge`]: size === 'superlarge',
+        [`${prefixCls}-simple`]: type === 'simple',
         [`${prefixCls}-primary`]: type === 'primary',
-        [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-dangerDefault`]: danger,
         [`${prefixCls}-danger`]: type === 'primary' && danger,
         [`${prefixCls}-square`]: square,
         [`${prefixCls}-block`]: block,
         [`${prefixCls}-loading`]: loading,
+        [`${prefixCls}-disabled`]: disabled,
       })}
       onTap={handleClick}
       style={style}>
       {loading ? (
-        <Text className={`${prefixCls}-loading-icon`}>
+        <View className={`${prefixCls}-loading-icon`}>
           <Loading color="#FDFFFD" radius="36rpx" />
-        </Text>
+        </View>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>
     </View>
