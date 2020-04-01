@@ -12,10 +12,11 @@ export interface LoadingProps {
   color?: string;
   gapColor?: string;
   radius?: string;
+  style?: React.CSSProperties;
 }
 
 const Loading = (props: LoadingProps) => {
-  const { type, color = '#999', gapColor = '#FDFFFD', radius = '42rpx' } = props;
+  const { style, type, color = '#999', gapColor = '#FDFFFD', radius = '42rpx' } = props;
 
   if (type === 'gap') {
     return (
@@ -25,7 +26,8 @@ const Loading = (props: LoadingProps) => {
           height: radius,
           width: radius,
           border: `2rpx solid ${color}`,
-        }}>
+        }}
+      >
         <View
           className={`${prefixCls}_gap-gap`}
           style={{
@@ -39,6 +41,7 @@ const Loading = (props: LoadingProps) => {
     <View
       className={prefixCls}
       style={{
+        ...style,
         height: radius,
         width: radius,
         borderColor: `${color} ${color} transparent`,

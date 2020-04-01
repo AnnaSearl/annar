@@ -19,7 +19,6 @@ export interface ButtonProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   disabled?: boolean;
-  width?: number;
   danger?: boolean;
   square?: boolean;
   block?: boolean;
@@ -36,7 +35,6 @@ const Button = (props: ButtonProps): React.ReactElement => {
     children,
     onTap,
     disabled,
-    // width,
     danger,
     square,
     block,
@@ -54,34 +52,11 @@ const Button = (props: ButtonProps): React.ReactElement => {
     onTap?.();
   };
 
-  // if (width) {
-  //   return (
-  //     <View
-  //       className={styles.widthFixButton}
-  //       style={{
-  //         width: `${width}rpx`,
-  //       }}
-  //       onTap={handleClick}
-  //     >
-  //       <Text
-  //         className={classNames({
-  //           [`${prefixCls}default]: true,
-  //           [`${prefixCls}large]: size === 'large',
-  //           [`${prefixCls}primary]: type === 'primary',
-  //           [`${prefixCls}disabled]: disabled,
-  //         })}
-  //         style={style}
-  //       >
-  //         {children}
-  //       </Text>
-  //     </View>
-  //   )
-  // }
-
   return (
     <View
       className={classNames({
         [prefixCls]: true,
+        [`${prefixCls}-square`]: square,
         [`${prefixCls}-small`]: size === 'small',
         [`${prefixCls}-large`]: size === 'large',
         [`${prefixCls}-superlarge`]: size === 'superlarge',
@@ -89,17 +64,17 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-primary`]: type === 'primary',
         [`${prefixCls}-dangerDefault`]: danger,
         [`${prefixCls}-danger`]: type === 'primary' && danger,
-        [`${prefixCls}-square`]: square,
         [`${prefixCls}-block`]: block,
         [`${prefixCls}-loading`]: loading,
         [`${prefixCls}-disabled`]: disabled,
       })}
       onTap={handleClick}
-      style={style}>
+      style={style}
+    >
       {loading ? (
-        <View className={`${prefixCls}-loading-icon`}>
-          <Loading color="#FDFFFD" radius="36rpx" />
-        </View>
+        <Text className={`${prefixCls}-loading-icon ${prefixCls}-loading-icon-action`}>
+          <Loading color="#FDFFFD" radius="36rpx" style={{ verticalAlign: 'text-top' }} />
+        </Text>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>
     </View>
