@@ -57,7 +57,8 @@ const Skeleton = (props: SkeletonProps) => {
             className={classNames({
               [`${prefixCls}-container`]: true,
               [`${prefixCls}-container_active`]: !isLoading,
-            })}>
+            })}
+          >
             {image ? (
               <View
                 className={classNames({
@@ -119,7 +120,8 @@ const Skeleton = (props: SkeletonProps) => {
         className={classNames({
           [`${prefixCls}-child_container`]: true,
           [`${prefixCls}-child_container_active`]: renderStart,
-        })}>
+        })}
+      >
         {children}
       </View>
     </View>

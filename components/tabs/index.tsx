@@ -76,7 +76,8 @@ const Tab = (props: TabProps): React.ReactElement => {
         style={{
           ...fixedStyle,
           ...headerStyle,
-        }}>
+        }}
+      >
         <View className={`${prefixCls}-header-titles`}>
           <View className={`${prefixCls}-header-titles-bg`}>
             <View className={`${prefixCls}-header-titles-bg-container`}>
@@ -86,7 +87,8 @@ const Tab = (props: TabProps): React.ReactElement => {
                   className={`${prefixCls}-header-titles-bg-container-title`}
                   onTap={() => {
                     handleTabClick(item);
-                  }}>
+                  }}
+                >
                   {item.title}
                 </View>
               ))}

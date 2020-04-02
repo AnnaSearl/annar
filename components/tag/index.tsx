@@ -33,7 +33,8 @@ const Tag = (props: TagProps): React.ReactElement => {
           [className]: true,
         })}
         style={style}
-        onTap={onTap}>
+        onTap={onTap}
+      >
         {children}
       </View>
     </View>
@@ -60,7 +61,8 @@ Tag.CheckableTag = (props: CheckableTagProps) => {
       })}
       onTap={() => {
         onChange?.(!checked);
-      }}>
+      }}
+    >
       {children}
     </Tag>
   );

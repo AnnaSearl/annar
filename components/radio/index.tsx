@@ -86,7 +86,8 @@ Radio.Group = (props: GroupProps) => {
           flexDirection: direction,
           ...style,
         } as React.CSSProperties
-      }>
+      }
+    >
       {radios}
     </View>
   );

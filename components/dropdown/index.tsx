@@ -37,7 +37,8 @@ const Dropdown = (props: DropdownProps) => {
                     borderBottom: '1rpx solid #1890FF',
                   }
                 : undefined
-            }>
+            }
+          >
             {item.value}
             {item.key === value ? (
               <View className={`${prefixCls}-content-option-check`}>

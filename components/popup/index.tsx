@@ -31,7 +31,8 @@ const Popup = (props: PopupProps): React.ReactElement => {
         className={classNames({
           [`${prefixCls}-container`]: true,
           [`${prefixCls}-container_active`]: open,
-        })}>
+        })}
+      >
         {title ? <View className={`${prefixCls}-container-title`}>{title}</View> : null}
         {children}
         {closeable ? (
@@ -39,7 +40,8 @@ const Popup = (props: PopupProps): React.ReactElement => {
             className={`${prefixCls}-container-close`}
             onTap={() => {
               onClose?.();
-            }}>
+            }}
+          >
             <Icon type="close" size="40rpx" color="#999" />
           </View>
         ) : null}

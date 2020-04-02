@@ -26,7 +26,8 @@ const Spin = (props: SpinProps) => {
       })}
       style={{
         ...style,
-      }}>
+      }}
+    >
       {loading ? (
         <View className={`${prefixCls}-loading`} />
       ) : (

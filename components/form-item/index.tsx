@@ -43,7 +43,8 @@ const Item = (props: ItemProps) => {
           [prefixCls]: true,
           [className]: true,
         })}
-        style={style}>
+        style={style}
+      >
         <View className={`${prefixCls}-verticality`}>
           <View className={`${prefixCls}-verticality-label`} style={labelStyle}>
             {reqiured ? <Text className={`${prefixCls}-verticality-label-required`}>*</Text> : null}
@@ -64,7 +65,8 @@ const Item = (props: ItemProps) => {
         [prefixCls]: true,
         [className]: true,
       })}
-      style={style}>
+      style={style}
+    >
       <View className={`${prefixCls}-item`}>
         <Text className={`${prefixCls}-item-label`} style={labelStyle}>
           {reqiured ? <Text className={`${prefixCls}-item-label-required`}>*</Text> : null}

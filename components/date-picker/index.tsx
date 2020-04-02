@@ -45,7 +45,8 @@ const DateTime = (props: DateTimeProps) => {
       style={{
         height: '42rpx',
       }}
-      onTap={handleClick}>
+      onTap={handleClick}
+    >
       {value ? value : placeholder}
     </View>
   );

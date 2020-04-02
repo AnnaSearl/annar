@@ -38,7 +38,8 @@ const Item = (props: ItemProps) => {
         className={`${prefixCls}-value`}
         style={{
           height: open ? height : 0,
-        }}>
+        }}
+      >
         {children}
       </ScrollView>
     </View>

@@ -83,7 +83,8 @@ Checkbox.Group = (props: GroupProps) => {
           display: 'flex',
           flexDirection: direction,
         } as React.CSSProperties
-      }>
+      }
+    >
       {checkboxs}
     </View>
   );

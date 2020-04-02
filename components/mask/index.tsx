@@ -29,7 +29,8 @@ const Mask = (props: MaskProps): React.ReactElement => {
         ...style,
         zIndex: zIndex,
       }}
-      onTap={onTap}>
+      onTap={onTap}
+    >
       {children}
     </View>
   );

@@ -44,7 +44,8 @@ const Images = (props: ImagesProps) => {
           <View
             key={(item as ImageProps).key || index}
             className={`${prefixCls}-item`}
-            onTap={() => handleClickImage(index)}>
+            onTap={() => handleClickImage(index)}
+          >
             <Image mode="widthFix" src={(item as ImageProps).url || (item as string)} />
           </View>
         ))}

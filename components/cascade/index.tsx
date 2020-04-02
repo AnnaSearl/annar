@@ -119,7 +119,8 @@ const Cascade = (props: CascadeProps) => {
       })}
       style={{
         height,
-      }}>
+      }}
+    >
       <View className={`${prefixCls}-selected_options`}>
         {value.map((item, index) => (
           <View
@@ -127,7 +128,8 @@ const Cascade = (props: CascadeProps) => {
             className={`${prefixCls}-selected_options-step`}
             onTap={() => {
               handleReChoose(item, index);
-            }}>
+            }}
+          >
             <View className={`${prefixCls}-selected_options-step-line`}>
               {index === value.length - 1 ? null : (
                 <View className={`${prefixCls}-selected_options-step-line-dot_line_active`} />
@@ -141,17 +143,21 @@ const Cascade = (props: CascadeProps) => {
               <View className={`${prefixCls}-selected_options-step-container-content`}>
                 <View className={`${prefixCls}-selected_options-step-container-content-main`}>
                   <View
-                    className={`${prefixCls}-selected_options-step-container-content-main-left`}>
+                    className={`${prefixCls}-selected_options-step-container-content-main-left`}
+                  >
                     {item.name}
                   </View>
                   <View
-                    className={`${prefixCls}-selected_options-step-container-content-main-right`}>
+                    className={`${prefixCls}-selected_options-step-container-content-main-right`}
+                  >
                     <View
-                      className={`${prefixCls}-selected_options-step-container-content-main-right-text`}>
+                      className={`${prefixCls}-selected_options-step-container-content-main-right-text`}
+                    >
                       {prompt?.(index)}
                     </View>
                     <View
-                      className={`${prefixCls}-selected_options-step-container-content-main-right-arrow`}>
+                      className={`${prefixCls}-selected_options-step-container-content-main-right-arrow`}
+                    >
                       <Icon type="right" size="24rpx" color="#999" />
                     </View>
                   </View>
@@ -168,7 +174,8 @@ const Cascade = (props: CascadeProps) => {
           scrollTop={scrollTop}
           style={{
             height: `calc(${height} - ${h + 80}rpx)`,
-          }}>
+          }}
+        >
           <View className={`${prefixCls}-showed_options-title`}>{`选择${name}`}</View>
           {showedOptions.map(i => (
             <View
@@ -176,7 +183,8 @@ const Cascade = (props: CascadeProps) => {
               className={`${prefixCls}-showed_options-title-category`}
               onTap={() => {
                 handleClick(i);
-              }}>
+              }}
+            >
               {i.name}
             </View>
           ))}

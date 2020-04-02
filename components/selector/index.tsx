@@ -67,7 +67,8 @@ const Selector = (props: SelectorProps) => {
             })}
             onTap={() => {
               handleClickParentOption(option);
-            }}>
+            }}
+          >
             {option.value}
             {activeParent === option.key && index !== 0 ? (
               <View className={`${prefixCls}-option-rounded_top`}>
@@ -92,7 +93,8 @@ const Selector = (props: SelectorProps) => {
             })}
             onTap={() => {
               handleClickChildrenOption(option);
-            }}>
+            }}
+          >
             {option.value}
           </View>
         ))}

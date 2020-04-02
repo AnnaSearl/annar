@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, Text, Image } from 'remax/one';
-import { chooseImage, hideLoading, previewImage } from '../one/api';
+import { previewImage, chooseImage } from '../one/api/';
 import classNames from 'classnames';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';
@@ -22,13 +22,26 @@ export interface ImageUploadProps {
   files?: DataItem[];
   onChange?: (e: DataItem[]) => void;
   multiple?: boolean;
-  count?: number;
+  multipleCount?: number;
   sizeType?: string;
   sourceType?: string;
+  deletable?: boolean;
+  disabled?: boolean;
+  maxCount?: number;
 }
 
 const ImageUpload = (props: ImageUploadProps) => {
-  const { files = [], onChange, multiple, count, sizeType, sourceType } = props;
+  const {
+    files = [],
+    onChange,
+    multiple,
+    multipleCount,
+    sizeType,
+    sourceType,
+    deletable = true,
+    disabled,
+    maxCount,
+  } = props;
 
   const handleClickImage = (index: number) => {
     let urls = files;
@@ -46,12 +59,15 @@ const ImageUpload = (props: ImageUploadProps) => {
   };
 
   const handleAdd = async () => {
+    if (disabled) {
+      return;
+    }
     const params: any = {};
     if (multiple) {
       params.count = 99;
     }
-    if (count) {
-      params.count = count;
+    if (multipleCount) {
+      params.count = multipleCount;
     }
     if (sizeType) {
       params.sizeType = sizeType;
@@ -63,8 +79,9 @@ const ImageUpload = (props: ImageUploadProps) => {
     if (errc) {
       return;
     }
-    onChange?.(resc);
-    hideLoading();
+    const targetFiles = resc.filePaths.map((i: any) => i);
+    const newFiles = files.concat(targetFiles);
+    onChange?.(newFiles);
   };
 
   const handleDelete = (e: any, index: number) => {
@@ -85,31 +102,36 @@ const ImageUpload = (props: ImageUploadProps) => {
         <View
           key={(item as ImageProps).key || index}
           className={`${prefixCls}-item`}
-          onTap={() => handleClickImage(index)}>
-          <View className={`${prefixCls}-item-delete`}>
-            <View
-              className={classNames({
-                [`${prefixCls}-item-delete-icon`]: true,
-                iconfont: true,
-                'icon-close': true,
-              })}
-              onTap={e => {
-                handleDelete(e, index);
-              }}
-            />
-          </View>
+          onTap={() => handleClickImage(index)}
+        >
+          {deletable ? (
+            <View className={`${prefixCls}-item-delete`}>
+              <View
+                className={classNames({
+                  [`${prefixCls}-item-delete-icon`]: true,
+                  iconfont: true,
+                  'icon-close': true,
+                })}
+                onTap={e => {
+                  handleDelete(e, index);
+                }}
+              />
+            </View>
+          ) : null}
           <Image mode="widthFix" src={(item as ImageProps).url || (item as string)} />
         </View>
       ))}
-      <View className={`${prefixCls}-add`} onTap={handleAdd}>
-        <Text
-          className={classNames({
-            [`${prefixCls}-add-icon`]: true,
-            iconfont: true,
-            'icon-add': true,
-          })}
-        />
-      </View>
+      {!maxCount || files.length < maxCount ? (
+        <View className={`${prefixCls}-add`} onTap={handleAdd}>
+          <Text
+            className={classNames({
+              [`${prefixCls}-add-icon`]: true,
+              iconfont: true,
+              'icon-add': true,
+            })}
+          />
+        </View>
+      ) : null}
     </View>
   );
 };

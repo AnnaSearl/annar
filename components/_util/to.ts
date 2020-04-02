@@ -1,7 +1,8 @@
 /** @format */
 
 const to = (promise: Promise<any>): Promise<any> => {
-  if (!promise || !Object.prototype.isPrototypeOf.call(Promise, promise)) {
+  // eslint-disable-next-line no-prototype-builtins
+  if (!promise || !Promise.prototype.isPrototypeOf(promise)) {
     return new Promise((resolve, reject) => {
       reject(new Error('requires promises as the param'));
     }).catch(err => {

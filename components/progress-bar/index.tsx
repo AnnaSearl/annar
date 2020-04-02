@@ -51,7 +51,8 @@ const ProgressBar = (props: ProgressBarProps) => {
             [`${prefixCls}-node_first`]: index === 0,
             [`${prefixCls}-node_last`]: index === curIndex,
             [`${prefixCls}-node_active`]: index <= curIndex,
-          })}>
+          })}
+        >
           {item.value}
         </View>
       ))}

@@ -40,7 +40,8 @@ const Rate = (props: RateProps) => {
             className={`${prefixCls}-value-star`}
             onTap={() => {
               handleClick(index);
-            }}>
+            }}
+          >
             {value >= index ? (
               <Icon type="favorfill" size="48rpx" color="#FFD700" />
             ) : (

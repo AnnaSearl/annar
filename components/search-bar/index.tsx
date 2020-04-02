@@ -87,7 +87,8 @@ const SearchBar = (props: SearchBarProps) => {
           className={classNames({
             [`${prefixCls}-input-synthetic`]: true,
             [`${prefixCls}-input-is_left`]: active,
-          })}>
+          })}
+        >
           <View className={`${prefixCls}-input-synthetic-icon`}>
             <Text
               className="iconfont icon-search"
@@ -100,7 +101,8 @@ const SearchBar = (props: SearchBarProps) => {
             className={`${prefixCls}-input-synthetic-placeholder`}
             style={{
               visibility: active ? 'hidden' : 'visible',
-            }}>
+            }}
+          >
             {placeholder}
           </View>
         </View>
@@ -131,7 +133,8 @@ const SearchBar = (props: SearchBarProps) => {
             [`${prefixCls}-action_button`]: true,
             [`${prefixCls}-show_action_button`]: keepShowActionButton ? showBtn : active,
           })}
-          onTap={handleActionClick}>
+          onTap={handleActionClick}
+        >
           {actionName}
         </View>
       ) : null}

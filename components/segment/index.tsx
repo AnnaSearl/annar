@@ -29,7 +29,8 @@ const Segment = (props: SegmentProps) => {
       className={classNames({
         [prefixCls]: true,
         [`${prefixCls}_fixed`]: fixed,
-      })}>
+      })}
+    >
       {options.map(item => (
         <View
           key={item.key}
@@ -40,7 +41,8 @@ const Segment = (props: SegmentProps) => {
           style={style}
           onTap={() => {
             onChange?.(item);
-          }}>
+          }}
+        >
           {item.value}
         </View>
       ))}
