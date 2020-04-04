@@ -24,10 +24,14 @@ const Card = (props: CardProps) => {
           <View className={`${prefixCls}-header-title`}>{title}</View>
           <View className={`${prefixCls}-header-extra`}>{extra}</View>
         </View>
-      ) : (
-        <View style={{ height: '30rpx' }} />
-      )}
-      <View className={`${prefixCls}-content`} style={contentStyle}>
+      ) : null}
+      <View
+        className={`${prefixCls}-content`}
+        style={{
+          paddingTop: title || extra ? 0 : '30rpx',
+          ...contentStyle,
+        }}
+      >
         {children}
       </View>
     </View>

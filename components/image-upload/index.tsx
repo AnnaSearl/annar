@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';
 import { getPrefixCls } from '../common';
+import Icon from '../icon';
 import './index.scss';
 
 const prefixCls = getPrefixCls('image-upload');
@@ -107,15 +108,20 @@ const ImageUpload = (props: ImageUploadProps) => {
           {deletable ? (
             <View className={`${prefixCls}-item-delete`}>
               <View
-                className={classNames({
-                  [`${prefixCls}-item-delete-icon`]: true,
-                  iconfont: true,
-                  'icon-close': true,
-                })}
                 onTap={e => {
                   handleDelete(e, index);
                 }}
-              />
+              >
+                <Icon
+                  type="close"
+                  size="24rpx"
+                  color="#FDFFFD"
+                  style={{
+                    width: '24rpx',
+                    height: '24rpx',
+                  }}
+                />
+              </View>
             </View>
           ) : null}
           <Image mode="widthFix" src={(item as ImageProps).url || (item as string)} />
@@ -123,13 +129,7 @@ const ImageUpload = (props: ImageUploadProps) => {
       ))}
       {!maxCount || files.length < maxCount ? (
         <View className={`${prefixCls}-add`} onTap={handleAdd}>
-          <Text
-            className={classNames({
-              [`${prefixCls}-add-icon`]: true,
-              iconfont: true,
-              'icon-add': true,
-            })}
-          />
+          <Icon type="add" size="40rpx" color="#999" />
         </View>
       ) : null}
     </View>

@@ -12,13 +12,6 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
     justify-content: center;
     align-items: center;
     height: 170rpx;
-    &-icon{
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      font-size: 40rpx;
-      color: #999;
-    }
   }
   &-item{
     position: relative;
@@ -41,15 +34,6 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
       background-color: #999;
       opacity: 0.8;
       border-radius: 50%;
-      &-icon{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24rpx;
-        width: 24rpx;
-        height: 24rpx;
-        color: #FDFFFD;
-      }
     }
     >image{
       width: 100%;
