@@ -40,6 +40,7 @@ $large-height: 80rpx;
     border-radius: 84rpx;
   }
   &-primary{
+    border-color: $color-brand;
     background-color: $color-brand;
     color: $view-bg-color;
   }
@@ -64,6 +65,7 @@ $large-height: 80rpx;
     color: $color-danger;
   }
   &-danger{
+    border-color: $color-danger;
     background-color: $color-danger;
     color: $view-bg-color;
   }
@@ -79,7 +81,8 @@ $large-height: 80rpx;
       // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);
     }
   }
-  &-loading-icon{
+  &-loading-icon{ //微信小程序text标签下包含view标签导致loading不显示
+    display: inline;
     padding-right: 16rpx;
     margin-left: -36rpx - 16rpx;
     // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);

@@ -64,7 +64,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-superlarge`]: size === 'superlarge',
         [`${prefixCls}-primary`]: type === 'primary',
         [`${prefixCls}-plain`]: plain,
-        [`${prefixCls}-dangerDefault`]: danger,
+        [`${prefixCls}-danger-default`]: danger,
         [`${prefixCls}-danger`]: type === 'primary' && danger,
         [`${prefixCls}-block`]: block,
         [`${prefixCls}-loading`]: loading,
@@ -74,9 +74,9 @@ const Button = (props: ButtonProps): React.ReactElement => {
       style={style}
     >
       {loading ? (
-        <Text className={`${prefixCls}-loading-icon ${prefixCls}-loading-icon-action`}>
+        <View className={`${prefixCls}-loading-icon`}>
           <Loading color="#FDFFFD" radius="36rpx" style={{ verticalAlign: 'text-top' }} />
-        </Text>
+        </View>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>
     </View>

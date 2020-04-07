@@ -1,3 +1,9 @@
 import { chooseImage } from 'remax/wechat';
 
-export default chooseImage;
+export default (options: any) =>
+  chooseImage({
+    ...options,
+    success(r) {
+      console.log(r);
+    },
+  });

@@ -1,9 +1,8 @@
 /** @format */
 
 import * as React from 'react';
-import { View, Text, Image } from 'remax/one';
+import { View, Image } from 'remax/one';
 import { previewImage, chooseImage } from '../one/api/';
-import classNames from 'classnames';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';
 import { getPrefixCls } from '../common';
