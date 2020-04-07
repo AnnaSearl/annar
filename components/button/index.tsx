@@ -24,6 +24,7 @@ export interface ButtonProps {
   block?: boolean;
   loading?: boolean;
   loadingText?: string;
+  plain?: boolean;
   onTap?: () => void;
 }
 
@@ -40,6 +41,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
     block,
     loading,
     loadingText,
+    plain,
   } = props;
 
   const handleClick = () => {
@@ -60,8 +62,8 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-small`]: size === 'small',
         [`${prefixCls}-large`]: size === 'large',
         [`${prefixCls}-superlarge`]: size === 'superlarge',
-        [`${prefixCls}-simple`]: type === 'simple',
         [`${prefixCls}-primary`]: type === 'primary',
+        [`${prefixCls}-plain`]: plain,
         [`${prefixCls}-dangerDefault`]: danger,
         [`${prefixCls}-danger`]: type === 'primary' && danger,
         [`${prefixCls}-block`]: block,

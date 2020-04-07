@@ -13,8 +13,8 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
     flex: 1;
     display: flex;
     align-items: center;
-    height: 72rpx;
-    border-radius: 72rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
     padding: 16rpx;
     background-color: #F6F6F6;
     &-synthetic{
@@ -28,11 +28,10 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
       color: #999;
       &-icon{
         color: #666;
-        font-size: 36rpx;
       }
       &-placeholder{
         padding-left: 10rpx;
-        font-size: 30rpx;
+        font-size: 28rpx;
       }
     }
     &-is_left{
@@ -44,21 +43,38 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
       padding: 0 10rpx 0 46rpx;
       background-color: transparent;
       color: #333;
-      font-size: 30rpx;
+      font-size: 28rpx;
     }
     &-clear{
       color: #CCC;
-      font-size: 36rpx;
     }
   }
   &-action_button{
     padding-left: 20rpx;
     margin-right: -100rpx;
-    font-size: 32rpx;
+    font-size: 30rpx;
     white-space: nowrap;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   &-show_action_button{
     margin-right: 0;
+  }
+}
+
+.#{$search_bar-prefix-cls}-large {
+  .#{$search_bar-prefix-cls}-input {
+    height: 72rpx;
+    border-radius: 72rpx;
+    &-synthetic{
+      &-placeholder{
+        font-size: 30rpx;
+      }
+    }
+    &-value{
+      font-size: 30rpx;
+    }
+  }
+  .#{$search_bar-prefix-cls}-action_button {
+    font-size: 32rpx;
   }
 }

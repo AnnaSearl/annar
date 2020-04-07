@@ -39,15 +39,15 @@ $large-height: 80rpx;
     line-height: 80rpx;
     border-radius: 84rpx;
   }
-  &-simple{
+  &-primary{
+    background-color: $color-brand;
+    color: $view-bg-color;
+  }
+  &-plain{
     font-weight: 400;
     color: #666;
     border: 1PX solid #d9d9d9;
     background-color: transparent;
-  }
-  &-primary{
-    background-color: $color-brand;
-    color: $view-bg-color;
   }
   &-square{
     padding: 0 30rpx;

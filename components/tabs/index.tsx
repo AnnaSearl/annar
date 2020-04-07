@@ -3,10 +3,11 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { View } from 'remax/one';
+import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 import './index.scss';
 
-const prefixCls = getPrefixCls('tab');
+const prefixCls = getPrefixCls('tabs');
 
 export interface TabTitleProps {
   key?: string;
@@ -14,6 +15,7 @@ export interface TabTitleProps {
 }
 
 export interface TabProps {
+  type?: string;
   tabs?: TabTitleProps[];
   activeTab?: string;
   fixed?: boolean;
@@ -30,8 +32,9 @@ export interface TabContentProps {
   children?: React.ReactNode;
 }
 
-const Tab = (props: TabProps): React.ReactElement => {
+const Tabs = (props: TabProps): React.ReactElement => {
   const {
+    type,
     tabs = [],
     activeTab,
     fixed = true,
@@ -78,30 +81,52 @@ const Tab = (props: TabProps): React.ReactElement => {
           ...headerStyle,
         }}
       >
-        <View className={`${prefixCls}-header-titles`}>
-          <View className={`${prefixCls}-header-titles-bg`}>
-            <View className={`${prefixCls}-header-titles-bg-container`}>
-              {tabs.map((item: TabTitleProps) => (
+        {type !== 'card' && type !== 'plain' ? (
+          <View className={`${prefixCls}-header-titles`}>
+            <View className={`${prefixCls}-header-titles-bg`}>
+              <View className={`${prefixCls}-header-titles-bg-container`}>
+                {tabs.map((item: TabTitleProps) => (
+                  <View
+                    key={item.key}
+                    className={`${prefixCls}-header-titles-bg-container-title`}
+                    onTap={() => {
+                      handleTabClick(item);
+                    }}
+                  >
+                    {item.title}
+                  </View>
+                ))}
                 <View
-                  key={item.key}
-                  className={`${prefixCls}-header-titles-bg-container-title`}
-                  onTap={() => {
-                    handleTabClick(item);
+                  className={`${prefixCls}-header-titles-bg-container-active`}
+                  style={{
+                    width: `${100 / tabs.length}%`,
+                    transform: `translateX(${curIndex * 100}%)`,
                   }}
-                >
-                  {item.title}
-                </View>
-              ))}
-              <View
-                className={`${prefixCls}-header-titles-bg-container-active`}
-                style={{
-                  transform: `translateX(${curIndex * 100}%)`,
-                }}
-              />
+                />
+              </View>
             </View>
+            {extra}
           </View>
-          {extra}
-        </View>
+        ) : null}
+        <View className={`${prefixCls}-header-titles-card`}></View>
+        {type === 'plain' ? (
+          <View className={`${prefixCls}-header-titles-plain`}>
+            {tabs.map((item: TabTitleProps) => (
+              <View
+                key={item.key}
+                className={classNames({
+                  [`${prefixCls}-header-titles-plain-title`]: true,
+                  [`${prefixCls}-header-titles-plain-title-active`]: activeTab === item.key,
+                })}
+                onTap={() => {
+                  handleTabClick(item);
+                }}
+              >
+                {item.title}
+              </View>
+            ))}
+          </View>
+        ) : null}
         <View className={`${prefixCls}-header-content`}>{headerContent}</View>
       </View>
       <View className={`${prefixCls}-content`}>{children}</View>
@@ -118,6 +143,6 @@ const TabContent: React.FC = (props: TabContentProps): React.ReactElement | null
   return <View>{children}</View>;
 };
 
-Tab.TabContent = TabContent;
+Tabs.TabContent = TabContent;
 
-export default Tab;
+export default Tabs;

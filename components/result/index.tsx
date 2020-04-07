@@ -26,6 +26,12 @@ const getIconNameByStatus = (status: any): any => {
         color: '#52c41a',
       };
       break;
+    case 'warning':
+      obj = {
+        name: 'warnfill',
+        color: '#faad14',
+      };
+      break;
     case 'error':
       obj = {
         name: 'roundclosefill',

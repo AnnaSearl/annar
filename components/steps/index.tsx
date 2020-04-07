@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { View, Text } from 'remax/one';
+import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
 import './index.scss';
@@ -15,11 +16,46 @@ export interface StepProps {
 }
 
 export interface StepsProps {
+  current?: number;
+  direction?: string;
   steps?: StepProps[];
 }
 
 const Steps = (props: StepsProps): React.ReactElement => {
-  const { steps } = props;
+  const { direction = 'vertical', current = 0, steps } = props;
+
+  if (direction === 'horizontal') {
+    return (
+      <View className={`${prefixCls}_horizontal`}>
+        {steps?.map((item, index) => (
+          <View
+            key={index}
+            className={classNames({
+              [`${prefixCls}_horizontal-step`]: true,
+              [`${prefixCls}_horizontal-step-finish`]: index <= current - 1,
+            })}
+          >
+            <View className={`${prefixCls}_horizontal-step-container`}>
+              <View className={`${prefixCls}_horizontal-step-container-icon`}>
+                {index <= current ? (
+                  <Icon type="roundcheckfill" size="40rpx" color="#1890FF" />
+                ) : (
+                  <View className={`${prefixCls}_horizontal-step-container-icon-default`}>
+                    <View />
+                  </View>
+                )}
+              </View>
+              <View className={`${prefixCls}_horizontal-step-container-content`}>
+                <View className={`${prefixCls}_horizontal-step-container-content-title`}>
+                  {item.title}
+                </View>
+              </View>
+            </View>
+          </View>
+        ))}
+      </View>
+    );
+  }
 
   return (
     <View className={prefixCls}>

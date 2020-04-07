@@ -1,8 +1,8 @@
 @import '../style/index.scss';
 
-$tab-prefix-cls: #{$anna-prefix}-tab;
+$tabs-prefix-cls: #{$anna-prefix}-tabs;
 
-.#{$tab-prefix-cls} {
+.#{$tabs-prefix-cls} {
   &-header{
     background-color: $view-bg-color;
     padding-bottom: 10rpx;
@@ -41,6 +41,33 @@ $tab-prefix-cls: #{$anna-prefix}-tab;
             transform: translateX(0);
             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           }
+        }
+      }
+    }
+    &-titles-plain{
+      display: flex;
+      &-title{
+        box-sizing: border-box;
+        position: relative;
+        height: 72rpx;
+        line-height: 72rpx;
+        white-space: nowrap;
+        margin-right: 50rpx;
+        color: #000;
+      }
+      &-title-active{
+        font-weight: 500;
+        &::after{
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          content: '';
+          height: 6rpx;
+          border-radius: 6rpx;
+          width: 100%;
+          background-color: #1890FF;
+          transform: scale(0.5, 1);
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)
         }
       }
     }

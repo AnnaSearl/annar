@@ -25,6 +25,7 @@ export interface SearchBarProps {
   actionName?: string;
   keepShowActionButton?: boolean;
   hideActionButton?: boolean;
+  size?: string;
 }
 
 let showBtn = false;
@@ -44,6 +45,7 @@ const SearchBar = (props: SearchBarProps) => {
     actionName = '取消',
     keepShowActionButton,
     hideActionButton,
+    size,
   } = props;
 
   const [isFocus, setIsFocus] = useState(false);
@@ -80,8 +82,19 @@ const SearchBar = (props: SearchBarProps) => {
     showBtn = true;
   }
 
+  let iconSize = 32;
+  if (size === 'large') {
+    iconSize = 36;
+  }
+
   return (
-    <View className={prefixCls} style={style}>
+    <View
+      className={classNames({
+        [prefixCls]: true,
+        [`${prefixCls}-large`]: size === 'large',
+      })}
+      style={style}
+    >
       <View className={`${prefixCls}-input`} style={inputStyle}>
         <View
           className={classNames({
@@ -90,12 +103,7 @@ const SearchBar = (props: SearchBarProps) => {
           })}
         >
           <View className={`${prefixCls}-input-synthetic-icon`}>
-            <Text
-              className="iconfont icon-search"
-              style={{
-                fontSize: '36rpx',
-              }}
-            />
+            <Icon type="search" size={`${iconSize}rpx`} color="#999" />
           </View>
           <View
             className={`${prefixCls}-input-synthetic-placeholder`}
@@ -119,7 +127,7 @@ const SearchBar = (props: SearchBarProps) => {
         <View className={`${prefixCls}-input-clear`} onTap={handleClear}>
           <Icon
             type="roundclosefill"
-            size="36rpx"
+            size={`${iconSize}rpx`}
             color="#999"
             style={{
               visibility: value ? 'visible' : 'hidden',
