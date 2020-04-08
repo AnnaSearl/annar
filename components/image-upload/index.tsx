@@ -79,7 +79,9 @@ const ImageUpload = (props: ImageUploadProps) => {
     if (errc) {
       return;
     }
-    const targetFiles = resc.filePaths.map((i: any) => i);
+    const targetFiles = resc.filePaths
+      ? resc.filePaths.map((i: any) => i)
+      : resc.tempFilePaths.map((i: any) => i);
     const newFiles = files.concat(targetFiles);
     onChange?.(newFiles);
   };
@@ -107,6 +109,7 @@ const ImageUpload = (props: ImageUploadProps) => {
           {deletable ? (
             <View className={`${prefixCls}-item-delete`}>
               <View
+                style={{ height: '24rpx' }}
                 onTap={e => {
                   handleDelete(e, index);
                 }}
@@ -118,6 +121,7 @@ const ImageUpload = (props: ImageUploadProps) => {
                   style={{
                     width: '24rpx',
                     height: '24rpx',
+                    verticalAlign: 'text-top',
                   }}
                 />
               </View>

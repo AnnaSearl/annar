@@ -19,20 +19,18 @@ const Icon = (props: IconProps) => {
   const { type, color, size, style } = props;
 
   return (
-    <Text className={prefixCls}>
-      <Text
-        className={classNames({
-          [`${prefixCls}-inner`]: true,
-          iconfont: true,
-          [`icon-${type}`]: true,
-        })}
-        style={{
-          ...style,
-          color,
-          fontSize: size,
-        }}
-      />
-    </Text>
+    <Text
+      className={classNames({
+        [prefixCls]: true,
+        iconfont: true,
+        [`icon-${type}`]: true,
+      })}
+      style={{
+        ...style,
+        color,
+        fontSize: size,
+      }}
+    />
   );
 };
 

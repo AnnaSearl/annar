@@ -9,6 +9,10 @@
 - 基于 `Remax` 开发 UI 组件
 - 一套组件可以在 `微信小程序`，`支付宝小程序`，`钉钉小程序` 多端适配运行
 
+## 示例
+
+[Examples for Anna Remax UI](https://github.com/AnnaSearl/examples-anna-remax-ui)
+
 ## 关于 Anna Remax UI
 
 代码由个人维护，谨慎入坑哦～
