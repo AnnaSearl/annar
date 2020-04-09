@@ -4,8 +4,6 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
 
 .#{$tabs-prefix-cls} {
   &-header{
-    background-color: $view-bg-color;
-    padding-bottom: 10rpx;
     &-titles{
       position: relative;
       display: flex;
@@ -13,22 +11,20 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       margin-bottom: 10rpx;
       font-size: 26rpx;
       &-bg{
-        padding: 4rpx;
+        padding: 6rpx;
         background-color: #EDEDED;
-        border-radius: 68rpx;
+        border-radius: 72rpx;
         &-container{
           display: flex;
           justify-content: center;
           height: 60rpx;
-          border-radius: 60rpx;
+          line-height: 60rpx;
           overflow: hidden;
           position: relative;
           z-index: 0;
           &-title{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 34rpx;
+            width: 140rpx;
+            text-align: center;
           }
           &-active{
             position: absolute;
@@ -42,10 +38,17 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           }
         }
+        &-square{
+          border-radius: 16rpx;
+          .#{$tabs-prefix-cls}-header-titles-bg-container-active{
+            border-radius: 12rpx;
+          }
+        }
       }
     }
     &-titles-plain{
       display: flex;
+      margin-bottom: 10rpx;
       &-title{
         box-sizing: border-box;
         position: relative;
@@ -69,6 +72,33 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
           transform: scale(0.5, 1);
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)
         }
+      }
+    }
+    &-titles-card{
+      box-sizing: border-box;
+      display: flex;
+      border: 1PX solid #1890FF;
+      margin-bottom: 10rpx;
+      font-size: 28rpx;
+      border-radius: 12rpx;
+      overflow: hidden;
+      &-title{
+        flex: 1;
+        box-sizing: border-box;
+        height: 56rpx;
+        line-height: 56rpx;
+        white-space: nowrap;
+        color: #1890FF;
+        text-align: center;
+        border-right: 1PX solid #1890FF;
+        &:nth-last-child(1){
+          border-right: none;
+        }
+      }
+      &-title-active{
+        font-weight: 500;
+        color: #FDFFFD;
+        background-color: #1890FF;
       }
     }
     &-content{

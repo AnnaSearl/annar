@@ -24,6 +24,8 @@ export interface TabProps {
   children?: React.ReactNode;
   headerStyle?: React.CSSProperties;
   extra?: React.ReactNode;
+  tabTitleWidth?: number;
+  tabTitleSquare?: boolean;
 }
 
 export interface TabContentProps {
@@ -37,12 +39,14 @@ const Tabs = (props: TabProps): React.ReactElement => {
     type,
     tabs = [],
     activeTab,
-    fixed = true,
+    fixed,
     onTabClick,
     headerContent,
     children,
     headerStyle,
     extra,
+    tabTitleWidth = 140,
+    tabTitleSquare,
   } = props;
 
   const getTabIndex = () => {
@@ -83,12 +87,21 @@ const Tabs = (props: TabProps): React.ReactElement => {
       >
         {type !== 'card' && type !== 'plain' ? (
           <View className={`${prefixCls}-header-titles`}>
-            <View className={`${prefixCls}-header-titles-bg`}>
+            <View
+              className={classNames({
+                [`${prefixCls}-header-titles-bg`]: true,
+                [`${prefixCls}-header-titles-bg-square`]: tabTitleSquare,
+              })}
+            >
               <View className={`${prefixCls}-header-titles-bg-container`}>
                 {tabs.map((item: TabTitleProps) => (
                   <View
                     key={item.key}
                     className={`${prefixCls}-header-titles-bg-container-title`}
+                    style={{
+                      fontWeight: activeTab === item.key ? 500 : 400,
+                      width: `${tabTitleWidth}rpx`,
+                    }}
                     onTap={() => {
                       handleTabClick(item);
                     }}
@@ -108,7 +121,6 @@ const Tabs = (props: TabProps): React.ReactElement => {
             {extra}
           </View>
         ) : null}
-        <View className={`${prefixCls}-header-titles-card`}></View>
         {type === 'plain' ? (
           <View className={`${prefixCls}-header-titles-plain`}>
             {tabs.map((item: TabTitleProps) => (
@@ -117,6 +129,24 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 className={classNames({
                   [`${prefixCls}-header-titles-plain-title`]: true,
                   [`${prefixCls}-header-titles-plain-title-active`]: activeTab === item.key,
+                })}
+                onTap={() => {
+                  handleTabClick(item);
+                }}
+              >
+                {item.title}
+              </View>
+            ))}
+          </View>
+        ) : null}
+        {type === 'card' ? (
+          <View className={`${prefixCls}-header-titles-card`}>
+            {tabs.map((item: TabTitleProps) => (
+              <View
+                key={item.key}
+                className={classNames({
+                  [`${prefixCls}-header-titles-card-title`]: true,
+                  [`${prefixCls}-header-titles-card-title-active`]: activeTab === item.key,
                 })}
                 onTap={() => {
                   handleTabClick(item);

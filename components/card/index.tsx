@@ -28,7 +28,7 @@ const Card = (props: CardProps) => {
       <View
         className={`${prefixCls}-content`}
         style={{
-          paddingTop: title || extra ? 0 : '30rpx',
+          paddingTop: title || extra ? 0 : '24rpx',
           ...contentStyle,
         }}
       >

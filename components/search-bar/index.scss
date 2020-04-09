@@ -78,3 +78,21 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
     font-size: 32rpx;
   }
 }
+
+.#{$search_bar-prefix-cls}-small {
+  .#{$search_bar-prefix-cls}-input {
+    height: 56rpx;
+    border-radius: 56rpx;
+    &-synthetic{
+      &-placeholder{
+        font-size: 28rpx;
+      }
+    }
+    &-value{
+      font-size: 28rpx;
+    }
+  }
+  .#{$search_bar-prefix-cls}-action_button {
+    font-size: 30rpx;
+  }
+}

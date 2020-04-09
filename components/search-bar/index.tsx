@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, Input } from 'remax/one';
+import { View, Input } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
@@ -61,7 +61,7 @@ const SearchBar = (props: SearchBarProps) => {
   };
 
   const handleInput = (e: any) => {
-    onInput?.(e.detail.value);
+    onInput?.(e.target.value);
   };
 
   const handleClear = () => {
@@ -74,7 +74,7 @@ const SearchBar = (props: SearchBarProps) => {
   };
 
   const handleConfirm = (e: any) => {
-    onSubmit?.(e.detail.value);
+    onSubmit?.(e.target.value);
   };
 
   const active = isFocus || value || focus;
@@ -86,12 +86,16 @@ const SearchBar = (props: SearchBarProps) => {
   if (size === 'large') {
     iconSize = 36;
   }
+  if (size === 'small') {
+    iconSize = 28;
+  }
 
   return (
     <View
       className={classNames({
         [prefixCls]: true,
         [`${prefixCls}-large`]: size === 'large',
+        [`${prefixCls}-small`]: size === 'small',
       })}
       style={style}
     >
@@ -139,7 +143,7 @@ const SearchBar = (props: SearchBarProps) => {
         <View
           className={classNames({
             [`${prefixCls}-action_button`]: true,
-            [`${prefixCls}-show_action_button`]: keepShowActionButton ? showBtn : active,
+            [`${prefixCls}-show_action_button`]: keepShowActionButton ? true : active,
           })}
           onTap={handleActionClick}
         >
