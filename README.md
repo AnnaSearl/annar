@@ -1,8 +1,10 @@
-# Anna Remax UI
+<p align=center>
+  <img width="150" height="150" src="https://img-blog.csdn.net/20161028230559575"/>
+</p>
 
-一款基于 `Remax` 框架开发的小程序 UI 组件库
+<h1 align="center">Anna Remax UI</h1>
 
-![Image text](https://smebimage.fuliaoyi.com/FjHTegKk8EtiIkn2W37t8k79OcQV)
+<div align="center">一款基于Remax框架开发的小程序UI组件库</div>
 
 ## 特性
 
