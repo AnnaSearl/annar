@@ -1,4 +1,8 @@
-
+<p align="center">
+  <div>
+    <img width="200" src="https://smebimage.fuliaoyi.com/FrTrosbTBf-L19XoTtGrz-BcPQeJ">
+  </div>
+</p>
 
 <h1 align="center">Anna Remax UI</h1>
 
