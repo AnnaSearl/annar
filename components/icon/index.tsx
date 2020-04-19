@@ -28,7 +28,7 @@ const Icon = (props: IconProps) => {
       style={{
         ...style,
         color,
-        fontSize: size,
+        fontSize: size ? size : '28px',
       }}
     />
   );

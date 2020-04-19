@@ -1,3 +1,3 @@
-import { createSelectorQuery } from 'remax/alipay';
+import { createSelectorQuery } from 'remax/ali';
 
 export default createSelectorQuery;

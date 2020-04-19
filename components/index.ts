@@ -22,7 +22,7 @@ export { default as Selector } from './selector';
 
 // 数据录入
 
-export { default as Input } from './input';
+export { default as Input } from './input/index';
 
 export { default as Picker } from './picker';
 

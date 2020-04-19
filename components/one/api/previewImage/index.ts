@@ -1,3 +1,3 @@
-import { previewImage } from 'remax/alipay';
+import { previewImage } from 'remax/ali';
 
 export default previewImage;

@@ -120,6 +120,7 @@ const SearchBar = (props: SearchBarProps) => {
         </View>
         <Input
           className={`${prefixCls}-input-value`}
+          // @ts-ignore
           type="search"
           value={value}
           onFocus={handleFocus}

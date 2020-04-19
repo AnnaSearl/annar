@@ -1,3 +1,3 @@
-import { showToast } from 'remax/alipay';
+import { showToast } from 'remax/ali';
 
 export default showToast;

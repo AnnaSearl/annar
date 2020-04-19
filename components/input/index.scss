@@ -3,25 +3,20 @@
 $input-prefix-cls: #{$anna-prefix}-input;
 
 .#{$input-prefix-cls} {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  &-main{
-    flex: 1;
-    display: flex;
-    align-items: center;
-    &-input{
-      padding: 0;
-      font-size: 28rpx;
+  display: block;
+  min-height: 48px;
+  line-height: inherit;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  color: $font-color-1;
+  background-color: $view-bg-color;
+  &-align {
+    &-right{
       text-align: right;
-      height: 42rpx;
-      line-height: 42rpx;
-      width: 100%;
-      color: $font-color-1;
-      background-color: $view-bg-color;
     }
-  }
-  &-unit{
-    padding-left: 10rpx;
+    &-center{
+      text-align: center;
+    }
   }
 }

@@ -62,19 +62,25 @@ const Cell = (props: ItemProps) => {
     <View className={prefixCls} style={style} onTap={onTap}>
       <View className={`${prefixCls}-container`}>
         <View className={`${prefixCls}-container-left`}>
-          <View className={`${prefixCls}-container-left-label`} style={labelStyle}>
+          <View className={`${prefixCls}-container-left-label`}>
             {required ? (
               <Text className={`${prefixCls}-container-left-label-required`}>*</Text>
             ) : null}
             {icon ? <Icon type={icon} style={{ marginRight: '10rpx' }} color="#333" /> : null}
-            <Text>{label}</Text>
+            {label ? (
+              <Text className={`${prefixCls}-container-left-label-value`} style={labelStyle}>
+                {label}
+              </Text>
+            ) : null}
           </View>
           {description ? (
             <View className={`${prefixCls}-container-left-description`}>{description}</View>
           ) : null}
         </View>
-        <View className={`${prefixCls}-container-value`} style={valueStyle}>
-          <Text>{children || children === 0 ? children : defaultNullValue}</Text>
+        <View className={`${prefixCls}-container-right`}>
+          <View className={`${prefixCls}-container-right-value`} style={valueStyle}>
+            {children || children === 0 ? children : defaultNullValue}
+          </View>
           {arrow ? <Icon type="right" style={{ marginLeft: '10rpx' }} color="#666" /> : null}
         </View>
       </View>

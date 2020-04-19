@@ -32,6 +32,9 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
           color: #f5222d;
           margin-right: 4rpx;
         }
+        &-value{
+          margin-right: 20rpx;
+        }
       }
       &-description{
         margin-top: 10rpx;
@@ -39,14 +42,16 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
         color: $font-color-3;
       }
     }
-    &-value{
+    &-right{
       flex: 1;
       color: $font-color-3;
-      margin-left: 20rpx;
       display: flex;
       align-items: flex-start;
       // align-items: center;
       justify-content: flex-end;
+      &-value{
+        width: 100%;
+      }
     }
   }
   &-border{

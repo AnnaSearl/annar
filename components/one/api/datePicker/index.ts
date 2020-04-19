@@ -1,3 +1,3 @@
-import { datePicker } from 'remax/alipay';
+import { datePicker } from 'remax/ali';
 
 export default datePicker;
