@@ -27,10 +27,16 @@ npm install anna-remax-ui
 
 ## 使用
 
-在代码中 `import` 需要的组件
+由于remax 1.x版本的rollup chunk机制导致代码重复打包的问题（该问题在remax2.0已解决），所以需要在scr目录下的app.scss文件下导入样式
 
 ```js
-import { Button } from 'anna-remax-ui'
+@import '../node_modules/anna-remax-ui/esm/style/anna.scss';
+```
+
+在代码中 `import` 需要的组件（注意同样由于rollup chunk机制，这里我们需要单独导入组件）
+
+```js
+import Button from 'anna-remax-ui/esm/button'
 ```
 
 ## 关于 Anna Remax UI
