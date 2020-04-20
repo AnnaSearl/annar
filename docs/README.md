@@ -29,7 +29,7 @@ npm install anna-remax-ui
 
 由于remax 1.x版本的rollup chunk机制导致代码重复打包的问题（该问题在remax2.0已解决），所以需要在scr目录下的app.scss文件下导入样式
 
-```scss
+```css
 @import '../node_modules/anna-remax-ui/esm/style/anna.scss';
 ```
 

@@ -1,251 +1,61 @@
-<!doctype html>
-<html class="default no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>anna-remax-ui</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8">
+  <title>anna-remax-ui - 基于remax的小程序UI库</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="基于remax的小程序UI库">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
 <body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">anna-remax-ui</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1>anna-remax-ui</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#anna-remax-ui" id="anna-remax-ui" style="color: inherit; text-decoration: none;">
-					<h1>Anna Remax UI</h1>
-				</a>
-				<p>一款基于 <code>Remax</code> 框架开发的小程序 UI 组件库</p>
-				<p><img src="https://smebimage.fuliaoyi.com/FjMomAWXPUzaSAcAkLzr920trN-p" alt="Image text"></p>
-				<a href="#特性" id="特性" style="color: inherit; text-decoration: none;">
-					<h2>特性</h2>
-				</a>
-				<ul>
-					<li>基于 <code>Remax</code> 开发 UI 组件</li>
-					<li>一套组件可以在 <code>微信小程序</code>，<code>支付宝小程序</code>，<code>钉钉小程序</code> 多端适配运行</li>
-				</ul>
-				<a href="#关于-anna-remax-ui" id="关于-anna-remax-ui" style="color: inherit; text-decoration: none;">
-					<h2>关于 Anna Remax UI</h2>
-				</a>
-				<p>代码由个人维护，谨慎入坑哦～</p>
-				<p>组件库刚开始还不是很完善，接下来我会密集的更新，完善目前的组件并加入新的组件，大家如果有什么问题或者建议可以踊跃提出哦</p>
-				<p>如果有做的不好的地方请大家谅解，也请大家多多指教，提出更好的方案！</p>
-				<a href="#安装" id="安装" style="color: inherit; text-decoration: none;">
-					<h2>安装</h2>
-				</a>
-				<p>npm install anna-remax-ui</p>
-				<p>注意：需要 remax 和 remax-cli 的版本在1.19.0以上，低于1.19.0请 npm update remax remax-cli</p>
-				<a href="#使用" id="使用" style="color: inherit; text-decoration: none;">
-					<h2>使用</h2>
-				</a>
-				<p>在代码中 <code>import</code> 需要的组件</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Button } <span class="hljs-keyword">from</span> <span class="hljs-string">'anna-remax-ui'</span></code></pre>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_button_index_.html">&quot;button/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_card_index_.html">&quot;card/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_cascade_index_.html">&quot;cascade/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_cell_index_.html">&quot;cell/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_checkbox_index_.html">&quot;checkbox/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_common_index_.html">&quot;common/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_date_picker_index_.html">&quot;date-<wbr>picker/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_dropdown_index_.html">&quot;dropdown/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_fab_index_.html">&quot;fab/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filter_filter_.html">&quot;filter/filter&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filter_index_.html">&quot;filter/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_filter_item_.html">&quot;filter/item&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_form_item_index_.html">&quot;form-<wbr>item/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_form_value_index_.html">&quot;form-<wbr>value/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_icon_index_.html">&quot;icon/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_image_upload_index_.html">&quot;image-<wbr>upload/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_images_index_.html">&quot;images/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_input_index_.html">&quot;input/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_loading_index_.html">&quot;loading/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_mask_index_.html">&quot;mask/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_picker_index_.html">&quot;picker/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_popup_index_.html">&quot;popup/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_progress_bar_index_.html">&quot;progress-<wbr>bar/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_radio_index_.html">&quot;radio/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_rate_index_.html">&quot;rate/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_result_index_.html">&quot;result/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_search_bar_index_.html">&quot;search-<wbr>bar/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_segment_index_.html">&quot;segment/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_selector_index_.html">&quot;selector/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_skeleton_index_.html">&quot;skeleton/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_spin_index_.html">&quot;spin/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_steps_index_.html">&quot;steps/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_style_index_.html">&quot;style/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_swipe_action_index_.html">&quot;swipe-<wbr>action/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_switch_index_.html">&quot;switch/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_tabs_index_.html">&quot;tabs/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_tag_index_.html">&quot;tag/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_textarea_index_.html">&quot;textarea/index&quot;</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+  <div id="app"></div>
+
+  <!-- docsify box react -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="//unpkg.com/@sodalife/soui-react"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="//unpkg.com/docsify-demo-box-react@1.0.1/dist/docsify-demo-box-react.min.js"></script>
+
+  <!-- config -->
+  <script>
+    window.$docsify = {
+      name: 'anna-remax-ui',
+      repo: 'https://github.com/AnnaSearl/anna-remax-ui',
+      loadSidebar: true,
+      mergeNavbar: true,
+      subMaxLevel: 4,
+      auto2top: true,
+      markdown: {
+        gfm: true,
+        tables: true,
+      },
+      plugins: [
+        (function () {
+          var jsResources = [
+            '//unpkg.com/react@16/umd/react.production.min.js',
+            '//unpkg.com/react-dom@16/umd/react-dom.production.min.js',
+            '//unpkg.com/@sodalife/soui-react',
+          ].map(function (url) {
+            return '<script src="' + url + '"><' + '/script>'
+          }).join('\n')
+          return DemoBoxReact.create(jsResources)
+        })()
+      ],
+    }
+  </script>
+  
+  <!-- docsify -->
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+  <!-- plugins -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- language highlight -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-jsx.min.js"></script>
 </body>
 </html>

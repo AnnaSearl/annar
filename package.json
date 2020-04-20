@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.3.9",
+  "version": "1.3.11",
   "description": "基于remax的小程序UI库",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -22,8 +22,10 @@
     "watch:cjs": "npm run build:cjs -- -w",
     "pub": "sh shell/pub.sh",
     "commit": "sh shell/commit.sh",
-    "docs": "gulp",
-    "lint": "eslint components --fix --ext .ts,.tsx"
+    "lint": "eslint components --fix --ext .ts,.tsx",
+    "gdocs": "gulp",
+    "ddocs": "dumi dev",
+    "docs": "docsify serve docs --open"
   },
   "repository": {
     "type": "git",
@@ -53,6 +55,7 @@
     "commitizen": "^4.0.3",
     "copyfiles": "^2.2.0",
     "cz-conventional-changelog": "^3.1.0",
+    "dumi": "^1.0.18",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
