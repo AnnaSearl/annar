@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="70" src="https://smebimage.fuliaoyi.com/FpAxa5IqFUd4msnmgxKn25DgKgyq">
+  <img width="140" src="https://smebimage.fuliaoyi.com/FoMXNlKdZt9UqufDkPony8ztWKsU">
 </p>
 
 <h1 align="center">Anna Remax UI</h1>
