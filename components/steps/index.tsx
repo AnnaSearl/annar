@@ -11,18 +11,31 @@ const prefixCls = getPrefixCls('steps');
 
 export interface StepProps {
   title?: React.ReactNode;
+  errorTitle?: React.ReactNode;
   extra?: React.ReactNode;
   description?: React.ReactNode;
 }
 
 export interface StepsProps {
   current?: number;
+  status?: string;
   direction?: string;
   steps?: StepProps[];
 }
 
 const Steps = (props: StepsProps): React.ReactElement => {
-  const { direction = 'vertical', current = 0, steps } = props;
+  const { direction = 'vertical', current = 0, steps, status } = props;
+  const statusIconType = status === 'error' ? 'roundclosefill' : 'roundcheckfill';
+  const statusIconColor = status === 'error' ? '#f5222d' : '#1890FF';
+
+  const getTitle = (item: StepProps, index: number) => {
+    if (index === current) {
+      if (status === 'error') {
+        return item.errorTitle || item.title;
+      }
+    }
+    return item.title;
+  };
 
   if (direction === 'horizontal') {
     return (
@@ -37,17 +50,21 @@ const Steps = (props: StepsProps): React.ReactElement => {
           >
             <View className={`${prefixCls}_horizontal-step-container`}>
               <View className={`${prefixCls}_horizontal-step-container-icon`}>
-                {index <= current ? (
+                {index < current ? (
                   <Icon type="roundcheckfill" size="40rpx" color="#1890FF" />
-                ) : (
+                ) : null}
+                {index === current ? (
+                  <Icon type={statusIconType} size="40rpx" color={statusIconColor} />
+                ) : null}
+                {index > current ? (
                   <View className={`${prefixCls}_horizontal-step-container-icon-default`}>
                     <View />
                   </View>
-                )}
+                ) : null}
               </View>
               <View className={`${prefixCls}_horizontal-step-container-content`}>
                 <View className={`${prefixCls}_horizontal-step-container-content-title`}>
-                  {item.title}
+                  {getTitle(item, index)}
                 </View>
               </View>
             </View>

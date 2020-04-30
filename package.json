@@ -37,6 +37,7 @@
   "author": "Anna",
   "license": "ISC",
   "dependencies": {
+    "@types/vfile-message": "^2.0.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.8.23",
     "lodash-es": "^4.17.15",
