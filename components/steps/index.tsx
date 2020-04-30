@@ -24,7 +24,7 @@ export interface StepsProps {
 }
 
 const Steps = (props: StepsProps): React.ReactElement => {
-  const { direction = 'vertical', current = 0, steps, status } = props;
+  const { direction = 'horizontal', current = 0, steps, status } = props;
   const statusIconType = status === 'error' ? 'roundclosefill' : 'roundcheckfill';
   const statusIconColor = status === 'error' ? '#f5222d' : '#1890FF';
 
@@ -37,37 +37,29 @@ const Steps = (props: StepsProps): React.ReactElement => {
     return item.title;
   };
 
-  if (direction === 'horizontal') {
+  if (direction === 'vertical') {
     return (
-      <View className={`${prefixCls}_horizontal`}>
+      <View className={prefixCls}>
+        {/* <View className={`${prefixCls}-first_step`}>
+          <View className={styles.line} />
+        </View> */}
         {steps?.map((item, index) => (
-          <View
-            key={index}
-            className={classNames({
-              [`${prefixCls}_horizontal-step`]: true,
-              [`${prefixCls}_horizontal-step-finish`]: index <= current - 1,
-            })}
-          >
-            <View className={`${prefixCls}_horizontal-step-container`}>
-              <View className={`${prefixCls}_horizontal-step-container-icon`}>
-                {index < current ? (
+          <View key={index} className={`${prefixCls}-step`}>
+            {index === 0 ? (
+              <View className={`${prefixCls}-circle_current`}>
+                <Text className={`${prefixCls}-circle_current-icon`}>
                   <Icon type="roundcheckfill" size="40rpx" color="#1890FF" />
-                ) : null}
-                {index === current ? (
-                  <Icon type={statusIconType} size="40rpx" color={statusIconColor} />
-                ) : null}
-                {index > current ? (
-                  <View className={`${prefixCls}_horizontal-step-container-icon-default`}>
-                    <View />
-                  </View>
-                ) : null}
+                </Text>
               </View>
-              <View className={`${prefixCls}_horizontal-step-container-content`}>
-                <View className={`${prefixCls}_horizontal-step-container-content-title`}>
-                  {getTitle(item, index)}
-                </View>
-              </View>
+            ) : (
+              <View className={`${prefixCls}-circle`} />
+            )}
+            <View className={`${prefixCls}-line`} />
+            <View className={`${prefixCls}-step-header`}>
+              <View className={`${prefixCls}-step-header-title`}>{item.title}</View>
+              <View className={`${prefixCls}-step-header-extra`}>{item.extra}</View>
             </View>
+            <View className={`${prefixCls}-step-description`}>{item.description}</View>
           </View>
         ))}
       </View>
@@ -75,27 +67,33 @@ const Steps = (props: StepsProps): React.ReactElement => {
   }
 
   return (
-    <View className={prefixCls}>
-      {/* <View className={`${prefixCls}-first_step`}>
-        <View className={styles.line} />
-      </View> */}
+    <View className={`${prefixCls}_horizontal`}>
       {steps?.map((item, index) => (
-        <View key={index} className={`${prefixCls}-step`}>
-          {index === 0 ? (
-            <View className={`${prefixCls}-circle_current`}>
-              <Text className={`${prefixCls}-circle_current-icon`}>
-                <Icon type="roundcheckfill" size="40rpx" color="#1890FF" />
-              </Text>
+        <View
+          key={index}
+          className={classNames({
+            [`${prefixCls}_horizontal-step`]: true,
+            [`${prefixCls}_horizontal-step-finish`]: index <= current - 1,
+          })}
+        >
+          <View className={`${prefixCls}_horizontal-step-container`}>
+            <View className={`${prefixCls}_horizontal-step-container-icon`}>
+              {index < current ? <Icon type="roundcheckfill" size="40rpx" color="#1890FF" /> : null}
+              {index === current ? (
+                <Icon type={statusIconType} size="40rpx" color={statusIconColor} />
+              ) : null}
+              {index > current ? (
+                <View className={`${prefixCls}_horizontal-step-container-icon-default`}>
+                  <View />
+                </View>
+              ) : null}
             </View>
-          ) : (
-            <View className={`${prefixCls}-circle`} />
-          )}
-          <View className={`${prefixCls}-line`} />
-          <View className={`${prefixCls}-step-header`}>
-            <View className={`${prefixCls}-step-header-title`}>{item.title}</View>
-            <View className={`${prefixCls}-step-header-extra`}>{item.extra}</View>
+            <View className={`${prefixCls}_horizontal-step-container-content`}>
+              <View className={`${prefixCls}_horizontal-step-container-content-title`}>
+                {getTitle(item, index)}
+              </View>
+            </View>
           </View>
-          <View className={`${prefixCls}-step-description`}>{item.description}</View>
         </View>
       ))}
     </View>

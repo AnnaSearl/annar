@@ -10,8 +10,6 @@ export { default as Icon } from './icon';
 
 // 导航
 
-export { default as Segment } from './segment';
-
 export { default as Tabs } from './tabs';
 
 export { default as Steps } from './steps';
@@ -43,8 +41,6 @@ export { default as Rate } from './rate';
 export { default as Textarea } from './textarea';
 
 export { default as SearchBar } from './search-bar';
-
-export { default as FormItem } from './form-item';
 
 export { default as FormValue } from './form-value';
 
@@ -79,3 +75,9 @@ export { default as Skeleton } from './skeleton';
 // 手势
 
 export { default as SwipeAction } from './swipe-action';
+
+// 二次封装
+
+export { default as SelectorPopup } from './selector-popup';
+
+export { default as CascadePopup } from './cascade-popup';

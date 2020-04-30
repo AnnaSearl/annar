@@ -11,28 +11,40 @@ const prefixCls = getPrefixCls('switch');
 
 export interface SwitchProps {
   checked?: boolean;
+  disabled?: boolean;
+  small?: boolean;
   onChange?: (e: any) => void;
 }
 
 const Switch = (props: SwitchProps) => {
-  const { checked, onChange } = props;
+  const { checked, disabled, small, onChange } = props;
 
-  const handleChange = (e: any) => {
-    onChange?.(e.detail.value);
+  const handleChange = () => {
+    if (disabled) {
+      return;
+    }
+    onChange?.(!checked);
   };
 
   return (
-    <View className={prefixCls}>
+    <View className={prefixCls} onTap={handleChange}>
       <Checkbox
         className={classNames({
           [`${prefixCls}-default`]: true,
-          [`${prefixCls}-checked`]: checked,
+          [`${prefixCls}-checked`]: !small && checked,
+          [`${prefixCls}-checked-small`]: small && checked,
+          [`${prefixCls}-disabled`]: disabled,
         })}
-        onChange={handleChange}
+        // onChange={handleChange}
         value={checked ? 'on' : 'off'}
         checked={checked}
       />
-      <View className={`${prefixCls}-checkbox`} />
+      <View
+        className={classNames(`${prefixCls}-checkbox`, {
+          [`${prefixCls}-checkbox-small`]: small,
+          [`${prefixCls}-checkbox-disabled`]: disabled,
+        })}
+      />
     </View>
   );
 };

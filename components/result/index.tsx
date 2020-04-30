@@ -56,10 +56,11 @@ export interface ResultProps {
   extra?: React.ReactNode;
   children?: React.ReactNode;
   icon?: React.ReactNode | IconProps;
+  height?: string;
 }
 
 const Result = (props: ResultProps) => {
-  const { status, title, subTitle, extra, children, icon } = props;
+  const { status, title, subTitle, extra, children, icon, height } = props;
 
   let isCustomIcon = false;
   let iconObj = getIconNameByStatus(status);
@@ -72,7 +73,7 @@ const Result = (props: ResultProps) => {
   }
 
   return (
-    <View className={prefixCls}>
+    <View className={prefixCls} style={{ height: height || '100vh' }}>
       <View className={`${prefixCls}-icon`}>
         {isCustomIcon ? (
           icon

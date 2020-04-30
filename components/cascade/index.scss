@@ -2,17 +2,17 @@
 
 $cascade-prefix-cls: #{$anna-prefix}-cascade;
 
-$radius: 30rpx;
+$radius: 30px;
 
 .#{$cascade-prefix-cls} {
   background-color: #F9FBF9;
   color: #333;
-  font-size: 30rpx;
+  font-size: 30px;
   text-align: left;
-  &-selected_options{
-    min-height: 90rpx;
+  &-selected-options{
+    min-height: 90px;
     background-color: #FDFFFD;
-    padding-bottom: 40rpx;
+    padding: 24px 0;
     &-step{
       display: flex;
       padding-bottom: $radius;
@@ -26,12 +26,12 @@ $radius: 30rpx;
         margin-right: $radius;
         &-dot{
           position: absolute;
-          width: 16rpx;
-          height: 16rpx;
+          width: 16px;
+          height: 16px;
           top: $radius;
           left: 100%;
-          margin-top: -8rpx;
-          margin-left: -8rpx;
+          margin-top: -8px;
+          margin-left: -8px;
           border-radius: 50%;
           background-color: #E8E8E8;
           z-index: 10;
@@ -39,22 +39,22 @@ $radius: 30rpx;
         &-dot_line_default::before{
           content: '';
           position: absolute;
-          width: 2rpx;
-          height: calc(100% + 30rpx);
+          width: 2px;
+          height: calc(100% + 30px);
           background-color: #E8E8E8;
           top: $radius;
           left: 100%;
-          margin-left: -1rpx;
+          margin-left: -1px;
         }
         &-dot_line_active::before{
           content: '';
           position: absolute;
-          width: 2rpx;
-          height: calc(100% + 30rpx);
+          width: 2px;
+          height: calc(100% + 30px);
           background-color: #1890FF;
           top: $radius;
           left: 100%;
-          margin-left: -1rpx;
+          margin-left: -1px;
         }
       }
       &-container{
@@ -72,13 +72,13 @@ $radius: 30rpx;
             &-right{
               display: flex;
               align-items: center;
-              padding-right: 20rpx;
+              padding-right: 20px;
               color: #999;
               &-text{
-                padding-right: 10rpx;
+                padding-right: 10px;
               }
               &-arrow{
-                min-width: 24rpx;
+                min-width: 24px;
               }
             }
           }
@@ -86,16 +86,16 @@ $radius: 30rpx;
       }
     }
   }
-  &-showed_options{
-    min-height: 200rpx;
-    padding: 0 30rpx;
+  &-showed-options{
+    min-height: 200px;
+    padding: 0 30px;
     &-title{
-      padding: 30rpx 0 10rpx 0;
-      font-size: 24rpx;
+      padding: 30px 0 10px 0;
+      font-size: 24px;
       color: #666;
     }
     &-category{
-      padding: 30rpx 0;
+      padding: 30px 0;
     }
   }
 }

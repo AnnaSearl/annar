@@ -10,25 +10,43 @@ import './index.scss';
 const prefixCls = getPrefixCls('rate');
 
 export interface RateProps {
-  number?: number;
+  count?: number;
   label?: React.ReactNode;
   value?: number;
+  readOnly?: boolean;
+  icon?: string;
+  iconFill?: string;
+  size?: string;
+  color?: string;
   onChange?: (e: any) => void;
 }
 
 const Rate = (props: RateProps) => {
-  const { number = 5, label, value = -1, onChange } = props;
+  const {
+    count = 5,
+    label,
+    value = 0,
+    onChange,
+    readOnly,
+    icon = 'favor',
+    iconFill = 'favorfill',
+    size = '48px',
+    color = '#FFD700',
+  } = props;
 
   const handleClick = (index: number) => {
-    onChange?.(index);
+    if (readOnly) {
+      return;
+    }
+    onChange?.(index + 1);
   };
 
   const stars = useMemo(() => {
-    if (!number) {
+    if (!count) {
       return [];
     }
-    return [...new Array(number).keys()];
-  }, [number]);
+    return [...new Array(count).keys()];
+  }, [count]);
 
   return (
     <View className={prefixCls}>
@@ -42,10 +60,10 @@ const Rate = (props: RateProps) => {
               handleClick(index);
             }}
           >
-            {value >= index ? (
-              <Icon type="favorfill" size="48rpx" color="#FFD700" />
+            {value >= index + 1 ? (
+              <Icon type={iconFill} size={size} color={color} />
             ) : (
-              <Icon type="favor" size="48rpx" color="#999" />
+              <Icon type={icon} size={size} color="#999" />
             )}
           </View>
         ))}

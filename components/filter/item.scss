@@ -8,9 +8,13 @@ $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 88rpx;
+    height: 100rpx;
     font-size: 24rpx;
     color: #333;
+    background-color: #FDFFFD;
+    &-disabled{
+      opacity: 0.4;
+    }
     &-text{
       margin-right: 10rpx;
     }
@@ -30,12 +34,12 @@ $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
     }
   }
   &-value{
-    position: fixed;
+    position: absolute;
+    top: 100px;
     left: 0;
     right: 0;
-    height: 0;
     overflow: hidden;
-    transition: height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: max-height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     background-color: $view-bg-color;
   }
 }

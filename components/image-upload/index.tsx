@@ -23,8 +23,8 @@ export interface ImageUploadProps {
   onChange?: (e: DataItem[]) => void;
   multiple?: boolean;
   multipleCount?: number;
-  sizeType?: string;
-  sourceType?: string;
+  sizeType?: string[];
+  sourceType?: string[];
   deletable?: boolean;
   disabled?: boolean;
   maxCount?: number;
@@ -92,6 +92,9 @@ const ImageUpload = (props: ImageUploadProps) => {
     newValue.splice(index, 1);
     newValue = newValue.map((item: DataItem, index: number) => {
       const newItem = item;
+      if (typeof newItem === 'string') {
+        return newItem;
+      }
       (newItem as ImageProps).key = String(index);
       return newItem;
     });
@@ -132,7 +135,7 @@ const ImageUpload = (props: ImageUploadProps) => {
       ))}
       {!maxCount || files.length < maxCount ? (
         <View className={`${prefixCls}-add`} onTap={handleAdd}>
-          <Icon type="add" size="40rpx" color="#999" />
+          <Icon type="add" size="48px" color="#BABEC6" />
         </View>
       ) : null}
     </View>

@@ -18,8 +18,8 @@ export interface CascadeProps {
   height?: string;
   className?: string;
   prompt?: (e: any) => string;
-  onChange: (e: any) => void;
-  onComplete?: (e: any, values?: any[]) => void;
+  onChange: (v: any[], last?: any) => void;
+  onComplete?: (v: any[], last?: any) => void;
 }
 
 let flag = false;
@@ -50,13 +50,10 @@ const Cascade = (props: CascadeProps) => {
       setSign(false);
       flag = false;
       const item = value[value.length - 1];
-      onComplete?.(
-        {
-          id: item.id,
-          value: item.name,
-        },
-        value,
-      );
+      onComplete?.(value, {
+        id: item.id,
+        value: item.name,
+      });
     }
   }, [value, sign]);
 
@@ -72,7 +69,7 @@ const Cascade = (props: CascadeProps) => {
     } else {
       nextValue = [...value, nextOption];
     }
-    onChange(nextValue);
+    onChange(nextValue, nextOption);
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
@@ -121,42 +118,42 @@ const Cascade = (props: CascadeProps) => {
         height,
       }}
     >
-      <View className={`${prefixCls}-selected_options`}>
+      <View className={`${prefixCls}-selected-options`}>
         {value.map((item, index) => (
           <View
             key={item.id}
-            className={`${prefixCls}-selected_options-step`}
+            className={`${prefixCls}-selected-options-step`}
             onTap={() => {
               handleReChoose(item, index);
             }}
           >
-            <View className={`${prefixCls}-selected_options-step-line`}>
+            <View className={`${prefixCls}-selected-options-step-line`}>
               {index === value.length - 1 ? null : (
-                <View className={`${prefixCls}-selected_options-step-line-dot_line_active`} />
+                <View className={`${prefixCls}-selected-options-step-line-dot_line_active`} />
               )}
               <Text
-                className={`${prefixCls}-selected_options-step-line-dot`}
+                className={`${prefixCls}-selected-options-step-line-dot`}
                 style={{ backgroundColor: '#1890FF' }}
               />
             </View>
-            <View className={`${prefixCls}-selected_options-step-container`}>
-              <View className={`${prefixCls}-selected_options-step-container-content`}>
-                <View className={`${prefixCls}-selected_options-step-container-content-main`}>
+            <View className={`${prefixCls}-selected-options-step-container`}>
+              <View className={`${prefixCls}-selected-options-step-container-content`}>
+                <View className={`${prefixCls}-selected-options-step-container-content-main`}>
                   <View
-                    className={`${prefixCls}-selected_options-step-container-content-main-left`}
+                    className={`${prefixCls}-selected-options-step-container-content-main-left`}
                   >
                     {item.name}
                   </View>
                   <View
-                    className={`${prefixCls}-selected_options-step-container-content-main-right`}
+                    className={`${prefixCls}-selected-options-step-container-content-main-right`}
                   >
                     <View
-                      className={`${prefixCls}-selected_options-step-container-content-main-right-text`}
+                      className={`${prefixCls}-selected-options-step-container-content-main-right-text`}
                     >
                       {prompt?.(index)}
                     </View>
                     <View
-                      className={`${prefixCls}-selected_options-step-container-content-main-right-arrow`}
+                      className={`${prefixCls}-selected-options-step-container-content-main-right-arrow`}
                     >
                       <Icon type="right" size="24rpx" color="#999" />
                     </View>
@@ -170,17 +167,17 @@ const Cascade = (props: CascadeProps) => {
       <View>
         <ScrollView
           scrollY
-          className={`${prefixCls}-showed_options`}
+          className={`${prefixCls}-showed-options`}
           scrollTop={scrollTop}
           style={{
             height: `calc(${height} - ${h + 80}rpx)`,
           }}
         >
-          <View className={`${prefixCls}-showed_options-title`}>{`选择${name}`}</View>
+          <View className={`${prefixCls}-showed-options-title`}>{`选择${name}`}</View>
           {showedOptions.map(i => (
             <View
               key={i.id}
-              className={`${prefixCls}-showed_options-title-category`}
+              className={`${prefixCls}-showed-options-category`}
               onTap={() => {
                 handleClick(i);
               }}

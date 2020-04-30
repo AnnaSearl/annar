@@ -16,11 +16,12 @@ export interface OptionProps {
 export interface DropdownProps {
   options?: OptionProps[];
   value?: string;
+  activeColor?: string;
   onChange?: (e: OptionProps) => void;
 }
 
 const Dropdown = (props: DropdownProps) => {
-  const { options = [], value, onChange } = props;
+  const { options = [], value, activeColor = '#1890FF', onChange } = props;
 
   return (
     <View className={prefixCls}>
@@ -33,8 +34,8 @@ const Dropdown = (props: DropdownProps) => {
             style={
               item.key === value
                 ? {
-                    color: '#1890FF',
-                    borderBottom: '1rpx solid #1890FF',
+                    color: activeColor,
+                    borderBottom: `1px solid ${activeColor}`,
                   }
                 : undefined
             }
@@ -42,7 +43,7 @@ const Dropdown = (props: DropdownProps) => {
             {item.value}
             {item.key === value ? (
               <View className={`${prefixCls}-content-option-check`}>
-                <Icon type="check" size="28rpx" color="#1890FF" />
+                <Icon type="check" size="28rpx" color={activeColor} />
               </View>
             ) : null}
           </View>

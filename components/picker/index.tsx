@@ -1,13 +1,19 @@
 /** @format */
 
 import * as React from 'react';
-import { View } from 'remax/one';
 import { Picker as APicker } from '../one/base';
+import Cell from '../cell';
+import FormValue from '../form-value';
 import find from 'lodash-es/find';
 import get from 'lodash-es/get';
-import FormValue from '../form-value';
 
 export interface PickerProps {
+  label?: React.ReactNode;
+  border?: boolean;
+  required?: boolean;
+  icon?: string;
+  disabled?: boolean;
+  pickerAlign?: string;
   options?: any[];
   value?: string;
   onChange?: (e: any) => void;
@@ -15,20 +21,56 @@ export interface PickerProps {
 }
 
 const Picker = (props: PickerProps) => {
-  const { options, value, onChange, placeholder } = props;
+  const {
+    label,
+    border,
+    required,
+    icon,
+    pickerAlign = 'left',
+    options,
+    value,
+    onChange,
+    placeholder,
+    disabled,
+  } = props;
 
   const handleChangePicker = (e: any) => {
+    if (e.detail.value < 0) {
+      return;
+    }
     onChange?.(options?.[e.detail.value]);
   };
 
+  const valueIndex = options?.findIndex((item: any) => item['key'] === value) || 0;
+
   return (
-    <View>
-      <APicker range={options} range-key="value" onChange={handleChangePicker}>
-        <FormValue placeholder={placeholder}>
+    <Cell
+      label={label}
+      labelStyle={{ width: '180px' }}
+      border={border}
+      required={required}
+      icon={icon}
+      field
+    >
+      <APicker
+        range={options}
+        range-key="value"
+        disabled={disabled}
+        value={valueIndex}
+        onChange={handleChangePicker}
+      >
+        <FormValue
+          placeholder={placeholder}
+          style={
+            {
+              textAlign: pickerAlign,
+            } as React.CSSProperties
+          }
+        >
           {get(find(options, { key: value }), 'value')}
         </FormValue>
       </APicker>
-    </View>
+    </Cell>
   );
 };
 

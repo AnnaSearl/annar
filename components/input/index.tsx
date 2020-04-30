@@ -58,6 +58,7 @@ const Input = (props: InputProps) => {
       border={border}
       required={required}
       icon={icon}
+      field
     >
       <AInput
         className={classNames({

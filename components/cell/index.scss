@@ -19,39 +19,48 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
     }
   }
   &-container{
-    display: flex;
-    // align-items: center;
-    &-left{
-      &-label{
+    &-main{
+      display: flex;
+      &-left{
         box-sizing: border-box;
-        color: $font-color-1;
         flex: 1;
         display: flex;
         align-items: center;
-        &-required{
-          color: #f5222d;
-          margin-right: 4rpx;
+        &-input{
+          flex: none;
         }
-        &-value{
-          margin-right: 20rpx;
+        &-label{
+          box-sizing: border-box;
+          color: $font-color-1;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          &-required{
+            color: #f5222d;
+            margin-right: 4rpx;
+          }
+          &-value{
+            margin-right: 20rpx;
+          }
         }
       }
-      &-description{
-        margin-top: 10rpx;
-        font-size: 24rpx;
+      &-right{
+        flex: 1;
         color: $font-color-3;
+        display: flex;
+        // align-items: flex-start;
+        align-items: center;
+        justify-content: flex-end;
+        &-value{
+          width: 100%;
+          text-align: right;
+        }
       }
     }
-    &-right{
-      flex: 1;
+    &-description{
+      margin-top: 10rpx;
+      font-size: 24rpx;
       color: $font-color-3;
-      display: flex;
-      align-items: flex-start;
-      // align-items: center;
-      justify-content: flex-end;
-      &-value{
-        width: 100%;
-      }
     }
   }
   &-border{

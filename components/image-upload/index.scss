@@ -12,6 +12,8 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
     justify-content: center;
     align-items: center;
     height: 170rpx;
+    border-radius: 10rpx;
+    background-color: #F7F7F7;
   }
   &-item{
     position: relative;

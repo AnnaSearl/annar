@@ -18,7 +18,7 @@ export interface MaskProps {
 
 const Mask = (props: MaskProps): React.ReactElement => {
   const { show, onTap, zIndex, style, children } = props;
-
+  const maskZindex = zIndex || zIndex === 0 ? zIndex : 999;
   return (
     <View
       className={classNames({
@@ -27,7 +27,7 @@ const Mask = (props: MaskProps): React.ReactElement => {
       })}
       style={{
         ...style,
-        zIndex: zIndex,
+        zIndex: maskZindex,
       }}
       onTap={onTap}
     >

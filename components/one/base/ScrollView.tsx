@@ -7,7 +7,7 @@ type Props = any;
 
 export default function ScrollView(props: Props) {
   switch (process.env.REMAX_PLATFORM) {
-    case 'alipay':
+    case 'ali':
       return <AlipayScrollView {...props} />;
     case 'wechat':
       return <WechatScrollView {...props} />;

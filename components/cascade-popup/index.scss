@@ -1,0 +1,49 @@
+@import '../style/index.scss';
+
+$cascade-popup-prefix-cls: #{$anna-prefix}-cascade-popup;
+
+.#{$cascade-popup-prefix-cls} {
+  height: 100%;
+  width: 100%;
+  &-loading{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+  }
+  &-formitem{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    font-size: 26rpx;
+  }
+  &-container{
+    overflow: hidden;
+    &-header{
+      position: relative;
+      text-align: center;
+      height: 80rpx;
+      line-height: 80rpx;
+      padding: 0 30rpx;
+      background-color: #FDFFFD;
+      font-size: 26rpx;
+      color: #333;
+      border-top-left-radius: 16rpx;
+      border-top-right-radius: 16rpx;
+      &-close{
+        position: absolute;
+        right: 30rpx;
+        top: 30rpx;
+        width: 34rpx;
+        height: 34rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+

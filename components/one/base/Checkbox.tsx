@@ -7,7 +7,7 @@ type Props = any;
 
 export default function Checkbox(props: Props) {
   switch (process.env.REMAX_PLATFORM) {
-    case 'alipay':
+    case 'ali':
       return <AlipayCheckbox {...props} />;
     case 'wechat':
       return <WechatCheckbox {...props} />;

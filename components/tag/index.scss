@@ -5,7 +5,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
 .#{$tag-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
-  margin-right: 10rpx;
+  margin-right: 14rpx;
   &:nth-last-child(1){
     margin-right: 0;
   }
@@ -36,7 +36,6 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
     padding: 0 20rpx;
     border-radius: 8rpx;
     font-size: 24rpx;
-    margin-right: 14rpx;
   }
   &-info{
     color: #1890FF;

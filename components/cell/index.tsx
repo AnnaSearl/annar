@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { View, Text } from 'remax/one';
+import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
 import './index.scss';
@@ -20,6 +21,7 @@ export interface ItemProps {
   required?: boolean;
   border?: boolean;
   arrow?: boolean;
+  field?: boolean;
   defaultNullValue?: string;
   onTap?: () => void;
 }
@@ -37,6 +39,7 @@ const Cell = (props: ItemProps) => {
     border = true,
     arrow,
     required,
+    field,
     defaultNullValue = '',
     onTap,
   } = props;
@@ -61,28 +64,36 @@ const Cell = (props: ItemProps) => {
   return (
     <View className={prefixCls} style={style} onTap={onTap}>
       <View className={`${prefixCls}-container`}>
-        <View className={`${prefixCls}-container-left`}>
-          <View className={`${prefixCls}-container-left-label`}>
-            {required ? (
-              <Text className={`${prefixCls}-container-left-label-required`}>*</Text>
-            ) : null}
-            {icon ? <Icon type={icon} style={{ marginRight: '10rpx' }} color="#333" /> : null}
-            {label ? (
-              <Text className={`${prefixCls}-container-left-label-value`} style={labelStyle}>
-                {label}
-              </Text>
-            ) : null}
+        <View className={`${prefixCls}-container-main`}>
+          <View
+            className={classNames(`${prefixCls}-container-main-left`, {
+              [`${prefixCls}-container-main-left-input`]: field,
+            })}
+          >
+            <View className={`${prefixCls}-container-main-left-label`}>
+              {required ? (
+                <Text className={`${prefixCls}-container-main-left-label-required`}>*</Text>
+              ) : null}
+              {icon ? (
+                <Icon type={icon} size="32px" style={{ marginRight: '10rpx' }} color="#333" />
+              ) : null}
+              {label ? (
+                <Text className={`${prefixCls}-container-main-left-label-value`} style={labelStyle}>
+                  {label}
+                </Text>
+              ) : null}
+            </View>
           </View>
-          {description ? (
-            <View className={`${prefixCls}-container-left-description`}>{description}</View>
-          ) : null}
-        </View>
-        <View className={`${prefixCls}-container-right`}>
-          <View className={`${prefixCls}-container-right-value`} style={valueStyle}>
-            {children || children === 0 ? children : defaultNullValue}
+          <View className={`${prefixCls}-container-main-right`}>
+            <View className={`${prefixCls}-container-main-right-value`} style={valueStyle}>
+              {children || children === 0 ? children : defaultNullValue}
+            </View>
+            {arrow ? <Icon type="right" style={{ marginLeft: '10rpx' }} color="#666" /> : null}
           </View>
-          {arrow ? <Icon type="right" style={{ marginLeft: '10rpx' }} color="#666" /> : null}
         </View>
+        {description ? (
+          <View className={`${prefixCls}-container-description`}>{description}</View>
+        ) : null}
       </View>
       {border ? <View className={`${prefixCls}-border`} /> : null}
     </View>
