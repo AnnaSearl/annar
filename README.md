@@ -38,7 +38,6 @@ Import style
 
 ```js
 // app.js
-
 import 'anna-remax-ui/esm/style/anna.scss'
 ```
 
