@@ -1,7 +1,6 @@
 node_modules/
 cjs/
 esm/
-dist/
 package-lock.json
 yarn.lock
 .umi/
