@@ -5,7 +5,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
 .#{$tag-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
-  margin-right: 14rpx;
+  margin-right: 14px;
   &:nth-last-child(1){
     margin-right: 0;
   }
@@ -15,46 +15,46 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
     // type
     color: #333;
     background-color: #F4F4F4;
-    border: 2rpx solid #F4F4F4;
+    border: 2px solid #F4F4F4;
     // size
-    height: 44rpx;
-    line-height: 42rpx;
-    padding: 0 14rpx;
-    border-radius: 8rpx;
-    font-size: 24rpx;
+    height: 44px;
+    line-height: 42px;
+    padding: 0 14px;
+    border-radius: 8px;
+    font-size: 24px;
   }
   &-small{
-    height: 40rpx;
-    line-height: 38rpx;
-    padding: 0 12rpx;
-    border-radius: 6rpx;
-    font-size: 22rpx;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 22px;
   }
   &-large{
-    height: 52rpx;
-    line-height: 50rpx;
-    padding: 0 20rpx;
-    border-radius: 8rpx;
-    font-size: 24rpx;
+    height: 52px;
+    line-height: 50px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-size: 24px;
   }
   &-info{
     color: #1890FF;
     background-color: #e6f7ff;
-    border: 2rpx solid #91d5ff;
+    border: 2px solid #91d5ff;
   }
   &-success{
     color: #52c41a;
     background-color: #f6ffed;
-    border: 2rpx solid #b7eb8f;
+    border: 2px solid #b7eb8f;
   }
   &-error{
     color: #f5222d;
     background-color: #fff1f0;
-    border: 2rpx solid #ffa39e;
+    border: 2px solid #ffa39e;
   }
   &-checked{
     color: #FDFFFD;
     background-color: #1890FF;
-    border: 2rpx solid #1890FF;
+    border: 2px solid #1890FF;
   }
 }

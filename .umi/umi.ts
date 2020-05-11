@@ -18,7 +18,7 @@ const getClientRender = (args: { hot?: boolean } = {}) => plugin.applyPlugins({
       plugin,
       history: createHistory(args.hot),
       rootElement: 'root',
-      defaultTitle: '',
+      defaultTitle: 'Anna Remax UI',
     });
   },
   args,
@@ -29,7 +29,7 @@ export default clientRender();
 
 
     window.g_umi = {
-      version: '3.1.1',
+      version: '3.1.3',
     };
   
 

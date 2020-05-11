@@ -28,9 +28,9 @@ const Checkbox = (props: CheckboxProps) => {
     <View className={prefixCls} style={style}>
       <View className={`${prefixCls}-container`} onTap={handleClick}>
         {checked ? (
-          <Icon type="roundcheckfill" size="48rpx" color="#1890FF" />
+          <Icon type="roundcheckfill" size="48px" color="#1890FF" />
         ) : (
-          <Icon type="round" size="48rpx" color="#999" />
+          <Icon type="round" size="48px" color="#999" />
         )}
         <View className={`${prefixCls}-container-label`}>{label}</View>
       </View>

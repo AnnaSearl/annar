@@ -1,0 +1,24 @@
+@import '../../../../components/style/theme.scss';
+
+.app{
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  width: 720px;
+  min-height: 1280px;
+  background: #FDFFFD;
+  overflow: scroll;
+  border-radius: 16px;
+  box-shadow: #EEE 0 8px 24px;
+  .title{
+    box-sizing: border-box;
+    height: 112px;
+    line-height: 112px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    color: #FDFFFD;
+  }
+  .content{
+    
+  }
+}

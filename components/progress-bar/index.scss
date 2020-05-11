@@ -3,7 +3,7 @@
 $progress_bar-prefix-cls: #{$anna-prefix}-progress_bar;
 
 
-$height: 50rpx;
+$height: 50px;
 
 .#{$progress_bar-prefix-cls} {
   position: relative;
@@ -16,7 +16,7 @@ $height: 50rpx;
   // line-height: $height;
   border-radius: $height;
   overflow: hidden;
-  font-size: 24rpx;
+  font-size: 24px;
   &-node{
     box-sizing: border-box;
     flex: 1;

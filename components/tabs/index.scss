@@ -8,22 +8,22 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       position: relative;
       display: flex;
       justify-content: center;
-      margin-bottom: 10rpx;
-      font-size: 26rpx;
+      margin-bottom: 10px;
+      font-size: 26px;
       &-bg{
-        padding: 6rpx;
+        padding: 6px;
         background-color: #EDEDED;
-        border-radius: 72rpx;
+        border-radius: 72px;
         &-container{
           display: flex;
           justify-content: center;
-          height: 60rpx;
-          line-height: 60rpx;
+          height: 60px;
+          line-height: 60px;
           overflow: hidden;
           position: relative;
           z-index: 0;
           &-title{
-            width: 140rpx;
+            width: 140px;
             text-align: center;
           }
           &-active{
@@ -32,30 +32,30 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
             background-color: $view-bg-color;
             width: 50%;
             height: 100%;
-            border-radius: 60rpx;
+            border-radius: 60px;
             z-index: -1;
             transform: translateX(0);
             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           }
         }
         &-square{
-          border-radius: 16rpx;
+          border-radius: 16px;
           .#{$tabs-prefix-cls}-header-titles-bg-container-active{
-            border-radius: 12rpx;
+            border-radius: 12px;
           }
         }
       }
     }
     &-titles-plain{
       display: flex;
-      margin-bottom: 10rpx;
+      margin-bottom: 10px;
       &-title{
         box-sizing: border-box;
         position: relative;
-        height: 72rpx;
-        line-height: 72rpx;
+        height: 72px;
+        line-height: 72px;
         white-space: nowrap;
-        margin-right: 50rpx;
+        margin-right: 50px;
         color: #000;
       }
       &-title-active{
@@ -65,8 +65,8 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
           left: 0;
           bottom: 0;
           content: '';
-          height: 6rpx;
-          border-radius: 6rpx;
+          height: 6px;
+          border-radius: 6px;
           width: 100%;
           background-color: #1890FF;
           transform: scale(0.5, 1);
@@ -78,15 +78,15 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       box-sizing: border-box;
       display: flex;
       border: 1PX solid #1890FF;
-      margin-bottom: 10rpx;
-      font-size: 28rpx;
-      border-radius: 12rpx;
+      margin-bottom: 10px;
+      font-size: 28px;
+      border-radius: 12px;
       overflow: hidden;
       &-title{
         flex: 1;
         box-sizing: border-box;
-        height: 56rpx;
-        line-height: 56rpx;
+        height: 56px;
+        line-height: 56px;
         white-space: nowrap;
         color: #1890FF;
         text-align: center;

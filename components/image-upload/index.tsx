@@ -112,18 +112,18 @@ const ImageUpload = (props: ImageUploadProps) => {
           {deletable ? (
             <View className={`${prefixCls}-item-delete`}>
               <View
-                style={{ height: '24rpx' }}
+                style={{ height: '24px' }}
                 onTap={e => {
                   handleDelete(e, index);
                 }}
               >
                 <Icon
                   type="close"
-                  size="24rpx"
+                  size="24px"
                   color="#FDFFFD"
                   style={{
-                    width: '24rpx',
-                    height: '24rpx',
+                    width: '24px',
+                    height: '24px',
                     verticalAlign: 'text-top',
                   }}
                 />

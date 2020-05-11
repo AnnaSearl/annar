@@ -79,7 +79,7 @@ const Result = (props: ResultProps) => {
           icon
         ) : (
           <View className={`${prefixCls}-icon-status`}>
-            <Icon type={iconObj.name} color={iconObj.color} size="168rpx" />
+            <Icon type={iconObj.name} color={iconObj.color} size="168px" />
           </View>
         )}
       </View>

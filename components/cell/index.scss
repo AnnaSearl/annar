@@ -4,15 +4,15 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
 
 .#{$cell-prefix-cls} {
   position: relative;
-  padding: 20rpx 32rpx;
-  font-size: 28rpx;
-  line-height: 48rpx;
+  padding: 20px 32px;
+  font-size: 28px;
+  line-height: 48px;
   background-color: $view-bg-color;
   margin-bottom: 1PX;
   &-verticality{
     &-label{
       color: $font-color-1;
-      padding-bottom: 20rpx;
+      padding-bottom: 20px;
     }
     &-value{
       color: $font-color-3;
@@ -37,10 +37,10 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
           align-items: center;
           &-required{
             color: #f5222d;
-            margin-right: 4rpx;
+            margin-right: 4px;
           }
           &-value{
-            margin-right: 20rpx;
+            margin-right: 20px;
           }
         }
       }
@@ -58,14 +58,14 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
       }
     }
     &-description{
-      margin-top: 10rpx;
-      font-size: 24rpx;
+      margin-top: 10px;
+      font-size: 24px;
       color: $font-color-3;
     }
   }
   &-border{
     position: absolute;
-    left: 32rpx;
+    left: 32px;
     right: 0;
     bottom: -1PX;
     height: 1PX;

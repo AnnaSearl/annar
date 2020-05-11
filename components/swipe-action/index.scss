@@ -6,7 +6,7 @@ $swipe_action-prefix-cls: #{$anna-prefix}-swipe_action;
   overflow: hidden;
   &-container{
     position: relative;
-    font-size: 30rpx;
+    font-size: 30px;
     font-weight: 400;
     transition: all 0.3s;
     &-actions{
@@ -16,10 +16,10 @@ $swipe_action-prefix-cls: #{$anna-prefix}-swipe_action;
       left: 100%;
       background-color: #FFFFFF;
       color: #FFFFFF;
-      font-size: 40rpx;
+      font-size: 40px;
       display: flex;
       &-action{
-        padding: 0 34rpx;
+        padding: 0 34px;
         background-color: #ff0000;
         display: flex;
         justify-content: center;

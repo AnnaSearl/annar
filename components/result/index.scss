@@ -5,39 +5,39 @@ $result-prefix-cls: #{$anna-prefix}-result;
 .#{$result-prefix-cls} {
   box-sizing: border-box;
   height: 100vh;
-  padding: 100rpx 30rpx;
+  padding: 100px 30px;
   background-color: #FDFFFD;
   &-icon{
-    margin-bottom: 48rpx;
+    margin-bottom: 48px;
     text-align: center;
     &-status{
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 144rpx;
-      height: 144rpx;
+      width: 144px;
+      height: 144px;
       border-radius: 50%;
     }
   }
   &-title{
     color: #333;
-    font-size: 48rpx;
+    font-size: 48px;
     line-height: 1.8;
     text-align: center;
   }
   &-sub_title{
     color: #999;
-    font-size: 28rpx;
+    font-size: 28px;
     line-height: 1.6;
     text-align: center;
   }
   &-content{
-    margin-top: 48rpx;
-    padding: 24rpx 40rpx;
+    margin-top: 48px;
+    padding: 24px 40px;
     background-color: #fafafa;
   }
   &-extra{
-    margin-top: 64rpx;
+    margin-top: 64px;
     text-align: center;
   }
 }

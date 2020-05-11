@@ -5,18 +5,18 @@ $rate-prefix-cls: #{$anna-prefix}-rate;
 .#{$rate-prefix-cls} {
   display: flex;
   align-items: center;
-  padding-bottom: 30rpx;
+  padding-bottom: 30px;
   &:nth-last-child(1){
     padding-bottom: 0;
   }
   &-label{
-    padding-right: 40rpx;
+    padding-right: 40px;
   }
   &-value{
     flex: 1;
     display: flex;
     &-star{
-      margin-right: 30rpx;
+      margin-right: 30px;
       &:nth-last-child(1){
         margin-right: 0;
       }

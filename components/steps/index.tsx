@@ -48,7 +48,7 @@ const Steps = (props: StepsProps): React.ReactElement => {
             {index === 0 ? (
               <View className={`${prefixCls}-circle_current`}>
                 <Text className={`${prefixCls}-circle_current-icon`}>
-                  <Icon type="roundcheckfill" size="40rpx" color="#1890FF" />
+                  <Icon type="roundcheckfill" size="40px" color="#1890FF" />
                 </Text>
               </View>
             ) : (
@@ -78,9 +78,9 @@ const Steps = (props: StepsProps): React.ReactElement => {
         >
           <View className={`${prefixCls}_horizontal-step-container`}>
             <View className={`${prefixCls}_horizontal-step-container-icon`}>
-              {index < current ? <Icon type="roundcheckfill" size="40rpx" color="#1890FF" /> : null}
+              {index < current ? <Icon type="roundcheckfill" size="40px" color="#1890FF" /> : null}
               {index === current ? (
-                <Icon type={statusIconType} size="40rpx" color={statusIconColor} />
+                <Icon type={statusIconType} size="40px" color={statusIconColor} />
               ) : null}
               {index > current ? (
                 <View className={`${prefixCls}_horizontal-step-container-icon-default`}>

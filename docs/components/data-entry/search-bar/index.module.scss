@@ -1,0 +1,21 @@
+.app {
+  padding-top: 30px;
+  .extra{
+    color: #1890FF;
+  }
+  .group{
+    margin-bottom: 30px;
+    .title{
+      height: 88px;
+      line-height: 86px;
+      color: #FDFFFD;
+      font-size: 32px;
+      font-weight: 500;
+      padding-left: 24px;
+    }
+    .content{
+      // background-color: #FDFFFD;
+      margin: 0 24px
+    }
+  }
+}

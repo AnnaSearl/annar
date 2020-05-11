@@ -44,7 +44,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
     plain,
   } = props;
 
-  const handleClick = () => {
+  const handleTap = () => {
     if (disabled) {
       return;
     }
@@ -70,12 +70,12 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-loading`]: loading,
         [`${prefixCls}-disabled`]: disabled,
       })}
-      onTap={handleClick}
+      onTap={handleTap}
       style={style}
     >
       {loading ? (
         <View className={`${prefixCls}-loading-icon`}>
-          <Loading color="#FDFFFD" radius="36rpx" style={{ verticalAlign: 'text-top' }} />
+          <Loading color="#FDFFFD" radius="36px" style={{ verticalAlign: 'text-top' }} />
         </View>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>

@@ -100,7 +100,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                     className={`${prefixCls}-header-titles-bg-container-title`}
                     style={{
                       fontWeight: activeTab === item.key ? 500 : 400,
-                      width: `${tabTitleWidth}rpx`,
+                      width: `${tabTitleWidth}px`,
                     }}
                     onTap={() => {
                       handleTabClick(item);

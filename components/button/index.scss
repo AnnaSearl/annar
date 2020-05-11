@@ -2,42 +2,41 @@
 
 $button-prefix-cls: #{$anna-prefix}-button;
 
-$large-height: 80rpx;
+$large-height: 80px;
 
 .#{$button-prefix-cls} {
   position: relative;
   box-sizing: border-box;
   display: inline-block;
-  padding: 0 32rpx;
+  padding: 0 32px;
   background-color: $btn-bg-color;
-  height: 64rpx;
-  line-height: 60rpx;
+  height: 64px;
+  line-height: 60px;
   border: 1PX solid $btn-bg-color;
-  border-radius: 64rpx;
+  border-radius: 64px;
   color: $color-brand;
   font-weight: 500;
-  font-size: 28rpx;
+  font-size: 28px;
   text-align: center;
   transition: opacity .2s, padding .3s cubic-bezier(.645,.045,.355,1);
   &-small{
-    font-size: 24rpx;
-    padding: 0 24rpx;
-    height: 48rpx;
-    line-height: 44rpx;
-    border-radius: 52rpx;
-    font-size: 24rpx;
+    font-size: 24px;
+    padding: 0 24px;
+    height: 48px;
+    line-height: 44px;
+    border-radius: 52px;
   }
   &-large{
-    padding: 0 40rpx;
-    height: 80rpx;
-    line-height: 76rpx;
-    border-radius: 80rpx;
+    padding: 0 40px;
+    height: 80px;
+    line-height: 76px;
+    border-radius: 80px;
   }
   &-superlarge{
-    font-size: 30rpx;
-    height: 84rpx;
-    line-height: 80rpx;
-    border-radius: 84rpx;
+    font-size: 30px;
+    height: 84px;
+    line-height: 80px;
+    border-radius: 84px;
   }
   &-primary{
     border-color: $color-brand;
@@ -51,11 +50,11 @@ $large-height: 80rpx;
     background-color: transparent;
   }
   &-square{
-    padding: 0 30rpx;
-    border-radius: 12rpx;
+    padding: 0 30px;
+    border-radius: 12px;
   }
   &-square.#{$button-prefix-cls}-small {
-    padding: 0 14rpx;
+    padding: 0 14px;
   }
   &-disabled{
     opacity: 0.4;
@@ -74,17 +73,17 @@ $large-height: 80rpx;
   }
   &-loading{
     opacity: 0.4;
-    padding-left: 32rpx + 36rpx + 16rpx;
+    padding-left: 32px + 36px + 16px;
     // 用flex布局使icon和text垂直居中会导致移动端动画不渲染的问题，故改为verticalAlign
     >text:nth-last-child(1){
-      // margin-left: 16rpx;
+      // margin-left: 16px;
       // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);
     }
   }
   &-loading-icon{ //微信小程序text标签下包含view标签导致loading不显示
     display: inline;
-    padding-right: 16rpx;
-    margin-left: -36rpx - 16rpx;
+    padding-right: 16px;
+    margin-left: -36px - 16px;
     // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);
   }
 }
@@ -97,7 +96,7 @@ $large-height: 80rpx;
     display: inline-block;
     width: 200%;
     height: 200%;
-    font-size: 28rpx * 2;
+    font-size: 28px * 2;
     transform: scale(0.5);
     transform-origin: 0 0;
     text-align: center;

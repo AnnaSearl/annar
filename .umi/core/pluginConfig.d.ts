@@ -48,7 +48,19 @@ export interface IConfigFromPlugins {
   base?: string;
   chainWebpack?: () => any;
   chunks?: string[];
-  cssLoader?: {};
+  /**
+   * more css-loader options see https://webpack.js.org/loaders/css-loader/#options
+   */
+  cssLoader?: {
+    url?: boolean | (() => any);
+    import?: boolean | (() => any);
+    modules?: boolean | string | {};
+    sourceMap?: boolean;
+    importLoaders?: number;
+    onlyLocals?: boolean;
+    esModule?: boolean;
+    localsConvention?: "asIs" | "camelCase" | "camelCaseOnly" | "dashes" | "dashesOnly";
+  };
   cssModulesTypescriptLoader?: {
     mode?: "emit" | "verify";
   };
@@ -101,7 +113,7 @@ export interface IConfigFromPlugins {
   mpa?: {};
   nodeModulesTransform?: {
     type?: "all" | "none";
-    exclude?: any[];
+    exclude?: string[];
   };
   outputPath?: "";
   plugins?: string[];
@@ -115,7 +127,27 @@ export interface IConfigFromPlugins {
   targets?: {};
   terserOptions?: {};
   theme?: {};
-  forkTSCheker?: {};
+  /**
+   * More options see https://www.npmjs.com/package/fork-ts-checker-webpack-plugin#options
+   */
+  forkTSChecker?: {
+    /**
+     * Path to tsconfig.json file
+     */
+    tsconfig?: string;
+    /**
+     * Allows overriding TypeScript options. Should be specified in the same format as you would do for the compilerOptions property in tsconfig.json.
+     */
+    compilerOptions?: {};
+    eslint?: boolean;
+    eslintOptions?: {};
+    async?: boolean;
+    ignoreDiagnostics?: number[];
+    formatter?: any;
+    formatterOptions?: {};
+    silent?: boolean;
+    checkSyntacticErrors?: boolean;
+  };
   favicon?: string;
   headScripts?: any[];
   links?: any[];
@@ -133,5 +165,12 @@ export interface IConfigFromPlugins {
   menus?: {};
   navs?: any[] | {};
   resolve?: {};
+  sass?: {
+    implementation?: any;
+    sassOptions?: {};
+    prependData?: string | (() => any);
+    sourceMap?: boolean;
+    webpackImporter?: boolean;
+  };
   [k: string]: any;
 }

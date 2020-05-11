@@ -43,7 +43,7 @@ const DateTime = (props: DateTimeProps) => {
   return (
     <View
       style={{
-        height: '42rpx',
+        height: '42px',
       }}
       onTap={handleClick}
     >

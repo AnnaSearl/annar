@@ -6,7 +6,7 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
   display: flex;
   text-align: left;
   &-parent{
-    width: 280rpx;
+    width: 280px;
     background-color: #F6F6F6;
   }
   &-children{
@@ -15,45 +15,45 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
   &-option{
     position: relative;
     box-sizing: border-box;
-    padding-left: 30rpx;
-    height: 88rpx;
-    line-height: 88rpx;
-    font-size: 28rpx;
+    padding-left: 30px;
+    height: 88px;
+    line-height: 88px;
+    font-size: 28px;
     color: #666;
     &-rounded_bottom{
       position: absolute;
-      bottom: -12rpx;
+      bottom: -12px;
       right: 0;
-      width: 12rpx;
-      height: 12rpx;
+      width: 12px;
+      height: 12px;
       background-color: #FDFFFD;
       overflow: hidden;
       &-circle{
         position: absolute;
-        width: 24rpx;
-        height: 24rpx;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
-        left: -12rpx;
-        right: -12rpx;
+        left: -12px;
+        right: -12px;
         background-color: #F6F6F6;
       }
     }
     &-rounded_top{
       position: absolute;
-      top: -12rpx;
+      top: -12px;
       right: 0;
-      width: 12rpx;
-      height: 12rpx;
+      width: 12px;
+      height: 12px;
       background-color: #FDFFFD;
       overflow: hidden;
       transform: rotate(90deg);
       &-circle{
         position: absolute;
-        width: 24rpx;
-        height: 24rpx;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
-        left: -12rpx;
-        right: -12rpx;
+        left: -12px;
+        right: -12px;
         background-color: #F6F6F6;
       }
     }

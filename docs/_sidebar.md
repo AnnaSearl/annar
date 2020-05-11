@@ -1,6 +1,0 @@
-- [介绍]()
-- 组件
-  - 通用
-    - [按钮 Button](components/common/button.md)
-  - 组件
-    - [输入框 Input](components/form/input.md)

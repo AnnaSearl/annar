@@ -8,29 +8,29 @@ $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100rpx;
-    font-size: 24rpx;
+    height: 100px;
+    font-size: 24px;
     color: #333;
     background-color: #FDFFFD;
     &-disabled{
       opacity: 0.4;
     }
     &-text{
-      margin-right: 10rpx;
+      margin-right: 10px;
     }
     &-chevronUp{
       width: 0;
       height: 0;
-      border-left: 8rpx solid transparent;
-      border-right: 8rpx solid transparent;
-      border-bottom: 10rpx solid #CCCCCC;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 10px solid #CCCCCC;
     }
     &-chevronDown{
       width: 0;
       height: 0;
-      border-left: 8rpx solid transparent;
-      border-right: 8rpx solid transparent;
-      border-top: 10rpx solid #CCCCCC;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid #CCCCCC;
     }
   }
   &-value{

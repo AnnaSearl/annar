@@ -107,7 +107,7 @@ const SearchBar = (props: SearchBarProps) => {
           })}
         >
           <View className={`${prefixCls}-input-synthetic-icon`}>
-            <Icon type="search" size={`${iconSize}rpx`} color="#999" />
+            <Icon type="search" size={`${iconSize}px`} color="#999" />
           </View>
           <View
             className={`${prefixCls}-input-synthetic-placeholder`}
@@ -132,7 +132,7 @@ const SearchBar = (props: SearchBarProps) => {
         <View className={`${prefixCls}-input-clear`} onTap={handleClear}>
           <Icon
             type="roundclosefill"
-            size={`${iconSize}rpx`}
+            size={`${iconSize}px`}
             color="#999"
             style={{
               visibility: value ? 'visible' : 'hidden',

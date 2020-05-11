@@ -16,7 +16,7 @@ export interface LoadingProps {
 }
 
 const Loading = (props: LoadingProps) => {
-  const { style, type, color = '#999', gapColor = '#FDFFFD', radius = '42rpx' } = props;
+  const { style, type, color = '#999', gapColor = '#FDFFFD', radius = '42px' } = props;
 
   if (type === 'gap') {
     return (
@@ -25,7 +25,7 @@ const Loading = (props: LoadingProps) => {
         style={{
           height: radius,
           width: radius,
-          border: `2rpx solid ${color}`,
+          border: `2px solid ${color}`,
         }}
       >
         <View

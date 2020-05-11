@@ -6,10 +6,10 @@ $loading-prefix-cls: #{$anna-prefix}-loading;
   box-sizing: border-box;
   position: relative;
   display: inline-block;
-  width: 42rpx;
-  height: 42rpx;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 2rpx solid #999;
+  border: 2px solid #999;
   background-color: transparent;
   animation: loading .6s linear infinite;
   overflow: hidden;
@@ -18,8 +18,8 @@ $loading-prefix-cls: #{$anna-prefix}-loading;
     left: 50%;
     right: 0;
     top: 50%;
-    margin-top: -5rpx;
-    height: 10rpx;
+    margin-top: -5px;
+    height: 10px;
     background-color: #FDFFFD;
   }
 }
@@ -27,10 +27,10 @@ $loading-prefix-cls: #{$anna-prefix}-loading;
 .#{$loading-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
-  width: 50rpx;
-  height: 50rpx;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 2rpx solid #FDFFFD;
+  border: 2px solid #FDFFFD;
   border-bottom-color: transparent;
   animation: loading .5s linear infinite;
 }

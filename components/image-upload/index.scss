@@ -4,15 +4,15 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
 
 .#{$image-upload-prefix-cls} {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 170rpx);
-  row-gap: 20rpx;
-  column-gap: 20rpx;
+  grid-template-columns: repeat(auto-fill, 170px);
+  row-gap: 20px;
+  column-gap: 20px;
   &-add{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 170rpx;
-    border-radius: 10rpx;
+    height: 170px;
+    border-radius: 10px;
     background-color: #F7F7F7;
   }
   &-item{
@@ -20,8 +20,8 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 170rpx;
-    border-radius: 10rpx;
+    height: 170px;
+    border-radius: 10px;
     background-color: #e8e8e8;
     overflow: hidden;
     &-delete{
@@ -29,10 +29,10 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 5rpx;
-      right: 5rpx;
-      width: 30rpx;
-      height: 30rpx;
+      top: 5px;
+      right: 5px;
+      width: 30px;
+      height: 30px;
       background-color: #999;
       opacity: 0.8;
       border-radius: 50%;

@@ -1,0 +1,11 @@
+.app {
+  padding: 30px;
+  .group{
+    >view{
+      margin-right: 24px;
+    }
+    >div{
+      margin-right: 24px;
+    }
+  }
+}

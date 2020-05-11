@@ -10,17 +10,17 @@ $popup-prefix-cls: #{$anna-prefix}-popup;
     bottom: 0;
     z-index: 1000;
     background-color: #FDFFFD;
-    border-radius: 20rpx 20rpx 0 0;
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
     transform: translate3d(0, 100%, 0);
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     &-close{
       position: absolute;
-      top: 20rpx;
-      right: 20rpx;
+      top: 20px;
+      right: 20px;
     }
     &-title{
-      padding: 30rpx 0;
+      padding: 30px 0;
       text-align: center;
       color: #000;
     }

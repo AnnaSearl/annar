@@ -155,7 +155,7 @@ const Cascade = (props: CascadeProps) => {
                     <View
                       className={`${prefixCls}-selected-options-step-container-content-main-right-arrow`}
                     >
-                      <Icon type="right" size="24rpx" color="#999" />
+                      <Icon type="right" size="24px" color="#999" />
                     </View>
                   </View>
                 </View>
@@ -170,7 +170,7 @@ const Cascade = (props: CascadeProps) => {
           className={`${prefixCls}-showed-options`}
           scrollTop={scrollTop}
           style={{
-            height: `calc(${height} - ${h + 80}rpx)`,
+            height: `calc(${height} - ${h + 80}px)`,
           }}
         >
           <View className={`${prefixCls}-showed-options-title`}>{`选择${name}`}</View>

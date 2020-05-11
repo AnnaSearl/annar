@@ -42,7 +42,7 @@ const Popup = (props: PopupProps): React.ReactElement => {
               onClose?.();
             }}
           >
-            <Icon type="close" size="40rpx" color="#999" />
+            <Icon type="close" size="40px" color="#999" />
           </View>
         ) : null}
       </View>

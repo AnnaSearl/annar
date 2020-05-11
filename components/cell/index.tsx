@@ -75,7 +75,7 @@ const Cell = (props: ItemProps) => {
                 <Text className={`${prefixCls}-container-main-left-label-required`}>*</Text>
               ) : null}
               {icon ? (
-                <Icon type={icon} size="32px" style={{ marginRight: '10rpx' }} color="#333" />
+                <Icon type={icon} size="32px" style={{ marginRight: '10px' }} color="#333" />
               ) : null}
               {label ? (
                 <Text className={`${prefixCls}-container-main-left-label-value`} style={labelStyle}>
@@ -88,7 +88,7 @@ const Cell = (props: ItemProps) => {
             <View className={`${prefixCls}-container-main-right-value`} style={valueStyle}>
               {children || children === 0 ? children : defaultNullValue}
             </View>
-            {arrow ? <Icon type="right" style={{ marginLeft: '10rpx' }} color="#666" /> : null}
+            {arrow ? <Icon type="right" style={{ marginLeft: '10px' }} color="#666" /> : null}
           </View>
         </View>
         {description ? (

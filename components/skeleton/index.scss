@@ -4,26 +4,26 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
 
 .#{$skeleton-prefix-cls} {
   &-container{
-    padding: 20rpx 0;
+    padding: 20px 0;
     background-color: $view-bg-color;
     visibility: visible;
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     &-image{
-      height: 750rpx;
+      height: 750px;
       background-color: $btn-bg-color;
-      margin-bottom: 30rpx;
+      margin-bottom: 30px;
     }
     &-avatar{
-      margin: 0 20rpx;
+      margin: 0 20px;
       display: flex;
-      margin-bottom: 30rpx;
+      margin-bottom: 30px;
       &-left{
-        width: 120rpx;
-        height: 120rpx;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         background-color: $btn-bg-color;
-        margin-right: 30rpx;
+        margin-right: 30px;
       }
       &-right{
         flex: 1;
@@ -31,9 +31,9 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
         flex-direction: column;
         justify-content: flex-end;
         &-text{
-          height: 32rpx;
+          height: 32px;
           background-color: $btn-bg-color;
-          margin-bottom: 30rpx;
+          margin-bottom: 30px;
           &:nth-last-child(1){
             margin-bottom: 0;
           }
@@ -41,17 +41,17 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
       }
     }
     &-title{
-      margin-left: 20rpx;
-      height: 32rpx;
-      width: 300rpx;
+      margin-left: 20px;
+      height: 32px;
+      width: 300px;
       background-color: $btn-bg-color;
-      margin-bottom: 30rpx;
+      margin-bottom: 30px;
     }
     &-row{
-      margin: 0 20rpx;
-      height: 32rpx;
+      margin: 0 20px;
+      height: 32px;
       background-color: $btn-bg-color;
-      margin-bottom: 30rpx;
+      margin-bottom: 30px;
     }
   }
   

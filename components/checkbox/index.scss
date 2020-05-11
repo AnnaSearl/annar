@@ -4,8 +4,8 @@ $checkbox-prefix-cls: #{$anna-prefix}-checkbox;
 
 .#{$checkbox-prefix-cls} {
   display: inline-block;
-  margin-right: 30rpx;
-  font-size: 28rpx;
+  margin-right: 30px;
+  font-size: 28px;
   &:nth-last-child(1){
     margin-right: 0;
   }
@@ -13,12 +13,12 @@ $checkbox-prefix-cls: #{$anna-prefix}-checkbox;
     display: flex;
     align-items: center;
     &-icon{
-      font-size: 48rpx;
-      width: 48rpx;
-      height: 48rpx;
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
     }
     &-label{
-      margin-left: 20rpx;
+      margin-left: 20px;
       color: #333;
       white-space: nowrap;
     }

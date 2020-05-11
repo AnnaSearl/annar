@@ -43,7 +43,7 @@ const Dropdown = (props: DropdownProps) => {
             {item.value}
             {item.key === value ? (
               <View className={`${prefixCls}-content-option-check`}>
-                <Icon type="check" size="28rpx" color={activeColor} />
+                <Icon type="check" size="28px" color={activeColor} />
               </View>
             ) : null}
           </View>
