@@ -11,6 +11,7 @@
     "mini-program",
     "wechat"
   ],
+  "homepage": "https://annasearl.github.io/anna-remax-ui",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "npm run build:esm && npm run build:web",
