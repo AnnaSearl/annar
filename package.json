@@ -28,7 +28,9 @@
     "commit": "sh shell/commit.sh",
     "lint": "eslint components --fix --ext .ts,.tsx",
     "gdocs": "gulp",
-    "docs": "dumi dev"
+    "docs": "dumi dev",
+    "docs:build": "dumi build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -75,6 +77,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
     "eslint-plugin-unicorn": "^19.0.1",
+    "gh-pages": "^2.2.0",
     "gulp": "^4.0.2",
     "gulp-typedoc": "^2.2.4",
     "html-webpack-plugin": "^4.3.0",
