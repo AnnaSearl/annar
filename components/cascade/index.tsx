@@ -11,10 +11,17 @@ import './index.scss';
 
 const prefixCls = getPrefixCls('cascade');
 
+export interface OptionProps {
+  key: string;
+  value: string;
+  parentKey: string;
+  children?: OptionProps[];
+}
+
 export interface CascadeProps {
   name?: string;
-  value: any[];
-  options: any[];
+  value: OptionProps[];
+  options: OptionProps[];
   height?: string;
   className?: string;
   prompt?: (e: any) => string;
@@ -51,8 +58,8 @@ const Cascade = (props: CascadeProps) => {
       flag = false;
       const item = value[value.length - 1];
       onComplete?.(value, {
-        id: item.id,
-        value: item.name,
+        key: item.key,
+        value: item.value,
       });
     }
   }, [value, sign]);
@@ -60,11 +67,11 @@ const Cascade = (props: CascadeProps) => {
   const handleClick = async (i: any) => {
     let nextValue = [];
     const nextOption = {
-      id: i.id,
-      name: i.name,
-      parentId: i.parentId,
+      key: i.key,
+      value: i.value,
+      parentKey: i.parentKey,
     };
-    if (value.length > 0 && value[value.length - 1].parentId === i.parentId) {
+    if (value.length > 0 && value[value.length - 1].parentKey === i.parentKey) {
       nextValue = [...value.slice(0, value.length - 1), nextOption];
     } else {
       nextValue = [...value, nextOption];
@@ -73,10 +80,10 @@ const Cascade = (props: CascadeProps) => {
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
-    if (i.childrenNode) {
-      setShowedOptions(i.childrenNode);
+    if (i.children) {
+      setShowedOptions(i.children);
     }
-    if (!i.childrenNode) {
+    if (!i.children) {
       flag = true;
       setSign(true);
     }
@@ -88,8 +95,8 @@ const Cascade = (props: CascadeProps) => {
       const item = data[i];
       if (id === item.id) {
         r = data;
-      } else if (item.childrenNode) {
-        r = getMatchLevelOptions(id, item.childrenNode);
+      } else if (item.children) {
+        r = getMatchLevelOptions(id, item.children);
       }
       if (r) {
         return r;
@@ -121,7 +128,7 @@ const Cascade = (props: CascadeProps) => {
       <View className={`${prefixCls}-selected-options`}>
         {value.map((item, index) => (
           <View
-            key={item.id}
+            key={item.key}
             className={`${prefixCls}-selected-options-step`}
             onTap={() => {
               handleReChoose(item, index);
@@ -142,7 +149,7 @@ const Cascade = (props: CascadeProps) => {
                   <View
                     className={`${prefixCls}-selected-options-step-container-content-main-left`}
                   >
-                    {item.name}
+                    {item.value}
                   </View>
                   <View
                     className={`${prefixCls}-selected-options-step-container-content-main-right`}
@@ -176,13 +183,13 @@ const Cascade = (props: CascadeProps) => {
           <View className={`${prefixCls}-showed-options-title`}>{`选择${name}`}</View>
           {showedOptions.map(i => (
             <View
-              key={i.id}
+              key={i.key}
               className={`${prefixCls}-showed-options-category`}
               onTap={() => {
                 handleClick(i);
               }}
             >
-              {i.name}
+              {i.value}
             </View>
           ))}
         </ScrollView>

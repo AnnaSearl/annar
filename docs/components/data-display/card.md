@@ -1,18 +1,18 @@
 ---
 title: Card
-order: 1
+order: 5
 group:
   title: Data Display
   order: 2
 ---
 
- Card
+## Card
 
 Demo:
 
 <code src="./card/index.tsx" />
 
- API
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |

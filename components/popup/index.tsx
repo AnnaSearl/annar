@@ -16,10 +16,26 @@ export interface PopupProps {
   onClose?: () => void;
   closeable?: boolean;
   title?: React.ReactNode;
+  position?: string;
+  style?: React.CSSProperties;
+  mask?: boolean;
+  square?: boolean;
+  curve?: string;
 }
 
 const Popup = (props: PopupProps): React.ReactElement => {
-  const { open = false, children, onClose, closeable, title } = props;
+  const {
+    open = false,
+    children,
+    onClose,
+    closeable,
+    title,
+    position = 'bottom',
+    style,
+    mask = true,
+    square,
+    curve,
+  } = props;
 
   const handleClickMask = () => {
     onClose?.();
@@ -30,8 +46,15 @@ const Popup = (props: PopupProps): React.ReactElement => {
       <View
         className={classNames({
           [`${prefixCls}-container`]: true,
-          [`${prefixCls}-container_active`]: open,
+          [`${prefixCls}-container-bottom`]: position === 'bottom',
+          [`${prefixCls}-container-top`]: position === 'top',
+          [`${prefixCls}-container-left`]: position === 'left',
+          [`${prefixCls}-container-right`]: position === 'right',
+          [`${prefixCls}-container-ease`]: curve === 'ease',
+          [`${prefixCls}-container-square`]: square,
+          [`${prefixCls}-container-active`]: open,
         })}
+        style={style}
       >
         {title ? <View className={`${prefixCls}-container-title`}>{title}</View> : null}
         {children}
@@ -46,7 +69,7 @@ const Popup = (props: PopupProps): React.ReactElement => {
           </View>
         ) : null}
       </View>
-      <Mask show={open} onTap={handleClickMask} />
+      {mask ? <Mask show={open} onTap={handleClickMask} /> : null}
     </View>
   );
 };

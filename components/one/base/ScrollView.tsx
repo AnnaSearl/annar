@@ -5,6 +5,8 @@ import { ScrollView as WechatScrollView } from 'remax/wechat';
 // 自定义 Props
 type Props = any;
 
+console.log('process.env.REMAX_PLATFORM', process.env.REMAX_PLATFORM);
+
 export default function ScrollView(props: Props) {
   switch (process.env.REMAX_PLATFORM) {
     case 'ali':
@@ -12,6 +14,6 @@ export default function ScrollView(props: Props) {
     case 'wechat':
       return <WechatScrollView {...props} />;
     default:
-      return <WechatScrollView {...props} />;
+      return <div {...props} />;
   }
 }

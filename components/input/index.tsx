@@ -13,7 +13,6 @@ export interface InputProps {
   label?: React.ReactNode;
   name?: string;
   type?: 'text' | 'number';
-  unit?: string;
   placeholder?: string;
   value?: string;
   className?: string;

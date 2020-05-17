@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { View } from 'remax/one';
-import Icon from '../icon';
 import { getPrefixCls } from '../common';
 import './index.scss';
 
@@ -35,17 +34,12 @@ const Dropdown = (props: DropdownProps) => {
               item.key === value
                 ? {
                     color: activeColor,
-                    borderBottom: `1px solid ${activeColor}`,
+                    fontWeight: 500,
                   }
                 : undefined
             }
           >
             {item.value}
-            {item.key === value ? (
-              <View className={`${prefixCls}-content-option-check`}>
-                <Icon type="check" size="28px" color={activeColor} />
-              </View>
-            ) : null}
           </View>
         ))}
       </View>

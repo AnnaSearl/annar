@@ -21,7 +21,7 @@ const Loading = (props: LoadingProps) => {
   if (type === 'gap') {
     return (
       <View
-        className={`${prefixCls}_gap`}
+        className={`${prefixCls}-gap`}
         style={{
           height: radius,
           width: radius,
@@ -29,11 +29,31 @@ const Loading = (props: LoadingProps) => {
         }}
       >
         <View
-          className={`${prefixCls}_gap-gap`}
+          className={`${prefixCls}-gap-fill`}
           style={{
             backgroundColor: gapColor,
           }}
         />
+      </View>
+    );
+  }
+  if (type === 'wave') {
+    return (
+      <View className={`${prefixCls}-wave`}>
+        <View style={{ backgroundColor: color }} />
+        <View style={{ backgroundColor: color }} />
+        <View style={{ backgroundColor: color }} />
+        <View style={{ backgroundColor: color }} />
+        <View style={{ backgroundColor: color }} />
+      </View>
+    );
+  }
+  if (type === 'anna') {
+    return (
+      <View className={`${prefixCls}-anna`}>
+        <View style={{ backgroundColor: color }} />
+        <View style={{ backgroundColor: color }} />
+        <View style={{ backgroundColor: color }} />
       </View>
     );
   }

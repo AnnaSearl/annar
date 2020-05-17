@@ -73,7 +73,9 @@ const InternalFilter = (props: FilterProps) => {
 
   return (
     <View className={prefixCls} style={filterStyle}>
-      <View className={`${prefixCls}-items`}>{filterItems}</View>
+      <View className={`${prefixCls}-content`} style={{ height: showMask ? '100%' : '100px' }}>
+        <View className={`${prefixCls}-items`}>{filterItems}</View>
+      </View>
       <Mask
         show={showMask}
         onTap={hanldeTapMask}

@@ -135,6 +135,12 @@ $steps_horizontal-prefix-cls: #{$steps-prefix-cls}_horizontal;
             border-radius: 50%;
             background-color: rgba(0,0,0,.25);
           }
+          >div{
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.25);
+          }
         }
       }
       &-content{

@@ -24,8 +24,8 @@ export interface TabProps {
   children?: React.ReactNode;
   headerStyle?: React.CSSProperties;
   extra?: React.ReactNode;
-  tabTitleWidth?: number;
-  tabTitleSquare?: boolean;
+  titleWidth?: number;
+  titleSquare?: boolean;
 }
 
 export interface TabContentProps {
@@ -45,8 +45,8 @@ const Tabs = (props: TabProps): React.ReactElement => {
     children,
     headerStyle,
     extra,
-    tabTitleWidth = 140,
-    tabTitleSquare,
+    titleWidth,
+    titleSquare,
   } = props;
 
   const getTabIndex = () => {
@@ -90,7 +90,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
             <View
               className={classNames({
                 [`${prefixCls}-header-titles-bg`]: true,
-                [`${prefixCls}-header-titles-bg-square`]: tabTitleSquare,
+                [`${prefixCls}-header-titles-bg-square`]: titleSquare,
               })}
             >
               <View className={`${prefixCls}-header-titles-bg-container`}>
@@ -98,10 +98,12 @@ const Tabs = (props: TabProps): React.ReactElement => {
                   <View
                     key={item.key}
                     className={`${prefixCls}-header-titles-bg-container-title`}
-                    style={{
-                      fontWeight: activeTab === item.key ? 500 : 400,
-                      width: `${tabTitleWidth}px`,
-                    }}
+                    style={
+                      {
+                        fontWeight: activeTab === item.key ? 500 : 400,
+                        width: titleWidth ? `${titleWidth}px` : null,
+                      } as React.CSSProperties
+                    }
                     onTap={() => {
                       handleTabClick(item);
                     }}

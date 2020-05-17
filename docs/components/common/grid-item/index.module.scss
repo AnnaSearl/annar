@@ -1,0 +1,22 @@
+.gridItem{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #FDFFFD;
+  overflow: hidden;
+  .name{
+    font-size: 24px;
+    margin-top: 14px;
+    color: #000;
+  }
+}
+
+
+// .container {
+//   display: grid;
+//   grid-template-columns: repeat(3,calc(100wh / 3));
+//   grid-template-rows:calc(100wh / 3);
+// }

@@ -9,6 +9,8 @@
   overflow: scroll;
   border-radius: 16px;
   box-shadow: #EEE 0 8px 24px;
+  transform: translateZ(0); // 利用CSS3的transform使fixed相对于app定位
+  -webkit-transform: translateZ(0);
   .title{
     box-sizing: border-box;
     height: 112px;
@@ -21,4 +23,8 @@
   .content{
     
   }
+}
+
+.padding{
+  padding: 28px;
 }

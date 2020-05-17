@@ -1,7 +1,7 @@
 import { createBrowserHistory } from '/Users/chenjiawen/personal/component/anna-remax-ui/node_modules/@umijs/runtime';
 
 let options = {
-  "basename": "/"
+  "basename": "/anna-remax-ui"
 };
 if ((<any>window).routerBase) {
   options.basename = (<any>window).routerBase;

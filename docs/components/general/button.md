@@ -4,13 +4,13 @@ group:
   order: 0
 ---
 
- Button
+## Button
 
 Demo:
 
 <code src="./button/index.tsx" />
 
- API
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |

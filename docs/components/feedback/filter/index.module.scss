@@ -1,0 +1,36 @@
+.custom{
+  .tags{
+    padding: 30px 24px;
+    .tag{
+      margin-bottom: 30px;
+      .title{
+        font-size: 26px;
+        margin-bottom: 10px;
+        color: #999;
+      }
+    }
+  }
+  .action{
+    height: 88px;
+    display: flex;
+    background-color: rgba(0,0,0,0.3);
+    .btn{
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      font-weight: 400;
+    }
+    .reset{
+      background-color: #FFFFFF;
+      border-top: 1px solid #e8e8e8;
+      border-bottom-left-radius: 14px;
+    }
+    .complete{
+      background-color: #1890ff;
+      color: #FFFFFF;
+      border-bottom-right-radius: 14px;
+    }
+  }
+}

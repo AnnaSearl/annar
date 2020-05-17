@@ -11,6 +11,8 @@ $input-prefix-cls: #{$anna-prefix}-input;
   width: 100%;
   color: $font-color-1;
   background-color: $view-bg-color;
+  outline: none;  
+  border: none;
   &-align {
     &-right{
       text-align: right;

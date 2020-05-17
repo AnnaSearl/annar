@@ -1,17 +1,12 @@
 .grid{
+  box-sizing: border-box;
+  padding-left: 10px;
   display: grid;
-  grid-template-columns: repeat(3, 25%);
-  row-gap: 20px;
-  column-gap: 20px;
-  .item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 170px;
-    border-radius: 10px;
-    background-color: #e8e8e8;
-    overflow: hidden;
-  }
+  grid-template-columns: repeat(auto-fill, calc(33.3333% - 10px));
+  grid-template-rows: 200px;
+  grid-auto-rows: 200px;
+  row-gap: 10px;
+  column-gap: 10px;
 }
 
 

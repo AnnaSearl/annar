@@ -19,6 +19,7 @@ export interface TextareaProps {
   autoHeight?: boolean;
   showCount?: boolean;
   controlled?: boolean;
+  rows?: number;
   onChange?: (e: any) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
@@ -36,6 +37,7 @@ const Textarea = (props: TextareaProps) => {
     focus,
     autoHeight,
     showCount,
+    rows = 3,
     controlled = false,
     onChange,
     onFocus,
@@ -70,6 +72,7 @@ const Textarea = (props: TextareaProps) => {
         onFocus={onFocus}
         onBlur={onBlur}
         onConfirm={onConfirm}
+        rows={rows}
       />
     </View>
   );

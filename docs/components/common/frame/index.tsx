@@ -9,19 +9,21 @@ export interface BlockProps {
   className?: string;
   grayBg?: boolean;
   padding?: boolean;
+  style?: React.CSSProperties;
 }
 
 const Frame = (props: BlockProps) => {
-  const { title, children, className = '', grayBg, padding } = props;
+  const { title, children, className = '', grayBg, padding, style } = props;
 
   return (
     <View
       className={classNames({
         [styles.app]: true,
         [className]: true,
+        [styles.padding]: padding,
       })}
       style={{
-        padding: padding ? '15px' : 0,
+        ...style,
         backgroundColor: grayBg ? '#F2F2F2' : '#FDFFFD',
       }}
     >

@@ -9,7 +9,7 @@ export default () => {
 
   return (
     <Frame padding>
-      <Block title="Basic">
+      <Block noTitlePadding title="Basic">
         <SearchBar
           placeholder="搜索"
           value={value}
@@ -17,7 +17,7 @@ export default () => {
           onClear={() => setValue('')}
         />
       </Block>
-      <Block title="Show action button">
+      <Block noTitlePadding title="Show action button">
         <SearchBar
           placeholder="搜索"
           keepShowActionButton
@@ -26,7 +26,7 @@ export default () => {
           onClear={() => setValue1('')}
         />
       </Block>
-      <Block title="Custom action text">
+      <Block noTitlePadding title="Custom action text">
         <SearchBar
           placeholder="搜索"
           actionName="搜索"
@@ -37,12 +37,12 @@ export default () => {
           onActionClick={() => console.log('action')}
         />
       </Block>
-      <Block title="Size">
+      <Block noTitlePadding title="Size">
         <SearchBar size="large" placeholder="large" style={{ marginBottom: '30px' }} />
         <SearchBar placeholder="default" style={{ marginBottom: '30px' }} />
         <SearchBar size="small" placeholder="small" />
       </Block>
-      <Block title="Custom input style">
+      <Block noTitlePadding title="Custom input style">
         <SearchBar
           placeholder="搜索"
           inputStyle={{

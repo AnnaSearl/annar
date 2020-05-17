@@ -1,17 +1,18 @@
 ---
 title: SearchBar
+order: 25
 group:
   title: Data Entry
   order: 1
 ---
 
- SearchBar
+## SearchBar
 
 Demo:
 
 <code src="./search-bar/index.tsx" />
 
- API
+## API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |

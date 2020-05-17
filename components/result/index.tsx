@@ -60,7 +60,7 @@ export interface ResultProps {
 }
 
 const Result = (props: ResultProps) => {
-  const { status, title, subTitle, extra, children, icon, height } = props;
+  const { status = 'info', title, subTitle, extra, children, icon, height } = props;
 
   let isCustomIcon = false;
   let iconObj = getIconNameByStatus(status);

@@ -9,16 +9,16 @@ import './index.scss';
 const prefixCls = getPrefixCls('checkbox');
 
 export interface CheckboxProps {
-  label?: React.ReactNode;
   checked?: boolean;
   value?: string;
   extra?: React.ReactNode;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
   onChange?: (e: any, v?: any) => void;
 }
 
 const Checkbox = (props: CheckboxProps) => {
-  const { label, checked, value, extra, style, onChange } = props;
+  const { children, checked, value, extra, style, onChange } = props;
 
   const handleClick = () => {
     onChange?.(!checked, value);
@@ -32,7 +32,7 @@ const Checkbox = (props: CheckboxProps) => {
         ) : (
           <Icon type="round" size="48px" color="#999" />
         )}
-        <View className={`${prefixCls}-container-label`}>{label}</View>
+        <View className={`${prefixCls}-container-label`}>{children}</View>
       </View>
       <View className={`${prefixCls}-extra`}>{extra}</View>
     </View>

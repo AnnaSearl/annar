@@ -1,8 +1,9 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
-import { useEffect } from 'react';
 
 export default defineConfig({
+  publicPath: '/anna-remax-ui/',
+  base: '/anna-remax-ui',
   title: 'Anna Remax UI',
   mode: 'site',
   logo: 'https://smebimage.fuliaoyi.com/FoMXNlKdZt9UqufDkPony8ztWKsU',
@@ -11,6 +12,7 @@ export default defineConfig({
     null,
     { title: 'GitHub', path: 'https://github.com/AnnaSearl/anna-remax-ui' },
   ],
+  exportStatic: {},
   sass: {
     implementation: require('node-sass'),
   },
@@ -23,6 +25,12 @@ export default defineConfig({
   ],
   alias: {
     'anna-remax-ui': path.resolve(__dirname, 'docs-source'),
+  },
+  define: {
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      REMAX_PLATFORM: JSON.stringify("web"),
+    }
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     memo.module
@@ -48,5 +56,3 @@ export default defineConfig({
   }
 });
 
-
-useEffect

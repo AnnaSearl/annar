@@ -3,6 +3,7 @@
 $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
 
 .#{$filter-item-prefix-cls} {
+  overflow: hidden;
   flex: 1;
   &-label{
     display: flex;
@@ -34,12 +35,15 @@ $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
     }
   }
   &-value{
-    position: absolute;
-    top: 100px;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // overflow: hidden;
+    // transition: transform 0.2s ease;
+    // transform: translate3d(0, 0, 0);
     background-color: $view-bg-color;
+    max-height: 80vh;
+    z-index: -1;
   }
 }

@@ -1,0 +1,8 @@
+.item{
+  padding-bottom: 30px;
+  color: #666;
+  font-size: 28px;
+  &:nth-last-child(1){
+    padding-bottom: 0;
+  }
+}
