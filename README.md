@@ -41,6 +41,21 @@ Import style
 import 'anna-remax-ui/esm/style/anna.scss'
 ```
 
+配置 sass
+```js
+// package.json
+添加依赖 @remax/plugin-sass
+npm install @remax/plugin-sass -D
+
+// remax.config.js
+配置@remax/plugin-sass
+const sass = require('@remax/plugin-sass');
+module.exports = {
+  ..., //其他配置项
+  plugins: [sass()],
+}
+```
+
 ## 关于 Anna Remax UI
 
 代码由个人维护，谨慎入坑哦～
