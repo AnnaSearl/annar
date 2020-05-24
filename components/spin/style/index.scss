@@ -1,0 +1,30 @@
+@import '../../style/theme/index';
+
+$spin-prefix-cls: #{$anna-prefix}-spin;
+
+.#{$spin-prefix-cls} {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-loading{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    border-bottom-color: transparent;
+    animation: loading .5s linear infinite;
+    margin: 0 auto;
+  }
+  &-default{
+    width: 50px;
+    height: 50px;
+  }
+  @keyframes loading {
+    from {
+       transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
-import './index.scss';
+// import './index.scss';
 
 const prefixCls = getPrefixCls('result');
 

@@ -1,0 +1,28 @@
+@import '../../style/theme/index';
+
+$images-prefix-cls: #{$anna-prefix}-images;
+
+.#{$images-prefix-cls} {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 170px);
+  row-gap: 20px;
+  column-gap: 20px;
+  &-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+  }
+  &-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+    border-radius: 10px;
+    background-color: #e8e8e8;
+    overflow: hidden;
+    >image{
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import '../../style/theme/index';
+
+$dropdown-prefix-cls: #{$anna-prefix}-dropdown;
+
+.#{$dropdown-prefix-cls} {
+  &-content{
+    padding-left: 40px;
+    &-option{
+      height: 88px;
+      line-height: 88px;
+      font-size: 26px;
+      color: #666;
+      border-bottom: 1px solid #EEEEEE;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:nth-last-child(1){
+        border-bottom: none;
+      }
+      &-check{
+        display: flex;
+        align-items: center;
+        padding-right: 40px;
+        padding-top: 28px;
+      }
+    }
+  }
+}

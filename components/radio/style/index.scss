@@ -1,0 +1,42 @@
+@import '../../style/theme/index';
+
+$radio-prefix-cls: #{$anna-prefix}-radio;
+
+.#{$radio-prefix-cls} {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 28px;
+  &:nth-last-child(1){
+    margin-right: 0;
+  }
+  &-container{
+    display: flex;
+    align-items: center;
+    &-not_checked{
+      box-sizing: border-box;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid #999;
+    }
+    &-checked{
+      box-sizing: border-box;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #1890FF;
+      padding: 7px;
+      &-round_fill{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #1890FF;
+      }
+    }
+    &-children{
+      margin-left: 20px;
+      color: #333;
+      white-space: nowrap;
+    }
+  }
+}

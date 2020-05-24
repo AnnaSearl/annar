@@ -3,8 +3,7 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
 import { View } from 'remax/one';
-import { datePicker } from '../one/api';
-import showToast from '../one/api/showToast';
+import { datePicker, showToast } from '../one/api';
 import { to, sync } from '../_util';
 
 export interface DateTimeProps {

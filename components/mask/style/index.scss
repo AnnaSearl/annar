@@ -1,0 +1,20 @@
+@import '../../style/theme/index';
+
+$mask-prefix-cls: #{$anna-prefix}-mask;
+
+.#{$mask-prefix-cls} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); // 必须用 all (包含visibility和opacity)，少任何一个都会有问题。
+}
+.#{$mask-prefix-cls}_active{
+  opacity: 1;
+  visibility: visible;
+}

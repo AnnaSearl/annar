@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
-import './index.scss';
+// import './index.scss';
 
 const prefixCls = getPrefixCls('cascade');
 

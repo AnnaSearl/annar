@@ -7,7 +7,7 @@ import { ScrollView } from '../one/base';
 import Dropdown, { OptionProps } from '../dropdown';
 import Popup from '../popup';
 import { getPrefixCls } from '../common';
-import './item.scss';
+// import './item.scss';
 
 const prefixCls = getPrefixCls('filter-item');
 

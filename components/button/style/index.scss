@@ -1,0 +1,118 @@
+@import '../../style/theme/index';
+
+$button-prefix-cls: #{$anna-prefix}-button;
+
+$large-height: 80px;
+
+.#{$button-prefix-cls} {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 32px;
+  background-color: $btn-bg-color;
+  height: 64px;
+  line-height: 60px;
+  border: 1PX solid $btn-bg-color;
+  border-radius: 64px;
+  color: $color-brand;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+  transition: opacity .2s, padding .3s cubic-bezier(.645,.045,.355,1);
+  &-small{
+    font-size: 24px;
+    padding: 0 24px;
+    height: 48px;
+    line-height: 44px;
+    border-radius: 52px;
+  }
+  &-large{
+    padding: 0 40px;
+    height: 80px;
+    line-height: 76px;
+    border-radius: 80px;
+  }
+  &-superlarge{
+    font-size: 30px;
+    height: 84px;
+    line-height: 80px;
+    border-radius: 84px;
+  }
+  &-primary{
+    border-color: $color-brand;
+    background-color: $color-brand;
+    color: $view-bg-color;
+  }
+  &-plain{
+    font-weight: 400;
+    color: #666;
+    border: 1PX solid #d9d9d9;
+    background-color: transparent;
+  }
+  &-square{
+    padding: 0 30px;
+    border-radius: 12px;
+  }
+  &-square.#{$button-prefix-cls}-small {
+    padding: 0 14px;
+  }
+  &-disabled{
+    opacity: 0.4;
+    color: hsla(0,0%,100%,.6) !important;
+  }
+  &-danger-default{
+    color: $color-danger;
+  }
+  &-danger{
+    border-color: $color-danger;
+    background-color: $color-danger;
+    color: $view-bg-color;
+  }
+  &-block{
+    width: 100%;
+  }
+  &-loading{
+    opacity: 0.4;
+    padding-left: 32px + 36px + 16px;
+    // 用flex布局使icon和text垂直居中会导致移动端动画不渲染的问题，故改为verticalAlign
+    >text:nth-last-child(1){
+      // margin-left: 16px;
+      // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);
+    }
+  }
+  &-loading-icon{ //微信小程序text标签下包含view标签导致loading不显示
+    display: inline;
+    padding-right: 16px;
+    margin-left: -36px - 16px;
+    // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);
+  }
+}
+
+.widthfixbutton{
+  height: $large-height;
+  display: inline-block;
+  overflow: hidden;
+  .default{
+    display: inline-block;
+    width: 200%;
+    height: 200%;
+    font-size: 28px * 2;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    text-align: center;
+  }
+  .large{
+    line-height: $large-height * 2;
+    border-radius: $large-height * 2;
+  }
+  .primary{
+    background-color: $color-brand;
+    color: $view-bg-color;
+  }
+  .disabled{
+    opacity: 0.4;
+    color: hsla(0,0%,100%,.6) !important;
+  }
+}
+
+

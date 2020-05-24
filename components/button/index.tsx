@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { tuple } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
-import './index.scss';
+// import './index.scss';
 
 const prefixCls = getPrefixCls('button');
 
@@ -25,7 +25,7 @@ export interface ButtonProps {
   loading?: boolean;
   loadingText?: string;
   plain?: boolean;
-  onTap?: () => void;
+  onTap?: (e: any) => void;
 }
 
 const Button = (props: ButtonProps): React.ReactElement => {
@@ -44,14 +44,14 @@ const Button = (props: ButtonProps): React.ReactElement => {
     plain,
   } = props;
 
-  const handleTap = () => {
+  const handleTap = (e: any) => {
     if (disabled) {
       return;
     }
     if (loading) {
       return;
     }
-    onTap?.();
+    onTap?.(e);
   };
 
   return (

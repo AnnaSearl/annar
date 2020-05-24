@@ -6,3 +6,4 @@ package-lock.json
 yarn.lock
 .umi/
 docs-source/
+report.html

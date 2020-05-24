@@ -1,0 +1,60 @@
+@import '../../style/theme/index';
+
+$tag-prefix-cls: #{$anna-prefix}-tag;
+
+.#{$tag-prefix-cls} {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 14px;
+  &:nth-last-child(1){
+    margin-right: 0;
+  }
+  &-default{
+    box-sizing: border-box;
+    display: inline-block;
+    // type
+    color: #333;
+    background-color: #F4F4F4;
+    border: 2px solid #F4F4F4;
+    // size
+    height: 44px;
+    line-height: 42px;
+    padding: 0 14px;
+    border-radius: 8px;
+    font-size: 24px;
+  }
+  &-small{
+    height: 40px;
+    line-height: 38px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 22px;
+  }
+  &-large{
+    height: 52px;
+    line-height: 50px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-size: 24px;
+  }
+  &-info{
+    color: #1890FF;
+    background-color: #e6f7ff;
+    border: 2px solid #91d5ff;
+  }
+  &-success{
+    color: #52c41a;
+    background-color: #f6ffed;
+    border: 2px solid #b7eb8f;
+  }
+  &-error{
+    color: #f5222d;
+    background-color: #fff1f0;
+    border: 2px solid #ffa39e;
+  }
+  &-checked{
+    color: #FDFFFD;
+    background-color: #1890FF;
+    border: 2px solid #1890FF;
+  }
+}

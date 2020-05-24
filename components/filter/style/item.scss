@@ -1,0 +1,49 @@
+@import '../../style/theme/index';
+
+$filter-item-prefix-cls: #{$anna-prefix}-filter-item;
+
+.#{$filter-item-prefix-cls} {
+  overflow: hidden;
+  flex: 1;
+  &-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 24px;
+    color: #333;
+    background-color: #FDFFFD;
+    &-disabled{
+      opacity: 0.4;
+    }
+    &-text{
+      margin-right: 10px;
+    }
+    &-chevronUp{
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 10px solid #CCCCCC;
+    }
+    &-chevronDown{
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid #CCCCCC;
+    }
+  }
+  &-value{
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // overflow: hidden;
+    // transition: transform 0.2s ease;
+    // transform: translate3d(0, 0, 0);
+    background-color: $view-bg-color;
+    max-height: 80vh;
+    z-index: -1;
+  }
+}

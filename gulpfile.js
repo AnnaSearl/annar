@@ -1,37 +1,50 @@
-const gulp = require('gulp')
-const typedoc = require('gulp-typedoc')
-const browserSync = require('browser-sync').create()
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const sass = require('gulp-sass');
+const through2 = require('through2');
 
-const runTypeDoc = () => gulp
-    .src(['components'])
-    .pipe(typedoc({
-        out: './docs',
-        // 这个文件里都是 export * from '...' 就没必要导出文档了 
-        exclude: [
-            'components/index.ts',
-            'components/_util/*.ts',
-            'components/one/**/*'
-        ],
-        tsconfig: 'tsconfig.json',
-    }))
 
-const reload = (done) => {
-    browserSync.reload()
-    done()
+const cssInjection = (content) => {
+  return content
+    .replace(/\/style\/?'/g, "/style/css'")
+    .replace(/\/style\/?"/g, '/style/css"')
+    .replace(/\.scss/g, '.css');
 }
 
-const runBrowserSync = (done) => {
-    browserSync.init({
-        server: {
-            baseDir: './docs',
-        },
-    })
-    done()
+const generateEsm = () => {
+
+  return gulp.src('components/**/*.{ts,tsx}')
+  .pipe(babel())
+  .pipe(
+    through2.obj(function (file, encoding, next) {
+      this.push(file.clone());
+      // 找到目标
+      if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
+        const content = file.contents.toString(encoding);
+        file.contents = Buffer.from(cssInjection(content)); // 文件内容处理
+        file.path = file.path.replace(/index\.js/, 'css.js'); // 文件重命名
+        this.push(file); // 新增该文件
+        next();
+      } else {
+        next();
+      }
+    }),
+  )
+  .pipe(gulp.dest("esm"))
 }
 
-const watch = () => gulp.watch(
-    ['README.md', 'components/**/*.ts'],
-    gulp.series(runTypeDoc, reload)
-)
+const scss2css = () => {
+  
+  return gulp.src('components/**/*.scss')
+  .pipe(sass().on('error', sass.logError))
+  .pipe(gulp.dest("esm"))
+}
 
-gulp.task('default', gulp.series(runTypeDoc, runBrowserSync, watch))
+const copyScss = () => {
+  
+  return gulp
+    .src('components/**/*.scss')
+    .pipe(gulp.dest("esm"));
+}
+
+exports.default = gulp.parallel(generateEsm, scss2css, copyScss);

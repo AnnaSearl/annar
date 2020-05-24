@@ -5,7 +5,7 @@ import { View } from 'remax/one';
 import Mask from '../mask';
 import FilterItem from './item';
 import { getPrefixCls } from '../common';
-import './filter.scss';
+// import './filter.scss';
 
 const prefixCls = getPrefixCls('filter');
 

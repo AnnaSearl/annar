@@ -1,7 +1,11 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const merge = require('webpack-merge');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const WebpackBar = require('webpackbar');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const pkg = require('./package.json');
 
 const replaces = [
   { search: /<View/g, replace: '<div' },
@@ -11,12 +15,14 @@ const replaces = [
   { search: /onTap/g, replace: 'onClick' },
 ];
 
-module.exports = {
-  mode: 'development',
-  entry: './components/index.ts',
+
+const entry = ['./index'];
+const libName = "anna";
+
+const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].js',
     library: 'anna',
     libraryTarget: 'umd',
   },
@@ -34,16 +40,22 @@ module.exports = {
       amd: 'react-dom',
     },
     'lodash-es': {
+      root: '_',
       commonjs: 'lodash-es',
       commonjs2: 'lodash-es',
       amd: 'lodash-es',
-      root: '_',
+    },
+    'remax': {
+      root: 'Remax',
+      commonjs: 'remax',
+      commonjs2: 'remax',
+      amd: 'remax',
     },
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: './dist',
     port: 8080,
@@ -60,13 +72,14 @@ module.exports = {
           },
           {
             loader: 'ts-loader',
+            options: { configFile: 'tsconfig.json' },
           },
-          {
-            loader: 'string-replace-loader',
-            options: {
-              multiple: replaces,
-            },
-          },
+          // {
+          //   loader: 'string-replace-loader',
+          //   options: {
+          //     multiple: replaces,
+          //   },
+          // },
         ],
       },
       {
@@ -108,9 +121,34 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new HtmlWebpackPlugin({
-      title: 'Anna Remax UI',
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    new WebpackBar({
+      name: '🚚  Anna Remax UI',
+      color: '#FF9999',
     }),
-    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: true,
+      reportFilename: '../report.html',
+    }),
+    // new HtmlWebpackPlugin({
+    //   title: 'Anna Remax UI',
+    // }),
   ],
-};
+}
+
+const uncompressedConfig = merge({}, config, {
+  mode: 'development',
+  entry: {
+    [libName]: entry,
+  },
+})
+
+const productionConfig = merge({}, config, {
+  mode: 'production',
+  entry: {
+    [`${libName}.min`]: entry,
+  },
+})
+
+module.exports = [productionConfig, uncompressedConfig];

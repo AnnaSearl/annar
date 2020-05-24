@@ -1,0 +1,77 @@
+@import '../../style/theme/index';
+
+$cell-prefix-cls: #{$anna-prefix}-cell;
+
+.#{$cell-prefix-cls} {
+  position: relative;
+  padding: 20px 32px;
+  font-size: 28px;
+  line-height: 48px;
+  background-color: $view-bg-color;
+  margin-bottom: 1PX;
+  &-verticality{
+    &-label{
+      color: $font-color-1;
+      padding-bottom: 20px;
+    }
+    &-value{
+      color: $font-color-3;
+    }
+  }
+  &-container{
+    &-main{
+      display: flex;
+      &-left{
+        box-sizing: border-box;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        &-input{
+          flex: none;
+        }
+        &-label{
+          box-sizing: border-box;
+          color: $font-color-1;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          &-required{
+            color: #f5222d;
+            margin-right: 4px;
+          }
+          &-value{
+            margin-right: 20px;
+          }
+        }
+      }
+      &-right{
+        flex: 1;
+        color: $font-color-3;
+        display: flex;
+        // align-items: flex-start;
+        align-items: center;
+        justify-content: flex-end;
+        &-value{
+          width: 100%;
+          text-align: right;
+        }
+      }
+    }
+    &-description{
+      margin-top: 10px;
+      font-size: 24px;
+      color: $font-color-3;
+    }
+  }
+  &-border{
+    position: absolute;
+    left: 32px;
+    right: 0;
+    bottom: -1PX;
+    height: 1PX;
+    background-color: #e8e8e8;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
+}

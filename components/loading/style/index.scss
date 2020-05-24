@@ -1,0 +1,137 @@
+@import '../../style/theme/index';
+
+$loading-prefix-cls: #{$anna-prefix}-loading;
+
+.#{$loading-prefix-cls} {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #FDFFFD;
+  border-bottom-color: transparent;
+  animation: loading .5s linear infinite;
+  &-gap{
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    background-color: transparent;
+    animation: loading .6s linear infinite;
+    overflow: hidden;
+    &-fill{
+      position: absolute;
+      left: 50%;
+      right: 0;
+      top: 50%;
+      margin-top: -5px;
+      height: 10px;
+      background-color: #FDFFFD;
+    }
+  }
+
+  &-wave view, &-wave div {
+    width: 6px;
+    height: 40px;
+    background-color: #999;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 6px;
+    &:nth-child(1) {
+      animation: loaderWave 0.5s -0.3s ease-in-out infinite alternate;
+    }
+    &:nth-child(2) {
+      animation: loaderWave 0.5s -0.25s ease-in-out infinite alternate;
+    }
+    &:nth-child(3) {
+      animation: loaderWave 0.5s -0.2s ease-in-out infinite alternate;
+    }
+    &:nth-child(4) {
+      animation: loaderWave 0.5s -0.1s ease-in-out infinite alternate;
+    }
+    &:nth-child(5) {
+      animation: loaderWave 0.5s 0s ease-in-out infinite alternate;
+      margin-right: 0;
+    }
+  }
+
+  &-anna {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+  &-anna view, &-anna div {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #999;
+    border-radius: 50%;
+    &:nth-child(1) {
+      left: -20px;
+      animation: loaderAnna-1 1.5s  ease-in-out infinite;
+    }
+    &:nth-child(2) {
+      top: -35px;
+      animation: loaderAnna-2 1.5s  ease-in-out infinite;
+    }
+    &:nth-child(3) {
+      left: 20px;
+      animation: loaderAnna-3 1.5s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderWave {
+  0% {
+    -webkit-transform: scale(1, 0.3);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
+
+@keyframes loaderAnna-1 {
+  33.333% {
+    -webkit-transform: translate(20px, -35px);
+  }
+  66.666% {
+    -webkit-transform: translate(40px, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes loaderAnna-2 {
+  33.333% {
+    -webkit-transform: translate(20px, 35px);
+  }
+  66.666% {
+    -webkit-transform: translate(-20px, 35px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes loaderAnna-3 {
+  33.333% {
+    -webkit-transform: translate(-40px, 0);
+  }
+  66.666% {
+    -webkit-transform: translate(-20px, -35px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}

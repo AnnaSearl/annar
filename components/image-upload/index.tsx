@@ -7,7 +7,7 @@ import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';
 import { getPrefixCls } from '../common';
 import Icon from '../icon';
-import './index.scss';
+// import './index.scss';
 
 const prefixCls = getPrefixCls('image-upload');
 

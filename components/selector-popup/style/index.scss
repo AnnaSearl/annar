@@ -1,0 +1,16 @@
+@import '../../style/theme/index';
+
+$selector-popup-prefix-cls: #{$anna-prefix}-selector-popup;
+
+.#{$selector-popup-prefix-cls} {
+  height: 100%;
+  width: 100%;
+  &-formitem{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    font-size: 26px;
+  }
+}

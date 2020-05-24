@@ -9,3 +9,4 @@ esm
 dist
 # don't lint gulpfile
 gulpfile.js
+webpack.config.js

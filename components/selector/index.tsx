@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
-import './index.scss';
+// import './index.scss';
 
 const prefixCls = getPrefixCls('selector');
 

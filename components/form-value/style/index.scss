@@ -1,0 +1,12 @@
+@import '../../style/theme/index';
+
+$form-value-prefix-cls: #{$anna-prefix}-form-value;
+
+.#{$form-value-prefix-cls} {
+  min-height: 42px;
+  font-size: 28px;
+  color: $font-color-1;
+  &-placeholder{
+    color: $font-color-2;
+  }
+}

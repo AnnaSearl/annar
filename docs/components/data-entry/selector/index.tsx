@@ -59,7 +59,7 @@ export default () => {
   };
 
   return (
-    <Frame grayBg>
+    <Frame grayBg style={{ overflow: 'hidden' }}>
       <Block title="Basic">
         <View style={{ backgroundColor: '#FDFFFD' }}>
           <Selector options={ReturnDeliveryWay} onChange={handleChange} value={selector.value} />

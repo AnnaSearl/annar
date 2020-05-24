@@ -5,7 +5,7 @@ import Popup from '../popup';
 import Selector from '../selector';
 import FormValue from '../form-value';
 import { getPrefixCls } from '../common';
-import './index.scss';
+// import './index.scss';
 
 const prefixCls = getPrefixCls('selector-popup');
 

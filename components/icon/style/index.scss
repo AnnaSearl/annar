@@ -1,0 +1,12 @@
+@import '../../style/theme/index';
+
+// @import '../style/iconfont/iconfont.scss';
+$icon-prefix-cls: #{$anna-prefix}-icon;
+
+.#{$icon-prefix-cls} {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  font-size: 28px;
+  color: #000;
+}
