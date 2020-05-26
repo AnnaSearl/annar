@@ -6,7 +6,6 @@ import { View, Input } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('search_bar');
 

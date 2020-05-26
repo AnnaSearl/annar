@@ -5,7 +5,6 @@ import { Input as AInput } from 'remax/one';
 import classNames from 'classnames';
 import Cell from '../cell';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('input');
 

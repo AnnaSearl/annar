@@ -4,7 +4,6 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import { getPrefixCls } from '../common';
 import Icon from '../icon';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('checkbox');
 

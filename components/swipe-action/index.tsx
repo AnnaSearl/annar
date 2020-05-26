@@ -8,7 +8,7 @@ import { View } from 'remax/one';
 import { createSelectorQuery } from '../one/api';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
-// import './index.scss';
+ 
 
 const prefixCls = getPrefixCls('swipe_action');
 

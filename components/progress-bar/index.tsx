@@ -5,7 +5,6 @@ import { View } from 'remax/one';
 import classNames from 'classnames';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('progress_bar');
 

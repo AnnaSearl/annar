@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('radio');
 

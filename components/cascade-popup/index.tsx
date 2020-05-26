@@ -7,7 +7,6 @@ import Popup from '../popup';
 import Icon from '../icon';
 import FormValue from '../form-value';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('cascade-popup');
 

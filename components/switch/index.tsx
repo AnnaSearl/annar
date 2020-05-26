@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { View } from 'remax/one';
 import { Checkbox } from '../one/base';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('switch');
 

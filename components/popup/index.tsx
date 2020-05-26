@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import Mask from '../mask';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('popup');
 

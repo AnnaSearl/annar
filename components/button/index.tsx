@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import { tuple } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('button');
 

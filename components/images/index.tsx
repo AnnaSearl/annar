@@ -4,7 +4,6 @@ import * as React from 'react';
 import { View, Image } from 'remax/one';
 import { previewImage } from '../one/api';
 import { getPrefixCls } from '../common';
-// import './index.scss';
 
 const prefixCls = getPrefixCls('images');
 
