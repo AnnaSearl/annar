@@ -21,24 +21,46 @@
 
 ## 安装
 
+```bash
 npm install anna-remax-ui
+```
 
-注意：需要 remax 和 remax-cli 的版本在1.19.0以上，低于1.19.0请 npm update remax remax-cli
+
+```bash
+yarn add anna-remax-ui
+```
 
 ## 使用
 
-Import component（注意由于remax 1.x版本的rollup chunk机制导致代码重复打包的问题，这里我们需要单独导入组件）
+> :warning: anna-remax-ui v1.6.0 为破坏性的更新，不再兼容以前的版本。
 
-```js
-import Button from 'anna-remax-ui/esm/button'
-import Cell from 'anna-remax-ui/esm/cell'
+```jsx
+import { Button } from 'anna-remax-ui'
+
+const App = () => (
+  <>
+    <Button>Click Anna</Button>
+  </>
+);
 ```
 
-Import style
+在 `app.js` 中引入样式：
 
-```js
-// app.js
-import 'anna-remax-ui/esm/style/anna.scss'
+```jsx
+import 'anna-remax-ui/dist/anna.css'
+```
+
+## 按需加载
+
+`anna-remax-ui` 的 JS 部分默认支持 tree shaking。
+
+CSS 部分需要在 `app.js` 中手动引入
+
+```jsx
+import 'anna-remax-ui/esm/button/style/css'
+
+// 如果你使用 sass，也可以这样引入
+import 'anna-remax-ui/esm/button/style'
 ```
 
 ## 关于 Anna Remax UI
