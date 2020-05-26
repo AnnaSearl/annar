@@ -128,7 +128,7 @@ const config = {
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      openAnalyzer: true,
+      openAnalyzer: false,
       reportFilename: '../report.html',
     }),
     // new HtmlWebpackPlugin({
@@ -142,6 +142,9 @@ const uncompressedConfig = merge({}, config, {
   entry: {
     [libName]: entry,
   },
+  optimization: {
+    usedExports: true,
+  }
 })
 
 const productionConfig = merge({}, config, {

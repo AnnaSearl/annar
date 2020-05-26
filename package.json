@@ -14,15 +14,12 @@
   ],
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "npm run build:esm && npm run build:web",
-    "build:web": "webpack",
-    "build:esm": "npm run clean && gulp",
-    "build:cjs": "tsc --module CommonJS --jsx react --outDir cjs",
+    "build": "npm run compile && npm run dist",
+    "dist": "webpack",
+    "compile": "gulp",
+    "precompile": "npm run clean",
     "watch:web": "webpack --watch",
-    "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w",
     "clean": "rimraf esm cjs",
-    "prebuild": "npm run clean",
     "pub": "sh shell/pub.sh",
     "commit": "sh shell/commit.sh",
     "lint": "eslint components --fix --ext .ts,.tsx",
@@ -36,7 +33,9 @@
   },
   "homepage": "https://annasearl.github.io/anna-remax-ui",
   "files": [
-    "esm"
+    "dist",
+    "esm",
+    "cjs"
   ],
   "sideEffects": [
     "dist/*",

@@ -1,6 +1,7 @@
 @import '../../style/theme/index';
+@import '../../style/iconfont/index';
 
-// @import '../style/iconfont/iconfont.scss';
+
 $icon-prefix-cls: #{$anna-prefix}-icon;
 
 .#{$icon-prefix-cls} {
