@@ -27,7 +27,7 @@
         "@babel/plugin-syntax-jsx"
       ]
     },
-    "cjs": {
+    "web": {
       "presets": [
         "@babel/preset-react"
       ]

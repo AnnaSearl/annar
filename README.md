@@ -32,7 +32,7 @@ yarn add anna-remax-ui
 
 ## 使用
 
-> :warning: anna-remax-ui v1.6.0 为破坏性的更新，不再兼容以前的版本。
+> :warning: `anna-remax-ui`  v1.6.0 为破坏性的更新，不再兼容以前的版本。
 
 ```jsx
 import { Button } from 'anna-remax-ui'

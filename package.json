@@ -2,10 +2,14 @@
   "name": "anna-remax-ui",
   "version": "1.6.0",
   "description": "基于remax的小程序UI库",
-  "main": "cjs/index.js",
+  "main": "web/index.js",
   "module": "esm/index.js",
   "keywords": [
+    "component",
+    "components",
     "react",
+    "react-component",
+    "ui",
     "remax",
     "remax-ui",
     "miniapp",
@@ -19,7 +23,7 @@
     "compile": "gulp",
     "precompile": "npm run clean",
     "watch:web": "webpack --watch",
-    "clean": "rimraf esm cjs",
+    "clean": "rimraf esm web",
     "pub": "sh shell/pub.sh",
     "commit": "sh shell/commit.sh",
     "lint": "eslint components --fix --ext .ts,.tsx",
@@ -35,10 +39,12 @@
   "files": [
     "dist",
     "esm",
-    "cjs"
+    "web"
   ],
   "sideEffects": [
     "dist/*",
+    "esm/**/style/*",
+    "web/**/style/*",
     "*.scss"
   ],
   "author": "Anna",
@@ -86,6 +92,7 @@
     "gh-pages": "^2.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.1.0",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.3",

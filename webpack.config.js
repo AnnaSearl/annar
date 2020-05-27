@@ -14,8 +14,6 @@ const replaces = [
   { search: /<\/Text>/g, replace: '</span>' },
   { search: /onTap/g, replace: 'onClick' },
 ];
-
-
 const entry = ['./index'];
 const libName = "anna";
 
@@ -69,17 +67,19 @@ const config = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              envName: "web"
+            }
           },
           {
             loader: 'ts-loader',
-            options: { configFile: 'tsconfig.json' },
           },
-          // {
-          //   loader: 'string-replace-loader',
-          //   options: {
-          //     multiple: replaces,
-          //   },
-          // },
+          {
+            loader: 'string-replace-loader',
+            options: {
+              multiple: replaces,
+            },
+          },
         ],
       },
       {

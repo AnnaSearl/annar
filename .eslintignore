@@ -5,6 +5,7 @@ node_modules
 scripts
 # don't lint build output (make sure it's set to your correct build folder name) 
 cjs
+web
 esm
 dist
 # don't lint gulpfile

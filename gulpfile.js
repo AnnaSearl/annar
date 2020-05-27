@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const sass = require('gulp-sass');
 const through2 = require('through2');
+const replace = require('gulp-replace');
 
 
 const cssInjection = (content) => {
@@ -35,12 +36,17 @@ const generateESM = () => {
   .pipe(gulp.dest("esm"))
 }
 
-const generateCJS = () => {
-  process.env.BABEL_ENV = "cjs";
+const generateWEB = () => {
+  process.env.BABEL_ENV = "web";
   return gulp.src('components/**/*.{ts,tsx}')
+  .pipe(replace(/<View/g, '<div'))
+  .pipe(replace(/<\/View>/g, '</div>'))
+  .pipe(replace(/<Text/g, '<span'))
+  .pipe(replace(/<\/Text>/g, '</span>'))
+  .pipe(replace(/onTap/g, 'onClick'))
   .pipe(babel())
   .pipe(transformIndexJs2CssJs())
-  .pipe(gulp.dest("cjs"))
+  .pipe(gulp.dest("web"))
 }
 
 const scss2css = () => {
@@ -48,7 +54,7 @@ const scss2css = () => {
   return gulp.src('components/**/*.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(gulp.dest("esm"))
-  .pipe(gulp.dest("cjs"))
+  .pipe(gulp.dest("web"))
 }
 
 const copyScss = () => {
@@ -56,9 +62,9 @@ const copyScss = () => {
   return gulp
     .src('components/**/*.scss')
     .pipe(gulp.dest("esm"))
-    .pipe(gulp.dest("cjs"))
+    .pipe(gulp.dest("web"))
 }
 
-const buildJs = gulp.series(generateESM, generateCJS);
+const buildJs = gulp.series(generateESM, generateWEB);
 
 exports.default = gulp.parallel(buildJs, scss2css, copyScss);
