@@ -4,20 +4,14 @@
 
 <h1 align="center">Anna Remax UI</h1>
 
-<div align="center">一款基于Remax框架开发的小程序UI组件库</div>
+<div align="center">一款优雅、简洁的 Remax 组件库</div>
 
 ## 特性
 
 - 基于 `Remax` 开发 UI 组件
-- 一套组件可以在 `微信小程序`，`支付宝小程序`，`钉钉小程序` 多端适配运行
-
-## 体验
-
-<img src="https://smebimage.fuliaoyi.com/FrWM_L5llswAfkEfefnXKEFJwutl">
-
-## 示例
-
-[Examples for Anna Remax UI](https://github.com/AnnaSearl/examples-anna-remax-ui)
+- 支持`微信` `支付宝` `钉钉` 小程序多端适配运行
+- 支持按需引入
+- 支持TypeScript
 
 ## 安装
 
@@ -63,16 +57,23 @@ import 'anna-remax-ui/esm/button/style/css'
 import 'anna-remax-ui/esm/button/style'
 ```
 
-## 关于 Anna Remax UI
+## 参与共建
 
-代码由个人维护，谨慎入坑哦～
+如果你有任何问题，可以提交issue给我们，我们也非常你欢迎加入 `Anna Remax UI` 的建设，向我们提交PR。
 
-我会不断完善目前的组件并加入新的组件，大家如果有什么问题或者建议可以踊跃提出哦
 
-如果有做的不好的地方请大家谅解，也请大家多多指教，在设计上和技术上提出更好的方案
+## 示例
 
-最后请路过的大佬们留下点建议吧哈哈哈
+[Examples for Anna Remax UI](https://github.com/AnnaSearl/examples-anna-remax-ui)
 
-给大佬们递🍵...
+
+## 体验
+
+<img src="https://smebimage.fuliaoyi.com/FrWM_L5llswAfkEfefnXKEFJwutl">
+
+
+## 钉钉交流群
+[](https://smebimage.fuliaoyi.com/FkXpYLyrhlx6aeNK0pvgv4FjBaHM)
+
 
 
