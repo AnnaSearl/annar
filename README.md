@@ -6,12 +6,14 @@
 
 <div align="center">一款优雅、简洁的 Remax 组件库</div>
 
+
 ## 特性
 
 - 基于 `Remax` 开发 UI 组件
 - 支持`微信` `支付宝` `钉钉` 小程序多端适配运行
 - 支持按需引入
 - 支持TypeScript
+
 
 ## 安装
 
@@ -73,7 +75,8 @@ import 'anna-remax-ui/esm/button/style'
 
 
 ## 钉钉交流群
-[](https://smebimage.fuliaoyi.com/FkXpYLyrhlx6aeNK0pvgv4FjBaHM)
+
+<img src="https://smebimage.fuliaoyi.com/FkXpYLyrhlx6aeNK0pvgv4FjBaHM">
 
 
 
