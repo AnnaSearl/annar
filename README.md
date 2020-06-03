@@ -61,7 +61,7 @@ import 'anna-remax-ui/esm/button/style'
 
 ## 参与共建
 
-如果你有任何问题，可以提交issue给我们，我们也非常你欢迎加入 `Anna Remax UI` 的建设，向我们提交PR。
+如果你有任何问题，可以提交issue给我们，我们也非常欢迎你加入 `Anna Remax UI` 的建设，向我们提交PR。
 
 
 ## 示例
