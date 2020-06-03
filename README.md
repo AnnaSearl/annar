@@ -76,7 +76,7 @@ import 'anna-remax-ui/esm/button/style'
 
 ## 钉钉交流群
 
-<img width="320" src="https://smebimage.fuliaoyi.com/FkXpYLyrhlx6aeNK0pvgv4FjBaHM">
+<img width="320" src="https://smebimage.fuliaoyi.com/Fujlyy93rYKOOCEHEusJtbKp6uIP">
 
 
 
