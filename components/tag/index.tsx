@@ -1,5 +1,3 @@
-/** @format */
-
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
@@ -20,22 +18,20 @@ const Tag = (props: TagProps): React.ReactElement => {
   const { type, size, className = '', style, children, onTap } = props;
 
   return (
-    <View className={prefixCls}>
-      <View
-        className={classNames({
-          [`${prefixCls}-default`]: true,
-          [`${prefixCls}-small`]: size === 'small',
-          [`${prefixCls}-large`]: size === 'large',
-          [`${prefixCls}-info`]: type === 'info',
-          [`${prefixCls}-success`]: type === 'success',
-          [`${prefixCls}-error`]: type === 'error',
-          [className]: true,
-        })}
-        style={style}
-        onTap={onTap}
-      >
-        {children}
-      </View>
+    <View
+      className={classNames({
+        [prefixCls]: true,
+        [`${prefixCls}-small`]: size === 'small',
+        [`${prefixCls}-large`]: size === 'large',
+        [`${prefixCls}-info`]: type === 'info',
+        [`${prefixCls}-success`]: type === 'success',
+        [`${prefixCls}-error`]: type === 'error',
+        [className]: true,
+      })}
+      style={style}
+      onTap={onTap}
+    >
+      {children}
     </View>
   );
 };

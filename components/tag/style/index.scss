@@ -5,23 +5,20 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
 .#{$tag-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
+  text-align: center;
+  // type
+  color: #333;
+  background-color: #F4F4F4;
+  border: 2px solid #F4F4F4;
+  // size
+  height: 44px;
+  line-height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 24px;
   margin-right: 14px;
   &:nth-last-child(1){
     margin-right: 0;
-  }
-  &-default{
-    box-sizing: border-box;
-    display: inline-block;
-    // type
-    color: #333;
-    background-color: #F4F4F4;
-    border: 2px solid #F4F4F4;
-    // size
-    height: 44px;
-    line-height: 42px;
-    padding: 0 14px;
-    border-radius: 8px;
-    font-size: 24px;
   }
   &-small{
     height: 40px;

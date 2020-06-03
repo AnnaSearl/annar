@@ -1,8 +1,6 @@
-/** @format */
-
 import * as React from 'react';
 import { View, Image } from 'remax/one';
-import { previewImage } from '../one/api';
+import { previewImage } from '../one';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('images');

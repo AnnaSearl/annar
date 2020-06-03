@@ -1,5 +1,5 @@
-export { default as ScrollView } from './ScrollView';
+export { default as ScrollView } from './scroll-view';
 
-export { default as Checkbox } from './Checkbox';
+export { default as Checkbox } from './checkbox';
 
-export { default as Picker } from './Picker';
+export { default as Picker } from './picker';

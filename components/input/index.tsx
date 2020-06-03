@@ -1,7 +1,5 @@
-/** @format */
-
 import * as React from 'react';
-import { Input as AInput } from 'remax/one';
+import { Input } from 'remax/one';
 import classNames from 'classnames';
 import Cell from '../cell';
 import { getPrefixCls } from '../common';
@@ -24,7 +22,7 @@ export interface InputProps {
   formatFunc?: (v?: string) => any;
 }
 
-const Input = (props: InputProps) => {
+const AInput = (props: InputProps) => {
   const {
     label,
     name,
@@ -58,7 +56,7 @@ const Input = (props: InputProps) => {
       icon={icon}
       field
     >
-      <AInput
+      <Input
         className={classNames({
           [prefixCls]: true,
           [`${prefixCls}-align-right`]: inputAlign === 'right',
@@ -76,4 +74,4 @@ const Input = (props: InputProps) => {
   );
 };
 
-export default Input;
+export default AInput;

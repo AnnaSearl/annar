@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState, useRef } from 'react';
 import { View } from 'remax/one';
 import Mask from '../mask';

@@ -1,5 +1,3 @@
-/** @format */
-
 import InternalFilter from './filter';
 import Item from './item';
 

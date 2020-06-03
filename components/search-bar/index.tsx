@@ -1,5 +1,3 @@
-/** @format */
-
 import * as React from 'react';
 import { useState } from 'react';
 import { View, Input } from 'remax/one';

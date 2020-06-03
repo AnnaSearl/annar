@@ -1,8 +1,6 @@
-/** @format */
-
 import * as React from 'react';
 import { View, Text } from 'remax/one';
-import { ScrollView } from '../one/base';
+import { ScrollView } from '../one';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';

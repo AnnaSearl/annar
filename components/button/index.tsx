@@ -1,15 +1,13 @@
-/** @format */
-
 import * as React from 'react';
-import { View, Text } from 'remax/one';
+import { View, Text, Button } from 'remax/one';
 import classNames from 'classnames';
-import { tuple } from '../_util';
+import { tuple, mergeStyle } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('button');
 
-const ButtonTypes = tuple('default', 'primary', 'simple');
+const ButtonTypes = tuple('default', 'primary');
 export type ButtonType = typeof ButtonTypes[number];
 
 export interface ButtonProps {
@@ -24,10 +22,13 @@ export interface ButtonProps {
   loading?: boolean;
   loadingText?: string;
   plain?: boolean;
+  hairline?: boolean;
+  color?: string;
   onTap?: (e: any) => void;
+  [restProps: string]: any;
 }
 
-const Button = (props: ButtonProps): React.ReactElement => {
+const AButton = (props: ButtonProps): React.ReactElement => {
   const {
     type,
     size,
@@ -41,6 +42,9 @@ const Button = (props: ButtonProps): React.ReactElement => {
     loading,
     loadingText,
     plain,
+    hairline,
+    color,
+    ...restProps
   } = props;
 
   const handleTap = (e: any) => {
@@ -54,7 +58,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
   };
 
   return (
-    <View
+    <Button
       className={classNames({
         [prefixCls]: true,
         [`${prefixCls}-square`]: square,
@@ -63,6 +67,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-superlarge`]: size === 'superlarge',
         [`${prefixCls}-primary`]: type === 'primary',
         [`${prefixCls}-plain`]: plain,
+        [`${prefixCls}-hairline`]: hairline,
         [`${prefixCls}-danger-default`]: danger,
         [`${prefixCls}-danger`]: type === 'primary' && danger,
         [`${prefixCls}-block`]: block,
@@ -70,7 +75,8 @@ const Button = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-disabled`]: disabled,
       })}
       onTap={handleTap}
-      style={style}
+      style={mergeStyle(style, { color: color, borderColor: color })}
+      {...restProps}
     >
       {loading ? (
         <View className={`${prefixCls}-loading-icon`}>
@@ -78,8 +84,8 @@ const Button = (props: ButtonProps): React.ReactElement => {
         </View>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>
-    </View>
+    </Button>
   );
 };
 
-export default Button;
+export default AButton;

@@ -1,9 +1,7 @@
-/** @format */
-
 import React, { useImperativeHandle, useState } from 'react';
 import { View, Text } from 'remax/one';
 import classNames from 'classnames';
-import { ScrollView } from '../one/base';
+import { ScrollView } from '../one';
 import Dropdown, { OptionProps } from '../dropdown';
 import Popup from '../popup';
 import { getPrefixCls } from '../common';

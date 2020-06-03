@@ -1,5 +1,3 @@
-/** @format */
-
 // 通用
 
 export { default as Button } from './button';

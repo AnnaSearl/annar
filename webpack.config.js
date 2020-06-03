@@ -12,10 +12,17 @@ const replaces = [
   { search: /<\/View>/g, replace: '</div>' },
   { search: /<Text/g, replace: '<span' },
   { search: /<\/Text>/g, replace: '</span>' },
+  { search: /<Input/g, replace: '<input' },
+  { search: /<\/Input>/g, replace: '</input>' },
+  { search: /<Image/g, replace: '<img' },
+  { search: /<\/Image>/g, replace: '</img>' },
+  { search: /<Textarea/g, replace: '<textarea' },
+  { search: /<\/Textarea>/g, replace: '</textarea>' },
   { search: /onTap/g, replace: 'onClick' },
 ];
 const entry = ['./index'];
 const libName = "anna";
+const exts = ['.web.ts','.web.tsx','.ts', '.tsx', '.js', '.jsx'];
 
 const config = {
   output: {
@@ -51,7 +58,7 @@ const config = {
     },
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: exts,
   },
   devtool: 'source-map',
   devServer: {
@@ -73,12 +80,6 @@ const config = {
           },
           {
             loader: 'ts-loader',
-          },
-          {
-            loader: 'string-replace-loader',
-            options: {
-              multiple: replaces,
-            },
           },
         ],
       },

@@ -1,5 +1,3 @@
-/** @format */
-
 const to = (promise: Promise<any>): Promise<any> => {
   // eslint-disable-next-line no-prototype-builtins
   if (!promise || !Promise.prototype.isPrototypeOf(promise)) {

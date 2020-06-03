@@ -1,5 +1,3 @@
-/** @format */
-
 import * as React from 'react';
 import { View, Text } from 'remax/one';
 import classNames from 'classnames';

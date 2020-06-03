@@ -1,8 +1,6 @@
-/** @format */
-
 import * as React from 'react';
 import { View, Image } from 'remax/one';
-import { previewImage, chooseImage } from '../one/api/';
+import { previewImage, chooseImage } from '../one';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { sync, to } from '../_util';
 import { getPrefixCls } from '../common';
@@ -58,11 +56,13 @@ const ImageUpload = (props: ImageUploadProps) => {
   };
 
   const handleAdd = async () => {
+    console.log('handleAdd');
     if (disabled) {
       return;
     }
     const params: any = {};
     if (multiple) {
+      params.multiple = true;
       params.count = 99;
     }
     if (multipleCount) {

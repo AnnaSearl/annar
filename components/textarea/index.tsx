@@ -1,7 +1,5 @@
-/** @format */
-
 import * as React from 'react';
-import { View, Textarea as ATextarea } from 'remax/one';
+import { View, Textarea } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 
@@ -25,7 +23,7 @@ export interface TextareaProps {
   onConfirm?: (e: any) => void;
 }
 
-const Textarea = (props: TextareaProps) => {
+const ATextarea = (props: TextareaProps) => {
   const {
     className = '',
     name,
@@ -51,7 +49,7 @@ const Textarea = (props: TextareaProps) => {
 
   return (
     <View className={prefixCls}>
-      <ATextarea
+      <Textarea
         className={classNames({
           [`${prefixCls}-default`]: true,
           [className]: true,
@@ -77,4 +75,4 @@ const Textarea = (props: TextareaProps) => {
   );
 };
 
-export default Textarea;
+export default ATextarea;

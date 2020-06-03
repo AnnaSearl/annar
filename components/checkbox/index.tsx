@@ -1,5 +1,3 @@
-/** @format */
-
 import * as React from 'react';
 import { View } from 'remax/one';
 import { getPrefixCls } from '../common';
@@ -31,7 +29,7 @@ const Checkbox = (props: CheckboxProps) => {
         ) : (
           <Icon type="round" size="48px" color="#999" />
         )}
-        <View className={`${prefixCls}-container-label`}>{children}</View>
+        {children ? <View className={`${prefixCls}-container-label`}>{children}</View> : null}
       </View>
       <View className={`${prefixCls}-extra`}>{extra}</View>
     </View>

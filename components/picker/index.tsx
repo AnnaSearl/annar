@@ -1,7 +1,5 @@
-/** @format */
-
 import * as React from 'react';
-import { Picker as APicker } from '../one/base';
+import { Picker as APicker } from '../one';
 import Cell from '../cell';
 import FormValue from '../form-value';
 import find from 'lodash-es/find';

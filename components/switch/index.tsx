@@ -1,9 +1,7 @@
-/** @format */
-
 import * as React from 'react';
 import classNames from 'classnames';
 import { View } from 'remax/one';
-import { Checkbox } from '../one/base';
+import { Checkbox } from '../one';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('switch');

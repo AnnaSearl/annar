@@ -45,6 +45,7 @@ $popup-prefix-cls: #{$anna-prefix}-popup;
       border-radius: 0;
     }
     &-active{
+      max-width: 80vw;
       transform: translate3d(0, 0, 0);
     }
     &-close{

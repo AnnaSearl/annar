@@ -7,7 +7,7 @@ const files = fs.readdirSync(path.resolve(__dirname, '../components'));
 
 const components = files.filter((item) => {
   const stat = fs.lstatSync(path.resolve(__dirname, '../components') + '/' + item);
-  if (stat.isDirectory() === true && item !== "one") { 
+  if (stat.isDirectory() === true && item !== "one" && item !== "style") { 
     return true;
   }
   return false;
@@ -20,5 +20,3 @@ module.exports = () => {
   // @ts-ignore
   return Object.fromEntries(components);
 }
-// @ts-ignore
-console.log(Object.fromEntries(components));

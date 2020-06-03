@@ -19,6 +19,11 @@ $large-height: 80px;
   font-size: 28px;
   text-align: center;
   transition: opacity .2s, padding .3s cubic-bezier(.645,.045,.355,1);
+  // 覆盖微信默认button样式
+  overflow: unset;
+  &:after {
+    display: none;
+  }
   &-small{
     font-size: 24px;
     padding: 0 24px;
@@ -43,17 +48,53 @@ $large-height: 80px;
     background-color: $color-brand;
     color: $view-bg-color;
   }
+
+  // plain
   &-plain{
     font-weight: 400;
     color: #666;
-    border: 1PX solid #d9d9d9;
-    background-color: transparent;
+    border: 1PX solid #DDD;
+    background-color: #FDFFFD;
   }
+  &-plain ~ &-primary{
+    border-color: $color-brand;
+    color: $color-brand;
+  }
+
+  // hairline
+  &-hairline{
+    line-height: 64px;
+    border-width: 0;
+    &:before {
+      box-sizing: border-box;
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      bottom: -50%;
+      left: -50%;
+      content: '';
+      border: 1PX solid #DDD;
+      border-color: inherit;
+      border-radius: inherit;
+      transform: scale(0.5);
+    }
+  }
+  &-small ~ &-hairline{
+    line-height: 48px;
+  }
+  &-large ~ &-hairline{
+    line-height: 80px;
+  }
+  &-superlarge ~ &-hairline{
+    line-height: 84px;
+  }
+
+  // square
   &-square{
     padding: 0 30px;
     border-radius: 12px;
   }
-  &-square.#{$button-prefix-cls}-small {
+  &-square ~ &-small {
     padding: 0 14px;
   }
   &-disabled{
@@ -114,5 +155,3 @@ $large-height: 80px;
     color: hsla(0,0%,100%,.6) !important;
   }
 }
-
-

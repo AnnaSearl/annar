@@ -1,5 +1,3 @@
-/** @format */
-
 import to from './to';
 import sync from './sync';
 

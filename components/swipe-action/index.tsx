@@ -1,11 +1,9 @@
-/** @format */
-
 // @ts-nocheck
 /* eslint-disable */
 
 import * as React from 'react';
 import { View } from 'remax/one';
-import { createSelectorQuery } from '../one/api';
+import { createSelectorQuery } from '../one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
  

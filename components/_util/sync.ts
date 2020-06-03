@@ -1,5 +1,3 @@
-/** @format */
-
 const sync = (fn: Function, ...args: any[]): Promise<any> => {
   return new Promise((resolve, reject) => {
     const obj = { ...args[0] };
