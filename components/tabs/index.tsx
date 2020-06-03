@@ -27,7 +27,7 @@ export interface TabProps {
 export interface TabContentProps {
   key?: string | number;
   tab?: React.ReactNode;
-  activeKey?: string | number;
+  active?: boolean;
   children?: React.ReactNode;
 }
 
@@ -38,11 +38,14 @@ const getTabContents = (children: React.ReactNode, activeKey?: string | number) 
     const newNode = node;
     if (React.isValidElement(node)) {
       return (
-        tabs.push({ key: newNode.key, tab: newNode.tab }) &&
+        tabs.push({ key: newNode.key, tab: newNode.props.tab }) &&
         tabContents.push(
           <TabContent
+            key={newNode.key}
             {...newNode.props}
-            activeKey={activeKey === undefined ? index === 0 && newNode.key : activeKey}
+            active={
+              activeKey === undefined ? index === 0 && newNode.key : activeKey === newNode.key
+            }
           />,
         )
       );
@@ -185,9 +188,9 @@ const Tabs = (props: TabProps): React.ReactElement => {
 };
 
 const TabContent: React.FC = (props: TabContentProps): React.ReactElement | null => {
-  const { key, activeKey, children } = props;
+  const { active, children } = props;
 
-  if (activeKey !== key) {
+  if (!active) {
     return null;
   }
   return <View>{children}</View>;

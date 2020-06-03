@@ -56,7 +56,7 @@ $large-height: 80px;
     border: 1PX solid #DDD;
     background-color: #FDFFFD;
   }
-  &-plain ~ &-primary{
+  &-plain.#{$button-prefix-cls}-primary{
     border-color: $color-brand;
     color: $color-brand;
   }
@@ -79,13 +79,13 @@ $large-height: 80px;
       transform: scale(0.5);
     }
   }
-  &-small ~ &-hairline{
+  &-small.#{$button-prefix-cls}-hairline{
     line-height: 48px;
   }
-  &-large ~ &-hairline{
+  &-large.#{$button-prefix-cls}-hairline{
     line-height: 80px;
   }
-  &-superlarge ~ &-hairline{
+  &-superlarge.#{$button-prefix-cls}-hairline{
     line-height: 84px;
   }
 
@@ -94,7 +94,7 @@ $large-height: 80px;
     padding: 0 30px;
     border-radius: 12px;
   }
-  &-square ~ &-small {
+  &-square.#{$button-prefix-cls}-small {
     padding: 0 14px;
   }
   &-disabled{
