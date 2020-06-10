@@ -22,6 +22,7 @@ export interface TabProps {
   extra?: React.ReactNode;
   titleWidth?: number;
   titleSquare?: boolean;
+  titleAlign?: string;
 }
 
 export interface TabContentProps {
@@ -44,7 +45,9 @@ const getTabContents = (children: React.ReactNode, activeKey?: string | number) 
             key={newNode.key}
             {...newNode.props}
             active={
-              activeKey === undefined ? index === 0 && newNode.key : activeKey === newNode.key
+              activeKey === undefined
+                ? index === 0 && newNode.key
+                : String(activeKey) === newNode.key
             }
           />,
         )
@@ -66,6 +69,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
     extra,
     titleWidth,
     titleSquare,
+    titleAlign,
   } = props;
 
   const [tabs, tabContents] = getTabContents(children, activeKey);
@@ -97,6 +101,8 @@ const Tabs = (props: TabProps): React.ReactElement => {
     onTabClick?.(item);
   };
 
+  const activeKeyStr = String(activeKey);
+
   return (
     <View className={prefixCls}>
       <View
@@ -121,7 +127,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                     className={`${prefixCls}-header-titles-bg-container-title`}
                     style={
                       {
-                        fontWeight: activeKey === item.key ? 500 : 400,
+                        fontWeight: activeKeyStr === item.key ? 500 : 400,
                         width: titleWidth ? `${titleWidth}px` : null,
                       } as React.CSSProperties
                     }
@@ -145,13 +151,19 @@ const Tabs = (props: TabProps): React.ReactElement => {
           </View>
         ) : null}
         {type === 'plain' ? (
-          <View className={`${prefixCls}-header-titles-plain`}>
+          <View
+            className={classNames({
+              [`${prefixCls}-header-titles-plain`]: true,
+              [`${prefixCls}-header-titles-plain-center`]: titleAlign === 'center',
+            })}
+          >
             {tabs.map((item: TabTitleProps) => (
               <View
                 key={item.key}
                 className={classNames({
                   [`${prefixCls}-header-titles-plain-title`]: true,
-                  [`${prefixCls}-header-titles-plain-title-active`]: activeKey === item.key,
+                  [`${prefixCls}-header-titles-plain-center-title`]: titleAlign === 'center',
+                  [`${prefixCls}-header-titles-plain-title-active`]: activeKeyStr === item.key,
                 })}
                 onTap={() => {
                   handleTabClick(item);
@@ -169,7 +181,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 key={item.key}
                 className={classNames({
                   [`${prefixCls}-header-titles-card-title`]: true,
-                  [`${prefixCls}-header-titles-card-title-active`]: activeKey === item.key,
+                  [`${prefixCls}-header-titles-card-title-active`]: activeKeyStr === item.key,
                 })}
                 onTap={() => {
                   handleTabClick(item);

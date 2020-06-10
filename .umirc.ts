@@ -23,10 +23,19 @@ export default defineConfig({
       exclude: '@umijs/preset-dumi',
     })
   ],
+  extraBabelPlugins: [
+    [
+      'import',
+      {
+        libraryName: 'anna-remax-ui',
+        libraryDirectory: '/',
+        style: true,
+      },
+    ],
+  ],
   alias: {
     'anna-remax-ui': path.resolve(__dirname, 'components'),
-    '../one/base': path.resolve(__dirname, 'components/one/base/index.web.ts'),
-    '../one/api': path.resolve(__dirname, 'components/one/api/index.web.ts'),
+    '../one': path.resolve(__dirname, 'components/web/index.ts'),
   },
   define: {
     'process.env': {
@@ -41,12 +50,6 @@ export default defineConfig({
     .include
       .add(path.resolve(__dirname, 'components'))
       .add(path.resolve(__dirname, 'docs'))
-      .end()
-    .exclude
-      .add(path.resolve(__dirname, 'components/image-upload'))
-      .add(path.resolve(__dirname, 'components/data-picker'))
-      .add(path.resolve(__dirname, 'components/images'))
-      .add(path.resolve(__dirname, 'components/swipe-action'))
       .end()
     .use('px2rem')
     .loader('./build/loaders/jsxPx2Rem.js')

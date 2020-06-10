@@ -25,6 +25,7 @@ const Tag = (props: TagProps): React.ReactElement => {
         [`${prefixCls}-large`]: size === 'large',
         [`${prefixCls}-info`]: type === 'info',
         [`${prefixCls}-success`]: type === 'success',
+        [`${prefixCls}-warning`]: type === 'warning',
         [`${prefixCls}-error`]: type === 'error',
         [className]: true,
       })}

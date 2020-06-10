@@ -14,8 +14,9 @@ export default () => {
         <Tag>Anna</Tag>
       </Block>
       <Block noTitlePadding title="Type">
-        <Tag type="success">success</Tag>
         <Tag type="info">info</Tag>
+        <Tag type="success">success</Tag>
+        <Tag type="warning">warning</Tag>
         <Tag type="error">error</Tag>
       </Block>
       <Block noTitlePadding title="Size">

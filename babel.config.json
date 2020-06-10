@@ -34,3 +34,9 @@
     }
   }
 }
+
+// {
+//   "presets": [
+//     "@babel/preset-react"
+//   ]
+// }

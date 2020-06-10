@@ -91,9 +91,9 @@ export default () => {
   return (
     <Frame padding grayBg>
       <Block noTitlePadding title="Basic">
-        <Tabs tabs={tabs} onTabClick={({ key }) => setStateKey(key)} activeTab={stateKey}>
+        <Tabs onTabClick={({ key }) => setStateKey(key)} activeKey={stateKey}>
           {tabs.map(tab => (
-            <TabContent key={tab.key} tabId={tab.key} activeTab={stateKey}>
+            <TabContent key={tab.key} tab={tab.title}>
               <Card>
                 <View className={styles.tabContent}>{`${tab.title} content`}</View>
               </Card>
@@ -102,14 +102,9 @@ export default () => {
         </Tabs>
       </Block>
       <Block noTitlePadding title="TitleSquare">
-        <Tabs
-          tabs={tabs}
-          onTabClick={({ key }) => setStateKey1(key)}
-          activeTab={stateKey1}
-          titleSquare
-        >
+        <Tabs onTabClick={({ key }) => setStateKey1(key)} activeKey={stateKey1} titleSquare>
           {tabs1.map(tab => (
-            <TabContent key={tab.key} tabId={tab.key} activeTab={stateKey1}>
+            <TabContent key={tab.key} tab={tab.title}>
               <Card>
                 <View className={styles.tabContent}>{`${tab.title} content`}</View>
               </Card>
@@ -119,15 +114,9 @@ export default () => {
       </Block>
       <Block noTitlePadding title="Type">
         <View className={styles.subTitle}>plain</View>
-        <Tabs
-          type="plain"
-          tabs={tabs2}
-          onTabClick={({ key }) => setStateKey2(key)}
-          activeTab={stateKey2}
-          titleSquare
-        >
+        <Tabs type="plain" onTabClick={({ key }) => setStateKey2(key)} activeKey={stateKey2}>
           {tabs2.map(tab => (
-            <TabContent key={tab.key} tabId={tab.key} activeTab={stateKey2}>
+            <TabContent key={tab.key} tab={tab.title}>
               <Card>
                 <View className={styles.tabContent}>{`${tab.title} content`}</View>
               </Card>
@@ -135,15 +124,9 @@ export default () => {
           ))}
         </Tabs>
         <View className={styles.subTitle}>card</View>
-        <Tabs
-          type="card"
-          tabs={tabs3}
-          onTabClick={({ key }) => setStateKey3(key)}
-          activeTab={stateKey3}
-          titleSquare
-        >
+        <Tabs type="card" onTabClick={({ key }) => setStateKey3(key)} activeKey={stateKey3}>
           {tabs3.map(tab => (
-            <TabContent key={tab.key} tabId={tab.key} activeTab={stateKey3}>
+            <TabContent key={tab.key} tab={tab.title}>
               <Card>
                 <View className={styles.tabContent}>{`${tab.title} content`}</View>
               </Card>
@@ -155,13 +138,11 @@ export default () => {
         <View className={styles.subTitle}>使用fixed属性可以使Tabs固定在页面顶部</View>
         <Tabs
           // fixed
-          tabs={tabs4}
           onTabClick={({ key }) => setStateKey4(key)}
-          activeTab={stateKey4}
-          titleSquare
+          activeKey={stateKey4}
         >
           {tabs4.map(tab => (
-            <TabContent key={tab.key} tabId={tab.key} activeTab={stateKey4}>
+            <TabContent key={tab.key} tab={tab.title}>
               <Card>
                 <View className={styles.tabContent}>{`${tab.title} content`}</View>
               </Card>

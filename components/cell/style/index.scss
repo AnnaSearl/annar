@@ -10,6 +10,10 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
   background-color: $view-bg-color;
   margin-bottom: 1PX;
   &-verticality{
+    &-required{
+      color: #f5222d;
+      margin-right: 4px;
+    }
     &-label{
       color: $font-color-1;
       padding-bottom: 20px;

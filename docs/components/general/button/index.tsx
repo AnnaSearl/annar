@@ -5,6 +5,9 @@ import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 
 export default () => {
+  const [delLoading, setDelLoading] = React.useState(false);
+  const [okLoading, setOkLoading] = React.useState(false);
+
   return (
     <Frame>
       <View className={styles.app}>
@@ -12,6 +15,30 @@ export default () => {
           <View className={styles.group}>
             <Button>default</Button>
             <Button type="primary">primary</Button>
+          </View>
+        </Block>
+        <Block title="Plain">
+          <View className={styles.group}>
+            <Button plain>default</Button>
+            <Button type="primary" plain>
+              primary
+            </Button>
+            <Button plain color="#07C160">
+              success
+            </Button>
+          </View>
+        </Block>
+        <Block title="Hairline">
+          <View className={styles.group}>
+            <Button plain hairline>
+              default
+            </Button>
+            <Button type="primary" plain hairline>
+              primary
+            </Button>
+            <Button plain hairline color="#ff4f00">
+              orange
+            </Button>
           </View>
         </Block>
         <Block title="Danger">
@@ -43,11 +70,23 @@ export default () => {
         </Block>
         <Block title="Loading">
           <View className={styles.group}>
-            <Button type="primary" loading loadingText="loading...">
-              loading
+            <Button
+              type="primary"
+              loading={okLoading}
+              loadingText="loading..."
+              onTap={() => setOkLoading(true)}
+            >
+              Confirm
             </Button>
-            <Button type="primary" square danger loading loadingText="Deleting...">
-              loading
+            <Button
+              type="primary"
+              square
+              danger
+              loading={delLoading}
+              loadingText="Deleting..."
+              onTap={() => setDelLoading(true)}
+            >
+              Delete
             </Button>
           </View>
         </Block>

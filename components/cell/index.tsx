@@ -47,6 +47,7 @@ const Cell = (props: ItemProps) => {
         <View className={`${prefixCls}-verticality`}>
           {label ? (
             <View className={`${prefixCls}-verticality-label`} style={labelStyle}>
+              {required ? <Text className={`${prefixCls}-verticality-required`}>*</Text> : null}
               {label}
             </View>
           ) : null}

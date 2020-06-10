@@ -79,12 +79,12 @@ const SearchBar = (props: SearchBarProps) => {
     showBtn = true;
   }
 
-  let iconSize = 32;
+  let iconSize = '32px';
   if (size === 'large') {
-    iconSize = 36;
+    iconSize = '36px';
   }
   if (size === 'small') {
-    iconSize = 28;
+    iconSize = '28px';
   }
 
   return (
@@ -104,7 +104,7 @@ const SearchBar = (props: SearchBarProps) => {
           })}
         >
           <View className={`${prefixCls}-input-synthetic-icon`}>
-            <Icon type="search" size={`${iconSize}px`} color="#999" />
+            <Icon type="search" size={iconSize} color="#999" />
           </View>
           <View
             className={`${prefixCls}-input-synthetic-placeholder`}

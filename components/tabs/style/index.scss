@@ -19,13 +19,14 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
           justify-content: center;
           height: 60px;
           line-height: 60px;
-          overflow: hidden;
           position: relative;
           z-index: 0;
           &-title{
             width: 140px;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.3s;
+            overflow: hidden;
+            white-space: nowrap;
           }
           &-active{
             position: absolute;
@@ -37,6 +38,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
             z-index: -1;
             transform: translateX(0);
             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            box-shadow: 0 4px 8px #CCCCCC;
           }
         }
         &-square{
@@ -58,21 +60,30 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
         white-space: nowrap;
         margin-right: 50px;
         color: #000;
-      }
-      &-title-active{
-        font-weight: 500;
-        &::after{
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          content: '';
-          height: 6px;
-          border-radius: 6px;
-          width: 100%;
-          background-color: #1890FF;
-          transform: scale(0.5, 1);
-          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)
+        &-active{
+          font-weight: 500;
+          &::after{
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            content: '';
+            height: 6px;
+            border-radius: 6px;
+            width: 32px;
+            background-color: #1890FF;
+            transform: translateX(-50%);
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+          }
         }
+      }
+    }
+    &-titles-plain-center{
+      justify-content: center;
+      &-title{
+        flex: 1;
+        text-align: center;
+        padding: 0 10px;
+        margin-right: 0;
       }
     }
     &-titles-card{
@@ -95,11 +106,11 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
         &:nth-last-child(1){
           border-right: none;
         }
-      }
-      &-title-active{
-        font-weight: 500;
-        color: #FDFFFD;
-        background-color: #1890FF;
+        &-active{
+          font-weight: 500;
+          color: #FDFFFD;
+          background-color: #1890FF;
+        }
       }
     }
     &-content{

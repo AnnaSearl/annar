@@ -19,7 +19,6 @@ export interface InputProps {
   border?: boolean;
   required?: boolean;
   onChange?: (e: any) => void;
-  formatFunc?: (v?: string) => any;
 }
 
 const AInput = (props: InputProps) => {
@@ -34,17 +33,12 @@ const AInput = (props: InputProps) => {
     onChange,
     disabled,
     border = true,
-    formatFunc,
     required,
     icon,
   } = props;
 
   const handleChangeInput = (e: any) => {
-    let currentValue = e.detail.value;
-    if (formatFunc) {
-      currentValue = formatFunc(e.detail.value);
-    }
-    onChange?.(currentValue);
+    onChange?.(e);
   };
 
   return (

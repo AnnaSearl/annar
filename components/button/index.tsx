@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { View, Text, Button } from 'remax/one';
 import classNames from 'classnames';
-import { tuple, mergeStyle } from '../_util';
+import { tuple } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
 
-const prefixCls = getPrefixCls('button');
+const prefixCls = getPrefixCls('btn');
 
 const ButtonTypes = tuple('default', 'primary');
 export type ButtonType = typeof ButtonTypes[number];
@@ -72,10 +72,15 @@ const AButton = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-danger`]: type === 'primary' && danger,
         [`${prefixCls}-block`]: block,
         [`${prefixCls}-loading`]: loading,
-        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-disabled`]: disabled || loading,
       })}
+      disabled={disabled}
       onTap={handleTap}
-      style={mergeStyle(style, { color: color, borderColor: color })}
+      style={{
+        ...style,
+        color,
+        borderColor: color,
+      }}
       {...restProps}
     >
       {loading ? (
@@ -84,6 +89,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
         </View>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>
+      <Text className={`${prefixCls}-mask`} />
     </Button>
   );
 };
