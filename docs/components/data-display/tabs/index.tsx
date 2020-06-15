@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/one';
+import { View, Text } from 'remax/one';
 import { Tabs, Card } from 'anna-remax-ui';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
@@ -35,7 +35,40 @@ const tabs2 = [
   },
   {
     key: '1',
-    title: '待处理',
+    title: (
+      <View className={styles.tab}>
+        待报价
+        <Text className={styles.total}>7</Text>
+      </View>
+    ),
+  },
+  {
+    key: '2',
+    title: '询价中',
+  },
+  {
+    key: '3',
+    title: '待报价',
+  },
+  {
+    key: '4',
+    title: '报价中',
+  },
+];
+
+const tabs5 = [
+  {
+    key: '0',
+    title: '全部',
+  },
+  {
+    key: '1',
+    title: (
+      <View className={styles.tab5}>
+        待报价
+        <Text className={styles.total}>7</Text>
+      </View>
+    ),
   },
   {
     key: '2',
@@ -87,6 +120,7 @@ export default () => {
   const [stateKey2, setStateKey2] = React.useState('0');
   const [stateKey3, setStateKey3] = React.useState('0');
   const [stateKey4, setStateKey4] = React.useState('0');
+  const [stateKey5, setStateKey5] = React.useState('0');
 
   return (
     <Frame padding grayBg>
@@ -126,6 +160,21 @@ export default () => {
         <View className={styles.subTitle}>card</View>
         <Tabs type="card" onTabClick={({ key }) => setStateKey3(key)} activeKey={stateKey3}>
           {tabs3.map(tab => (
+            <TabContent key={tab.key} tab={tab.title}>
+              <Card>
+                <View className={styles.tabContent}>{`${tab.title} content`}</View>
+              </Card>
+            </TabContent>
+          ))}
+        </Tabs>
+      </Block>
+      <Block noTitlePadding title="Vertical">
+        <Tabs
+          onTabClick={({ key }) => setStateKey5(key)}
+          activeKey={stateKey5}
+          direction="vertical"
+        >
+          {tabs5.map(tab => (
             <TabContent key={tab.key} tab={tab.title}>
               <Card>
                 <View className={styles.tabContent}>{`${tab.title} content`}</View>

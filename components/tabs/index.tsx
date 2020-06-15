@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
@@ -13,6 +13,7 @@ export interface TabTitleProps {
 
 export interface TabProps {
   type?: string;
+  direction?: string;
   activeKey?: string | number;
   fixed?: boolean;
   onTabClick?: (i: any) => void;
@@ -31,6 +32,8 @@ export interface TabContentProps {
   active?: boolean;
   children?: React.ReactNode;
 }
+
+const heightUnit = 48;
 
 const getTabContents = (children: React.ReactNode, activeKey?: string | number) => {
   const tabContents: any[] = [];
@@ -60,6 +63,7 @@ const getTabContents = (children: React.ReactNode, activeKey?: string | number) 
 const Tabs = (props: TabProps): React.ReactElement => {
   const {
     type,
+    direction = 'horizontal',
     activeKey,
     fixed,
     onTabClick,
@@ -71,6 +75,8 @@ const Tabs = (props: TabProps): React.ReactElement => {
     titleSquare,
     titleAlign,
   } = props;
+
+  const [selected, setSelected] = useState(0);
 
   const [tabs, tabContents] = getTabContents(children, activeKey);
 
@@ -97,11 +103,55 @@ const Tabs = (props: TabProps): React.ReactElement => {
       : null;
   }, [fixed]);
 
-  const handleTabClick = (item: any) => {
+  const handleTabClick = (item: any, index?: number) => {
+    setSelected(index || 0);
     onTabClick?.(item);
   };
 
   const activeKeyStr = String(activeKey);
+
+  if (direction === 'vertical') {
+    return (
+      <View className={prefixCls}>
+        <View className={`${prefixCls}-vertical`}>
+          <View className={`${prefixCls}-vertical-sidebar`}>
+            {tabs?.map((item: TabTitleProps, index: number) => (
+              <View
+                key={item.key}
+                className={`${prefixCls}-vertical-sidebar-item`}
+                style={{
+                  fontWeight: selected === index ? 500 : 400,
+                  backgroundColor: selected === index ? '#FDFFFD' : '#FAFAFA',
+                }}
+                onTap={() => {
+                  handleTabClick(item, index);
+                }}
+              >
+                {item.tab}
+                {selected === index && (
+                  <View className={`${prefixCls}-vertical-sidebar-top`}>
+                    <View className={`${prefixCls}-vertical-sidebar-top-circle`} />
+                  </View>
+                )}
+                {selected === index && (
+                  <View className={`${prefixCls}-vertical-sidebar-bottom`}>
+                    <View className={`${prefixCls}-vertical-sidebar-bottom-circle`} />
+                  </View>
+                )}
+              </View>
+            ))}
+            <View
+              className={`${prefixCls}-vertical-sidebar-active`}
+              style={{
+                transform: `translate3d(0, ${selected * heightUnit}PX, 0)`,
+              }}
+            />
+          </View>
+          <View className={`${prefixCls}-vertical-content`}>{tabContents}</View>
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View className={prefixCls}>
@@ -203,7 +253,7 @@ const TabContent: React.FC = (props: TabContentProps): React.ReactElement | null
   const { active, children } = props;
 
   if (!active) {
-    return null;
+    return <View style={{ display: 'none' }}>{children}</View>;
   }
   return <View>{children}</View>;
 };

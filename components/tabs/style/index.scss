@@ -27,6 +27,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
             transition: all 0.3s;
             overflow: hidden;
             white-space: nowrap;
+            cursor: pointer;
           }
           &-active{
             position: absolute;
@@ -117,8 +118,81 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       
     }
   }
-  &-content{
 
+  // vertical
+  &-vertical {
+    display: flex;
+    font-size: 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    &-sidebar {
+      position: relative;
+      background-color: #FAFAFA;
+      width: 170px;
+      color: #000;
+      font-weight: 400;
+      &-item {
+        position: relative;
+        height: 96px;
+        line-height: 96px;
+        padding: 0 24px 0 24px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      &-active {
+        position: absolute;
+        left: 0;
+        top: 32px;
+        width: 6px;
+        height: 32px;
+        border-radius: 6px;
+        background-color: #1890FF;
+        transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      &-top{
+        position: absolute;
+        top: -12px;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        background-color: #FDFFFD;
+        overflow: hidden;
+        transform: rotate(90deg);
+        z-index: 1;
+        &-circle{
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          left: -12px;
+          right: -12px;
+          background-color: #FAFAFA;
+        }
+      }
+      &-bottom{
+        position: absolute;
+        bottom: -12px;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        background-color: #FDFFFD;
+        overflow: hidden;
+        z-index: 1;
+        &-circle{
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          left: -12px;
+          right: -12px;
+          background-color: #FAFAFA;
+        }
+      }
+    }
+    &-content {
+      flex: 1;
+      background-color: #FDFFFD;
+    }
   }
 }
 

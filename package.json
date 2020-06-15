@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.6.11",
+  "version": "1.6.12",
   "description": "基于remax的小程序UI库",
   "main": "web/index.js",
   "module": "esm/index.js",
@@ -17,7 +17,7 @@
     "wechat"
   ],
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "dumi dev",
     "build": "npm run compile && npm run dist",
     "dist": "webpack",
     "compile": "gulp",
@@ -27,9 +27,8 @@
     "pub": "sh shell/pub.sh",
     "commit": "sh shell/commit.sh",
     "lint": "eslint components --fix --ext .ts,.tsx",
-    "dev": "dumi dev",
     "docs": "dumi build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d site"
   },
   "repository": {
     "type": "git",

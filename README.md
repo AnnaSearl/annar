@@ -7,15 +7,16 @@
 <div align="center">一款优雅、简洁的 Remax 组件库</div>
 
 
-## 特性
+## 😎 特性
 
 - 基于 `Remax` 开发 UI 组件
 - 支持`微信` `支付宝` `钉钉` 小程序多端适配运行
+- 支持 Web 开发
 - 支持按需引入
 - 支持TypeScript
 
 
-## 安装
+## 📦 安装
 
 ```bash
 npm install anna-remax-ui
@@ -26,9 +27,11 @@ npm install anna-remax-ui
 yarn add anna-remax-ui
 ```
 
-## 使用
+## ⚒ 使用
 
 > :warning: `anna-remax-ui`  v1.6.0 为破坏性的更新，不再兼容以前的版本。
+
+#### 小程序
 
 ```jsx
 import { Button } from 'anna-remax-ui'
@@ -46,9 +49,35 @@ const App = () => (
 import 'anna-remax-ui/dist/anna.css'
 ```
 
-## 按需加载
+#### Web
+
+使用 Web 组件开发需要依赖 `remax/one`
+
+```bash
+npm install remax/one
+```
+
+```jsx
+import { Button } from 'anna-remax-ui/web'
+
+const App = () => (
+  <>
+    <Button>Click Anna</Button>
+  </>
+);
+```
+
+引入样式：
+
+```jsx
+import 'anna-remax-ui/dist/anna.css'
+```
+
+## 🥡 按需加载
 
 `anna-remax-ui` 的 JS 部分默认支持 tree shaking。
+
+#### 小程序
 
 CSS 部分需要在 `app.js` 中手动引入
 
@@ -59,22 +88,49 @@ import 'anna-remax-ui/esm/button/style/css'
 import 'anna-remax-ui/esm/button/style'
 ```
 
-## 参与共建
+#### Web
+
+通过配置 `babel-plugin-import` 进行CSS的按需加载
+
+## 🧑🏻‍💻 本地开发
+
+```bash
+$ git clone git@github.com:AnnaSearl/anna-remax-ui.git
+$ cd anna-remax-ui
+$ npm install
+$ npm start
+```
+
+## 🤝 参与共建
 
 如果你有任何问题，可以提交issue给我们，我们也非常欢迎你加入 `Anna Remax UI` 的建设，向我们提交PR。
 
+Anna Remax UI 维护 `master` 和 `feature` 两个分支，如果您是修复bug，请提交到 `master`；如果您要添加新的功能，请提交到 `feature`。
 
-## 示例
+#### Pull Request 规范
+
+1. 我们建议保持你的 PR 足够小。保证一个 PR 只解决一个问题或只添加一个功能
+2. 在 PR 中请添加合适的描述，并关联相关的 Issue
+3. 在 Pull Request 前，请同步主仓库的最新代码
+
+#### 常用命令
+
+1. `npm start` 在本地运行 Anna Remax UI 的网站
+2. `npm run lint` 检查代码风格
+3. `npm run build` 编译 TypeScript 代码到 esm、web 以及 dist 目录
+
+
+## 🌰 示例
 
 [Examples for Anna Remax UI](https://github.com/AnnaSearl/examples-anna-remax-ui)
 
 
-## 体验
+## 🍭 体验
 
 <img src="https://smebimage.fuliaoyi.com/FrWM_L5llswAfkEfefnXKEFJwutl">
 
 
-## 钉钉交流群
+## 🥡 钉钉交流群
 
 <img width="320" src="https://smebimage.fuliaoyi.com/FkXpYLyrhlx6aeNK0pvgv4FjBaHM">
 

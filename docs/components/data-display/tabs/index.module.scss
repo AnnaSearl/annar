@@ -10,3 +10,38 @@
   align-items: center;
   height: 240px;
 }
+.tab{
+  position: relative;
+  .total{
+    position: absolute;
+    top: 0;
+    right: -26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #1890FF;
+    color: #FFF;
+    font-size: 20px;
+  }
+}
+
+.tab5{
+  position: relative;
+  .total{
+    position: absolute;
+    top: 32px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #1890FF;
+    color: #FFF;
+    font-size: 20px;
+  }
+}
