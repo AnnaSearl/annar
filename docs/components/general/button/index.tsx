@@ -11,24 +11,24 @@ export default () => {
   return (
     <Frame>
       <View className={styles.app}>
-        <Block title="Type">
+        <Block noTitlePadding title="Type">
           <View className={styles.group}>
             <Button>default</Button>
             <Button type="primary">primary</Button>
           </View>
         </Block>
-        <Block title="Plain">
+        <Block noTitlePadding title="Plain">
           <View className={styles.group}>
             <Button plain>default</Button>
             <Button type="primary" plain>
               primary
             </Button>
             <Button plain color="#07C160">
-              success
+              secure
             </Button>
           </View>
         </Block>
-        <Block title="Hairline">
+        <Block noTitlePadding title="Hairline">
           <View className={styles.group}>
             <Button plain hairline>
               default
@@ -41,7 +41,7 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block title="Danger">
+        <Block noTitlePadding title="Danger">
           <View className={styles.group}>
             <Button danger>danger</Button>
             <Button type="primary" danger>
@@ -49,7 +49,7 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block title="Shape">
+        <Block noTitlePadding title="Shape">
           <View className={styles.group}>
             <Button type="primary">round</Button>
             <Button type="primary" square>
@@ -57,7 +57,7 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block title="Size">
+        <Block noTitlePadding title="Size">
           <View className={styles.group}>
             <Button type="primary" size="large">
               large
@@ -68,7 +68,7 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block title="Loading">
+        <Block noTitlePadding title="Loading">
           <View className={styles.group}>
             <Button
               type="primary"
@@ -90,7 +90,7 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block title="Disabled">
+        <Block noTitlePadding title="Disabled">
           <View className={styles.group}>
             <Button type="primary" disabled>
               disabled
@@ -100,7 +100,7 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block title="Block">
+        <Block noTitlePadding title="Block">
           <View className={styles.group}>
             <Button type="primary" size="superlarge" block style={{ marginBottom: '30px' }} loading>
               block

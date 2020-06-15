@@ -1,11 +1,6 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-typescript"
-  ],
-  "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-transform-runtime"
+    "@babel/preset-react"
   ],
   "env": {
     "esm": {
@@ -15,7 +10,8 @@
           {
             "modules": false
           }
-        ]
+        ],
+        "@babel/preset-typescript"
       ],
       "plugins": [
         [
@@ -24,19 +20,18 @@
             "useESModules": true
           }
         ],
-        "@babel/plugin-syntax-jsx"
+        "@babel/plugin-proposal-class-properties"
       ]
     },
     "web": {
       "presets": [
-        "@babel/preset-react"
+        "@babel/preset-env",
+        "@babel/preset-typescript"
+      ],
+      "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-runtime"
       ]
     }
   }
 }
-
-// {
-//   "presets": [
-//     "@babel/preset-react"
-//   ]
-// }

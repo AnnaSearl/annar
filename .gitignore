@@ -1,6 +1,7 @@
 node_modules/
 cjs/
 web/
+!components/web/
 esm/
 dist/
 package-lock.json

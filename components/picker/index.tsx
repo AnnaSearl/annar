@@ -53,7 +53,7 @@ const Picker = (props: PickerProps) => {
       <APicker
         wechat-mode="selector"
         range={options}
-        range-key="value"
+        rangeKey="value"
         disabled={disabled}
         value={valueIndex}
         onChange={handleChangePicker}

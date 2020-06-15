@@ -13,6 +13,7 @@ export default defineConfig({
     { title: 'GitHub', path: 'https://github.com/AnnaSearl/anna-remax-ui' },
   ],
   exportStatic: {},
+  outputPath: 'site',
   sass: {
     implementation: require('node-sass'),
   },

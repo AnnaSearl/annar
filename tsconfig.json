@@ -7,7 +7,6 @@
     "esModuleInterop": true,
     "declaration": true,
     "jsx": "preserve",
-    "lib": ["es2015", "DOM"],
     "outDir": "./esm",
     "rootDir": "./components",
     "baseUrl": "./",
@@ -17,6 +16,7 @@
   },
   "include": [
     "components/**/*",
+    "docs/**/*",
     "typings/**/*",
   ]
 }

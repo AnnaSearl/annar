@@ -80,6 +80,9 @@ const config = {
           },
           {
             loader: 'ts-loader',
+            options: {
+              configFile: 'tsconfig.webpack.json'
+            }
           },
         ],
       },

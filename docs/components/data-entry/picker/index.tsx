@@ -7,7 +7,7 @@ const options = [
   { key: '2', value: 'Taro' },
   { key: '3', value: 'Nanachi' },
   { key: '4', value: 'Uni-app' },
-  { key: '4', value: 'Mpvue' },
+  { key: '5', value: 'Mpvue' },
 ];
 
 export default () => {
@@ -18,7 +18,7 @@ export default () => {
   const [value4, setValue4] = React.useState('0');
 
   return (
-    <Frame grayBg>
+    <Frame grayBg style={{ overflow: 'hidden' }}>
       <Block title="Basic">
         <Picker
           value={value}
@@ -62,7 +62,7 @@ export default () => {
       <Block title="With Icon">
         <Picker
           icon="likefill"
-          label="最爱的"
+          label="Favorite"
           value={value4}
           onChange={v => setValue4(v.key)}
           options={options}

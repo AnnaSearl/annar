@@ -1,8 +1,8 @@
 ---
-title: Anna Remax UI - 一款基于Remax框架开发的UI组件库
+title: Anna Remax UI - 一款优雅、简洁的 Remax 组件库
 hero:
   title: Anna Remax UI
-  desc: 一款基于 Remax 框架开发的UI组件库
+  desc: 一款优雅、简洁的 Remax 组件库
   actions:
     - text: 开始使用
       link: /components/general/button

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "jsx": "preserve",
+    "outDir": "./esm",
+    "rootDir": "./components",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./components/*"]
+    },
+  },
+  "include": [
+    "components/**/*",
+    "typings/**/*",
+  ]
+}
