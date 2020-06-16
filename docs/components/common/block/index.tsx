@@ -6,17 +6,20 @@ export interface BlockProps {
   title?: React.ReactNode;
   children?: React.ReactNode;
   noTitlePadding?: boolean;
+  contentStyle?: React.CSSProperties;
 }
 
 const Block = (props: BlockProps) => {
-  const { title, children, noTitlePadding } = props;
+  const { title, children, noTitlePadding, contentStyle } = props;
 
   return (
     <View className={styles.block}>
       <View className={styles.title} style={{ paddingLeft: noTitlePadding ? '0' : '24px' }}>
         {title}
       </View>
-      <View className={styles.content}>{children}</View>
+      <View className={styles.content} style={contentStyle}>
+        {children}
+      </View>
     </View>
   );
 };

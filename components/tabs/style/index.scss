@@ -3,6 +3,7 @@
 $tabs-prefix-cls: #{$anna-prefix}-tabs;
 
 .#{$tabs-prefix-cls} {
+  height: 100%;
   &-header{
     &-titles{
       position: relative;
@@ -121,6 +122,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
 
   // vertical
   &-vertical {
+    height: 100%;
     display: flex;
     font-size: 28px;
     border-radius: 16px;

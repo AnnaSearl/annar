@@ -152,7 +152,9 @@ export default () => {
           {tabs2.map(tab => (
             <TabContent key={tab.key} tab={tab.title}>
               <Card>
-                <View className={styles.tabContent}>{`${tab.title} content`}</View>
+                <View className={styles.tabContent}>{`${
+                  tab.key === '1' ? '待报价' : tab.title
+                } content`}</View>
               </Card>
             </TabContent>
           ))}
@@ -168,7 +170,7 @@ export default () => {
           ))}
         </Tabs>
       </Block>
-      <Block noTitlePadding title="Vertical">
+      <Block noTitlePadding title="Vertical" contentStyle={{ height: '630px' }}>
         <Tabs
           onTabClick={({ key }) => setStateKey5(key)}
           activeKey={stateKey5}
@@ -177,7 +179,9 @@ export default () => {
           {tabs5.map(tab => (
             <TabContent key={tab.key} tab={tab.title}>
               <Card>
-                <View className={styles.tabContent}>{`${tab.title} content`}</View>
+                <View className={styles.tabContent}>{`${
+                  tab.key === '1' ? '待报价' : tab.title
+                } content`}</View>
               </Card>
             </TabContent>
           ))}

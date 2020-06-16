@@ -16,6 +16,7 @@ Demo:
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
 | type | tabs类型 | string | - |
+| direction | tabs方向 | `horizontal` \| `vertical` | `horizontal` |
 | activeKey | 当前激活 Tab 面板的 key | `string` \| `number` | - |
 | extra | 自定义卡片title内容 | `string` \| `ReactNode` | - |
 | titleWidth | 自定义卡片标题宽度 | number | - |
