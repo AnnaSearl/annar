@@ -5,121 +5,156 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
 .#{$tabs-prefix-cls} {
   height: 100%;
   &-header{
-    &-titles{
-      position: relative;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
-      font-size: 26px;
-      &-bg{
-        padding: 6px;
-        background-color: #EDEDED;
-        border-radius: 72px;
-        &-container{
-          display: flex;
-          justify-content: center;
-          height: 60px;
-          line-height: 60px;
-          position: relative;
-          z-index: 0;
-          &-title{
-            width: 140px;
-            text-align: center;
-            transition: all 0.3s;
-            overflow: hidden;
-            white-space: nowrap;
-            cursor: pointer;
-          }
-          &-active{
-            position: absolute;
-            left: 0;
-            background-color: $view-bg-color;
-            width: 50%;
-            height: 100%;
-            border-radius: 60px;
-            z-index: -1;
-            transform: translateX(0);
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            box-shadow: 0 4px 8px #CCCCCC;
-          }
-        }
-        &-square{
-          border-radius: 16px;
-          .#{$tabs-prefix-cls}-header-titles-bg-container-active{
-            border-radius: 12px;
-          }
-        }
-      }
-    }
-    &-titles-plain{
-      display: flex;
-      margin-bottom: 10px;
-      &-title{
-        box-sizing: border-box;
-        position: relative;
-        height: 72px;
-        line-height: 72px;
-        white-space: nowrap;
-        margin-right: 50px;
-        color: #000;
-        &-active{
-          font-weight: 500;
-          &::after{
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            content: '';
-            height: 6px;
-            border-radius: 6px;
-            width: 32px;
-            background-color: #1890FF;
-            transform: translateX(-50%);
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-          }
-        }
-      }
-    }
-    &-titles-plain-center{
-      justify-content: center;
-      &-title{
-        flex: 1;
-        text-align: center;
-        padding: 0 10px;
-        margin-right: 0;
-      }
-    }
-    &-titles-card{
-      box-sizing: border-box;
-      display: flex;
-      border: 1PX solid #1890FF;
-      margin-bottom: 10px;
-      font-size: 28px;
-      border-radius: 12px;
-      overflow: hidden;
-      &-title{
-        flex: 1;
-        box-sizing: border-box;
-        height: 56px;
-        line-height: 56px;
-        white-space: nowrap;
-        color: #1890FF;
-        text-align: center;
-        border-right: 1PX solid #1890FF;
-        &:nth-last-child(1){
-          border-right: none;
-        }
-        &-active{
-          font-weight: 500;
-          color: #FDFFFD;
-          background-color: #1890FF;
-        }
-      }
-    }
     &-content{
-      
     }
   }
+  &-plain{
+    position: relative;
+    // display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: scroll;
+    white-space: nowrap;
+    &-title{
+      display: inline-block;
+      box-sizing: border-box;
+      height: 72px;
+      line-height: 72px;
+      white-space: nowrap;
+      margin-right: 50px;
+      color: #000;
 
+      width: 80px;
+      text-align: center;
+    }
+    &-active{
+      // position: absolute;
+      // left: 0;
+      // bottom: 0;
+      // height: 6px;
+      // width: 32px;
+      // border-radius: 6px;
+      // background-color: #1890FF;
+      // transform: translateX(-50%);
+      
+      box-sizing: border-box;
+      position: absolute;
+      left: 24px;
+      bottom: 0;
+      height: 6px;
+      width: 32px;
+      padding-top: 6px;
+      font-weight: 500;
+      background-color: #1890FF;
+      overflow: hidden;
+      transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      // &::after{
+      //   position: absolute;
+      //   left: 50%;
+      //   bottom: 0;
+      //   content: '';
+      //   height: 6px;
+      //   border-radius: 6px;
+      //   width: 32;
+      //   background-color: #1890FF;
+      //   transform: translate3d(-50%, 0, 0);
+      //   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      // }
+    }
+  }
+  &-plain-center{
+    justify-content: center;
+    &-title{
+      flex: 1;
+      text-align: center;
+      padding: 0 10px;
+      margin-right: 0;
+    }
+  }
+  &-card{
+    box-sizing: border-box;
+    display: flex;
+    border: 1PX solid #1890FF;
+    margin-bottom: 10px;
+    font-size: 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    &-title{
+      flex: 1;
+      box-sizing: border-box;
+      height: 56px;
+      line-height: 56px;
+      white-space: nowrap;
+      color: #1890FF;
+      text-align: center;
+      border-right: 1PX solid #1890FF;
+      &:nth-last-child(1){
+        border-right: none;
+      }
+    }
+    &-active{
+      font-weight: 500;
+      color: #FDFFFD;
+      background-color: #1890FF;
+    }
+  }
+  &-slider{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 26px;
+    &-bg{
+      padding: 6px;
+      background-color: #EDEDED;
+      border-radius: 72px;
+      &-square{
+        border-radius: 16px;
+        .#{$tabs-prefix-cls}-slider-active{
+          border-radius: 12px;
+        }
+      }
+    }
+    &-container{
+      display: flex;
+      justify-content: center;
+      height: 60px;
+      line-height: 60px;
+      position: relative;
+      z-index: 0;
+    }
+    &-title{
+      width: 140px;
+      text-align: center;
+      transition: all 0.3s;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    &-active{
+      position: absolute;
+      left: 0;
+      background-color: $view-bg-color;
+      width: 50%;
+      height: 100%;
+      border-radius: 60px;
+      z-index: -1;
+      transform: translateX(0);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      box-shadow: 0 4px 8px #CCCCCC;
+    }
+  }
+  &-content{
+    overflow: hidden;
+    &-wrapper{
+      display: flex;
+    }
+    &-tab{
+      flex-shrink: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+  }
   // vertical
   &-vertical {
     height: 100%;

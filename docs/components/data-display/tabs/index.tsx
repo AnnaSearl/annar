@@ -129,14 +129,21 @@ export default () => {
           {tabs.map(tab => (
             <TabContent key={tab.key} tab={tab.title}>
               <Card>
-                <View className={styles.tabContent}>{`${tab.title} content`}</View>
+                {[...new Array(1)].map((i, index) => (
+                  <View key={index} className={styles.tabContent}>{`${tab.title} content`}</View>
+                ))}
               </Card>
             </TabContent>
           ))}
         </Tabs>
       </Block>
-      <Block noTitlePadding title="TitleSquare">
-        <Tabs onTabClick={({ key }) => setStateKey1(key)} activeKey={stateKey1} titleSquare>
+      <Block noTitlePadding title="TitleSquare & Animated">
+        <Tabs
+          onTabClick={({ key }) => setStateKey1(key)}
+          activeKey={stateKey1}
+          titleSquare
+          animated
+        >
           {tabs1.map(tab => (
             <TabContent key={tab.key} tab={tab.title}>
               <Card>

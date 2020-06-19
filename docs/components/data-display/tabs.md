@@ -18,6 +18,7 @@ Demo:
 | type | tabs类型 | string | - |
 | direction | tabs方向 | `horizontal` \| `vertical` | `horizontal` |
 | activeKey | 当前激活 Tab 面板的 key | `string` \| `number` | - |
+| animated | 是否使用动画切换 Tabs | boolean | `false` |
 | extra | 自定义卡片title内容 | `string` \| `ReactNode` | - |
 | titleWidth | 自定义卡片标题宽度 | number | - |
 | titleSquare | 设置卡片标题为方形 | boolean | `false` |

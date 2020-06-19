@@ -13,11 +13,13 @@ export type ButtonType = typeof ButtonTypes[number];
 export interface ButtonProps {
   type?: ButtonType;
   size?: string;
+  className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   disabled?: boolean;
   danger?: boolean;
   square?: boolean;
+  shape?: string;
   block?: boolean;
   loading?: boolean;
   loadingText?: string;
@@ -32,12 +34,14 @@ const AButton = (props: ButtonProps): React.ReactElement => {
   const {
     type,
     size,
+    className,
     style,
     children,
     onTap,
     disabled,
     danger,
     square,
+    shape,
     block,
     loading,
     loadingText,
@@ -57,23 +61,27 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     onTap?.(e);
   };
 
+  let btnShape = shape;
+  if (square) {
+    btnShape = 'square';
+  }
+
+  const classes = classNames(prefixCls, className, {
+    [`${prefixCls}-${btnShape}`]: btnShape,
+    [`${prefixCls}-${size}`]: size,
+    [`${prefixCls}-primary`]: type === 'primary',
+    [`${prefixCls}-plain`]: plain,
+    [`${prefixCls}-hairline`]: hairline,
+    [`${prefixCls}-danger-default`]: danger,
+    [`${prefixCls}-danger`]: type === 'primary' && danger,
+    [`${prefixCls}-block`]: block,
+    [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-disabled`]: disabled || loading,
+  });
+
   return (
     <Button
-      className={classNames({
-        [prefixCls]: true,
-        [`${prefixCls}-square`]: square,
-        [`${prefixCls}-small`]: size === 'small',
-        [`${prefixCls}-large`]: size === 'large',
-        [`${prefixCls}-superlarge`]: size === 'superlarge',
-        [`${prefixCls}-primary`]: type === 'primary',
-        [`${prefixCls}-plain`]: plain,
-        [`${prefixCls}-hairline`]: hairline,
-        [`${prefixCls}-danger-default`]: danger,
-        [`${prefixCls}-danger`]: type === 'primary' && danger,
-        [`${prefixCls}-block`]: block,
-        [`${prefixCls}-loading`]: loading,
-        [`${prefixCls}-disabled`]: disabled || loading,
-      })}
+      className={classes}
       disabled={disabled}
       onTap={handleTap}
       style={{

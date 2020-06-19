@@ -15,6 +15,7 @@ export interface TabProps {
   type?: string;
   direction?: string;
   activeKey?: string | number;
+  animated?: boolean;
   fixed?: boolean;
   onTabClick?: (i: any) => void;
   headerContent?: React.ReactNode;
@@ -30,6 +31,7 @@ export interface TabContentProps {
   key?: string | number;
   tab?: React.ReactNode;
   active?: boolean;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
 }
 
@@ -65,6 +67,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
     type,
     direction = 'horizontal',
     activeKey,
+    animated,
     fixed,
     onTabClick,
     headerContent,
@@ -110,6 +113,97 @@ const Tabs = (props: TabProps): React.ReactElement => {
 
   const activeKeyStr = String(activeKey);
 
+  const renderTabs = () => {
+    if (type === 'plain') {
+      return (
+        <View
+          className={classNames({
+            [`${prefixCls}-plain`]: true,
+            [`${prefixCls}-plain-center`]: titleAlign === 'center',
+          })}
+        >
+          {tabs.map((item: TabTitleProps, index: number) => (
+            <View
+              key={item.key}
+              className={classNames({
+                [`${prefixCls}-plain-title`]: true,
+                [`${prefixCls}-plain-center-title`]: titleAlign === 'center',
+                // [`${prefixCls}-plain-active`]: activeKeyStr === item.key,
+              })}
+              onTap={() => handleTabClick(item, index)}
+            >
+              {item.tab}
+            </View>
+          ))}
+          <View
+            className={`${prefixCls}-plain-active`}
+            style={{
+              transform: `translate3d(${selected * 40}PX, 0, 0) translate3d(${
+                selected * 25
+              }PX, 0, 0)`,
+            }}
+          />
+        </View>
+      );
+    }
+    if (type === 'card') {
+      return (
+        <View className={`${prefixCls}-card`}>
+          {tabs.map((item: TabTitleProps) => (
+            <View
+              key={item.key}
+              className={classNames({
+                [`${prefixCls}-card-title`]: true,
+                [`${prefixCls}-card-active`]: activeKeyStr === item.key,
+              })}
+              onTap={() => handleTabClick(item)}
+            >
+              {item.tab}
+            </View>
+          ))}
+        </View>
+      );
+    }
+    return (
+      <View className={`${prefixCls}-slider`}>
+        <View
+          className={classNames({
+            [`${prefixCls}-slider-bg`]: true,
+            [`${prefixCls}-slider-bg-square`]: titleSquare,
+          })}
+        >
+          <View className={`${prefixCls}-slider-container`}>
+            {tabs.map((item: TabTitleProps) => (
+              <View
+                key={item.key}
+                className={`${prefixCls}-slider-title`}
+                style={
+                  {
+                    fontWeight: activeKeyStr === item.key ? 500 : 400,
+                    width: titleWidth ? `${titleWidth}px` : null,
+                  } as React.CSSProperties
+                }
+                onTap={() => {
+                  handleTabClick(item);
+                }}
+              >
+                {item.tab}
+              </View>
+            ))}
+            <View
+              className={`${prefixCls}-slider-active`}
+              style={{
+                width: `${100 / tabs.length}%`,
+                transform: `translateX(${curIndex * 100}%)`,
+              }}
+            />
+          </View>
+        </View>
+        {extra}
+      </View>
+    );
+  };
+
   if (direction === 'vertical') {
     return (
       <View className={prefixCls}>
@@ -123,9 +217,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                   fontWeight: selected === index ? 500 : 400,
                   backgroundColor: selected === index ? '#FDFFFD' : '#FAFAFA',
                 }}
-                onTap={() => {
-                  handleTabClick(item, index);
-                }}
+                onTap={() => handleTabClick(item, index)}
               >
                 {item.tab}
                 {selected === index && (
@@ -162,100 +254,39 @@ const Tabs = (props: TabProps): React.ReactElement => {
           ...headerStyle,
         }}
       >
-        {type !== 'card' && type !== 'plain' ? (
-          <View className={`${prefixCls}-header-titles`}>
-            <View
-              className={classNames({
-                [`${prefixCls}-header-titles-bg`]: true,
-                [`${prefixCls}-header-titles-bg-square`]: titleSquare,
-              })}
-            >
-              <View className={`${prefixCls}-header-titles-bg-container`}>
-                {tabs.map((item: TabTitleProps) => (
-                  <View
-                    key={item.key}
-                    className={`${prefixCls}-header-titles-bg-container-title`}
-                    style={
-                      {
-                        fontWeight: activeKeyStr === item.key ? 500 : 400,
-                        width: titleWidth ? `${titleWidth}px` : null,
-                      } as React.CSSProperties
-                    }
-                    onTap={() => {
-                      handleTabClick(item);
-                    }}
-                  >
-                    {item.tab}
-                  </View>
-                ))}
-                <View
-                  className={`${prefixCls}-header-titles-bg-container-active`}
-                  style={{
-                    width: `${100 / tabs.length}%`,
-                    transform: `translateX(${curIndex * 100}%)`,
-                  }}
-                />
-              </View>
-            </View>
-            {extra}
-          </View>
-        ) : null}
-        {type === 'plain' ? (
-          <View
-            className={classNames({
-              [`${prefixCls}-header-titles-plain`]: true,
-              [`${prefixCls}-header-titles-plain-center`]: titleAlign === 'center',
-            })}
-          >
-            {tabs.map((item: TabTitleProps) => (
-              <View
-                key={item.key}
-                className={classNames({
-                  [`${prefixCls}-header-titles-plain-title`]: true,
-                  [`${prefixCls}-header-titles-plain-center-title`]: titleAlign === 'center',
-                  [`${prefixCls}-header-titles-plain-title-active`]: activeKeyStr === item.key,
-                })}
-                onTap={() => {
-                  handleTabClick(item);
-                }}
-              >
-                {item.tab}
-              </View>
-            ))}
-          </View>
-        ) : null}
-        {type === 'card' ? (
-          <View className={`${prefixCls}-header-titles-card`}>
-            {tabs.map((item: TabTitleProps) => (
-              <View
-                key={item.key}
-                className={classNames({
-                  [`${prefixCls}-header-titles-card-title`]: true,
-                  [`${prefixCls}-header-titles-card-title-active`]: activeKeyStr === item.key,
-                })}
-                onTap={() => {
-                  handleTabClick(item);
-                }}
-              >
-                {item.tab}
-              </View>
-            ))}
-          </View>
-        ) : null}
+        {renderTabs()}
         <View className={`${prefixCls}-header-content`}>{headerContent}</View>
       </View>
-      <View className={`${prefixCls}-content`}>{tabContents}</View>
+      <View className={`${prefixCls}-content`}>
+        <View
+          className={`${prefixCls}-content-wrapper`}
+          style={{
+            transition: `${animated ? 'all' : 'none'} 0.3s ease`,
+            transform: `translate3d(${-curIndex * 100}%, 0, 0)`,
+          }}
+        >
+          {tabContents}
+        </View>
+      </View>
     </View>
   );
 };
 
 const TabContent: React.FC = (props: TabContentProps): React.ReactElement | null => {
-  const { active, children } = props;
+  const { active, style, children } = props;
 
   if (!active) {
-    return <View style={{ display: 'none' }}>{children}</View>;
+    return (
+      <View className={`${prefixCls}-content-tab`} style={{ ...style, height: 0, minHeight: 0 }}>
+        {children}
+      </View>
+    );
   }
-  return <View>{children}</View>;
+  return (
+    <View className={`${prefixCls}-content-tab`} style={style}>
+      {children}
+    </View>
+  );
 };
 
 Tabs.TabContent = TabContent;
