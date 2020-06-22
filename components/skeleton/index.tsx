@@ -7,120 +7,156 @@ const prefixCls = getPrefixCls('skeleton');
 
 export interface SkeletonParagraphProps {
   rows?: number;
+  width?: number | string | number[] | string[];
 }
 
 export interface SkeletonProps {
   title?: boolean;
+  titleColor?: string;
   active?: boolean;
   avatar?: boolean;
   loading?: boolean;
   image?: boolean;
+  fade?: boolean;
   paragraph?: SkeletonParagraphProps;
   children?: React.ReactNode;
 }
 
 const Skeleton = (props: SkeletonProps) => {
-  const { title = true, active, avatar, loading, image, paragraph = {}, children } = props;
+  const {
+    title = true,
+    titleColor,
+    active,
+    avatar = false,
+    loading = true,
+    image = false,
+    paragraph = { rows: 3, width: [80, 'auto', 200] },
+    fade,
+    children,
+  } = props;
 
   const [loadingEnd, setLoadingEnd] = React.useState(false);
   const [renderStart, setRenderStart] = React.useState(false);
 
   React.useEffect(() => {
-    if (!loading) {
-      setTimeout(() => {
-        setLoadingEnd(true);
-      }, 300);
+    if (fade) {
+      if (!loading) {
+        setTimeout(() => {
+          setLoadingEnd(true);
+        }, 300);
+      }
+      if (loading) {
+        setLoadingEnd(false);
+        setRenderStart(false);
+      }
     }
   }, [loading]);
 
   React.useEffect(() => {
-    if (loadingEnd) {
-      setTimeout(() => {
-        setRenderStart(true);
-      }, 100);
+    if (fade) {
+      if (loadingEnd) {
+        setTimeout(() => {
+          setRenderStart(true);
+        }, 100);
+      }
     }
   }, [loadingEnd]);
 
-  const isLoading = loading === undefined ? true : loading;
   const rows = React.useMemo(() => (paragraph.rows ? [...new Array(paragraph.rows).keys()] : []), [
     paragraph,
   ]);
-
-  if (!loadingEnd) {
-    return (
-      <View className={prefixCls}>
-        {
-          <View
-            className={classNames({
-              [`${prefixCls}-container`]: true,
-              [`${prefixCls}-container_active`]: !isLoading,
-            })}
-          >
-            {image ? (
-              <View
-                className={classNames({
-                  [`${prefixCls}-container-image`]: true,
-                  [`${prefixCls}-active`]: active,
-                })}
-              />
-            ) : null}
-            {avatar ? (
-              <View className={`${prefixCls}-container-avatar`}>
-                <View
-                  className={classNames({
-                    [`${prefixCls}-container-avatar-left`]: true,
-                    [`${prefixCls}-active`]: active,
-                  })}
-                />
-                <View className={`${prefixCls}-container-avatar-right`}>
-                  <View
-                    className={classNames({
-                      [`${prefixCls}-container-avatar-right-text`]: true,
-                      [`${prefixCls}-active`]: active,
-                    })}
-                  />
-                  <View
-                    className={classNames({
-                      [`${prefixCls}-container-avatar-right-text`]: true,
-                      [`${prefixCls}-active`]: active,
-                    })}
-                  />
-                </View>
-              </View>
-            ) : null}
-            {title ? (
-              <View
-                className={classNames({
-                  [`${prefixCls}-container-title`]: true,
-                  [`${prefixCls}-active`]: active,
-                })}
-              />
-            ) : null}
-            {rows.map(item => (
-              <View
-                key={item}
-                className={classNames({
-                  [`${prefixCls}-container-row`]: true,
-                  [`${prefixCls}-active`]: active,
-                })}
-              />
-            ))}
-          </View>
+  const rowsWidth = React.useMemo(() => {
+    if (typeof paragraph.width === 'number') {
+      return [...new Array(rows.length).fill(`${paragraph.width}px`)];
+    }
+    if (typeof paragraph.width === 'string') {
+      return [...new Array(rows.length).fill(paragraph.width)];
+    }
+    if (Array.isArray(paragraph.width)) {
+      return (paragraph.width as any[])?.map((i: any) => {
+        if (typeof i === 'number') {
+          return `${i}px`;
+        } else if (typeof i === 'string') {
+          return i;
+        } else {
+          return 'auto';
         }
-      </View>
-    );
-  }
+      });
+    }
+  }, [paragraph]);
+
+  const renderImage = (visible: any) => {
+    return visible ? (
+      <View
+        className={classNames({
+          [`${prefixCls}-image`]: true,
+          [`${prefixCls}-active`]: active,
+        })}
+      />
+    ) : null;
+  };
+
+  const renderAvatar = (visible: any) => {
+    return visible ? (
+      <View
+        className={classNames({
+          [`${prefixCls}-avatar`]: true,
+          [`${prefixCls}-active`]: active,
+        })}
+      />
+    ) : null;
+  };
+
+  const renderTitle = (visible: any) => {
+    return visible ? (
+      <View
+        className={classNames({
+          [`${prefixCls}-title`]: true,
+          [`${prefixCls}-active`]: active,
+        })}
+        style={{ backgroundColor: titleColor }}
+      />
+    ) : null;
+  };
+
+  const renderParagraph = () => {
+    return rows.map((item, index) => (
+      <View
+        key={item}
+        className={classNames({
+          [`${prefixCls}-row`]: true,
+          [`${prefixCls}-active`]: active,
+        })}
+        style={{
+          width: rowsWidth?.[index],
+        }}
+      />
+    ));
+  };
 
   return (
     <View className={prefixCls}>
-      <View
-        className={classNames({
-          [`${prefixCls}-child_container`]: true,
-          [`${prefixCls}-child_container_active`]: renderStart,
-        })}
-      >
-        {children}
-      </View>
+      {!loadingEnd ? (
+        <View
+          className={classNames(`${prefixCls}-placeholder`, {
+            [`${prefixCls}-hidden`]: !loading,
+          })}
+        >
+          {renderImage(image)}
+          {renderAvatar(avatar)}
+          {renderTitle(title)}
+          {renderParagraph()}
+        </View>
+      ) : (
+        <View
+          className={classNames({
+            [`${prefixCls}-container`]: true,
+            [`${prefixCls}-container-active`]: renderStart,
+          })}
+        >
+          {children}
+        </View>
+      )}
     </View>
   );
 };

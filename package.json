@@ -1,6 +1,6 @@
 {
   "name": "anna-remax-ui",
-  "version": "1.6.19",
+  "version": "1.6.20",
   "description": "基于remax的小程序UI库",
   "main": "web/index.js",
   "module": "esm/index.js",
