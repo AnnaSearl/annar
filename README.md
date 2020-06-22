@@ -132,7 +132,7 @@ Anna Remax UI 维护 `master` 和 `feature` 两个分支，如果您是修复bug
 
 ## 🍻 钉钉交流群
 
-<img width="320" src="https://smebimage.fuliaoyi.com/FkXpYLyrhlx6aeNK0pvgv4FjBaHM">
+<img width="320" src="https://smebimage.fuliaoyi.com/FnY4Dm9zaIpe06ZrMklsG6Qb6Hnt">
 
 
 
