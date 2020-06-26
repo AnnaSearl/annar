@@ -6,6 +6,8 @@ export { default as Fab } from './fab';
 
 export { default as Icon } from './icon';
 
+export { default as Popup } from './popup';
+
 // 导航
 
 export { default as Tabs } from './tabs';
@@ -58,11 +60,11 @@ export { default as Tag } from './tag';
 
 // 反馈
 
+export { default as ActionSheet } from './action-sheet';
+
 export { default as Loading } from './loading';
 
 export { default as Mask } from './mask';
-
-export { default as Popup } from './popup';
 
 export { default as Result } from './result';
 

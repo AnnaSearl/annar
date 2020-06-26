@@ -9,12 +9,12 @@ $large-height: 80px;
   box-sizing: border-box;
   display: inline-block;
   padding: 0 32px;
-  background-color: $btn-bg-color;
+  background-color: $btn-default-bg;
   height: 64px;
   line-height: 60px;
-  border: 1PX solid $btn-bg-color;
+  border: 1PX solid $btn-default-bg;
   border-radius: 64px;
-  color: $color-brand;
+  color: $brand-color;
   font-weight: 500;
   font-size: 28px;
   text-align: center;
@@ -82,9 +82,9 @@ $large-height: 80px;
     border-radius: 84px;
   }
   &-primary{
-    border-color: $color-brand;
-    background-color: $color-brand;
-    color: $view-bg-color;
+    border-color: $brand-color;
+    background-color: $brand-color;
+    color: $light-base;
   }
 
   // plain
@@ -92,11 +92,11 @@ $large-height: 80px;
     font-weight: 400;
     color: #666;
     border: 1PX solid #DDD;
-    background-color: #FDFFFD;
+    background-color: $light-base;
   }
   &-plain.#{$button-prefix-cls}-primary{
-    border-color: $color-brand;
-    color: $color-brand;
+    border-color: $brand-color;
+    color: $brand-color;
   }
 
   // hairline
@@ -142,12 +142,12 @@ $large-height: 80px;
     transition: opacity .2s;
   }
   &-danger-default{
-    color: $color-danger;
+    color: $danger-color;
   }
   &-danger{
-    border-color: $color-danger;
-    background-color: $color-danger;
-    color: $view-bg-color;
+    border-color: $danger-color;
+    background-color: $danger-color;
+    color: $light-base;
   }
   &-block{
     width: 100%;
@@ -187,8 +187,8 @@ $large-height: 80px;
     border-radius: $large-height * 2;
   }
   .primary{
-    background-color: $color-brand;
-    color: $view-bg-color;
+    background-color: $brand-color;
+    color: $light-base;
   }
   .disabled{
     opacity: 0.4;

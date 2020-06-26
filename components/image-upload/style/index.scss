@@ -13,7 +13,8 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
     align-items: center;
     height: 170px;
     border-radius: 10px;
-    background-color: #F7F7F7;
+    background-color: $light-5;
+    cursor: pointer;
   }
   &-item{
     position: relative;
@@ -24,6 +25,7 @@ $image-upload-prefix-cls: #{$anna-prefix}-image-upload;
     border-radius: 10px;
     background-color: #e8e8e8;
     overflow: hidden;
+    cursor: pointer;
     &-delete{
       display: flex;
       justify-content: center;

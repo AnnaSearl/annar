@@ -119,7 +119,7 @@ const Picker = (props: PickerProps) => {
   return (
     <div className={prefixCls}>
       <div onClick={handleTap}>{children}</div>
-      <Popup open={open} onClose={() => setOpen(false)}>
+      <Popup position="bottom" open={open} onClose={() => setOpen(false)}>
         <div className={`${prefixCls}-container`}>
           <div className={`${prefixCls}-toolbar`}>
             <div className={`${prefixCls}-toolbar-cancel`} onClick={handleCancel}>

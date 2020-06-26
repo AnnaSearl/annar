@@ -5,8 +5,8 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
 .#{$skeleton-prefix-cls} {
   position: relative;
   &-placeholder{
-    padding: 24px 0;
-    background-color: $view-bg-color;
+    padding: 24px 0; // 加padding会导致切换时晃动一下
+    background-color: $light-base;
     visibility: visible;
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -17,7 +17,7 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
   }
   &-title{
     margin-left: 24px;
-    height: 22px;
+    height: 26px;
     border-radius: 6px;
     width: 260px;
     background-color: rgba(24, 144, 255, 0.2);
@@ -25,23 +25,23 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
   }
   &-row{
     margin: 0 24px;
-    height: 16px;
+    height: 20px;
     border-radius: 6px;
-    background-color: $btn-bg-color;
+    background-color: $btn-default-bg;
     margin-bottom: 16px;
   }
   &-image{
     margin: 24px;
-    height: 300px;
+    height: 340px;
     border-radius: 16px;
-    background-color: $btn-bg-color;
+    background-color: $btn-default-bg;
   }
   &-avatar{
     margin: 0 24px 16px;
-    width: 60px;
-    height: 60px;
+    width: 74px;
+    height: 74px;
     border-radius: 50%;
-    background-color: $btn-bg-color;
+    background-color: $btn-default-bg;
   }
   &-container{
     visibility: hidden;
@@ -53,7 +53,7 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
     opacity: 1;
   }
   &-active{
-    background: linear-gradient(90deg, $btn-bg-color 25%, $btn-bg-color-1 37%, $btn-bg-color 63%);
+    background: linear-gradient(90deg, $btn-default-bg 25%, $skeleton-gradient-bg 37%, $btn-default-bg 63%);
     background-size: 400% 100%;
     animation: anna-skeleton-loading 1.4s ease infinite;
   }

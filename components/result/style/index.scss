@@ -6,7 +6,7 @@ $result-prefix-cls: #{$anna-prefix}-result;
   box-sizing: border-box;
   height: 100vh;
   padding: 100px 30px;
-  background-color: #FDFFFD;
+  background-color: $light-base;
   &-icon{
     margin-bottom: 48px;
     text-align: center;
@@ -34,7 +34,7 @@ $result-prefix-cls: #{$anna-prefix}-result;
   &-content{
     margin-top: 48px;
     padding: 24px 40px;
-    background-color: #fafafa;
+    background-color: $light-4;
   }
   &-extra{
     margin-top: 64px;

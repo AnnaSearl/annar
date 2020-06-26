@@ -19,7 +19,7 @@ Demo:
 | subTitle | 副标题 | `string` \| `ReactNode` | - |
 | extra | 操作区 | ReactNode | `false` |
 | status | 状态值，决定图标和颜色，可选值有 `info` `success` `warning` `error` | string | `info` |
-| icon | 自定义 icon | React.ReactNode | IconProps | - |
+| icon | 自定义 icon | ReactNode | IconProps | - |
 | height | 结果页的高度 | string | `100vh` |
 
 

@@ -7,21 +7,21 @@ import styles from './index.module.scss';
 export default () => {
   return (
     <Frame grayBg padding>
-      <Block title="Basic">
+      <Block noTitlePadding title="Basic">
         <Card>
           <View className={styles.row}>Card content</View>
           <View className={styles.row}>Card content</View>
           <View className={styles.row}>Card content</View>
         </Card>
       </Block>
-      <Block title="With Title">
+      <Block noTitlePadding title="With Title">
         <Card title="title">
           <View className={styles.row}>Card content</View>
           <View className={styles.row}>Card content</View>
           <View className={styles.row}>Card content</View>
         </Card>
       </Block>
-      <Block title="With Extra">
+      <Block noTitlePadding title="With Extra">
         <Card title="title" extra={<View className={styles.extra}>status</View>}>
           <View className={styles.row}>Card content</View>
           <View className={styles.row}>Card content</View>

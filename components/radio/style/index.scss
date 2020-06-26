@@ -12,6 +12,7 @@ $radio-prefix-cls: #{$anna-prefix}-radio;
   &-container{
     display: flex;
     align-items: center;
+    cursor: pointer;
     &-not_checked{
       box-sizing: border-box;
       width: 38px;
@@ -24,13 +25,13 @@ $radio-prefix-cls: #{$anna-prefix}-radio;
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      border: 2px solid #1890FF;
+      border: 2px solid $brand-color;
       padding: 7px;
       &-round_fill{
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        background-color: #1890FF;
+        background-color: $brand-color;
       }
     }
     &-children{

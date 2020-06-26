@@ -21,7 +21,7 @@ $picker-prefix-cls: #{$anna-prefix}-base-picker;
     }
     &-confirm {
       padding: 0 24px;
-      color: #1890FF;
+      color: $brand-color;
     }
   }
   &-columns {

@@ -127,6 +127,8 @@ Anna Remax UI 维护 `master` 和 `feature` 两个分支，如果您是修复bug
 
 ## 🍭 体验
 
+> :vertical_traffic_light: 体验小程序上的组件版本较低，若想查看 `Anna` 的最新组件及特性，请前往 [官方文档](https://annasearl.github.io/anna-remax-ui/)
+
 <img src="https://smebimage.fuliaoyi.com/FrWM_L5llswAfkEfefnXKEFJwutl">
 
 

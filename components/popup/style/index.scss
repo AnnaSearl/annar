@@ -6,9 +6,22 @@ $popup-prefix-cls: #{$anna-prefix}-popup;
   &-container{
     position: fixed;
     z-index: 1000;
-    background-color: #FDFFFD;
+    background-color: $light-base;
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    max-height: 100%;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    &-transparent{
+      background-color: transparent;
+    }
+    &-center{
+      left: 50%;
+      top: 50%;
+      border-radius: 16px;
+      transform: translate3d(-50%, -50%, 0);
+      // animation: center 3s ease 0.3s 1 alternate forwards;
+      visibility: hidden;
+      opacity: 0;
+    }
     &-bottom{
       left: 0;
       right: 0;
@@ -47,6 +60,11 @@ $popup-prefix-cls: #{$anna-prefix}-popup;
     &-active{
       transform: translate3d(0, 0, 0);
     }
+    &-center.#{$popup-prefix-cls}-container-active{
+      visibility: visible;
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0);
+    }
     &-close{
       position: absolute;
       top: 20px;
@@ -56,6 +74,20 @@ $popup-prefix-cls: #{$anna-prefix}-popup;
       padding: 30px 0;
       text-align: center;
       color: #000;
+    }
+  }
+  @keyframes center {
+    0%{
+      transform: scale3d(1, 1, 1);
+      transform: translate3d(-50%, -50%, 0);
+    }
+    30%{
+      transform: scale3d(0.6, 0.6, 1);
+      transform: translate3d(-50%, -50%, 0);
+    }
+    100%{
+      transform: scale3d(1, 1, 1);
+      transform: translate3d(-50%, -50%, 0);
     }
   }
 }

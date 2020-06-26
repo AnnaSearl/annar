@@ -12,7 +12,8 @@ $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
     height: 100px;
     font-size: 24px;
     color: #333;
-    background-color: #FDFFFD;
+    background-color: $light-base;
+    cursor: pointer;
     &-disabled{
       opacity: 0.4;
     }
@@ -42,7 +43,7 @@ $filter-item-prefix-cls: #{$anna-prefix}-filter-item;
     // overflow: hidden;
     // transition: transform 0.2s ease;
     // transform: translate3d(0, 0, 0);
-    background-color: $view-bg-color;
+    background-color: $light-base;
     max-height: 80vh;
     z-index: -1;
   }

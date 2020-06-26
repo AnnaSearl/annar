@@ -12,6 +12,7 @@ $checkbox-prefix-cls: #{$anna-prefix}-checkbox;
   &-container{
     display: flex;
     align-items: center;
+    cursor: pointer;
     &-icon{
       font-size: 48px;
       width: 48px;

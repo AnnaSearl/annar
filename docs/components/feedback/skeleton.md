@@ -3,7 +3,7 @@ title: Skeleton
 order: 25
 ---
 
-## Result
+## Skeleton
 
 Demo:
 
@@ -11,7 +11,7 @@ Demo:
 
 ## API
 
-#### Result
+#### Skeleton
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
@@ -19,7 +19,7 @@ Demo:
 | titleColor | 标题背景色 | `string` | - |
 | avatar | 头像 | `boolean` | `false` |
 | image | 图片 | `boolean` | `false` |
-| paragraph | 段落 | ParagraphProps | - |
+| paragraph | 段落 | SkeletonParagraphProps | - |
 | loading | 为 `true` 时，显示占位图。反之则直接展示子组件 | `boolean` | `true` |
 | fade | 配置骨架屏的淡入淡出效果 | `boolean` | `false` |
 

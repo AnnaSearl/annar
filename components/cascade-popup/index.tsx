@@ -58,7 +58,7 @@ const CascadePopup = (props: CascadePopupProps) => {
       <View className={`${prefixCls}-formitem`} onTap={handleTap}>
         <FormValue placeholder={placeholder}>{text || value?.map(i => i.name).join(' ')}</FormValue>
       </View>
-      <Popup open={show}>
+      <Popup position="bottom" open={show}>
         <View className={`${prefixCls}-container`}>
           <View className={`${prefixCls}-container-header`}>
             <View>请选择</View>

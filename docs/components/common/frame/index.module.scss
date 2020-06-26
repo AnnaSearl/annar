@@ -5,7 +5,7 @@
   box-sizing: border-box;
   width: 720px;
   min-height: 1280px;
-  background: #FDFFFD;
+  background: $light-base;
   overflow: scroll;
   border-radius: 16px;
   box-shadow: #EEE 0 8px 24px;
@@ -18,7 +18,7 @@
     text-align: center;
     font-size: 32px;
     font-weight: 500;
-    color: #FDFFFD;
+    color: $light-base;
   }
   .content{
     

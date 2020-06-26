@@ -5,17 +5,18 @@ $cascade-prefix-cls: #{$anna-prefix}-cascade;
 $radius: 30px;
 
 .#{$cascade-prefix-cls} {
-  background-color: #F9FBF9;
+  background-color: $light-4;
   color: #333;
   font-size: 30px;
   text-align: left;
   &-selected-options{
     min-height: 90px;
-    background-color: #FDFFFD;
+    background-color: $light-base;
     padding: 24px 0;
     &-step{
       display: flex;
       padding-bottom: $radius;
+      cursor: pointer;
       &:nth-last-child(1){
         padding-bottom: 0;
       }
@@ -51,7 +52,7 @@ $radius: 30px;
           position: absolute;
           width: 2px;
           height: calc(100% + 30px);
-          background-color: #1890FF;
+          background-color: $brand-color;
           top: $radius;
           left: 100%;
           margin-left: -1px;
@@ -96,6 +97,7 @@ $radius: 30px;
     }
     &-category{
       padding: 30px 0;
+      cursor: pointer;
     }
   }
 }

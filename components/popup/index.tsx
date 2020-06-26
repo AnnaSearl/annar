@@ -18,6 +18,7 @@ export interface PopupProps {
   mask?: boolean;
   square?: boolean;
   curve?: string;
+  transparent?: boolean;
 }
 
 const Popup = (props: PopupProps): React.ReactElement => {
@@ -27,32 +28,30 @@ const Popup = (props: PopupProps): React.ReactElement => {
     onClose,
     closeable,
     title,
-    position = 'bottom',
+    position = 'center',
     style,
     mask = true,
     square,
     curve,
+    transparent,
   } = props;
 
   const handleClickMask = () => {
     onClose?.();
   };
 
+  const classes = classNames({
+    [`${prefixCls}-container`]: true,
+    [`${prefixCls}-container-${position}`]: position,
+    [`${prefixCls}-container-ease`]: curve === 'ease',
+    [`${prefixCls}-container-square`]: square,
+    [`${prefixCls}-container-active`]: open,
+    [`${prefixCls}-container-transparent`]: transparent,
+  });
+
   return (
     <View className={prefixCls}>
-      <View
-        className={classNames({
-          [`${prefixCls}-container`]: true,
-          [`${prefixCls}-container-bottom`]: position === 'bottom',
-          [`${prefixCls}-container-top`]: position === 'top',
-          [`${prefixCls}-container-left`]: position === 'left',
-          [`${prefixCls}-container-right`]: position === 'right',
-          [`${prefixCls}-container-ease`]: curve === 'ease',
-          [`${prefixCls}-container-square`]: square,
-          [`${prefixCls}-container-active`]: open,
-        })}
-        style={style}
-      >
+      <View className={classes} style={style}>
         {title ? <View className={`${prefixCls}-container-title`}>{title}</View> : null}
         {children}
         {closeable ? (

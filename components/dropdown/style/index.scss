@@ -14,6 +14,7 @@ $dropdown-prefix-cls: #{$anna-prefix}-dropdown;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
       &:nth-last-child(1){
         border-bottom: none;
       }

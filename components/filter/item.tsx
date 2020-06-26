@@ -107,6 +107,7 @@ const Item = (props: ItemProps, ref: any): React.ReactElement => {
         </View>
       </View>
       <Popup
+        position="bottom"
         square
         curve="ease"
         mask={false}

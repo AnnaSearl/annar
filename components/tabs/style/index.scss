@@ -15,6 +15,9 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
     width: 100%;
     overflow: scroll;
     white-space: nowrap;
+    &::-webkit-scrollbar{
+      display: none;
+    }
     &-title{
       box-sizing: border-box;
       height: 72px;
@@ -24,6 +27,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       color: #000;
       text-align: center;
       user-select: none;
+      cursor: pointer;
     }
     &-active{
       box-sizing: border-box;
@@ -34,7 +38,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       width: 32px;
       padding-top: 6px;
       font-weight: 500;
-      background-color: #1890FF;
+      background-color: $brand-color;
       overflow: hidden;
       transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
@@ -51,7 +55,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
   &-card{
     box-sizing: border-box;
     display: flex;
-    border: 1PX solid #1890FF;
+    border: 1PX solid $brand-color;
     margin-bottom: 10px;
     font-size: 28px;
     border-radius: 12px;
@@ -62,17 +66,18 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       height: 56px;
       line-height: 56px;
       white-space: nowrap;
-      color: #1890FF;
+      color: $brand-color;
       text-align: center;
-      border-right: 1PX solid #1890FF;
+      border-right: 1PX solid $brand-color;
+      cursor: pointer;
       &:nth-last-child(1){
         border-right: none;
       }
     }
     &-active{
       font-weight: 500;
-      color: #FDFFFD;
-      background-color: #1890FF;
+      color: $light-base;
+      background-color: $brand-color;
     }
   }
   &-slider{
@@ -111,7 +116,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
     &-active{
       position: absolute;
       left: 0;
-      background-color: $view-bg-color;
+      background-color: $light-base;
       width: 50%;
       height: 100%;
       border-radius: 60px;
@@ -148,7 +153,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
     overflow: hidden;
     &-sidebar {
       position: relative;
-      background-color: #FAFAFA;
+      background-color: $light-4;
       width: 170px;
       color: #000;
       font-weight: 400;
@@ -167,7 +172,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
         width: 6px;
         height: 32px;
         border-radius: 6px;
-        background-color: #1890FF;
+        background-color: $brand-color;
         transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       &-top{
@@ -176,7 +181,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
         right: 0;
         width: 12px;
         height: 12px;
-        background-color: #FDFFFD;
+        background-color: $light-base;
         overflow: hidden;
         transform: rotate(90deg);
         z-index: 1;
@@ -187,7 +192,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
           border-radius: 50%;
           left: -12px;
           right: -12px;
-          background-color: #FAFAFA;
+          background-color: $light-4;
         }
       }
       &-bottom{
@@ -196,7 +201,7 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
         right: 0;
         width: 12px;
         height: 12px;
-        background-color: #FDFFFD;
+        background-color: $light-base;
         overflow: hidden;
         z-index: 1;
         &-circle{
@@ -206,13 +211,13 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
           border-radius: 50%;
           left: -12px;
           right: -12px;
-          background-color: #FAFAFA;
+          background-color: $light-4;
         }
       }
     }
     &-content {
       flex: 1;
-      background-color: #FDFFFD;
+      background-color: $light-base;
     }
   }
 }

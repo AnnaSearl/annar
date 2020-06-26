@@ -1,3 +1,5 @@
+@import '../../../../components/style/theme/index.scss';
+
 .custom{
   .tags{
     padding: 30px 24px;
@@ -23,13 +25,13 @@
       font-weight: 400;
     }
     .reset{
-      background-color: #FFFFFF;
+      background-color: $light-base;
       border-top: 1px solid #e8e8e8;
       border-bottom-left-radius: 14px;
     }
     .complete{
-      background-color: #1890ff;
-      color: #FFFFFF;
+      background-color: $brand-color;
+      color: $light-base;
       border-bottom-right-radius: 14px;
     }
   }

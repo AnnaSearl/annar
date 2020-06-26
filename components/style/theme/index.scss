@@ -1,21 +1,68 @@
 // The prefix to use on all css classes from anna.
 $anna-prefix: anna;
 
-// primary
-$color-brand: #1890FF;
+// color
+$pink-base: rgba(255, 153, 153, 1); // #FF9999
 
-// default
-$page-bg-color: #F2F2F2;
-$view-bg-color: #FDFFFD;
-$btn-bg-color: #EDEDEF;
-$btn-bg-color-1: #E6E6E6;
-$font-color: #000;
-$font-color-1: #333;
-$font-color-2: #666;
-$font-color-3: #999;
+$blue-base: rgba(24, 144, 255, 1); // #1890FF
 
-// other
-$color-danger: #ff4d4f;
+$light-base: rgba(253, 255, 253, 1); // #FDFFFD
+$light-1: rgba(255, 255, 255, 1); // #FFFFFF
+$light-2: rgba(254, 255, 254, 1); // #FEFFFE
+$light-3: $light-base;              // #FDFFFD
+$light-4: rgba(250, 250, 250, 1); // #FAFAFA
+$light-5: rgba(249, 251, 249, 1); // #F9FBF9
+$light-6: rgba(247, 247, 247, 1); // #F7F7F7
+$light-7: rgba(246, 246, 246, 1); // #F6F6F6
+$light-8: rgba(244, 244, 244, 1); // #F4F4F4
+$light-9: rgba(242, 242, 242, 1); // #F2F2F2
+$light-10: rgba(241, 241, 241, 1); // #F1F1F1
+
+
+$gray-1: rgba(237, 237, 239, 1); // #EDEDEF
+$gray-2: rgba(236, 236, 236, 1); // #ECECEC
+$gray-3: rgba(235, 236, 237, 1); // #EBECED
+$gray-4: rgba(232, 232, 235, 1); // #E8E8EB
+$gray-5: rgba(230, 230, 230, 1); // #E6E6E6
+
+
+$dark-base: rgba(0, 0, 0, 1); // #000
+$dark-1: $dark-base; // #000
+$dark-2: rgba(51, 51, 51, 1); // #333
+$dark-3: rgba(102, 102, 102, 1); // #666
+$dark-4: rgba(153, 153, 153, 1); // #999
+
+$red-base: rgba(255, 77, 79, 1); // #FF4D4F
+
+// brand
+$brand-color: $blue-base;
+
+// page
+$page-default-bg: $light-8;
+
+// font
+$font-color: $dark-base;
+$font-color-1: $dark-2;
+$font-color-2: $dark-3;
+$font-color-3: $dark-4;
+
+// danger
+$danger-color: $red-base;
+
+// active
+$active-bg-base: $gray-4;
+$active-bg-1: $gray-2;
+$active-bg-2: $gray-3;
+$active-bg-3: $gray-4;
+
+// btn
+$btn-default-bg: $gray-1;
+
+// skeleton
+$skeleton-gradient-bg: $gray-5;
+
+// active-sheet
+
 
 
 // dark

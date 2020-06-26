@@ -17,21 +17,19 @@ export interface TagProps {
 const Tag = (props: TagProps): React.ReactElement => {
   const { type, size, className = '', style, children, onTap } = props;
 
+  const classes = classNames({
+    [prefixCls]: true,
+    [`${prefixCls}-small`]: size === 'small',
+    [`${prefixCls}-large`]: size === 'large',
+    [`${prefixCls}-info`]: type === 'info',
+    [`${prefixCls}-success`]: type === 'success',
+    [`${prefixCls}-warning`]: type === 'warning',
+    [`${prefixCls}-error`]: type === 'error',
+    [className]: true,
+  });
+
   return (
-    <View
-      className={classNames({
-        [prefixCls]: true,
-        [`${prefixCls}-small`]: size === 'small',
-        [`${prefixCls}-large`]: size === 'large',
-        [`${prefixCls}-info`]: type === 'info',
-        [`${prefixCls}-success`]: type === 'success',
-        [`${prefixCls}-warning`]: type === 'warning',
-        [`${prefixCls}-error`]: type === 'error',
-        [className]: true,
-      })}
-      style={style}
-      onTap={onTap}
-    >
+    <View className={classes} style={style} onTap={onTap}>
       {children}
     </View>
   );
@@ -52,6 +50,7 @@ Tag.CheckableTag = (props: CheckableTagProps) => {
       size="large"
       {...props}
       className={classNames({
+        [`${prefixCls}-checkable`]: true,
         [`${prefixCls}-checked`]: checked,
         [className]: true,
       })}

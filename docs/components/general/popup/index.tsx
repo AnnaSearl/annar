@@ -13,29 +13,19 @@ export default () => {
   return (
     <Frame padding style={{ overflow: 'hidden' }}>
       <Block title="Basic">
-        <Button type="primary" size="large" block onTap={() => setShow(true)}>
-          Click here
-        </Button>
+        <Button onTap={() => setShow(true)}>Click here</Button>
       </Block>
       <Block title="With Title">
-        <Button type="primary" size="large" block onTap={() => setShow1(true)}>
-          Click here
-        </Button>
+        <Button onTap={() => setShow1(true)}>Click here</Button>
       </Block>
       <Block title="Closeable">
-        <Button type="primary" size="large" block onTap={() => setShow2(true)}>
-          Click here
-        </Button>
+        <Button onTap={() => setShow2(true)}>Click here</Button>
       </Block>
       <Block title="Position">
-        <Button type="primary" size="large" block onTap={() => setShow3(true)}>
-          Left
-        </Button>
+        <Button onTap={() => setShow3(true)}>Position = Left</Button>
       </Block>
       <Block title="Curve">
-        <Button type="primary" size="large" block onTap={() => setShow4(true)}>
-          Click here
-        </Button>
+        <Button onTap={() => setShow4(true)}>Click here</Button>
       </Block>
       <Popup
         open={show}
@@ -45,14 +35,14 @@ export default () => {
       >
         <View
           style={{
-            height: '400px',
-            padding: '30px 24px',
+            padding: '80px',
           }}
         >
-          content
+          Hi, boy~
         </View>
       </Popup>
       <Popup
+        position="bottom"
         title="title"
         open={show1}
         onClose={() => {
@@ -69,6 +59,7 @@ export default () => {
         </View>
       </Popup>
       <Popup
+        position="bottom"
         title="title"
         closeable
         open={show2}

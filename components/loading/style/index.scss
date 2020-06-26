@@ -8,7 +8,7 @@ $loading-prefix-cls: #{$anna-prefix}-loading;
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 2px solid #FDFFFD;
+  border: 2px solid $light-base;
   border-bottom-color: transparent;
   animation: loading .5s linear infinite;
   &-gap{
@@ -29,7 +29,7 @@ $loading-prefix-cls: #{$anna-prefix}-loading;
       top: 50%;
       margin-top: -5px;
       height: 10px;
-      background-color: #FDFFFD;
+      background-color: $light-base;
     }
   }
 

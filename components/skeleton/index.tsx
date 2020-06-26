@@ -134,24 +134,51 @@ const Skeleton = (props: SkeletonProps) => {
     ));
   };
 
+  const renderSkeleton = () => {
+    return (
+      <>
+        {renderImage(image)}
+        {renderAvatar(avatar)}
+        {renderTitle(title)}
+        {renderParagraph()}
+      </>
+    );
+  };
+
+  if (fade) {
+    return (
+      <View className={prefixCls}>
+        {!loadingEnd ? (
+          <View
+            className={classNames(`${prefixCls}-placeholder`, {
+              [`${prefixCls}-hidden`]: !loading,
+            })}
+          >
+            {renderSkeleton()}
+          </View>
+        ) : (
+          <View
+            className={classNames({
+              [`${prefixCls}-container`]: true,
+              [`${prefixCls}-container-active`]: renderStart,
+            })}
+          >
+            {children}
+          </View>
+        )}
+      </View>
+    );
+  }
+
   return (
     <View className={prefixCls}>
-      {!loadingEnd ? (
-        <View
-          className={classNames(`${prefixCls}-placeholder`, {
-            [`${prefixCls}-hidden`]: !loading,
-          })}
-        >
-          {renderImage(image)}
-          {renderAvatar(avatar)}
-          {renderTitle(title)}
-          {renderParagraph()}
-        </View>
+      {loading ? (
+        <View className={`${prefixCls}-placeholder`}>{renderSkeleton()}</View>
       ) : (
         <View
           className={classNames({
             [`${prefixCls}-container`]: true,
-            [`${prefixCls}-container-active`]: renderStart,
+            [`${prefixCls}-container-active`]: true,
           })}
         >
           {children}

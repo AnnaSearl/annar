@@ -1,0 +1,134 @@
+@import '../../style/theme/index';
+
+$action-sheet-prefix-cls: #{$anna-prefix}-action-sheet;
+
+.#{$action-sheet-prefix-cls} {
+  position: relative;
+  overflow: hidden;
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+  text-align: center;
+  &-container{
+    margin: 0 24px 16px;
+    border-radius: 32px;
+    overflow: hidden;
+  }
+  &-cover{
+    margin: 0;
+    border-radius: 0;
+  }
+  &-menu {
+    padding-bottom: 16px;
+    background-color: $light-5;
+  }
+  &-action {
+    position: relative;
+    height: 112px;
+    line-height: 112px;
+    background-color: $light-base;
+    font-size: 34px;
+    cursor: pointer;
+    user-select: none;
+    &:active {
+      background-color: $active-bg-1;
+    }
+    &:not(:last-child):before{
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      height: 1PX;
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: scale(1, 0.5);
+      pointer-events: none; // 这样伪类元素可以点击穿透, 也就是能看到, 但是不触发任何默认事件(click等);
+    }
+    &-destructive{
+      color: $danger-color;
+    }
+  }
+  &-grid {
+    position: relative;
+    background-color: $light-base;
+    &:not(:last-child):before{
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      height: 1PX;
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: scale(1, 0.5);
+      pointer-events: none; // 这样伪类元素可以点击穿透, 也就是能看到, 但是不触发任何默认事件(click等);
+    }
+    &-wrapper {
+      display: flex;
+      padding: 32px 24px;
+      overflow: scroll;
+      &::-webkit-scrollbar{
+        display: none;
+      }
+    }
+    &-item {
+      box-sizing: border-box;
+      position: relative;
+      width: 106px;
+      max-width: 106px;
+      margin-right: 36px;
+      cursor: pointer;
+      user-select: none;
+      &:nth-last-child(1){
+        margin-right: 0;
+      }
+      &:nth-last-child(1) {
+        &::before {
+          box-sizing: border-box;
+          position: absolute;
+          content: '';
+          top: 0;
+          bottom: 0;
+          right: -24px;
+          width: 24px;
+        }
+      }
+      &:active &-icon{
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 106px;
+        width: 106px;
+        border-radius: 16px;
+        background-color: $light-4;
+        overflow: hidden;
+        font-weight: 500;
+        font-size: 32px;
+      }
+      &-name {
+        margin-top: 16px;
+        font-size: 24px;
+        word-break: keep-all;
+      }
+    }
+  }
+  &-title {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  &-cancel {
+    height: 112px;
+    line-height: 112px;
+    background-color: $light-base;
+    cursor: pointer;
+    font-size: 34px;
+    user-select: none;
+    &:active {
+      background-color: $active-bg-2;
+    }
+  }
+}

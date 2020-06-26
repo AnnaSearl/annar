@@ -39,7 +39,7 @@ const SelectorPopup = (props: SelectorPopupProps) => {
       <View className={`${prefixCls}-formitem`} onTap={handleTap}>
         <FormValue placeholder={placeholder}>{children}</FormValue>
       </View>
-      <Popup title={title} closeable open={show} onClose={handleClose}>
+      <Popup position="bottom" title={title} closeable open={show} onClose={handleClose}>
         <View className={`${prefixCls}-container`}>
           <Selector
             {...props}

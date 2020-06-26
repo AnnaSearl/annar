@@ -1,3 +1,5 @@
+@import '../../../../components/style/theme/index.scss';
+
 .gridItem{
   box-sizing: border-box;
   display: flex;
@@ -5,7 +7,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: #FDFFFD;
+  background-color: $light-base;
   overflow: hidden;
   .name{
     font-size: 24px;

@@ -7,7 +7,7 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
   text-align: left;
   &-parent{
     width: 280px;
-    background-color: #F6F6F6;
+    background-color: $light-6;
   }
   &-children{
     flex: 1;
@@ -20,13 +20,14 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
     line-height: 88px;
     font-size: 28px;
     color: #666;
+    cursor: pointer;
     &-rounded_bottom{
       position: absolute;
       bottom: -12px;
       right: 0;
       width: 12px;
       height: 12px;
-      background-color: #FDFFFD;
+      background-color: $light-base;
       overflow: hidden;
       &-circle{
         position: absolute;
@@ -35,7 +36,7 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
         border-radius: 50%;
         left: -12px;
         right: -12px;
-        background-color: #F6F6F6;
+        background-color: $light-6;
       }
     }
     &-rounded_top{
@@ -44,7 +45,7 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
       right: 0;
       width: 12px;
       height: 12px;
-      background-color: #FDFFFD;
+      background-color: $light-base;
       overflow: hidden;
       transform: rotate(90deg);
       &-circle{
@@ -54,13 +55,13 @@ $selector-prefix-cls: #{$anna-prefix}-selector;
         border-radius: 50%;
         left: -12px;
         right: -12px;
-        background-color: #F6F6F6;
+        background-color: $light-6;
       }
     }
   }
   &-active{
-    color: #1890FF;
+    color: $brand-color;
     font-weight: 500;
-    background-color: #FDFFFD;
+    background-color: $light-base;
   }
 }

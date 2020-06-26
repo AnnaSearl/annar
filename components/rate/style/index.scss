@@ -17,6 +17,7 @@ $rate-prefix-cls: #{$anna-prefix}-rate;
     display: flex;
     &-star{
       margin-right: 30px;
+      cursor: pointer;
       &:nth-last-child(1){
         margin-right: 0;
       }

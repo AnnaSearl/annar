@@ -13,6 +13,6 @@ $fab-prefix-cls: #{$anna-prefix}-fab;
   height: 80px;
   width: 80px;
   z-index: 10;
-  background-color: #1890FF;
+  background-color: $brand-color;
   box-shadow: 0 10px 20px #888888;
 }

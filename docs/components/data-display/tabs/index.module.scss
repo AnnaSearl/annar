@@ -1,3 +1,4 @@
+@import '../../../../components/style/theme/index.scss';
 
 .subTitle{
   color: #999;
@@ -22,7 +23,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #1890FF;
+    background-color: $brand-color;
     color: #FFF;
     font-size: 20px;
   }
@@ -40,7 +41,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #1890FF;
+    background-color: $brand-color;
     color: #FFF;
     font-size: 20px;
   }

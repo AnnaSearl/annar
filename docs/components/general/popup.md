@@ -1,6 +1,6 @@
 ---
 title: Popup
-order: 15
+order: 20
 ---
 
 ## Popup
@@ -18,7 +18,7 @@ Demo:
 | open | 是否打开弹出层 | boolean | `false` |
 | title | 弹出层标题 | string | - |
 | closeable | 是否显示关闭图标 | boolean | `false` |
-| position | 弹出位置，可选值为 `top` `bottom` `right` `left` | string | `bottom` |
+| position | 弹出位置，可选值为 `center` `top` `bottom` `right` `left` | string | `center` |
 | mask | 是否显示遮罩层 | boolean | `true` |
 | square | 是否去除圆角 | boolean | `false` |
 | curve | 动画曲线，可选值为 `ease` | string | - |

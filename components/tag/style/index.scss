@@ -8,8 +8,8 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
   text-align: center;
   // type
   color: #333;
-  background-color: #F4F4F4;
-  border: 2px solid #F4F4F4;
+  background-color: $light-7;
+  border: 2px solid $light-7;
   // size
   height: 44px;
   line-height: 40px;
@@ -17,6 +17,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
   border-radius: 8px;
   font-size: 24px;
   margin-right: 14px;
+  user-select: none;
   &:nth-last-child(1){
     margin-right: 0;
   }
@@ -35,7 +36,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
     font-size: 24px;
   }
   &-info{
-    color: #1890FF;
+    color: $brand-color;
     background-color: #e6f7ff;
     border: 2px solid #91d5ff;
   }
@@ -54,9 +55,12 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
     background-color: #fff1f0;
     border: 2px solid #ffa39e;
   }
+  &-checkable{
+    cursor: pointer;
+  }
   &-checked{
-    color: #FDFFFD;
-    background-color: #1890FF;
-    border: 2px solid #1890FF;
+    color: $light-base;
+    background-color: $brand-color;
+    border: 2px solid $brand-color;
   }
 }

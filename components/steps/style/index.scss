@@ -41,7 +41,7 @@ $steps-prefix-cls: #{$anna-prefix}-steps;
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: #1890FF;
+    background-color: $brand-color;
     z-index: 1;
     transform: translate(-50%, -50%);
   }
@@ -53,7 +53,7 @@ $steps-prefix-cls: #{$anna-prefix}-steps;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: #FDFFFD;
+    background-color: $light-base;
     z-index: 1;
     transform: translate(-50%, -50%);
     display: flex;
@@ -72,7 +72,7 @@ $steps-prefix-cls: #{$anna-prefix}-steps;
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #1890FF;
+    background-color: $brand-color;
     transform: translateX(-50%);
   }
 }
@@ -81,7 +81,7 @@ $steps_horizontal-prefix-cls: #{$steps-prefix-cls}_horizontal;
 
 .#{$steps_horizontal-prefix-cls} {
   display: flex;
-  background-color: #FDFFFD;
+  background-color: $light-base;
   overflow: hidden;
   &-step{
     flex: 1;
@@ -96,7 +96,7 @@ $steps_horizontal-prefix-cls: #{$steps-prefix-cls}_horizontal;
       .#{$steps_horizontal-prefix-cls}-step-container{
         &-icon{
           &::after{
-            background-color: #FDFFFD;
+            background-color: $light-base;
           }
         }
       }
@@ -112,7 +112,7 @@ $steps_horizontal-prefix-cls: #{$steps-prefix-cls}_horizontal;
         position: relative;
         display: inline-block;
         padding: 0 20px;
-        background-color: #FDFFFD;
+        background-color: $light-base;
         height: 40px;
         &::after{
           content: '';
@@ -157,7 +157,7 @@ $steps_horizontal-prefix-cls: #{$steps-prefix-cls}_horizontal;
     .#{$steps_horizontal-prefix-cls}-step-container{
       &-icon{
         &::after{
-          background-color: #1890FF;
+          background-color: $brand-color;
         }
       }
     }

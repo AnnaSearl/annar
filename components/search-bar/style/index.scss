@@ -16,7 +16,7 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
     height: 64px;
     border-radius: 64px;
     padding: 16px;
-    background-color: #F6F6F6;
+    background-color: $light-6;
     &-synthetic{
       position: absolute;
       top: 50%;
@@ -57,6 +57,7 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
     font-size: 30px;
     white-space: nowrap;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
   }
   &-show_action_button{
     margin-right: 0;
