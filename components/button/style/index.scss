@@ -136,6 +136,12 @@ $large-height: 80px;
   &-square.#{$button-prefix-cls}-small {
     padding: 0 14px;
   }
+  &-circle{
+    padding: 0;
+    min-width: 64px;
+    border-radius: 50%;
+    z-index: 9;
+  }
   &-disabled{
     opacity: 0.4;
     // color: hsla(0,0%,100%,.6) !important;
@@ -193,6 +199,13 @@ $large-height: 80px;
   }
   &-block{
     width: 100%;
+  }
+  &-float{
+    position: fixed;
+    right: 24px;
+    bottom: 160px;
+    box-shadow: 0 10px 24px #CCC;
+    // box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
   }
   &-loading{
     padding-left: 32px + 36px + 16px;

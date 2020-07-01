@@ -20,6 +20,7 @@ export interface ButtonProps {
   danger?: boolean;
   shape?: string;
   block?: boolean;
+  float?: boolean;
   loading?: boolean;
   loadingText?: string;
   plain?: boolean;
@@ -42,6 +43,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     danger,
     shape,
     block,
+    float,
     loading,
     loadingText,
     plain,
@@ -68,6 +70,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     [`${prefixCls}-plain`]: plain,
     [`${prefixCls}-hairline`]: hairline,
     [`${prefixCls}-block`]: block,
+    [`${prefixCls}-float`]: float,
     [`${prefixCls}-danger-default`]: danger,
     [`${prefixCls}-danger`]: type === 'primary' && danger,
     [`${prefixCls}-look-${look}`]: look,

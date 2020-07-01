@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { View } from 'remax/one';
-import { Button } from 'anna-remax-ui';
+import { View, Text } from 'remax/one';
+import { Button, Icon } from 'anna-remax-ui';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 
@@ -49,26 +49,11 @@ export default () => {
             </Button>
           </View>
         </Block>
-        <Block noTitlePadding title="Look">
-          <View className={styles.group}>
-            <Button look="secondary">Secondary</Button>
-          </View>
-          <View className={styles.group}>
-            <Button look="secure">Secure</Button>
-            <Button look="warning">Warning</Button>
-          </View>
-          <View className={styles.group}>
-            <Button look="light">Light</Button>
-            <Button look="medium">Medium</Button>
-            <Button look="dark">Dark</Button>
-          </View>
-          <View className={styles.group}>
-            <Button look="anna">Anna</Button>
-            <Button look="orange">Orange</Button>
-          </View>
-        </Block>
         <Block noTitlePadding title="Shape">
           <View className={styles.group}>
+            <Button type="primary" shape="circle">
+              C
+            </Button>
             <Button type="primary">round</Button>
             <Button type="primary" shape="square">
               square
@@ -83,6 +68,42 @@ export default () => {
             <Button type="primary">default</Button>
             <Button type="primary" size="small">
               small
+            </Button>
+          </View>
+        </Block>
+        <Block noTitlePadding title="Float">
+          <View className={styles.group} style={{ height: '60px' }}>
+            <Button
+              type="primary"
+              shape="circle"
+              float
+              style={{
+                left: '30px',
+                bottom: '1320px',
+              }}
+            >
+              <Text style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Icon type="cart" color="#FFF" size="40px" />
+              </Text>
+            </Button>
+            <Button
+              look="warning"
+              float
+              style={{
+                left: '120px',
+                bottom: '1320px',
+              }}
+            >
+              <Text
+                style={{
+                  display: 'inline-flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                前往App
+                <Icon type="right" color="#000" size="28px" style={{ marginLeft: '6px' }} />
+              </Text>
             </Button>
           </View>
         </Block>
@@ -120,11 +141,33 @@ export default () => {
         </Block>
         <Block noTitlePadding title="Block">
           <View className={styles.group}>
-            <Button type="primary" size="superlarge" block style={{ marginBottom: '30px' }} loading>
+            <Button type="primary" size="large" block style={{ marginBottom: '30px' }} loading>
               block
             </Button>
-            <Button type="primary" size="superlarge" danger square block>
+            <Button type="primary" size="large" danger square block>
               block
+            </Button>
+          </View>
+        </Block>
+        <Block noTitlePadding title="Look">
+          <View className={styles.group}>
+            <Button look="secondary">Secondary</Button>
+          </View>
+          <View className={styles.group}>
+            <Button look="secure">Secure</Button>
+            <Button look="warning">Warning</Button>
+          </View>
+          <View className={styles.group}>
+            <Button look="light">Light</Button>
+            <Button look="medium">Medium</Button>
+            <Button look="dark">Dark</Button>
+          </View>
+          <View className={styles.group}>
+            <Button size="large" block look="anna" style={{ marginBottom: '30px' }}>
+              Anna
+            </Button>
+            <Button size="large" shape="square" block look="orange">
+              Orange
             </Button>
           </View>
         </Block>
