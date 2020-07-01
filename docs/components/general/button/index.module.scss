@@ -1,6 +1,10 @@
 .app {
   padding: 30px;
   .group{
+    margin-bottom: 30px;
+    &:nth-last-child(1){
+      margin-bottom: 0;
+    }
     >view{
       margin-right: 24px;
     }

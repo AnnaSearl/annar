@@ -30,7 +30,7 @@ const actions3 = [
       { value: 6, name: 'Broadcast', icon: 'broadcast_fill' },
     ],
   },
-  { value: 3, text: 'Delete', type: 'warning' },
+  { value: 3, text: 'Delete', type: 'destructive' },
 ];
 
 const actions4 = [

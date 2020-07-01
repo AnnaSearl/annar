@@ -149,6 +149,48 @@ $large-height: 80px;
     background-color: $danger-color;
     color: $light-base;
   }
+  &-look{
+    &-secondary{
+      color: $brand-color;
+      background-color: #ECF5FF;
+      border-color: #ECF5FF;
+    }
+    &-secure{
+      color: $light-base;
+      background-color: #07C160;
+      border-color: #07C160;
+    }
+    &-warning{
+      color: $dark-base;
+      background-color: #FFC409;
+      border-color: #FFC409;
+    }
+    &-light{
+      color: $dark-base;
+      background-color:#F4F5F8;
+      border-color: #F4F5F8;
+    }
+    &-medium{
+      color: $light-base;
+      background-color: #92949c;
+      border-color: #92949c;
+    }
+    &-dark{
+      color: $light-base;
+      background-color: #222428;
+      border-color: #222428;
+    }
+    &-anna{
+      color: $light-base;
+      background-color: #FF9999;
+      border-color: #FF9999;
+    }
+    &-orange{
+      color: $light-base;
+      background-color: #ff4f00;
+      border-color: #ff4f00;
+    }
+  }
   &-block{
     width: 100%;
   }

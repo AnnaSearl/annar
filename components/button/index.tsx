@@ -18,13 +18,13 @@ export interface ButtonProps {
   children?: React.ReactNode;
   disabled?: boolean;
   danger?: boolean;
-  square?: boolean;
   shape?: string;
   block?: boolean;
   loading?: boolean;
   loadingText?: string;
   plain?: boolean;
   hairline?: boolean;
+  look?: string;
   color?: string;
   onTap?: (e: any) => void;
   [restProps: string]: any;
@@ -40,13 +40,13 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     onTap,
     disabled,
     danger,
-    square,
     shape,
     block,
     loading,
     loadingText,
     plain,
     hairline,
+    look,
     color,
     ...restProps
   } = props;
@@ -61,20 +61,16 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     onTap?.(e);
   };
 
-  let btnShape = shape;
-  if (square) {
-    btnShape = 'square';
-  }
-
   const classes = classNames(prefixCls, className, {
-    [`${prefixCls}-${btnShape}`]: btnShape,
+    [`${prefixCls}-${shape}`]: shape,
     [`${prefixCls}-${size}`]: size,
     [`${prefixCls}-primary`]: type === 'primary',
     [`${prefixCls}-plain`]: plain,
     [`${prefixCls}-hairline`]: hairline,
+    [`${prefixCls}-block`]: block,
     [`${prefixCls}-danger-default`]: danger,
     [`${prefixCls}-danger`]: type === 'primary' && danger,
-    [`${prefixCls}-block`]: block,
+    [`${prefixCls}-look-${look}`]: look,
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-disabled`]: disabled || loading,
   });

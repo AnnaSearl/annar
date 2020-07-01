@@ -49,10 +49,28 @@ export default () => {
             </Button>
           </View>
         </Block>
+        <Block noTitlePadding title="Look">
+          <View className={styles.group}>
+            <Button look="secondary">Secondary</Button>
+          </View>
+          <View className={styles.group}>
+            <Button look="secure">Secure</Button>
+            <Button look="warning">Warning</Button>
+          </View>
+          <View className={styles.group}>
+            <Button look="light">Light</Button>
+            <Button look="medium">Medium</Button>
+            <Button look="dark">Dark</Button>
+          </View>
+          <View className={styles.group}>
+            <Button look="anna">Anna</Button>
+            <Button look="orange">Orange</Button>
+          </View>
+        </Block>
         <Block noTitlePadding title="Shape">
           <View className={styles.group}>
             <Button type="primary">round</Button>
-            <Button type="primary" square>
+            <Button type="primary" shape="square">
               square
             </Button>
           </View>
