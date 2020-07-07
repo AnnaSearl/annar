@@ -4,7 +4,7 @@
 
 <h1 align="center">Anna Remax UI</h1>
 
-<div align="center">一款优雅、简洁的 Remax 组件库</div>
+<div align="center">优雅、简洁的 Remax 组件库</div>
 
 
 ## 😎 特性

@@ -6,7 +6,7 @@ import { getPrefixCls } from '../common';
 const prefixCls = getPrefixCls('tag');
 
 export interface TagProps {
-  type?: string;
+  color?: string;
   size?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -15,16 +15,13 @@ export interface TagProps {
 }
 
 const Tag = (props: TagProps): React.ReactElement => {
-  const { type, size, className = '', style, children, onTap } = props;
+  const { color, size, className = '', style, children, onTap } = props;
 
   const classes = classNames({
     [prefixCls]: true,
     [`${prefixCls}-small`]: size === 'small',
     [`${prefixCls}-large`]: size === 'large',
-    [`${prefixCls}-info`]: type === 'info',
-    [`${prefixCls}-success`]: type === 'success',
-    [`${prefixCls}-warning`]: type === 'warning',
-    [`${prefixCls}-error`]: type === 'error',
+    [`${prefixCls}-${color}`]: color,
     [className]: true,
   });
 
@@ -38,12 +35,21 @@ const Tag = (props: TagProps): React.ReactElement => {
 export interface CheckableTagProps {
   className?: string;
   checked?: boolean;
+  checkedColor?: boolean;
+  disabled?: boolean;
   onChange?: (e: any) => void;
   children?: React.ReactNode;
 }
 
 Tag.CheckableTag = (props: CheckableTagProps) => {
-  const { className = '', checked, onChange, children } = props;
+  const { className = '', checked, checkedColor, disabled, onChange, children } = props;
+
+  const handleChange = () => {
+    if (disabled) {
+      return;
+    }
+    onChange?.(!checked);
+  };
 
   return (
     <Tag
@@ -52,11 +58,11 @@ Tag.CheckableTag = (props: CheckableTagProps) => {
       className={classNames({
         [`${prefixCls}-checkable`]: true,
         [`${prefixCls}-checked`]: checked,
+        [`${prefixCls}-${checkedColor}`]: checked && checkedColor,
+        [`${prefixCls}-disabled`]: disabled,
         [className]: true,
       })}
-      onTap={() => {
-        onChange?.(!checked);
-      }}
+      onTap={handleChange}
     >
       {children}
     </Tag>

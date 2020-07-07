@@ -5,6 +5,13 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
 .#{$tabs-prefix-cls} {
   height: 100%;
   &-header{
+    &-fixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9;
+    }
     &-content{
     }
   }

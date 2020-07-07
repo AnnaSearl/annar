@@ -2,8 +2,6 @@
 
 export { default as Button } from './button';
 
-export { default as Fab } from './fab';
-
 export { default as Icon } from './icon';
 
 export { default as Popup } from './popup';

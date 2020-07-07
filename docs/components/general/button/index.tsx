@@ -62,6 +62,9 @@ export default () => {
         </Block>
         <Block noTitlePadding title="Size">
           <View className={styles.group}>
+            <Button type="primary" size="superlarge">
+              super
+            </Button>
             <Button type="primary" size="large">
               large
             </Button>

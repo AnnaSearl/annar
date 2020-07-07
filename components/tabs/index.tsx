@@ -68,6 +68,16 @@ const getTabContents = (
   return [tabs, tabContents];
 };
 
+const getTabIndex = (tabs: TabTitleProps[], activeKey?: string | number) => {
+  let tIndex = 0;
+  tabs.forEach((i: any, index: number) => {
+    if (i.key === activeKey) {
+      tIndex = index;
+    }
+  });
+  return tIndex;
+};
+
 const Tabs = (props: TabProps): React.ReactElement => {
   const {
     type,
@@ -85,12 +95,13 @@ const Tabs = (props: TabProps): React.ReactElement => {
     titleAlign,
   } = props;
 
-  const [selected, setSelected] = useState(0);
-  const [titleNodes, setTitleNodes] = useState<any[]>([]);
-
   const [tabs, tabContents] = useMemo(() => getTabContents(children, activeKey, animated), [
     children,
   ]);
+  const tabIndex = useMemo(() => getTabIndex(tabs, activeKey), [activeKey, tabs]);
+
+  const [selected, setSelected] = useState(tabIndex);
+  const [titleNodes, setTitleNodes] = useState<any[]>([]);
 
   useEffect(() => {
     if (type === 'plain') {
@@ -109,29 +120,6 @@ const Tabs = (props: TabProps): React.ReactElement => {
         });
     }
   }, [tabs]);
-
-  const getTabIndex = () => {
-    let tIndex = 0;
-    tabs.forEach((i: any, index: number) => {
-      if (i.key === activeKey) {
-        tIndex = index;
-      }
-    });
-    return tIndex;
-  };
-
-  const curIndex = useMemo(() => getTabIndex(), [activeKey, tabs]);
-  const fixedStyle = useMemo(() => {
-    return fixed
-      ? ({
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 9,
-        } as React.CSSProperties)
-      : null;
-  }, [fixed]);
 
   const handleTabClick = (item: any, index?: number) => {
     setSelected(index || 0);
@@ -175,14 +163,14 @@ const Tabs = (props: TabProps): React.ReactElement => {
     if (type === 'card') {
       return (
         <View className={`${prefixCls}-card`}>
-          {tabs.map((item: TabTitleProps) => (
+          {tabs.map((item: TabTitleProps, index: number) => (
             <View
               key={item.key}
               className={classNames({
                 [`${prefixCls}-card-title`]: true,
                 [`${prefixCls}-card-active`]: activeKeyStr === item.key,
               })}
-              onTap={() => handleTabClick(item)}
+              onTap={() => handleTabClick(item, index)}
             >
               {item.tab}
             </View>
@@ -199,7 +187,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
           })}
         >
           <View className={`${prefixCls}-slider-container`}>
-            {tabs.map((item: TabTitleProps) => (
+            {tabs.map((item: TabTitleProps, index: number) => (
               <View
                 key={item.key}
                 className={`${prefixCls}-slider-title`}
@@ -210,7 +198,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                   } as React.CSSProperties
                 }
                 onTap={() => {
-                  handleTabClick(item);
+                  handleTabClick(item, index);
                 }}
               >
                 {item.tab}
@@ -220,7 +208,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
               className={`${prefixCls}-slider-active`}
               style={{
                 width: `${100 / tabs.length}%`,
-                transform: `translateX(${curIndex * 100}%)`,
+                transform: `translateX(${selected * 100}%)`,
               }}
             />
           </View>
@@ -274,9 +262,10 @@ const Tabs = (props: TabProps): React.ReactElement => {
   return (
     <View className={prefixCls}>
       <View
-        className={`${prefixCls}-header`}
+        className={classNames(`${prefixCls}-header`, {
+          [`${prefixCls}-header-fixed`]: fixed,
+        })}
         style={{
-          ...fixedStyle,
           ...headerStyle,
         }}
       >
@@ -290,7 +279,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
             animated
               ? {
                   transition: `all 0.3s ease`,
-                  transform: `translate3d(${-curIndex * 100}%, 0, 0)`,
+                  transform: `translate3d(${-selected * 100}%, 0, 0)`,
                 }
               : ({} as React.CSSProperties)
           }

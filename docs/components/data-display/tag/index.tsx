@@ -13,11 +13,11 @@ export default () => {
       <Block noTitlePadding title="Basic">
         <Tag>Anna</Tag>
       </Block>
-      <Block noTitlePadding title="Type">
-        <Tag type="info">info</Tag>
-        <Tag type="success">success</Tag>
-        <Tag type="warning">warning</Tag>
-        <Tag type="error">error</Tag>
+      <Block noTitlePadding title="Color">
+        <Tag color="blue">blue</Tag>
+        <Tag color="green">green</Tag>
+        <Tag color="yellow">yellow</Tag>
+        <Tag color="red">red</Tag>
       </Block>
       <Block noTitlePadding title="Size">
         <Tag size="large">large</Tag>
@@ -25,7 +25,7 @@ export default () => {
         <Tag size="small">small</Tag>
       </Block>
       <Block noTitlePadding title="Checkable">
-        <CheckableTag checked={checked1} onChange={v => setChecked1(v)}>
+        <CheckableTag checkedColor="blue" checked={checked1} onChange={v => setChecked1(v)}>
           大众优选
         </CheckableTag>
         <CheckableTag checked={checked2} onChange={v => setChecked2(v)}>

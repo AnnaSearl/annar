@@ -95,7 +95,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
           <Loading color="#FDFFFD" radius="36px" style={{ verticalAlign: 'text-top' }} />
         </View>
       ) : null}
-      <Text>{loading && loadingText ? loadingText : children}</Text>
+      <Text className={`${prefixCls}-text`}>{loading && loadingText ? loadingText : children}</Text>
       <Text className={`${prefixCls}-mask`} />
     </Button>
   );

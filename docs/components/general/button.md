@@ -21,7 +21,7 @@ Demo:
 | color | 设置朴素或细线按钮的颜色 | string | - |
 | danger | 设置危险按钮 | boolean | `false` |
 | look | Anna为用户提供的预设风格，可选值为 `secondary` `secure` `warning` `light` `medium` `dark` `orange` `anna` | string | - |
-| shape | 设置按钮形状，可选值为 `square` | boolean | `false` |
+| shape | 设置按钮形状，可选值为 `square` `circle` | boolean | `false` |
 | size | 设置按钮大小 | `small` \| `large` \| `superlarge` | - |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | `false` |
 | loading | 设置按钮载入状态 | boolean | `false` |
