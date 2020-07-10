@@ -42,7 +42,7 @@ export { default as SearchBar } from './search-bar';
 
 export { default as FormValue } from './form-value';
 
-export { default as Filter } from './filter';
+export { default as Stepper } from './stepper';
 
 // 数据展示
 
@@ -59,6 +59,8 @@ export { default as Tag } from './tag';
 // 反馈
 
 export { default as ActionSheet } from './action-sheet';
+
+export { default as Filter } from './filter';
 
 export { default as Loading } from './loading';
 

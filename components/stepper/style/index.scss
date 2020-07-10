@@ -1,0 +1,83 @@
+@import '../../style/theme/index';
+
+$stepper-prefix-cls: #{$anna-prefix}-stepper;
+
+.#{$stepper-prefix-cls} {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  line-height: 48px;
+  font-size: 32px;
+  &-minus{
+    border-radius: 8px 0 0 8px;
+  }
+  &-plus{
+    border-radius: 0 8px 8px 0;
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: #F5F5F5;
+    cursor: pointer;
+    &:active{
+      background-color: $gray-2;
+    }
+    &-disabled{
+      cursor: not-allowed;
+      background-color: #FBFBFB;
+      &:active{
+        background-color: #FBFBFB;
+      }
+    }
+    &-plain{
+      width: 44px;
+      height: 44px;
+      border: 2px solid #DDD;
+      border-radius: 8px;
+      background-color: transparent;
+      &:active{
+        background-color: transparent;
+      }
+      &-disabled{
+        cursor: not-allowed;
+        background-color: transparent;
+        opacity: 0.4;
+      }
+    }
+    &-circle{
+      border-radius: 50%;
+    }
+  }
+  &-input-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80px;
+    margin: 0 4px;
+    background-color: #FDFFFD;
+    overflow: hidden;
+  }
+  &-input{
+    width: 100%;
+    padding: 0;
+    background-color: #F5F5F5;
+    outline: none;  
+    border: none;
+    color: $font-color-1;
+    font-size: 30px;
+    text-align: center;
+    &-disabled{
+      background-color: #FBFBFB;
+    }
+    &-plain{
+      background-color: transparent;
+    }
+    &-circle{
+      border-radius: 16px;
+    }
+  }
+}
