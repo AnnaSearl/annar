@@ -22,3 +22,19 @@ export const mergeStyle = (target: Obj | undefined, style: Obj) => {
   }
   return newTarget;
 };
+
+export const twoDimensional = (data: any[], rowNumbers: number) => {
+  const two: any[] = [];
+  if (!Array.isArray(data)) {
+    return two;
+  }
+  const rowsLength = Math.ceil(data.length / rowNumbers);
+  const remainder = rowNumbers - (data.length % rowNumbers);
+  const oneDimensional = data.concat(new Array(remainder).fill({}));
+  let index = 0;
+  for (let i = 0; i < rowsLength; i++) {
+    const row = oneDimensional.slice(index, (index += rowNumbers));
+    two.push(row);
+  }
+  return two;
+};

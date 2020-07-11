@@ -28,7 +28,7 @@ export default () => {
       </Block>
       <Block noTitlePadding title="Color">
         <Rate
-          color="#FF9999"
+          color="#FF7777"
           icon="appreciate"
           iconFill="appreciatefill"
           value={value6}

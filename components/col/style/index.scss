@@ -1,0 +1,21 @@
+@import '../../style/theme/index';
+
+$col-prefix-cls: #{$anna-prefix}-col;
+$span: 100% / 24;
+
+.#{$col-prefix-cls} {
+  position: relative;
+  @for $i from 1 through 24 {
+    &-#{$i} { 
+      flex: 1 1 $span * $i;
+      max-width: $span * $i;
+    }
+  }
+  &-offset {
+    @for $i from 1 through 24 {
+      &-#{$i} { 
+        margin-left: $span * $i;
+      }
+    }
+  }
+}

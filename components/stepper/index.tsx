@@ -6,27 +6,27 @@ import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('stepper');
 
-const getDefaultValue = (value: number, min: number, max: number) => {
+const getDefaultValue = (value: number, min: number, max?: number) => {
   if (value <= min) {
     return min;
   }
-  if (value >= max) {
+  if (max && value >= max) {
     return max;
   }
   return value;
 };
 
 export interface StepperProps {
-  value?: string | number;
-  step?: string | number;
-  min?: string | number;
-  max?: string | number;
+  value?: number;
+  step?: number;
+  min?: number;
+  max?: number;
   disabled?: boolean;
   plain?: boolean;
   shape?: string;
   color?: string;
   bgColor?: string;
-  onChange?: (v: number, e?: Event) => void;
+  onChange?: (v?: number, e?: Event) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
 }
@@ -47,12 +47,9 @@ const Stepper = (props: StepperProps) => {
     onBlur,
   } = props;
 
-  const stepNum = Number(step);
-  const minNum = Number(min);
-  const maxNum = Number(max);
-  const val = getDefaultValue(Number(value), minNum, maxNum);
-  const minusDisabled = val <= minNum || disabled;
-  const plusDisabled = ((maxNum || maxNum === 0) && val >= maxNum) || disabled;
+  const val = getDefaultValue(value, min, max);
+  const minusDisabled = val <= min || disabled;
+  const plusDisabled = ((max || max === 0) && val >= max) || disabled;
 
   const handlePlus = () => {
     if (!val && val !== 0) {
@@ -61,7 +58,7 @@ const Stepper = (props: StepperProps) => {
     if (plusDisabled) {
       return;
     }
-    const newValue = val + stepNum > maxNum ? maxNum : val + stepNum;
+    const newValue = max && val + step > max ? max : val + step;
     onChange?.(newValue);
   };
 
@@ -72,7 +69,7 @@ const Stepper = (props: StepperProps) => {
     if (minusDisabled) {
       return;
     }
-    const newValue = val - stepNum < minNum ? minNum : val - stepNum;
+    const newValue = val - step < min ? min : val - step;
     onChange?.(newValue);
   };
 
@@ -87,10 +84,10 @@ const Stepper = (props: StepperProps) => {
   const handleBlur = (e: any) => {
     onBlur?.(e);
     if (minusDisabled) {
-      onChange?.(minNum);
+      onChange?.(min);
     }
     if (plusDisabled) {
-      onChange?.(maxNum);
+      onChange?.(max);
     }
   };
 

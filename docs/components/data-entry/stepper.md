@@ -15,10 +15,10 @@ Demo:
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
-| value | 当前值 | `number` \| `string` | `min` |
-| step | 步长，每次改变的步数 | `number` \| `string` | `1` |
-| min | 最小值 | `number` \| `string` | `1` |
-| max | 最大值 | `number` \| `string` | - |
+| value | 当前值 | number | `min` |
+| step | 步长，每次改变的步数 | number | `1` |
+| min | 最小值 | `number` \| number | `1` |
+| max | 最大值 | `number` \| number | - |
 | disabled | 是否禁用 | boolean | `false` |
 | plain | 设置朴素步进器 | boolean | `false` |
 | shape | 设置步进器形状，可选值为 `circle` | string | - |

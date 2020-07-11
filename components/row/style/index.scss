@@ -1,0 +1,7 @@
+@import '../../style/theme/index';
+
+$row-prefix-cls: #{$anna-prefix}-row;
+
+.#{$row-prefix-cls} {
+  display: flex;
+}

@@ -35,9 +35,9 @@ export default () => {
       </Block>
       <Block title="Color">
         <Grid>
-          <GridItem name="#FF9999">
+          <GridItem name="#FF7777">
             <View className={styles.main} style={{ transform: 'translate(16px, 34px)' }}>
-              <Loading type="anna" color="#FF9999" />
+              <Loading type="anna" color="#FF7777" />
             </View>
           </GridItem>
           <GridItem name="#000000">

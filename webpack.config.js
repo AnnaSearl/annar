@@ -128,7 +128,7 @@ const config = {
     new MiniCssExtractPlugin({ filename: '[name].css' }),
     new WebpackBar({
       name: '🚚  Anna Remax UI',
-      color: '#FF9999',
+      color: '#FF7777',
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',

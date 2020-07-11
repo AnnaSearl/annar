@@ -1,0 +1,50 @@
+.anna-row {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  .anna-col {
+    height: 88px;
+    line-height: 88px;
+    text-align: center;
+    font-size: 28px;
+    >view {
+      background-color: #FFDDDD;
+    }
+    >div {
+      background-color: #FFDDDD;
+    }
+  }
+}
+
+.demo-basic {
+  .anna-row {
+    .anna-col {
+      background-color: #FFDDDD;
+      &:nth-child(2n) {
+        background-color: #FFFFCC;
+      }
+    }
+  }
+}
+
+.demo-grid{
+  .anna-grid {
+    border-radius: 16px;
+    overflow: hidden;
+    .anna-row {
+      border-radius: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      .anna-col {
+        height: auto;
+        line-height: 88px;
+        text-align: center;
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.demo-grid-item{
+  height: 220px;
+}

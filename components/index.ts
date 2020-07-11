@@ -6,6 +6,12 @@ export { default as Icon } from './icon';
 
 export { default as Popup } from './popup';
 
+// 布局
+
+export { default as Row } from './row';
+
+export { default as Col } from './col';
+
 // 导航
 
 export { default as Tabs } from './tabs';

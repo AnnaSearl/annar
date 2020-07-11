@@ -145,14 +145,14 @@ export default () => {
             value={value}
             options={options}
             onChange={e => setValue(e.key)}
-            activeColor="#FF9999"
+            activeColor="#FF7777"
           />
           <Filter.Item
             title="价格"
             value={value1}
             options={options1}
             onChange={e => setValue1(e.key)}
-            activeColor="#FF9999"
+            activeColor="#FF7777"
           />
         </Filter>
       </Block>
