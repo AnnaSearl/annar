@@ -25,7 +25,7 @@ Demo:
 | size | 设置按钮大小 | `small` \| `large` \| `superlarge` | - |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | `false` |
 | loading | 设置按钮载入状态 | boolean | `false` |
-| loadingText | 设置入状态文本 | string | - |
+| loadingText | 设置载入状态文本 | string | - |
 | disabled | 设置按钮禁用状态 | boolean | `false` |
 | style | 设置按钮样式 | CSSProperties | - |
 | onTap | 点击按钮时的回调 | () => void | - |
