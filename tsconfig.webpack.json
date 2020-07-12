@@ -13,6 +13,12 @@
     "paths": {
       "@/*": ["./components/*"]
     },
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost",
+    ],
   },
   "include": [
     "components/**/*",

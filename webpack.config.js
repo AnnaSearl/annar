@@ -127,7 +127,7 @@ const config = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new MiniCssExtractPlugin({ filename: '[name].css' }),
     new WebpackBar({
-      name: '🚚  Anna Remax UI',
+      name: '🚚  Anna',
       color: '#FF7777',
     }),
     new BundleAnalyzerPlugin({

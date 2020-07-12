@@ -7,7 +7,7 @@ $span: 100% / 24;
   position: relative;
   @for $i from 1 through 24 {
     &-#{$i} { 
-      flex: 1 1 $span * $i;
+      flex: 0 0 $span * $i;
       max-width: $span * $i;
     }
   }

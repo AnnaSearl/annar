@@ -1,0 +1,36 @@
+.space{
+  height: 80px;
+  width: 100%;
+}
+
+.demo-grid{
+  .anna-grid {
+    border-radius: 16px;
+    overflow: hidden;
+    .anna-row {
+      border-radius: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      .anna-col {
+        height: auto;
+        line-height: 88px;
+        text-align: center;
+        font-size: 28px;
+        >view {
+          background-color: #FDFFFD;
+        }
+        >div {
+          background-color: #FDFFFD;
+        }
+      }
+    }
+  }
+}
+
+.demo-grid-item{
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}

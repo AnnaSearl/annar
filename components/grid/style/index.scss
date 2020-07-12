@@ -3,5 +3,10 @@
 $grid-prefix-cls: #{$anna-prefix}-grid;
 
 .#{$grid-prefix-cls} {
-  
+  &-row-border {
+
+  }
+  &-col-border {
+    
+  }
 }

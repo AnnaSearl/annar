@@ -13,6 +13,9 @@
     "paths": {
       "@/*": ["./components/*"]
     },
+    "lib": [
+      "es2019"
+    ],
   },
   "include": [
     "components/**/*",

@@ -1,3 +1,8 @@
+.space{
+  height: 80px;
+  width: 100%;
+}
+
 .anna-row {
   border-radius: 16px;
   overflow: hidden;
@@ -27,24 +32,3 @@
   }
 }
 
-.demo-grid{
-  .anna-grid {
-    border-radius: 16px;
-    overflow: hidden;
-    .anna-row {
-      border-radius: 0;
-      overflow: hidden;
-      margin-bottom: 0;
-      .anna-col {
-        height: auto;
-        line-height: 88px;
-        text-align: center;
-        font-size: 28px;
-      }
-    }
-  }
-}
-
-.demo-grid-item{
-  height: 220px;
-}

@@ -8,6 +8,7 @@ const prefixCls = getPrefixCls('tag');
 export interface TagProps {
   color?: string;
   size?: string;
+  block?: string;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
@@ -21,6 +22,7 @@ const Tag = (props: TagProps): React.ReactElement => {
     [prefixCls]: true,
     [`${prefixCls}-small`]: size === 'small',
     [`${prefixCls}-large`]: size === 'large',
+    [`${prefixCls}-block`]: size === 'block',
     [`${prefixCls}-${color}`]: color,
     [className]: true,
   });

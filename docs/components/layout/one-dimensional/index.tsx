@@ -1,39 +1,10 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Row, Col, Grid } from 'anna-remax-ui';
+import { Row, Col } from 'anna-remax-ui';
 import { Block, Frame } from '../../common';
 import './index.scss';
 
-const data = [
-  '#FFDDDD',
-  '#FFFFCC',
-  '#FFDDDD',
-  '#FFFFCC',
-  '#FFDDDD',
-  '#FFFFCC',
-  '#FFDDDD',
-  '#FFFFCC',
-  '#FFDDDD',
-];
-
 export default () => {
-  const [number, setNumber] = React.useState(1);
-  const [number1, setNumber1] = React.useState(2);
-  const [number2, setNumber2] = React.useState(3);
-  const [number3, setNumber3] = React.useState(1);
-  const [number4, setNumber4] = React.useState(1);
-  const [number5, setNumber5] = React.useState(1);
-  const [number6, setNumber6] = React.useState(1);
-  const [number7, setNumber7] = React.useState(1);
-  const [number8, setNumber8] = React.useState(1);
-  const [number9, setNumber9] = React.useState(1);
-  const [number10, setNumber10] = React.useState(1);
-  const [number11, setNumber11] = React.useState(1);
-
-  const renderGridItem = (col: any) => (
-    <View className="demo-grid-item" style={{ backgroundColor: col }} />
-  );
-
   return (
     <Frame padding>
       <Block noTitlePadding title="Basic" className="demo-basic">
@@ -113,9 +84,6 @@ export default () => {
             <View>col-12 , offset-6</View>
           </Col>
         </Row>
-      </Block>
-      <Block noTitlePadding title="Grid" className="demo-grid">
-        <Grid data={data} columns={3} render={renderGridItem} />
       </Block>
     </Frame>
   );
