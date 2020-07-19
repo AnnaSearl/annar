@@ -1,5 +1,3 @@
-import item from '@/filter/item';
-
 export interface QueryProps {
   select?: (selector: string) => any;
   selectAll?: (selector: string) => any;
@@ -7,29 +5,22 @@ export interface QueryProps {
   exec?: (cb: () => void) => any;
 }
 
+const HTML_NODES = ['[object HTMLCollection]', '[object NodeList]'];
+
 const createSelectorQuery = function () {
   const query: QueryProps = {};
   let eles: any[] = [];
 
   query.select = function (selector: string) {
     let ele = null;
-    const sel = selector.substring(1);
-    if (/^#/.test(selector)) {
-      ele = document.getElementById(sel);
-    }
-    if (/^\./.test(selector)) {
-      ele = document.getElementsByClassName(sel)?.[0];
-    }
+    ele = document.querySelector(selector);
     eles.push(ele);
     return this;
   };
 
   query.selectAll = function (selector: string) {
     let ele: any = [];
-    const sel = selector.substring(1);
-    if (/^\./.test(selector)) {
-      ele = document.getElementsByClassName(sel);
-    }
+    ele = document.querySelectorAll(selector);
     eles.push(ele);
     return this;
   };
@@ -37,7 +28,7 @@ const createSelectorQuery = function () {
   query.boundingClientRect = function () {
     eles = eles.map(item => {
       let newItem = item;
-      if (Object.prototype.toString.call(item) === '[object HTMLCollection]') {
+      if (HTML_NODES.includes(Object.prototype.toString.call(item))) {
         const htmlArr = [];
         for (let index = 0; index < item.length; index++) {
           htmlArr.push(item[index]);
@@ -47,6 +38,7 @@ const createSelectorQuery = function () {
           return {
             bottom: rect.bottom,
             height: rect.height,
+            // 由于 getBoundingClientRect 方法获取的是相对视窗的，所以这里改写成 i.offsetLeft 来使其相对的元素为最近的position不为static的祖先元素。
             left: i.offsetLeft, // rect.left
             right: rect.right,
             top: rect.top,

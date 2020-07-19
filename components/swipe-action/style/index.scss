@@ -1,31 +1,34 @@
 @import '../../style/theme/index';
 
-$swipe_action-prefix-cls: #{$anna-prefix}-swipe_action;
+$swipe-prefix-cls: #{$anna-prefix}-swipe;
 
-.#{$swipe_action-prefix-cls} {
+.#{$swipe-prefix-cls} {
+  position: relative;
   overflow: hidden;
   &-container{
     position: relative;
     font-size: 30px;
     font-weight: 400;
     transition: all 0.3s;
-    &-actions{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 100%;
-      background-color: $light-base;
-      color: $light-base;
-      font-size: 40px;
-      display: flex;
-      &-action{
-        padding: 0 34px;
-        background-color: $danger-color;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        white-space: nowrap;
-      }
-    }
+  }
+  &-actions{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    background-color: $light-base;
+    color: $light-base;
+    font-size: 32px;
+    font-weight: 500;
+    display: flex;
+  }
+  &-action{
+    padding: 0 34px;
+    background-color: $danger-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    cursor: pointer;
   }
 }

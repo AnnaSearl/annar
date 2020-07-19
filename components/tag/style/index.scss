@@ -40,6 +40,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
   }
   &-checkable{
     cursor: pointer;
+    background-color: #F5F5F5;
   }
   &-checked{
     color: $light-base;

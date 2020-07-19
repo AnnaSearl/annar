@@ -54,6 +54,18 @@ const tabs2 = [
     key: '4',
     title: '报价中',
   },
+  {
+    key: '5',
+    title: '报价成功',
+  },
+  {
+    key: '6',
+    title: '待付款',
+  },
+  {
+    key: '7',
+    title: '已完成',
+  },
 ];
 
 const tabs5 = [

@@ -1,0 +1,34 @@
+.space{
+  height: 80px;
+  width: 100%;
+}
+
+.anna-row {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  .anna-col {
+    height: 88px;
+    line-height: 88px;
+    text-align: center;
+    font-size: 28px;
+    >view {
+      background-color: #FFDDDD;
+    }
+    >div {
+      background-color: #FFDDDD;
+    }
+  }
+}
+
+.demo-basic {
+  .anna-row {
+    .anna-col {
+      background-color: #FFDDDD;
+      &:nth-child(2n) {
+        background-color: #FFFFCC;
+      }
+    }
+  }
+}
+

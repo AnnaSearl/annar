@@ -16,13 +16,13 @@ export interface TagProps {
 }
 
 const Tag = (props: TagProps): React.ReactElement => {
-  const { color, size, className = '', style, children, onTap } = props;
+  const { color, size, block, className = '', style, children, onTap } = props;
 
   const classes = classNames({
     [prefixCls]: true,
     [`${prefixCls}-small`]: size === 'small',
     [`${prefixCls}-large`]: size === 'large',
-    [`${prefixCls}-block`]: size === 'block',
+    [`${prefixCls}-block`]: block,
     [`${prefixCls}-${color}`]: color,
     [className]: true,
   });
@@ -34,17 +34,31 @@ const Tag = (props: TagProps): React.ReactElement => {
   );
 };
 
-export interface CheckableTagProps {
-  className?: string;
+export interface CheckableTagProps extends TagProps {
   checked?: boolean;
   checkedColor?: boolean;
   disabled?: boolean;
   onChange?: (e: any) => void;
-  children?: React.ReactNode;
 }
 
 Tag.CheckableTag = (props: CheckableTagProps) => {
-  const { className = '', checked, checkedColor, disabled, onChange, children } = props;
+  const { className, checked, checkedColor, style = {}, disabled, onChange, children } = props;
+  const { height } = style;
+  let tagHeight = height;
+  if (typeof height === 'string') {
+    if (height.includes('px')) {
+      tagHeight = Number(height.slice(0, -2));
+    } else {
+      tagHeight = Number(height);
+    }
+  }
+  let tagStyle = undefined;
+  if (height) {
+    tagStyle = {
+      ...style,
+      lineHeight: `${(tagHeight as number) - 4}px`,
+    };
+  }
 
   const handleChange = () => {
     if (disabled) {
@@ -57,13 +71,16 @@ Tag.CheckableTag = (props: CheckableTagProps) => {
     <Tag
       size="large"
       {...props}
-      className={classNames({
-        [`${prefixCls}-checkable`]: true,
-        [`${prefixCls}-checked`]: checked,
-        [`${prefixCls}-${checkedColor}`]: checked && checkedColor,
-        [`${prefixCls}-disabled`]: disabled,
-        [className]: true,
-      })}
+      className={classNames(
+        {
+          [`${prefixCls}-checkable`]: true,
+          [`${prefixCls}-checked`]: checked,
+          [`${prefixCls}-${checkedColor}`]: checked && checkedColor,
+          [`${prefixCls}-disabled`]: disabled,
+        },
+        className,
+      )}
+      style={tagStyle}
       onTap={handleChange}
     >
       {children}

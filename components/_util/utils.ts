@@ -1,3 +1,7 @@
+export interface Obj {
+  [key: string]: any;
+}
+
 export const guid = () => {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     const r = (Math.random() * 16) | 0;
@@ -6,9 +10,43 @@ export const guid = () => {
   });
 };
 
-export interface Obj {
-  [key: string]: any;
-}
+// 如果你想禁用第一次首先执行的话，传递{leading: false}，还有如果你想禁用最后一次执行的话，传递{trailing: false}。
+// 默认是 第一次首先执行并且最后一次会执行，相当于 {leading: true, trailing: true}
+export const throttle = (func: any, wait: any, options?: any) => {
+  let previous = 0;
+  let timeout: any = null;
+  let context: any;
+  let args: any;
+  if (!options) options = {};
+
+  const later = function () {
+    previous = options.leading === false ? 0 : new Date().getTime();
+    timeout = null;
+    func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
+
+  const throttled = function (this: any) {
+    const now = new Date().getTime();
+    if (!previous && options.leading === false) previous = now;
+    const remaining = wait - (now - previous);
+    context = this;
+    // eslint-disable-next-line prefer-rest-params
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      func.apply(context, args);
+      if (!timeout) context = args = null;
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+  };
+  return throttled;
+};
 
 export const mergeStyle = (target: Obj | undefined, style: Obj) => {
   const newTarget = target ? { ...target } : {};
@@ -78,8 +116,6 @@ export const twoDimensional = (
     return [two, spanTwo];
   }
   const rowsLength = Math.ceil(data.length / columns);
-  // const remainder = columns - (data.length % columns);
-  // const oneDimensional = data.concat(new Array(remainder).fill({}));
   const oneDimensional = data.concat([]);
   let index = 0;
   for (let i = 0; i < rowsLength; i++) {
@@ -88,4 +124,55 @@ export const twoDimensional = (
     spanTwo.push(new Array(row.length).fill(colSpan));
   }
   return [two, spanTwo];
+};
+
+export const flat = (arr: any[]): any[] => {
+  if (!Array.isArray(arr)) {
+    return [];
+  }
+  return arr.reduce((prev, curr) => {
+    if (Array.isArray(curr)) {
+      return prev.concat(flat(curr));
+    }
+    return prev.concat(curr);
+  }, []);
+};
+
+export const isObjectValueEqual = (a: Obj, b: Obj) => {
+  //取对象a和b的属性名
+  const aProps = Object.getOwnPropertyNames(a);
+  const bProps = Object.getOwnPropertyNames(b);
+  //判断属性名的length是否一致
+  if (aProps.length != bProps.length) {
+    return false;
+  }
+  //循环取出属性名，再判断属性值是否一致
+  for (let i = 0; i < aProps.length; i++) {
+    const propName = aProps[i];
+    if (a[propName] !== b[propName]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const isArrayValueEqual = (a: any[], b: any[]) => {
+  if (!Array.isArray(a) || !Array.isArray(b)) {
+    return false;
+  }
+  //判断array的length是否一致
+  if (a.length != b.length) {
+    return false;
+  }
+
+  let isEqual = true;
+  for (let i = 0; i < a.length; i += 1) {
+    if (typeof a[i] === 'object' && typeof b[i] === 'object') {
+      !isObjectValueEqual(a[i], b[i]) && (isEqual = false);
+    } else {
+      a[i] !== b[i] && (isEqual = false);
+    }
+  }
+
+  return isEqual;
 };

@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { createSelectorQuery } from '../one';
+// import { isArrayValueEqual } from '../_util';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('tabs');
@@ -37,6 +38,7 @@ export interface TabContentProps {
 }
 
 const heightUnit = 48;
+// const prevTabs: any[] = [];
 
 const getTabContents = (
   children: React.ReactNode,
@@ -65,6 +67,9 @@ const getTabContents = (
       );
     }
   });
+  // return isArrayValueEqual(tabs, prevTabs)
+  //   ? [prevTabs, tabContents]
+  //   : (prevTabs = tabs) && [tabs, tabContents];
   return [tabs, tabContents];
 };
 
@@ -101,13 +106,27 @@ const Tabs = (props: TabProps): React.ReactElement => {
   const tabIndex = useMemo(() => getTabIndex(tabs, activeKey), [activeKey, tabs]);
 
   const [selected, setSelected] = useState(tabIndex);
+  const [titleWrapperLeft, setTitleWrapperLeft] = useState(0);
   const [titleNodes, setTitleNodes] = useState<any[]>([]);
 
   useEffect(() => {
     if (type === 'plain') {
       const query: any = createSelectorQuery();
       query
-        .selectAll('.anna-tabs-plain-title')
+        .select(`.${prefixCls}-plain`)
+        .scrollOffset?.()
+        .exec((ret: any) => {
+          const r = Array.isArray(ret) ? ret[0] : ret;
+          setTitleWrapperLeft(-(r?.scrollLeft || 0));
+        });
+    }
+  }, [activeKey]);
+
+  useEffect(() => {
+    if (type === 'plain') {
+      const query: any = createSelectorQuery();
+      query
+        .selectAll(`.${prefixCls}-plain .${prefixCls}-plain-title`)
         .boundingClientRect()
         .exec((ret: any) => {
           const r = Array.isArray(ret) ? ret[0] : [ret];
@@ -116,7 +135,8 @@ const Tabs = (props: TabProps): React.ReactElement => {
               offsetLeft: i.left,
               offsetWidth: i.width,
             })) || [];
-          setTitleNodes(nodes);
+          // 解决切换tabbar导致页面渲染找不到相关节点(因为此时已经在跳转后一个页面，所以找不到)，从而使nodes这个数组为空，继而导致Tabs下标left重置为0。
+          nodes.length > 0 && setTitleNodes(nodes);
         });
     }
   }, [tabs]);
@@ -131,7 +151,11 @@ const Tabs = (props: TabProps): React.ReactElement => {
   const renderTabs = () => {
     if (type === 'plain') {
       const titleNode = titleNodes?.[selected] || { offsetLeft: 0, offsetWidth: 0 };
-      const left = titleNode.offsetLeft + titleNode.offsetWidth / 2;
+      let left = titleNode.offsetLeft + titleNode.offsetWidth / 2;
+      // 解决小程序下无法获取到元素的 offsetLeft 的问题，使用 scrollOffset 来获取 scrollLeft。
+      if (titleWrapperLeft < 0) {
+        left += Math.abs(titleWrapperLeft);
+      }
       return (
         <View
           className={classNames({

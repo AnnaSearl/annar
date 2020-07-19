@@ -3,7 +3,7 @@ import { View } from 'remax/one';
 import classNames from 'classnames';
 import Row from '../row';
 import Col from '../col';
-import { twoDimensional } from '../_util';
+import { twoDimensional, flat } from '../_util';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('grid');
@@ -14,19 +14,23 @@ export interface GridProps {
   gutter?: number | [number, number?];
   span?: number | number[];
   border?: string;
-  render?: (o: any, index?: number, colIndex?: number, rowIndex?: number) => any;
-  children?: React.ReactNode;
+  children?: (
+    o: any,
+    index?: number,
+    colIndex?: number,
+    rowIndex?: number,
+  ) => any | React.ReactNode;
 }
 
 const getColIndex = (two: any[], rindex: number, cindex: number) => {
   const list = two.slice(0, rindex + 1);
   list[rindex] = list[rindex].slice(0, cindex + 1);
-  const flatedList = list.flat(Infinity);
+  const flatedList = flat(list);
   return flatedList.length;
 };
 
 const Grid = (props: GridProps) => {
-  const { data = [], columns = 4, gutter = 0, span, border, render, children } = props;
+  const { data = [], columns = 4, gutter = 0, span, border, children } = props;
 
   const [two, spanTwo] = useMemo(() => twoDimensional(data, columns, span, 24), [data?.length]);
 
@@ -54,7 +58,9 @@ const Grid = (props: GridProps) => {
               className={border && `${prefixCls}-col-border`}
               style={{ borderRight: row.length - 1 !== cindex ? border : undefined }}
             >
-              {render?.(col, getColIndex(spanTwo, rindex, cindex), cindex, rindex) || children}
+              {typeof children === 'function'
+                ? children?.(col, getColIndex(spanTwo, rindex, cindex), cindex, rindex)
+                : children}
             </Col>
           ))}
         </Row>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Input } from 'remax/one';
+import { View, Text, Input } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
@@ -24,6 +24,7 @@ export interface StepperProps {
   disabled?: boolean;
   plain?: boolean;
   shape?: string;
+  size?: string;
   color?: string;
   bgColor?: string;
   onChange?: (v?: number, e?: Event) => void;
@@ -40,6 +41,7 @@ const Stepper = (props: StepperProps) => {
     disabled,
     plain,
     shape,
+    size,
     color,
     bgColor,
     onChange,
@@ -92,7 +94,11 @@ const Stepper = (props: StepperProps) => {
   };
 
   return (
-    <View className={prefixCls}>
+    <View
+      className={classNames(prefixCls, {
+        [`${prefixCls}-${size}`]: size,
+      })}
+    >
       <View
         className={classNames(`${prefixCls}-btn`, `${prefixCls}-minus`, {
           [`${prefixCls}-btn-disabled`]: minusDisabled,

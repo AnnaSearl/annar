@@ -17,6 +17,8 @@ export default () => {
   const [number9, setNumber9] = React.useState(1);
   const [number10, setNumber10] = React.useState(1);
   const [number11, setNumber11] = React.useState(1);
+  const [number12, setNumber12] = React.useState(1);
+  const [number13, setNumber13] = React.useState(1);
 
   return (
     <Frame className={styles.app}>
@@ -48,6 +50,12 @@ export default () => {
       <Block title="Plain">
         <View className={styles.container}>
           <Stepper plain value={number5} onChange={(val: any) => setNumber5(val)} />
+        </View>
+      </Block>
+      <Block title="Size">
+        <View className={styles.container}>
+          <Stepper size="small" value={number12} onChange={(val: any) => setNumber12(val)} />
+          <Stepper size="small" plain value={number13} onChange={(val: any) => setNumber13(val)} />
         </View>
       </Block>
       <Block title="Shape">
