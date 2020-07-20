@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
+import classNames from 'classnames';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('radio');
@@ -23,14 +24,14 @@ const Radio = (props: RadioProps) => {
   return (
     <View className={prefixCls} style={style}>
       <View className={`${prefixCls}-container`} onTap={handleClick}>
-        {checked ? (
-          <View className={`${prefixCls}-container-checked`}>
-            <View className={`${prefixCls}-container-checked-round_fill`} />
-          </View>
-        ) : (
-          <View className={`${prefixCls}-container-not_checked`} />
-        )}
-        <View className={`${prefixCls}-container-children`}>{children}</View>
+        <View
+          className={classNames(`${prefixCls}-out-round`, {
+            [`${prefixCls}-out-round-checked`]: checked,
+          })}
+        >
+          {checked ? <View className={`${prefixCls}-inner-round`} /> : null}
+        </View>
+        <View className={`${prefixCls}-children`}>{children}</View>
       </View>
       <View className={`${prefixCls}-extra`}>{extra}</View>
     </View>

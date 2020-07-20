@@ -7,6 +7,7 @@ const prefixCls = getPrefixCls('tag');
 
 export interface TagProps {
   color?: string;
+  plain?: boolean;
   size?: string;
   block?: string;
   className?: string;
@@ -16,16 +17,19 @@ export interface TagProps {
 }
 
 const Tag = (props: TagProps): React.ReactElement => {
-  const { color, size, block, className = '', style, children, onTap } = props;
+  const { color, plain, size, block, className, style, children, onTap } = props;
 
-  const classes = classNames({
-    [prefixCls]: true,
-    [`${prefixCls}-small`]: size === 'small',
-    [`${prefixCls}-large`]: size === 'large',
-    [`${prefixCls}-block`]: block,
-    [`${prefixCls}-${color}`]: color,
-    [className]: true,
-  });
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-plain`]: plain,
+      [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-large`]: size === 'large',
+      [`${prefixCls}-block`]: block,
+      [`${prefixCls}-${color}`]: color,
+    },
+    className,
+  );
 
   return (
     <View className={classes} style={style} onTap={onTap}>
@@ -36,7 +40,7 @@ const Tag = (props: TagProps): React.ReactElement => {
 
 export interface CheckableTagProps extends TagProps {
   checked?: boolean;
-  checkedColor?: boolean;
+  checkedColor?: string;
   disabled?: boolean;
   onChange?: (e: any) => void;
 }

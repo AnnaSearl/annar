@@ -9,7 +9,9 @@ Demo:
 
 <code src="./image-upload/index.tsx" />
 
-#### API
+## API
+
+#### ImageUpload
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |

@@ -28,5 +28,5 @@ Demo:
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
 | name | 选项名称 | ReactNode | - |
-| style | 水平排列方式 | CSSProperties | - |
+| style | 选项样式 | CSSProperties | - |
 | onTap | 点击选项触发的函数 | (e: any) => void | - |

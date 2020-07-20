@@ -4,6 +4,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
 
 .#{$tag-prefix-cls} {
   box-sizing: border-box;
+  position: relative;
   display: inline-block;
   text-align: center;
   // type
@@ -20,6 +21,22 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
   user-select: none;
   &:nth-last-child(1){
     margin-right: 0;
+  }
+  &-plain{
+    background-color: transparent;
+    border-color: transparent;
+    &::before{
+      box-sizing: border-box;
+      position: absolute;
+      content: '';
+      left: -50%;
+      right: -50%;
+      top: -50%;
+      bottom: -50%;
+      border-radius: 16px; // border-radius 也会被缩小为一半
+      border: 1PX solid #CCCCCC;
+      transform: scale(0.5);
+    }
   }
   &-small{
     height: 40px;

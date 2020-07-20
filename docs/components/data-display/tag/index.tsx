@@ -13,6 +13,9 @@ export default () => {
       <Block noTitlePadding title="Basic">
         <Tag>Anna</Tag>
       </Block>
+      <Block noTitlePadding title="Plain">
+        <Tag plain>Anna</Tag>
+      </Block>
       <Block noTitlePadding title="Color">
         <Tag color="blue">blue</Tag>
         <Tag color="green">green</Tag>

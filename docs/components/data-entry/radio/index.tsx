@@ -7,8 +7,8 @@ const radioStyle = { paddingBottom: '30px' };
 
 export default () => {
   const [checked, setChecked] = React.useState(true);
-  const [checked1, setChecked1] = React.useState(false);
   const [value, setValue] = React.useState(0);
+  const [value1, setValue1] = React.useState(0);
 
   return (
     <Frame padding>
@@ -17,14 +17,6 @@ export default () => {
           Radio
         </Radio>
       </Block>
-      {/* <Block title="Label" noTitlePadding>
-        <Radio checked={checked1} onChange={() => setChecked1(v => !v)}>
-          Remax
-        </Radio>
-        <Radio checked={!checked1} onChange={() => setChecked1(v => !v)}>
-          Taro
-        </Radio>
-      </Block> */}
       <Block title="Group" noTitlePadding>
         <Radio.Group value={value} onChange={(c, v) => setValue(v)}>
           <Radio value={0}>Apple</Radio>
@@ -33,7 +25,7 @@ export default () => {
         </Radio.Group>
       </Block>
       <Block title="Direction & Extra" noTitlePadding>
-        <Radio.Group value={value} onChange={(c, v) => setValue(v)} direction="column">
+        <Radio.Group value={value1} onChange={(c, v) => setValue1(v)} direction="column">
           <Radio value={0} style={radioStyle}>
             Apple
           </Radio>

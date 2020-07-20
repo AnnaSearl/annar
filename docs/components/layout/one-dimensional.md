@@ -11,7 +11,9 @@ Demo:
 
 <code src="./one-dimensional/index.tsx" />
 
-## Row
+## API
+
+#### Row
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
@@ -19,7 +21,7 @@ Demo:
 | justify | 水平排列方式 | string | `start` |
 | align | 垂直对齐方式 | string | `top` |
 
-## Col
+#### Col
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |

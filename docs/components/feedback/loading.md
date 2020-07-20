@@ -11,8 +11,6 @@ Demo:
 
 ## API
 
-#### Loading
-
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
 | type | 类型，可选值为 `anna` `wave` | string | - |

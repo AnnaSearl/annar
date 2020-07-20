@@ -9,7 +9,9 @@ Demo:
 
 <code src="./two-dimensional/index.tsx" />
 
-## Grid
+## API
+
+#### Grid
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
