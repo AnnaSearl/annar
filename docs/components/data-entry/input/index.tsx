@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Input } from 'anna-remax-ui';
+import { Input, Button } from 'anna-remax-ui';
 import { Block, Frame } from '../../common';
 
 export default () => {
@@ -26,6 +26,11 @@ export default () => {
       </Block>
       <Block title="With Icon">
         <Input label="location" placeholder="Please enter" border={false} icon="location" />
+      </Block>
+      <Block title="With Button">
+        <Input label="phone" placeholder="Please enter" border={false} button={
+          <Button size="small">Send Code</Button>
+        } />
       </Block>
     </Frame>
   );
