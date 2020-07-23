@@ -39,6 +39,28 @@
           rgba(248, 250, 255, 0)
         ) !important;
       }
+      .markdown *:not(pre) code {
+        margin: 0 1px;
+        padding: 0.2em 0.4em !important;
+        font-size: 0.9em;
+        color: rgba(0, 0, 0, 0.85) !important;
+        background: #f2f4f5 !important;
+        border: 1px solid #f0f0f0;
+        border-radius: 3px;
+        font-family: sfmono-regular, Consolas, liberation mono, Menlo, Courier,
+          monospace;
+      }
+      .markdown table td:nth-child(3) {
+        color: #ff6666;
+        font-size: 13px;
+        word-break: break-all;
+      }
+      .markdown table td:nth-child(3) > code {
+        color: #ff6666 !important;
+        background-color: #f6f6f6 !important;
+        font-size: 13px;
+        word-break: break-all;
+      }
     </style>
     <link rel="stylesheet" href="/anna-remax-ui/umi.css" />
     <script>
