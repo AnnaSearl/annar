@@ -1,0 +1,59 @@
+@import '../../style/theme/index';
+
+$space-prefix-cls: #{$anna-prefix}-space;
+
+.#{$space-prefix-cls} {
+  display: inline-flex;
+
+  &-horizontal{
+    &-small{
+      margin-right: 16px;
+    }
+    &-middle{
+      margin-right: 32px;
+    }
+    &-large{
+      margin-right: 48px;
+    }
+  }
+
+  &-horizontal > &-item{
+    &:nth-last-child(1){
+      margin-right: 0;
+    }
+  }
+
+  &-vertical{
+    flex-direction: column;
+    &-small{
+      margin-bottom: 16px;
+    }
+    &-middle{
+      margin-bottom: 32px;
+    }
+    &-large{
+      margin-bottom: 48px;
+    }
+  }
+
+  &-vertical > &-item{
+    &:nth-last-child(1){
+      margin-bottom: 0;
+    }
+  }
+
+  &-align{
+    &-center{
+      align-items: center;
+    }
+    &-start{
+      align-items: flex-start;
+    }
+    &-end{
+      align-items: flex-end;
+    }
+    &-baseline{
+      align-items: baseline;
+    }
+  }
+}

@@ -122,7 +122,7 @@ Anna Remax UI 维护 `master` 和 `feature` 两个分支，如果您是修复bug
 
 ## 🌰 示例
 
-[Examples for Anna Remax UI](https://github.com/AnnaSearl/examples-anna-remax-ui)
+[Examples for Anna](https://github.com/AnnaSearl/examples-anna-remax-ui)
 
 
 ## 🍭 体验

@@ -84,6 +84,28 @@ export default defineConfig({
     .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a.active{
       background: linear-gradient(to left, rgba(255, 238, 238, 0.5), rgba(248, 250, 255, 0)) !important;
     }
+    .markdown *:not(pre) code {
+      margin: 0 1px;
+      padding: .2em .4em !important;
+      font-size: .9em;
+      color: rgba(0, 0, 0, 0.85) !important;
+      background: #f2f4f5 !important;
+      border: 1px solid #f0f0f0;
+      border-radius: 3px;
+      font-family: sfmono-regular,Consolas,liberation mono,Menlo,Courier,monospace;
+    }
+    .markdown table td:nth-child(3) {
+      color: #FF6666;
+      font-size: 13px;
+      word-break: break-all;
+    }
+    .markdown table td:nth-child(3) > code {
+      color: #FF6666 !important;
+      background-color: #F6F6F6 !important;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
     `,
   ],
 });

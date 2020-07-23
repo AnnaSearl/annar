@@ -14,8 +14,9 @@ export interface PickerProps {
   pickerAlign?: string;
   options?: any[];
   value?: string;
-  onChange?: (e: any) => void;
   placeholder?: string;
+  children?: React.ReactNode;
+  onChange?: (e: any) => void;
 }
 
 const Picker = (props: PickerProps) => {
@@ -29,6 +30,7 @@ const Picker = (props: PickerProps) => {
     value,
     onChange,
     placeholder,
+    children,
     disabled,
   } = props;
 
@@ -58,16 +60,20 @@ const Picker = (props: PickerProps) => {
         value={valueIndex}
         onChange={handleChangePicker}
       >
-        <FormValue
-          placeholder={placeholder}
-          style={
-            {
-              textAlign: pickerAlign,
-            } as React.CSSProperties
-          }
-        >
-          {get(find(options, { key: value }), 'value')}
-        </FormValue>
+        {children || children === 0 ? (
+          children
+        ) : (
+          <FormValue
+            placeholder={placeholder}
+            style={
+              {
+                textAlign: pickerAlign,
+              } as React.CSSProperties
+            }
+          >
+            {get(find(options, { key: value }), 'value')}
+          </FormValue>
+        )}
       </APicker>
     </Cell>
   );

@@ -8,13 +8,14 @@ const prefixCls = getPrefixCls('col');
 export interface ColProps {
   span?: number;
   offset?: number;
+  flex?: string | number;
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
 }
 
 const Col = (props: ColProps) => {
-  const { span, offset = 0, style, className, children } = props;
+  const { span, offset = 0, flex, style, className, children } = props;
 
   return (
     <View
@@ -27,6 +28,7 @@ const Col = (props: ColProps) => {
         className,
       )}
       style={{
+        flex,
         ...style,
       }}
     >

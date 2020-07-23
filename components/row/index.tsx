@@ -43,8 +43,8 @@ const Row = (props: RowProps) => {
       className={classNames(
         prefixCls,
         {
-          [`${prefixCls}-${justify}`]: justify,
-          [`${prefixCls}-${align}`]: align,
+          [`${prefixCls}-justify-${justify}`]: justify,
+          [`${prefixCls}-align-${align}`]: align,
         },
         className,
       )}

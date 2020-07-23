@@ -14,6 +14,8 @@ export { default as Col } from './col';
 
 export { default as Grid } from './grid';
 
+export { default as Space } from './space';
+
 // 导航
 
 export { default as Tabs } from './tabs';

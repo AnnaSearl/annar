@@ -4,4 +4,32 @@ $row-prefix-cls: #{$anna-prefix}-row;
 
 .#{$row-prefix-cls} {
   display: flex;
+  &-justify{
+    &-start{
+      justify-content: flex-start;
+    }
+    &-center{
+      justify-content: center;
+    }
+    &-end{
+      justify-content: flex-end;
+    }
+    &-space-around{
+      justify-content: space-around;
+    }
+    &-space-between{
+      justify-content: space-between;
+    }
+  }
+  &-align{
+    &-top{
+      align-items: flex-start;
+    }
+    &-middle{
+      align-items: center;
+    }
+    &-bottom{
+      align-items: flex-end;
+    }
+  }
 }
