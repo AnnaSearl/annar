@@ -22,4 +22,10 @@ $input-prefix-cls: #{$anna-prefix}-input;
       text-align: center;
     }
   }
+  &-body {
+    display: flex;
+  }
+  &-button {
+    margin-left: 8px;
+  }
 }

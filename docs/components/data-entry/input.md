@@ -23,5 +23,6 @@ Demo:
 | icon | 左侧图标名称 | string | - |
 | required | 是否显示表单必填星号 | boolean | `false` |
 | border | 是否显示内边框 | boolean | `true` |
+| button | 输入框右侧插入按钮 | `ReactNode` | - |
 | onChange | value 改变时触发 change 事件 | (v) => void | - |
 

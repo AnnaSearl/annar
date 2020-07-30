@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Input } from 'remax/one';
+import { Input, View } from 'remax/one';
 import classNames from 'classnames';
 import Cell from '../cell';
 import { getPrefixCls } from '../common';
@@ -18,6 +18,7 @@ export interface InputProps {
   disabled?: boolean;
   border?: boolean;
   required?: boolean;
+  button?: React.ReactNode;
   onChange?: (e: any) => void;
 }
 
@@ -35,11 +36,29 @@ const AInput = (props: InputProps) => {
     border = true,
     required,
     icon,
+    button,
   } = props;
 
   const handleChangeInput = (e: any) => {
     onChange?.(e);
   };
+
+  const inputElement = (
+    <Input
+      className={classNames({
+        [prefixCls]: true,
+        [`${prefixCls}-align-right`]: inputAlign === 'right',
+        [`${prefixCls}-align-center`]: inputAlign === 'center',
+        [className]: true,
+      })}
+      name={name}
+      type={type}
+      value={value}
+      placeholder={placeholder}
+      onInput={handleChangeInput}
+      disabled={disabled}
+    />
+  );
 
   return (
     <Cell
@@ -50,20 +69,10 @@ const AInput = (props: InputProps) => {
       icon={icon}
       field
     >
-      <Input
-        className={classNames({
-          [prefixCls]: true,
-          [`${prefixCls}-align-right`]: inputAlign === 'right',
-          [`${prefixCls}-align-center`]: inputAlign === 'center',
-          [className]: true,
-        })}
-        name={name}
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        onInput={handleChangeInput}
-        disabled={disabled}
-      />
+      <View className={`${prefixCls}-body`}>
+        {inputElement}
+        {button && <View className={`${prefixCls}-button`}>{button}</View>}
+      </View>
     </Cell>
   );
 };
