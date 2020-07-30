@@ -19,6 +19,7 @@ $tag-prefix-cls: #{$anna-prefix}-tag;
   font-size: 24px;
   margin-right: 14px;
   user-select: none;
+  white-space: nowrap;
   &:nth-last-child(1){
     margin-right: 0;
   }

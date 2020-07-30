@@ -13,7 +13,7 @@ export interface TagProps {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  onTap?: () => void;
+  onTap?: (e: any) => void;
 }
 
 const Tag = (props: TagProps): React.ReactElement => {

@@ -1,20 +1,10 @@
 import * as React from 'react';
-import { View, Text, Input } from 'remax/one';
+import { View, Input } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('stepper');
-
-const getDefaultValue = (value: number, min: number, max?: number) => {
-  if (value <= min) {
-    return min;
-  }
-  if (max && value >= max) {
-    return max;
-  }
-  return value;
-};
 
 export interface StepperProps {
   value?: number;
@@ -28,6 +18,8 @@ export interface StepperProps {
   color?: string;
   bgColor?: string;
   onChange?: (v?: number, e?: Event) => void;
+  onInput?: (v?: number, e?: Event) => void;
+  onTap?: (v?: number, e?: Event) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
 }
@@ -45,11 +37,13 @@ const Stepper = (props: StepperProps) => {
     color,
     bgColor,
     onChange,
+    onInput,
+    onTap,
     onFocus,
     onBlur,
   } = props;
 
-  const val = getDefaultValue(value, min, max);
+  const val = value;
   const minusDisabled = val <= min || disabled;
   const plusDisabled = ((max || max === 0) && val >= max) || disabled;
 
@@ -61,6 +55,7 @@ const Stepper = (props: StepperProps) => {
       return;
     }
     const newValue = max && val + step > max ? max : val + step;
+    onTap?.(newValue);
     onChange?.(newValue);
   };
 
@@ -72,10 +67,12 @@ const Stepper = (props: StepperProps) => {
       return;
     }
     const newValue = val - step < min ? min : val - step;
+    onTap?.(newValue);
     onChange?.(newValue);
   };
 
   const handleInput = (e: any) => {
+    onInput?.(Number(e.target.value), e);
     onChange?.(Number(e.target.value), e);
   };
 
@@ -86,9 +83,11 @@ const Stepper = (props: StepperProps) => {
   const handleBlur = (e: any) => {
     onBlur?.(e);
     if (minusDisabled) {
+      onInput?.(min);
       onChange?.(min);
     }
     if (plusDisabled) {
+      onInput?.(max);
       onChange?.(max);
     }
   };

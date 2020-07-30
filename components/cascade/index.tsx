@@ -77,10 +77,10 @@ const Cascade = (props: CascadeProps) => {
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
-    if (i.children) {
+    if (i.children && i.children.length !== 0) {
       setShowedOptions(i.children);
     }
-    if (!i.children) {
+    if (!i.children || i.children.length === 0) {
       flag = true;
       setSign(true);
     }

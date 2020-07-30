@@ -24,6 +24,8 @@ Demo:
 | color | 设置步进器按钮颜色 | string | - |
 | bgColor | 设置步进器按钮背景颜色 | string | - |
 | onChange | 当值变化时的回调 | (v: number, e?: any) => void | - |
+| onInput | 当输入框的值变化时的回调 | (v: number, e?: any) => void | - |
+| onTap | 当点击按钮时值变化的回调 | (v: number, e?: any) => void | - |
 | onFocus | 输入框聚焦时的回调 | (e: any) => void | - |
 | onBlur | 输入框失焦时的回调 | (e: any) => void | - |
 
