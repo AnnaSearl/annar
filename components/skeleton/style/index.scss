@@ -5,11 +5,17 @@ $skeleton-prefix-cls: #{$anna-prefix}-skeleton;
 .#{$skeleton-prefix-cls} {
   position: relative;
   &-placeholder{
-    padding: 24px 0; // 加padding会导致切换时晃动一下
-    background-color: $light-base;
+    // padding: 24px 0; // 加padding会导致切换时晃动一下
+    // background-color: $light-base;
     visibility: visible;
     opacity: 1;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  &-item{
+    margin-bottom: 60px;
+    &:nth-last-child(1){
+      margin-bottom: 0;
+    }
   }
   &-hidden{ // activeClass必须放到后面
     visibility: hidden;

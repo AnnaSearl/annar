@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
@@ -13,12 +13,17 @@ export interface SkeletonParagraphProps {
 export interface SkeletonProps {
   title?: boolean;
   titleColor?: string;
+  backgroundColor?: string;
   active?: boolean;
   avatar?: boolean;
   loading?: boolean;
   image?: boolean;
   fade?: boolean;
   paragraph?: SkeletonParagraphProps;
+  repetitions?: number;
+  space?: number;
+  customize?: React.ReactNode;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
 }
 
@@ -26,19 +31,24 @@ const Skeleton = (props: SkeletonProps) => {
   const {
     title = true,
     titleColor,
+    backgroundColor,
     active,
     avatar = false,
     loading = true,
     image = false,
     paragraph = { rows: 3, width: [80, 'auto', 200] },
+    repetitions = 1,
+    space,
+    customize,
     fade,
+    style,
     children,
   } = props;
 
   const [loadingEnd, setLoadingEnd] = React.useState(false);
   const [renderStart, setRenderStart] = React.useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (fade) {
       if (!loading) {
         setTimeout(() => {
@@ -52,7 +62,7 @@ const Skeleton = (props: SkeletonProps) => {
     }
   }, [loading]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (fade) {
       if (loadingEnd) {
         setTimeout(() => {
@@ -62,10 +72,10 @@ const Skeleton = (props: SkeletonProps) => {
     }
   }, [loadingEnd]);
 
-  const rows = React.useMemo(() => (paragraph.rows ? [...new Array(paragraph.rows).keys()] : []), [
+  const rows = useMemo(() => (paragraph.rows ? [...new Array(paragraph.rows).keys()] : []), [
     paragraph,
   ]);
-  const rowsWidth = React.useMemo(() => {
+  const rowsWidth = useMemo(() => {
     if (typeof paragraph.width === 'number') {
       return [...new Array(rows.length).fill(`${paragraph.width}px`)];
     }
@@ -135,12 +145,27 @@ const Skeleton = (props: SkeletonProps) => {
   };
 
   const renderSkeleton = () => {
+    const skeleton = [...new Array(repetitions).keys()];
     return (
       <>
-        {renderImage(image)}
-        {renderAvatar(avatar)}
-        {renderTitle(title)}
-        {renderParagraph()}
+        {skeleton?.map((i, index) => (
+          <View
+            key={i}
+            className={`${prefixCls}-item`}
+            style={{ marginBottom: index !== skeleton.length - 1 ? space : 0 }}
+          >
+            {customize ? (
+              customize
+            ) : (
+              <>
+                {renderImage(image)}
+                {renderAvatar(avatar)}
+                {renderTitle(title)}
+                {renderParagraph()}
+              </>
+            )}
+          </View>
+        ))}
       </>
     );
   };
@@ -153,6 +178,7 @@ const Skeleton = (props: SkeletonProps) => {
             className={classNames(`${prefixCls}-placeholder`, {
               [`${prefixCls}-hidden`]: !loading,
             })}
+            style={{ backgroundColor, ...style }}
           >
             {renderSkeleton()}
           </View>
@@ -173,7 +199,9 @@ const Skeleton = (props: SkeletonProps) => {
   return (
     <View className={prefixCls}>
       {loading ? (
-        <View className={`${prefixCls}-placeholder`}>{renderSkeleton()}</View>
+        <View className={`${prefixCls}-placeholder`} style={{ backgroundColor, ...style }}>
+          {renderSkeleton()}
+        </View>
       ) : (
         <View
           className={classNames({

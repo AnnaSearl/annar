@@ -9,85 +9,83 @@ $radius: 30px;
   color: #333;
   font-size: 30px;
   text-align: left;
-  &-selected-options{
+  &-selected{
     min-height: 90px;
     background-color: $light-base;
     padding: 24px 0;
-    &-step{
+  }
+  &-step{
+    display: flex;
+    padding-bottom: $radius;
+    cursor: pointer;
+    &:nth-last-child(1){
+      padding-bottom: 0;
+    }
+    &-dot{
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: $radius;
+      left: 100%;
+      margin-top: -8px;
+      margin-left: -8px;
+      border-radius: 50%;
+      background-color: #1890FF;
+      z-index: 10;
+    }
+    &-line{
+      position: relative;
+      width: $radius;
+      min-width: $radius;
+      margin-right: $radius;
+      &-default::before{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: calc(100% + 30px);
+        background-color: #E8E8E8;
+        top: $radius;
+        left: 100%;
+        margin-left: -1px;
+      }
+      &-active::before{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: calc(100% + 30px);
+        background-color: $brand-color;
+        top: $radius;
+        left: 100%;
+        margin-left: -1px;
+      }
+    }
+    &-container{
+      flex-grow: 1;
+    }
+    &-content{
       display: flex;
-      padding-bottom: $radius;
-      cursor: pointer;
-      &:nth-last-child(1){
-        padding-bottom: 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-left{
+      display: flex;
+      align-items: center;
+      height: $radius * 2;
+    }
+    &-right{
+      display: flex;
+      align-items: center;
+      padding-right: 20px;
+      color: #999;
+      &-text{
+        padding-right: 10px;
       }
-      &-line{
-        position: relative;
-        width: $radius;
-        min-width: $radius;
-        margin-right: $radius;
-        &-dot{
-          position: absolute;
-          width: 16px;
-          height: 16px;
-          top: $radius;
-          left: 100%;
-          margin-top: -8px;
-          margin-left: -8px;
-          border-radius: 50%;
-          background-color: #E8E8E8;
-          z-index: 10;
-        }
-        &-dot_line_default::before{
-          content: '';
-          position: absolute;
-          width: 2px;
-          height: calc(100% + 30px);
-          background-color: #E8E8E8;
-          top: $radius;
-          left: 100%;
-          margin-left: -1px;
-        }
-        &-dot_line_active::before{
-          content: '';
-          position: absolute;
-          width: 2px;
-          height: calc(100% + 30px);
-          background-color: $brand-color;
-          top: $radius;
-          left: 100%;
-          margin-left: -1px;
-        }
-      }
-      &-container{
-        flex-grow: 1;
-        &-content{
-          &-main{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            &-left{
-              display: flex;
-              align-items: center;
-              height: $radius * 2;
-            }
-            &-right{
-              display: flex;
-              align-items: center;
-              padding-right: 20px;
-              color: #999;
-              &-text{
-                padding-right: 10px;
-              }
-              &-arrow{
-                min-width: 24px;
-              }
-            }
-          }
-        }
+      &-arrow{
+        min-width: 24px;
       }
     }
   }
-  &-showed-options{
+  &-showed{
     min-height: 200px;
     padding: 0 30px;
     &-title{

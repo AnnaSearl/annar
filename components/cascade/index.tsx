@@ -77,10 +77,9 @@ const Cascade = (props: CascadeProps) => {
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
-    if (i.children && i.children.length !== 0) {
+    if (Array.isArray(i.children) && i.children.length > 0) {
       setShowedOptions(i.children);
-    }
-    if (!i.children || i.children.length === 0) {
+    } else {
       flag = true;
       setSign(true);
     }
@@ -122,45 +121,28 @@ const Cascade = (props: CascadeProps) => {
         height,
       }}
     >
-      <View className={`${prefixCls}-selected-options`}>
+      <View className={`${prefixCls}-selected`}>
         {value.map((item, index) => (
           <View
             key={item.key}
-            className={`${prefixCls}-selected-options-step`}
+            className={`${prefixCls}-step`}
             onTap={() => {
               handleReChoose(item, index);
             }}
           >
-            <View className={`${prefixCls}-selected-options-step-line`}>
+            <View className={`${prefixCls}-step-line`}>
               {index === value.length - 1 ? null : (
-                <View className={`${prefixCls}-selected-options-step-line-dot_line_active`} />
+                <View className={`${prefixCls}-step-line-active`} />
               )}
-              <Text
-                className={`${prefixCls}-selected-options-step-line-dot`}
-                style={{ backgroundColor: '#1890FF' }}
-              />
+              <Text className={`${prefixCls}-step-dot`} />
             </View>
-            <View className={`${prefixCls}-selected-options-step-container`}>
-              <View className={`${prefixCls}-selected-options-step-container-content`}>
-                <View className={`${prefixCls}-selected-options-step-container-content-main`}>
-                  <View
-                    className={`${prefixCls}-selected-options-step-container-content-main-left`}
-                  >
-                    {item.value}
-                  </View>
-                  <View
-                    className={`${prefixCls}-selected-options-step-container-content-main-right`}
-                  >
-                    <View
-                      className={`${prefixCls}-selected-options-step-container-content-main-right-text`}
-                    >
-                      {prompt?.(index)}
-                    </View>
-                    <View
-                      className={`${prefixCls}-selected-options-step-container-content-main-right-arrow`}
-                    >
-                      <Icon type="right" size="24px" color="#999" />
-                    </View>
+            <View className={`${prefixCls}-step-container`}>
+              <View className={`${prefixCls}-step-content`}>
+                <View className={`${prefixCls}-step-left`}>{item.value}</View>
+                <View className={`${prefixCls}-step-right`}>
+                  <View className={`${prefixCls}-step-right-text`}>{prompt?.(index)}</View>
+                  <View className={`${prefixCls}-step-right-arrow`}>
+                    <Icon type="right" size="24px" color="#999" />
                   </View>
                 </View>
               </View>
@@ -171,17 +153,17 @@ const Cascade = (props: CascadeProps) => {
       <View>
         <ScrollView
           scrollY
-          className={`${prefixCls}-showed-options`}
+          className={`${prefixCls}-showed`}
           scrollTop={scrollTop}
           style={{
             height: `calc(${height} - ${h + 80}px)`,
           }}
         >
-          <View className={`${prefixCls}-showed-options-title`}>{`选择${name}`}</View>
+          <View className={`${prefixCls}-showed-title`}>{`选择${name}`}</View>
           {showedOptions.map(i => (
             <View
               key={i.key}
-              className={`${prefixCls}-showed-options-category`}
+              className={`${prefixCls}-showed-category`}
               onTap={() => {
                 handleClick(i);
               }}
