@@ -17,6 +17,9 @@ $search_bar-prefix-cls: #{$anna-prefix}-search_bar;
     border-radius: 64px;
     padding: 16px;
     background-color: $light-6;
+    &-square{
+      border-radius: 8px;
+    }
     &-synthetic{
       position: absolute;
       top: 50%;

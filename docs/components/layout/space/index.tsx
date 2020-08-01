@@ -61,7 +61,8 @@ export default () => {
       </Block>
       <Block noTitlePadding title="Align">
         <Space>
-          Anna
+          center
+          <Tag size="large">Anna</Tag>
           <Tag size="large">Eurus</Tag>
           <Button shape="square" plain hairline>
             Ibuki
@@ -69,7 +70,8 @@ export default () => {
         </Space>
         <View style={{ height: 24 }} />
         <Space align="start">
-          Anna
+          start
+          <Tag size="large">Anna</Tag>
           <Tag size="large">Eurus</Tag>
           <Button shape="square" plain hairline>
             Ibuki
@@ -77,7 +79,17 @@ export default () => {
         </Space>
         <View style={{ height: 24 }} />
         <Space align="end">
-          Anna
+          end
+          <Tag size="large">Anna</Tag>
+          <Tag size="large">Eurus</Tag>
+          <Button shape="square" plain hairline>
+            Ibuki
+          </Button>
+        </Space>
+        <View style={{ height: 24 }} />
+        <Space align="baseline">
+          baseline
+          <Tag size="large">Anna</Tag>
           <Tag size="large">Eurus</Tag>
           <Button shape="square" plain hairline>
             Ibuki

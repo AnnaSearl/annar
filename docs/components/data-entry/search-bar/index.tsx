@@ -26,7 +26,7 @@ export default () => {
           onClear={() => setValue1('')}
         />
       </Block>
-      <Block noTitlePadding title="Custom action text">
+      <Block noTitlePadding title="ActionName">
         <SearchBar
           placeholder="搜索"
           actionName="搜索"
@@ -37,16 +37,28 @@ export default () => {
           onActionClick={() => console.log('action')}
         />
       </Block>
+      <Block noTitlePadding title="Shape">
+        <SearchBar shape="square" placeholder="搜索" />
+      </Block>
       <Block noTitlePadding title="Size">
         <SearchBar size="large" placeholder="large" style={{ marginBottom: '30px' }} />
         <SearchBar placeholder="default" style={{ marginBottom: '30px' }} />
         <SearchBar size="small" placeholder="small" />
       </Block>
-      <Block noTitlePadding title="Custom input style">
+      <Block noTitlePadding title="InputStyle">
         <SearchBar
           placeholder="搜索"
           inputStyle={{
-            backgroundColor: '#333',
+            border: '2px solid #FF7777',
+            backgroundColor: '#FDFFFD',
+          }}
+          style={{ marginBottom: '30px' }}
+        />
+        <SearchBar
+          shape="square"
+          placeholder="搜索"
+          inputStyle={{
+            backgroundColor: '#FFEEEE',
           }}
         />
       </Block>

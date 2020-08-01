@@ -8,12 +8,21 @@ export interface BlockProps {
   children?: React.ReactNode;
   className?: string;
   grayBg?: boolean;
+  lightBg?: boolean;
   padding?: boolean;
   style?: React.CSSProperties;
 }
 
 const Frame = (props: BlockProps) => {
-  const { title, children, className = '', grayBg, padding, style } = props;
+  const { title, children, className = '', grayBg, lightBg, padding, style } = props;
+
+  let backgroundColor = '#FDFFFD';
+  if (grayBg) {
+    backgroundColor = '#F2F2F2';
+  }
+  if (lightBg) {
+    backgroundColor = '#F7F7F7';
+  }
 
   return (
     <View
@@ -24,7 +33,7 @@ const Frame = (props: BlockProps) => {
       })}
       style={{
         ...style,
-        backgroundColor: grayBg ? '#F2F2F2' : '#FDFFFD',
+        backgroundColor,
       }}
     >
       {title ? <View className={styles.title}>{title}</View> : null}

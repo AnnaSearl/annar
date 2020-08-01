@@ -28,9 +28,16 @@ export default () => {
         <Input label="location" placeholder="Please enter" border={false} icon="location" />
       </Block>
       <Block title="With Button">
-        <Input label="phone" placeholder="Please enter" border={false} button={
-          <Button size="small">Send Code</Button>
-        } />
+        <Input
+          label="phone"
+          placeholder="Please enter"
+          border={false}
+          button={
+            <Button type="primary" size="small">
+              Send Code
+            </Button>
+          }
+        />
       </Block>
     </Frame>
   );

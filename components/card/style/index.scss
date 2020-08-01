@@ -10,19 +10,50 @@ $card-prefix-cls: #{$anna-prefix}-card;
   background-color: $light-base;
   font-size: 28px;
   color: $font-color;
-  &-header{
-    padding: 24px 20px;
+  &-horizontal{
+    display: flex;
+  }
+  &-shadow{
+    box-shadow:0 0 24px #CCC;
+  }
+  &-cover{
+    > * {
+      display: block;
+      width: 100%;
+    }
+  }
+  &-head{
     display: flex;
     justify-content: space-between;
     font-weight: 500;
-    &-title{
-      font-size: 32px;
-    }
-    &-extra{
-      font-size: 28px;
-    }
+    padding: 24px 20px 0 20px;
+  }
+  &-title{
+    font-size: 32px;
+  }
+  &-description{
+    color: #999;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 12px;
+  }
+  &-extra{
+    font-size: 28px;
   }
   &-content{
-    padding: 0 20px 24px;
+    padding: 24px 20px;
+    &-head{
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      padding: 0 0 24px 0;
+    }
+  }
+  &-foot{
+    background-color: $light-6;
+    &-horizontal{
+      margin-top: 24px;
+      background-color: transparent;
+    }
   }
 }

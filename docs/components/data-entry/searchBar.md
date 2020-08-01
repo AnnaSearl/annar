@@ -23,6 +23,7 @@ Demo:
 | keepShowActionButton | 是否一直显示右侧按钮 | boolean | `false` |
 | hideActionButton | 舍去右侧按钮 | boolean | `false` |
 | size | 搜索框大小 | `small` \| `large` | - |
+| shape | 搜索框形状，可选值为 `square` | string | - |
 | inputStyle | 自定义搜索框样式 | CSSProperties | - |
 | onInput | 键盘输入时触发 input 事件 | (v) => void | - |
 | onClear | 点击清除按钮时触发事件 | (v) => void | - |

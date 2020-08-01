@@ -6,4 +6,43 @@
 .row{
   height: 60px;
   line-height: 60px;
+  color: #333;
+}
+.coverExtra{
+  font-size: 40px;
+}
+.coverRow{
+  color: #333;
+  line-height: 1.5715;
+}
+.foot{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88px;
+  cursor: pointer;
+  &:hover{
+    background-color: #F9F9F9;
+  }
+  &:active{
+    background-color: #F4F4F4;
+  }
+}
+.footHorizontal{
+  display: flex;
+  justify-content: flex-end;
+  >span{
+    margin-left: 32px;
+  }
+}
+.imageContainer{
+  padding: 20px 10px 20px 20px;
+  width: 260px;
+  height: 270px;
+  >img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
 }

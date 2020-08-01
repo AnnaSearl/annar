@@ -15,8 +15,7 @@ Demo:
 | --- | --- | ---- | --- |
 | value | 当前值 | number | `min` |
 | step | 步长，每次改变的步数 | number | `1` |
-| min | 最小值 | `number` \| number | `1` |
-| max | 最大值 | `number` \| number | - |
+| min | 最小值 | number | - |
 | disabled | 是否禁用 | boolean | `false` |
 | plain | 设置朴素步进器 | boolean | `false` |
 | size | 设置步进器大小，可选值为 `small` | string | - |

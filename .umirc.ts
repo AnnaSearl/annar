@@ -95,15 +95,16 @@ export default defineConfig({
       font-family: sfmono-regular,Consolas,liberation mono,Menlo,Courier,monospace;
     }
     .markdown table td:nth-child(3) {
-      color: #FF6666;
+      color: #FF5555;
       font-size: 13px;
       word-break: break-all;
     }
     .markdown table td:nth-child(3) > code {
-      color: #FF6666 !important;
+      color: #FF5555 !important;
       background-color: #F6F6F6 !important;
       font-size: 13px;
       word-break: break-all;
+      margin-bottom: 6px;
     }
 
     `,

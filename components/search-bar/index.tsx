@@ -10,19 +10,20 @@ const prefixCls = getPrefixCls('search_bar');
 export interface SearchBarProps {
   value?: string;
   placeholder?: string;
+  shape?: string;
+  size?: string;
+  style?: React.CSSProperties;
+  inputStyle?: React.CSSProperties;
+  actionName?: string;
+  keepShowActionButton?: boolean;
+  hideActionButton?: boolean;
+  focus?: boolean;
   onInput?: (value: string) => void;
   onClear?: (value: any) => void;
   onActionClick?: () => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
   onSubmit?: (value: string) => void;
-  inputStyle?: React.CSSProperties;
-  style?: React.CSSProperties;
-  focus?: boolean;
-  actionName?: string;
-  keepShowActionButton?: boolean;
-  hideActionButton?: boolean;
-  size?: string;
 }
 
 let showBtn = false;
@@ -37,6 +38,7 @@ const SearchBar = (props: SearchBarProps) => {
     onActionClick,
     onSubmit,
     inputStyle,
+    shape,
     style,
     focus,
     actionName = '取消',
@@ -96,7 +98,10 @@ const SearchBar = (props: SearchBarProps) => {
       })}
       style={style}
     >
-      <View className={`${prefixCls}-input`} style={inputStyle}>
+      <View
+        className={classNames(`${prefixCls}-input`, { [`${prefixCls}-input-${shape}`]: shape })}
+        style={inputStyle}
+      >
         <View
           className={classNames({
             [`${prefixCls}-input-synthetic`]: true,
