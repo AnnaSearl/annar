@@ -85,25 +85,25 @@ const Cascade = (props: CascadeProps) => {
     }
   };
 
-  const getMatchLevelOptions = (id: string, data: any[]): any => {
+  const getMatchLevelOptions = (key: string, data: any[]): any => {
     let r = null;
     for (let i = 0; i < data.length; i++) {
       const item = data[i];
-      if (id === item.id) {
+      if (key === item.key) {
         r = data;
       } else if (item.children) {
-        r = getMatchLevelOptions(id, item.children);
+        r = getMatchLevelOptions(key, item.children);
       }
       if (r) {
         return r;
       }
     }
-    return null;
+    return r;
   };
 
   const handleReChoose = (item: any, index: number) => {
     onChange(value.slice(0, index + 1));
-    setShowedOptions(getMatchLevelOptions(item.id, options));
+    setShowedOptions(getMatchLevelOptions(item.key, options));
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
