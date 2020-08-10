@@ -7,5 +7,6 @@ describe('Space', () => {
     const wrapper = mount(<Space />);
 
     expect(wrapper.instance()).toBe(null);
+    // expect(ss(1, 4)).toBe(5);
   });
 });

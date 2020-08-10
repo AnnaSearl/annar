@@ -41,13 +41,19 @@ export default defineConfig({
     'anna-remax-ui': path.resolve(__dirname, 'components'),
     '../one': path.resolve(__dirname, 'components/web/index.ts'),
   },
-  define: {
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      REMAX_PLATFORM: JSON.stringify("web"),
-    }
-  },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
+    memo.module
+    .rule('js')
+      .use('babel-loader')
+        .tap(options => {
+          console.log('options--',options);
+          
+          return {
+            ...options,
+            envName: 'dumi',
+          }
+        });
+    
     memo.module
     .rule('px2rem')
     .test(/\.tsx$/i)
@@ -61,6 +67,8 @@ export default defineConfig({
       remUnit: 100,
       remFixed: 3
     });
+
+    
   },
   styles: [
     `

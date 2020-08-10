@@ -3,6 +3,7 @@
   "version": "1.8.7",
   "description": "优雅、简洁的 Remax 组件库",
   "main": "web/index.js",
+  "esnext": "esm/index.js",
   "module": "esm/index.js",
   "keywords": [
     "component",
@@ -29,7 +30,7 @@
     "lint": "eslint components --fix --ext .ts,.tsx",
     "docs": "dumi build",
     "deploy": "gh-pages -d site",
-    "test": "jest"
+    "test": "jest --no-cache"
   },
   "repository": {
     "type": "git",
@@ -60,12 +61,15 @@
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/plugin-transform-react-pure-annotations": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^26.0.9",
     "@types/lodash-es": "^4.17.3",
     "@types/react": "^16.9.23",
     "@types/react-reconciler": "^0.18.0",
@@ -86,6 +90,7 @@
     "directory-named-webpack-plugin": "^4.0.1",
     "dumi": "^1.0.31",
     "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-eslint-comments": "^3.1.2",
