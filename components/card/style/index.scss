@@ -17,7 +17,7 @@ $card-prefix-cls: #{$anna-prefix}-card;
     box-shadow:0 0 24px #CCC;
   }
   &-cover{
-    > * {
+    > img, span, image, text, audio, video, scroll-view, map {
       display: block;
       width: 100%;
     }
