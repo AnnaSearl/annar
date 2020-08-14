@@ -1,6 +1,8 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
 
+process.env.BABEL_ENV = 'dumi';
+
 export default defineConfig({
   publicPath: '/anna-remax-ui/',
   base: '/anna-remax-ui',
@@ -40,12 +42,6 @@ export default defineConfig({
   alias: {
     'anna-remax-ui': path.resolve(__dirname, 'components'),
     '../one': path.resolve(__dirname, 'components/web/index.ts'),
-  },
-  define: {
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      REMAX_PLATFORM: JSON.stringify("web"),
-    }
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     memo.module

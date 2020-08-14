@@ -18,7 +18,7 @@ export interface InputProps {
   disabled?: boolean;
   border?: boolean;
   required?: boolean;
-  button?: React.ReactNode;
+  extra?: React.ReactNode;
   onChange?: (e: any) => void;
 }
 
@@ -36,7 +36,7 @@ const AInput = (props: InputProps) => {
     border = true,
     required,
     icon,
-    button,
+    extra,
   } = props;
 
   const handleChangeInput = (e: any) => {
@@ -69,9 +69,9 @@ const AInput = (props: InputProps) => {
       icon={icon}
       field
     >
-      <View className={`${prefixCls}-body`}>
+      <View className={`${prefixCls}-container`}>
         {inputElement}
-        {button && <View className={`${prefixCls}-button`}>{button}</View>}
+        {extra && <View className={`${prefixCls}-extra`}>{extra}</View>}
       </View>
     </Cell>
   );

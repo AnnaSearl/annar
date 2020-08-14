@@ -6,7 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "declaration": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "outDir": "./esm",
     "rootDir": "./components",
     "baseUrl": "./",
