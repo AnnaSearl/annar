@@ -31,25 +31,6 @@ $large-height: 80px;
   overflow: unset;
   // 设置点击链接的时候出现的高亮颜色
   // -webkit-tap-highlight-color: unset;
-
-  // 百度搜索 <css 移动端 hover> ---- hover 在移动端中，点击后一直处于hover状态，不会切换。
-  // &:not(&-disabled):hover{
-  //   // 由于absolute是相对于border以内的内容，不包括border, 所以要设置-1PX才能把border也罩住。
-  //   .#{$button-prefix-cls}-mask{
-  //     box-sizing: border-box;
-  //     position: absolute;
-  //     top: -1PX;
-  //     right: -1PX;
-  //     bottom: -1PX;
-  //     left: -1PX;
-  //     content: '';
-  //     background-color: rgba(255, 255, 255, 0.35);
-  //     border-radius: inherit;
-  //     pointer-events: none;
-  //     transition: background-color 0.3s;
-  //   }
-  // }
-  
   &:not(&-disabled):active {
     // 由于absolute是相对于border以内的内容，不包括border, 所以要设置-1PX才能把border也罩住。
     .#{$button-prefix-cls}-mask{
@@ -246,7 +227,6 @@ $large-height: 80px;
       display: inline;
       padding-right: 16px;
       margin-left: -36px - 16px;
-      // transition: margin-left .3s cubic-bezier(.645,.045,.355,1);
     }
   }
   &-ghost{

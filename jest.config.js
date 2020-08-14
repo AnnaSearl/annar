@@ -5,7 +5,6 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testURL: 'http://localhost',
   transform: {
-    // 将.js后缀的文件使用babel-jest处理
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest',
   },
