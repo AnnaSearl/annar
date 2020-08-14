@@ -27,12 +27,13 @@ export default () => {
       <Block title="With Icon">
         <Input label="location" placeholder="Please enter" border={false} icon="location" />
       </Block>
-      <Block title="With Button">
+      <Block title="With Extra">
+        <Input label="Amount" placeholder="Please enter" extra="元" />
         <Input
           label="phone"
           placeholder="Please enter"
           border={false}
-          button={
+          extra={
             <Button type="primary" size="small">
               Send Code
             </Button>

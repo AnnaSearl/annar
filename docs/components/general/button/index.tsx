@@ -49,6 +49,17 @@ export default () => {
             </Button>
           </View>
         </Block>
+        <Block noTitlePadding title="Ghost">
+          <View className={styles.group}>
+            <Button ghost>default</Button>
+            <Button danger ghost>
+              danger
+            </Button>
+            <Button plain ghost>
+              plain
+            </Button>
+          </View>
+        </Block>
         <Block noTitlePadding title="Shape">
           <View className={styles.group}>
             <Button type="primary" shape="circle">
@@ -74,21 +85,43 @@ export default () => {
             </Button>
           </View>
         </Block>
+        <Block noTitlePadding title="Icon">
+          <View className={styles.group}>
+            <Button
+              type="primary"
+              shape="circle"
+              icon={<Icon type="roundadd" color="#1890FF" size="50px" />}
+              ghost
+            />
+            <Button plain type="primary" icon="check">
+              Finish
+            </Button>
+            <Button plain hairline color="#FF4D4F" shape="square" icon="close">
+              Close
+            </Button>
+          </View>
+          <View className={styles.group}>
+            <Button type="primary" shape="circle" icon="locationfill" />
+            <Button type="primary" icon="add1">
+              Follow
+            </Button>
+            <Button shape="square" icon="down">
+              Download
+            </Button>
+          </View>
+        </Block>
         <Block noTitlePadding title="Float">
           <View className={styles.group} style={{ height: '60px' }}>
             <Button
               type="primary"
               shape="circle"
+              icon="cart"
               float
               style={{
                 left: '30px',
                 bottom: '1320px',
               }}
-            >
-              <Text style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Icon type="cart" color="#FFF" size="40px" />
-              </Text>
-            </Button>
+            />
             <Button
               look="warning"
               float
@@ -124,6 +157,7 @@ export default () => {
               type="primary"
               square
               danger
+              icon="deletefill"
               loading={delLoading}
               loadingText="Deleting..."
               onTap={() => setDelLoading(true)}

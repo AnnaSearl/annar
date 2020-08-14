@@ -1,6 +1,8 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
 
+process.env.BABEL_ENV = 'dumi';
+
 export default defineConfig({
   publicPath: '/anna-remax-ui/',
   base: '/anna-remax-ui',
@@ -43,18 +45,6 @@ export default defineConfig({
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     memo.module
-    .rule('js')
-      .use('babel-loader')
-        .tap(options => {
-          console.log('options--',options);
-          
-          return {
-            ...options,
-            envName: 'dumi',
-          }
-        });
-    
-    memo.module
     .rule('px2rem')
     .test(/\.tsx$/i)
     .include
@@ -67,8 +57,6 @@ export default defineConfig({
       remUnit: 100,
       remFixed: 3
     });
-
-    
   },
   styles: [
     `
