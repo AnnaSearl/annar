@@ -19,6 +19,7 @@ export interface InputProps {
   border?: boolean;
   required?: boolean;
   button?: React.ReactNode;
+  maxLength?: number;
   onChange?: (e: any) => void;
 }
 
@@ -37,6 +38,7 @@ const AInput = (props: InputProps) => {
     required,
     icon,
     button,
+    maxLength,
   } = props;
 
   const handleChangeInput = (e: any) => {
@@ -57,6 +59,7 @@ const AInput = (props: InputProps) => {
       placeholder={placeholder}
       onInput={handleChangeInput}
       disabled={disabled}
+      maxLength={maxLength}
     />
   );
 
