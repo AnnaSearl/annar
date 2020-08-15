@@ -144,8 +144,8 @@ $large-height: 80px;
     min-width: 84px;
   }
   &-disabled{
+    cursor: default;
     opacity: 0.4;
-    // color: hsla(0,0%,100%,.6) !important;
     transition: opacity .2s;
   }
   &-danger-default{

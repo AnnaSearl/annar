@@ -41,10 +41,9 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       position: absolute;
       left: 0;
       bottom: 0;
-      height: 6px;
+      height: 8px;
       width: 32px;
-      padding-top: 6px;
-      font-weight: 500;
+      border-radius: 8px;
       background-color: $brand-color;
       overflow: hidden;
       transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -166,19 +165,19 @@ $tabs-prefix-cls: #{$anna-prefix}-tabs;
       font-weight: 400;
       &-item {
         position: relative;
-        height: 96px;
-        line-height: 96px;
-        padding: 0 24px 0 24px;
+        height: 48PX;
+        line-height: 48PX;
+        padding: 0 24px;
         white-space: nowrap;
         cursor: pointer;
       }
       &-active {
         position: absolute;
         left: 0;
-        top: 32px;
-        width: 6px;
-        height: 32px;
-        border-radius: 6px;
+        top: 16PX;
+        width: 4PX;
+        height: 16PX;
+        border-radius: 4PX;
         background-color: $brand-color;
         transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
       }

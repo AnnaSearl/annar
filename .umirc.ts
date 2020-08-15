@@ -102,6 +102,19 @@ export default defineConfig({
       word-break: break-all;
       margin-bottom: 6px;
     }
+    .anna-btn:not(.anna-btn-disabled):hover .anna-btn-mask {	
+      box-sizing: border-box;	
+      position: absolute;	
+      top: -1PX;	
+      right: -1PX;	
+      bottom: -1PX;	
+      left: -1PX;	
+      content: '';	
+      background-color: rgba(255, 255, 255, 0.35);	
+      border-radius: inherit;	
+      pointer-events: none;	
+      transition: background-color 0.3s;
+    }
 
     `,
   ],

@@ -18,7 +18,6 @@ export interface TabProps {
   activeKey?: string | number;
   animated?: boolean;
   fixed?: boolean;
-  onTabClick?: (i: any) => void;
   headerContent?: React.ReactNode;
   children?: React.ReactNode;
   headerStyle?: React.CSSProperties;
@@ -26,6 +25,7 @@ export interface TabProps {
   titleWidth?: number;
   titleSquare?: boolean;
   titleAlign?: string;
+  onTabClick?: (i: any) => void;
 }
 
 export interface TabContentProps {
