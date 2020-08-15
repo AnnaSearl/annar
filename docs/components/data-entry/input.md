@@ -24,5 +24,5 @@ Demo:
 | required | 是否显示表单必填星号 | boolean | `false` |
 | border | 是否显示内边框 | boolean | `true` |
 | extra | 输入框右侧插槽 | `ReactNode` | - |
+| maxLength | 最大输入长度 | number | - |
 | onChange | value 改变时触发 change 事件 | (v) => void | - |
-

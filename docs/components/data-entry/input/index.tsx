@@ -11,6 +11,9 @@ export default () => {
       <Block title="With Label">
         <Input label="Text" placeholder="Please enter" border={false} />
       </Block>
+      <Block title="maxLength">
+        <Input label="Text" placeholder="You can input 4 charapter" maxLength={4} />
+      </Block>
       <Block title="inputAlign">
         <Input label="Text" placeholder="Please enter" border={false} inputAlign="right" />
       </Block>
