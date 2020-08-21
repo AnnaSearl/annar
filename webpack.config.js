@@ -4,22 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WebpackBar = require('webpackbar');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pkg = require('./package.json');
 
-const replaces = [
-  { search: /<View/g, replace: '<div' },
-  { search: /<\/View>/g, replace: '</div>' },
-  { search: /<Text/g, replace: '<span' },
-  { search: /<\/Text>/g, replace: '</span>' },
-  { search: /<Input/g, replace: '<input' },
-  { search: /<\/Input>/g, replace: '</input>' },
-  { search: /<Image/g, replace: '<img' },
-  { search: /<\/Image>/g, replace: '</img>' },
-  { search: /<Textarea/g, replace: '<textarea' },
-  { search: /<\/Textarea>/g, replace: '</textarea>' },
-  { search: /onTap/g, replace: 'onClick' },
-];
+
 const entry = ['./index'];
 const libName = "anna";
 const exts = ['.web.ts','.web.tsx','.ts', '.tsx', '.js', '.jsx'];
@@ -135,9 +122,6 @@ const config = {
       openAnalyzer: false,
       reportFilename: '../report.html',
     }),
-    // new HtmlWebpackPlugin({
-    //   title: 'Anna Remax UI',
-    // }),
   ],
 }
 

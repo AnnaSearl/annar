@@ -176,3 +176,23 @@ export const isArrayValueEqual = (a: any[], b: any[]) => {
 
   return isEqual;
 };
+
+export const deepClone = function (data: any): any {
+  let cloneData: any = null;
+  if (Array.isArray(data)) {
+    cloneData = [];
+    for (let i = 0; i < data.length; i += 1) {
+      const item = data[i];
+      cloneData[i] = deepClone(item);
+    }
+  } else if (typeof data === 'object' && data !== null) {
+    cloneData = {};
+    Object.keys(data).forEach(key => {
+      const item = data[key];
+      cloneData[key] = deepClone(item);
+    });
+  } else {
+    cloneData = data;
+  }
+  return cloneData;
+};

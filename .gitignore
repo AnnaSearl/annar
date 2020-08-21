@@ -6,6 +6,7 @@ esm/
 dist/
 package-lock.json
 yarn.lock
+yarn-error.log
 .umi/
 docs-source/
 report.html

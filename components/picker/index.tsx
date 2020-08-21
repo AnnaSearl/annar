@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Picker as APicker } from '../one';
 import Cell from '../cell';
 import FormValue from '../form-value';
-import find from 'lodash-es/find';
-import get from 'lodash-es/get';
 
 export interface PickerProps {
   label?: React.ReactNode;
@@ -42,6 +40,7 @@ const Picker = (props: PickerProps) => {
   };
 
   const valueIndex = options?.findIndex((item: any) => item['key'] === value) || 0;
+  const selectedOption = options?.find(option => option.key === value);
 
   return (
     <Cell
@@ -60,9 +59,7 @@ const Picker = (props: PickerProps) => {
         value={valueIndex}
         onChange={handleChangePicker}
       >
-        {children || children === 0 ? (
-          children
-        ) : (
+        {children ?? (
           <FormValue
             placeholder={placeholder}
             style={
@@ -71,7 +68,7 @@ const Picker = (props: PickerProps) => {
               } as React.CSSProperties
             }
           >
-            {get(find(options, { key: value }), 'value')}
+            {selectedOption?.value}
           </FormValue>
         )}
       </APicker>
