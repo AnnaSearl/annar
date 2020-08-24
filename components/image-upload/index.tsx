@@ -16,7 +16,6 @@ export type DataItem = ImageProps | string;
 
 export interface ImageUploadProps {
   files?: DataItem[];
-  onChange?: (e: DataItem[]) => void;
   multiple?: boolean;
   multipleCount?: number;
   sizeType?: string[];
@@ -24,6 +23,8 @@ export interface ImageUploadProps {
   deletable?: boolean;
   disabled?: boolean;
   maxCount?: number;
+  children?: React.ReactNode;
+  onChange?: (e: DataItem[]) => void;
 }
 
 const ImageUpload = (props: ImageUploadProps) => {
@@ -37,6 +38,7 @@ const ImageUpload = (props: ImageUploadProps) => {
     deletable = true,
     disabled,
     maxCount,
+    children,
   } = props;
 
   const handleClickImage = (index: number) => {
@@ -131,8 +133,12 @@ const ImageUpload = (props: ImageUploadProps) => {
         </View>
       ))}
       {!maxCount || files.length < maxCount ? (
-        <View className={`${prefixCls}-add`} onTap={handleAdd}>
-          <Icon type="add" size="48px" color="#BABEC6" />
+        <View onTap={handleAdd}>
+          {children ?? (
+            <View className={`${prefixCls}-add`}>
+              <Icon type="add" size="48px" color="#BABEC6" />
+            </View>
+          )}
         </View>
       ) : null}
     </View>

@@ -5,20 +5,23 @@ import Icon from '../icon';
 
 const prefixCls = getPrefixCls('checkbox');
 
+type CheckboxValue = string | number;
+
 export interface CheckboxProps {
   checked?: boolean;
-  value?: string;
+  value?: CheckboxValue;
   extra?: React.ReactNode;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  onChange?: (e: any, v?: any) => void;
+  onChange?: (checked: any, e?: any, v?: CheckboxValue) => void;
+  onGroupChange?: (v: CheckboxValue[], e?: any) => void;
 }
 
 const Checkbox = (props: CheckboxProps) => {
   const { children, checked, value, extra, style, onChange } = props;
 
-  const handleClick = () => {
-    onChange?.(!checked, value);
+  const handleClick = (e: any) => {
+    onChange?.(!checked, e, value);
   };
 
   return (
@@ -36,40 +39,43 @@ const Checkbox = (props: CheckboxProps) => {
   );
 };
 
-export interface GroupProps {
-  value?: string;
-  children?: React.ReactNode;
-  direction?: string;
-  onChange?: (e: any) => void;
-}
-
 const getCheckboxs = (
   children: React.ReactNode,
-  value?: string,
-  onChange?: (e: any, v: any) => void,
+  value: CheckboxValue[] = [],
+  onChange?: (v: CheckboxValue[], e?: any) => void,
 ) => {
+  const onGroupChange = (checked: any, e: any, v: CheckboxValue) => {
+    const newValue = value?.includes(v) ? value?.filter(i => i !== v) : value?.concat(v);
+    onChange?.(newValue, e);
+  };
   const checkboxs = React.Children.map(children, (checkbox: any) => {
-    const newCheckbox = checkbox;
-    let checked = false;
-    if (newCheckbox && newCheckbox.props) {
-      if (
-        (newCheckbox.props.value || newCheckbox.props.value === 0) &&
-        newCheckbox.props.value === value
-      ) {
-        checked = true;
-      } else {
-        checked = false;
-      }
-      return <Checkbox {...newCheckbox.props} checked={checked} onChange={onChange} />;
+    const p = checkbox?.props || {};
+    let checked = p.checked;
+    if ((p.value || p.value === 0) && (value as CheckboxValue[])?.includes(p.value)) {
+      checked = !checked;
     }
-    return newCheckbox;
+    return {
+      ...checkbox,
+      props: {
+        ...checkbox.props,
+        checked,
+        onChange: onGroupChange,
+      },
+    };
   });
 
   return checkboxs;
 };
 
+export interface GroupProps {
+  value?: CheckboxValue[];
+  children?: React.ReactNode;
+  direction?: string;
+  onChange?: (v: CheckboxValue[]) => void;
+}
+
 Checkbox.Group = (props: GroupProps) => {
-  const { value, children, direction = 'row', onChange } = props;
+  const { value = [], children, direction = 'row', onChange } = props;
 
   const checkboxs = getCheckboxs(children, value, onChange);
 

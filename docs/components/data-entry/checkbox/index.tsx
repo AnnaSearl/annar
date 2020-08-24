@@ -7,52 +7,47 @@ import styles from './index.module.scss';
 const radioStyle = { paddingBottom: '30px' };
 
 export default () => {
-  const [isTrue, setIsTrue] = useState(true);
-  const [option, setOption] = useState('0');
-  const [option1, setOption1] = useState('0');
+  const [option, setOption] = useState(true);
+  const [option1, setOption1] = useState([0]);
+  const [option2, setOption2] = useState([0]);
+
+  const handleChange1 = (value: any[]) => {
+    console.log('value', value);
+    setOption1(value);
+  };
+
+  const handleChange2 = (value: any[]) => {
+    console.log('value', value);
+    setOption2(value);
+  };
 
   return (
     <Frame padding>
       <Block title="Basic" noTitlePadding>
         <View className={styles.container}>
-          <Checkbox checked>Checkbox</Checkbox>
+          <Checkbox checked={option} onChange={() => setOption(s => !s)}>
+            Checkbox
+          </Checkbox>
         </View>
       </Block>
-      {/* <Block title="Label" noTitlePadding>
-        <View className={styles.container}>
-          <Checkbox checked={!isTrue} onChange={() => setIsTrue(v => !v)}>
-            NO
-          </Checkbox>
-          <Checkbox checked={isTrue} onChange={() => setIsTrue(v => !v)}>
-            YES
-          </Checkbox>
-        </View>
-      </Block> */}
       <Block title="Group" noTitlePadding>
-        <Checkbox.Group
-          value={option1}
-          onChange={(checked: boolean, value: any) => setOption1(value)}
-        >
-          <Checkbox value={'0'}>时效问题</Checkbox>
-          <Checkbox value={'1'}>价格问题</Checkbox>
-          <Checkbox value={'2'}>其他</Checkbox>
+        <Checkbox.Group value={option1} onChange={handleChange1}>
+          <Checkbox value={0}>时效问题</Checkbox>
+          <Checkbox value={1}>价格问题</Checkbox>
+          <Checkbox value={2}>其他</Checkbox>
         </Checkbox.Group>
       </Block>
       <Block title="Direction & Extra" noTitlePadding>
         <View className={styles.container}>
-          <Checkbox.Group
-            direction="column"
-            value={option}
-            onChange={(checked: boolean, value: any) => setOption(value)}
-          >
-            <Checkbox value={'0'} style={radioStyle}>
+          <Checkbox.Group direction="column" value={option2} onChange={handleChange2}>
+            <Checkbox value={0} style={radioStyle}>
               时效问题
             </Checkbox>
-            <Checkbox value={'1'} style={radioStyle}>
+            <Checkbox value={1} style={radioStyle}>
               价格问题
             </Checkbox>
             <Checkbox
-              value={'2'}
+              value={2}
               extra={
                 <Textarea
                   className={styles.remarks}

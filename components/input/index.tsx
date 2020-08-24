@@ -20,6 +20,7 @@ export interface InputProps {
   required?: boolean;
   extra?: React.ReactNode;
   maxLength?: number;
+  cellStyle?: React.CSSProperties;
   onChange?: (e: any) => void;
 }
 
@@ -39,6 +40,7 @@ const AInput = (props: InputProps) => {
     icon,
     extra,
     maxLength,
+    cellStyle,
   } = props;
 
   const handleChangeInput = (e: any) => {
@@ -65,6 +67,7 @@ const AInput = (props: InputProps) => {
 
   return (
     <Cell
+      style={cellStyle}
       label={label}
       labelStyle={{ width: '180px' }}
       border={border}

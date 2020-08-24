@@ -23,6 +23,7 @@ Demo:
 | sourceType | 选择图片的来源 | string[] | - |
 | deletable | 是否展示删除按钮 | boolean | `true` |
 | disabled | 是否禁用 | boolean | `false` |
+| children | 自定义新增区块的内容 | ReactNode | - |
 | onChange | files 值发生变化触发的回调函数 | (e:` ImageProps[]` \| `string[]`) => void | - |
 
 
