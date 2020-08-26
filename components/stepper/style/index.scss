@@ -6,7 +6,7 @@ $small: 48px;
 $default: 56px;
 
 .#{$stepper-prefix-cls} {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   height: $default;
   line-height: $default;
