@@ -156,10 +156,10 @@ const Tabs = (props: TabProps): React.ReactElement => {
       const titleNode = titleNodes?.[selected] || { offsetLeft: 0, offsetWidth: 0 };
       // 注；此处left的位置是相对于 .anna-tabs-plain 的，不是相对于手机视窗左侧的。所以如果 .anna-tabs-plain 不能
       // 占据视窗width的100%，Tabs的下标位置就会偏右。
-      let left = titleNode.offsetLeft + titleNode.offsetWidth / 2;
+      const left = titleNode.offsetLeft + titleNode.offsetWidth / 2;
       // 解决小程序下无法获取到元素的 offsetLeft 的问题，使用 scrollOffset 来获取 scrollLeft。
       if (titleWrapperLeft < 0) {
-        left += Math.abs(titleWrapperLeft);
+        // left += Math.abs(titleWrapperLeft); //不需要这一步，因为offsetLeft是相对于父元素的，而不是相对于视窗的
       }
       return (
         <View
@@ -321,7 +321,9 @@ const Tabs = (props: TabProps): React.ReactElement => {
   );
 };
 
-const TabContent: React.FC = (props: TabContentProps): React.ReactElement | null => {
+const TabContent: React.FC<TabContentProps> = (
+  props: TabContentProps,
+): React.ReactElement | null => {
   const { active, style, animated, children } = props;
 
   if (!active) {

@@ -23,7 +23,7 @@ export interface SwipeActionProps {
   onClosed?: (e: any) => void;
 }
 
-const SwipeAction: React.FC = (props: SwipeActionProps): React.ReactElement => {
+const SwipeAction: React.FC<SwipeActionProps> = (props: SwipeActionProps): React.ReactElement => {
   const { open, options = [], onTouchStart, onOpened, onClosed, children } = props;
 
   const [x, setX] = useState(0);

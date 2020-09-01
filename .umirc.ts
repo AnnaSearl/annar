@@ -6,12 +6,13 @@ process.env.BABEL_ENV = 'dumi';
 export default defineConfig({
   publicPath: '/anna-remax-ui/',
   base: '/anna-remax-ui',
-  title: 'Anna Remax UI',
+  title: 'Annar',
   mode: 'site',
-  logo: 'https://smebimage.fuliaoyi.com/FoMXNlKdZt9UqufDkPony8ztWKsU',
-  favicon: 'https://smebimage.fuliaoyi.com/FoMXNlKdZt9UqufDkPony8ztWKsU',
+  logo: 'https://smebimage.fuliaoyi.com/Fger7VZclDUaXDJuqg42MlsUqV-w',
+  favicon: 'https://smebimage.fuliaoyi.com/Fger7VZclDUaXDJuqg42MlsUqV-w',
   navs: [
     null,
+    { title: 'Eurus', path: 'https://github.com/AnnaSearl/eurus' },
     { title: 'GitHub', path: 'https://github.com/AnnaSearl/anna-remax-ui' },
   ],
   theme: {
@@ -27,7 +28,7 @@ export default defineConfig({
     require('postcss-plugin-px2rem')({
       rootValue: 32,
       exclude: '@umijs/preset-dumi',
-    })
+    }),
   ],
   extraBabelPlugins: [
     [
@@ -45,18 +46,17 @@ export default defineConfig({
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     memo.module
-    .rule('px2rem')
-    .test(/\.tsx$/i)
-    .include
-      .add(path.resolve(__dirname, 'components'))
+      .rule('px2rem')
+      .test(/\.tsx$/i)
+      .include.add(path.resolve(__dirname, 'components'))
       .add(path.resolve(__dirname, 'docs'))
       .end()
-    .use('px2rem')
-    .loader('./build/loaders/jsxPx2Rem.js')
-    .options({
-      remUnit: 100,
-      remFixed: 3
-    });
+      .use('px2rem')
+      .loader('./build/loaders/jsxPx2Rem.js')
+      .options({
+        remUnit: 100,
+        remFixed: 3,
+      });
   },
   styles: [
     `
@@ -119,4 +119,3 @@ export default defineConfig({
     `,
   ],
 });
-

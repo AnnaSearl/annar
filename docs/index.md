@@ -1,7 +1,7 @@
 ---
-title: Anna Remax UI - 优雅、简洁的 Remax 组件库
+title: Annar - 优雅、简洁的 Remax 组件库
 hero:
-  title: Anna
+  title: Annar
   desc: 优雅、简洁的 Remax 组件库
   actions:
     - text: 开始使用
