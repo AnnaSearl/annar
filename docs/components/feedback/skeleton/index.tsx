@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'remax/one';
-import { Skeleton, Switch, Card } from 'anna-remax-ui';
+import { Skeleton, Switch, Card } from 'annar';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 

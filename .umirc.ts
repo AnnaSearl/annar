@@ -4,8 +4,8 @@ import path from 'path';
 process.env.BABEL_ENV = 'dumi';
 
 export default defineConfig({
-  publicPath: '/anna-remax-ui/',
-  base: '/anna-remax-ui',
+  publicPath: '/annar/',
+  base: '/annar',
   title: 'Annar',
   mode: 'site',
   logo: 'https://smebimage.fuliaoyi.com/Fger7VZclDUaXDJuqg42MlsUqV-w',
@@ -13,7 +13,7 @@ export default defineConfig({
   navs: [
     null,
     { title: 'Eurus', path: 'https://github.com/AnnaSearl/eurus' },
-    { title: 'GitHub', path: 'https://github.com/AnnaSearl/anna-remax-ui' },
+    { title: 'GitHub', path: 'https://github.com/AnnaSearl/annar' },
   ],
   theme: {
     '@c-primary': '#FF7777',
@@ -34,14 +34,14 @@ export default defineConfig({
     [
       'import',
       {
-        libraryName: 'anna-remax-ui',
+        libraryName: 'annar',
         libraryDirectory: '/',
         style: true,
       },
     ],
   ],
   alias: {
-    'anna-remax-ui': path.resolve(__dirname, 'components'),
+    annar: path.resolve(__dirname, 'components'),
     '../one': path.resolve(__dirname, 'components/web/index.ts'),
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {

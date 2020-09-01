@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Card, Icon } from 'anna-remax-ui';
+import { Card, Icon } from 'annar';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 

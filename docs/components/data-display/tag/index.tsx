@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Tag } from 'anna-remax-ui';
+import { Tag } from 'annar';
 import { Block, Frame } from '../../common';
 
 const { CheckableTag } = Tag;

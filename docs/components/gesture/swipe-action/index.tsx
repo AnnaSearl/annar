@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SwipeAction, Cell } from 'anna-remax-ui';
+import { SwipeAction, Cell } from 'annar';
 import { Block, Frame } from '../../common';
 import './index.scss';
 

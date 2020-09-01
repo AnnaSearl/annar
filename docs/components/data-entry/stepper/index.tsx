@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Stepper } from 'anna-remax-ui';
+import { Stepper } from 'annar';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 

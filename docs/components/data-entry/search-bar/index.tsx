@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SearchBar } from 'anna-remax-ui';
+import { SearchBar } from 'annar';
 import { Block, Frame } from '../../common';
 
 export default () => {

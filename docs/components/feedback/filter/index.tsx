@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import { Filter, Tag } from 'anna-remax-ui';
+import { Filter, Tag } from 'annar';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 

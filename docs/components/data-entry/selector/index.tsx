@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { View } from 'remax/one';
-import { Selector, SelectorPopup, Cell, Filter } from 'anna-remax-ui';
+import { Selector, SelectorPopup, Cell, Filter } from 'annar';
 import { Block, Frame } from '../../common';
 import { ReturnDeliveryWay } from '../../mock';
 

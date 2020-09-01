@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Radio } from 'anna-remax-ui';
+import { Radio } from 'annar';
 import { Block, Frame } from '../../common';
 
 const radioStyle = { paddingBottom: '30px' };

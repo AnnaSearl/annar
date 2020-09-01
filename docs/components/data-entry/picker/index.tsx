@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Picker } from 'anna-remax-ui';
+import { Picker } from 'annar';
 import { Block, Frame } from '../../common';
 
 const options = [

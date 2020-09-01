@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon } from 'anna-remax-ui';
+import { Icon } from 'annar';
 import { Block, Frame, Grid, GridItem } from '../../common';
 
 export default () => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Input, Button } from 'anna-remax-ui';
+import { Input, Button } from 'annar';
 import { Block, Frame } from '../../common';
 
 export default () => {

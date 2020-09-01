@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, View } from 'remax/one';
-import { ImageUpload } from 'anna-remax-ui';
+import { ImageUpload } from 'annar';
 import { Block, Frame } from '../../common';
 
 const logoUrl = 'https://smebimage.fuliaoyi.com/FoMXNlKdZt9UqufDkPony8ztWKsU';
