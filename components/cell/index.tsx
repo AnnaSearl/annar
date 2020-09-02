@@ -2,11 +2,13 @@ import * as React from 'react';
 import { View, Text } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
+import FormValue from '../form-value';
+import Picker from '../picker';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('cell');
 
-export interface ItemProps {
+export interface CellPureProps {
   label?: React.ReactNode;
   children?: React.ReactNode;
   description?: React.ReactNode;
@@ -18,12 +20,12 @@ export interface ItemProps {
   required?: boolean;
   border?: boolean;
   arrow?: boolean;
-  field?: boolean;
+  field?: string;
   defaultNullValue?: string;
   onTap?: () => void;
 }
 
-const Cell = (props: ItemProps) => {
+const CellPure: React.FC<CellPureProps> = (props: CellPureProps) => {
   const {
     label,
     style,
@@ -96,6 +98,73 @@ const Cell = (props: ItemProps) => {
       {border ? <View className={`${prefixCls}-border`} /> : null}
     </View>
   );
+};
+
+export interface CellProps extends CellPureProps {
+  options?: any[];
+  [propName: string]: any;
+}
+
+const Cell: React.FC<CellProps> = (props: CellProps) => {
+  const {
+    label,
+    border,
+    required,
+    icon,
+    align = 'left',
+    options,
+    value,
+    onChange,
+    placeholder,
+    children,
+    disabled,
+    field,
+  } = props;
+
+  const handleChangePicker = (e: any) => {
+    if (e.detail.value < 0) {
+      return;
+    }
+    onChange?.(options?.[e.detail.value]);
+  };
+
+  const valueIndex = options?.findIndex((item: any) => item['key'] === value) || 0;
+  const selectedOption = options?.find(option => option.key === value);
+
+  if (field === 'picker') {
+    return (
+      <CellPure
+        label={label}
+        labelStyle={{ width: '180px' }}
+        border={border}
+        required={required}
+        icon={icon}
+      >
+        <Picker
+          wechat-mode="selector"
+          range={options}
+          rangeKey="value"
+          disabled={disabled}
+          value={valueIndex}
+          onChange={handleChangePicker}
+        >
+          {children ?? (
+            <FormValue
+              placeholder={placeholder}
+              style={
+                {
+                  textAlign: align,
+                } as React.CSSProperties
+              }
+            >
+              {selectedOption?.value}
+            </FormValue>
+          )}
+        </Picker>
+      </CellPure>
+    );
+  }
+  return <CellPure {...props}>{children}</CellPure>;
 };
 
 export default Cell;

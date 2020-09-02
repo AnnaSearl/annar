@@ -1,78 +1,36 @@
-import * as React from 'react';
-import { Picker as APicker } from '../one';
-import Cell from '../cell';
-import FormValue from '../form-value';
+import React, { useState } from 'react';
+import { View } from 'remax/one';
+import Popup from '../popup';
+import PickerView from '../picker-view';
+import PickerViewColumn from '../picker-view-column';
+import { getPrefixCls } from '../common';
+
+const prefixCls = getPrefixCls('picker');
 
 export interface PickerProps {
-  label?: React.ReactNode;
-  border?: boolean;
-  required?: boolean;
-  icon?: string;
   disabled?: boolean;
-  pickerAlign?: string;
-  options?: any[];
-  value?: string;
-  placeholder?: string;
   children?: React.ReactNode;
-  onChange?: (e: any) => void;
 }
 
 const Picker = (props: PickerProps) => {
-  const {
-    label,
-    border,
-    required,
-    icon,
-    pickerAlign = 'left',
-    options,
-    value,
-    onChange,
-    placeholder,
-    children,
-    disabled,
-  } = props;
+  const { disabled, children } = props;
 
-  const handleChangePicker = (e: any) => {
-    if (e.detail.value < 0) {
+  const [open, setOpen] = useState(false);
+
+  const handleTap = () => {
+    if (disabled) {
       return;
     }
-    onChange?.(options?.[e.detail.value]);
+    setOpen(state => !state);
   };
 
-  const valueIndex = options?.findIndex((item: any) => item['key'] === value) || 0;
-  const selectedOption = options?.find(option => option.key === value);
-
   return (
-    <Cell
-      label={label}
-      labelStyle={{ width: '180px' }}
-      border={border}
-      required={required}
-      icon={icon}
-      field
-    >
-      <APicker
-        wechat-mode="selector"
-        range={options}
-        rangeKey="value"
-        disabled={disabled}
-        value={valueIndex}
-        onChange={handleChangePicker}
-      >
-        {children ?? (
-          <FormValue
-            placeholder={placeholder}
-            style={
-              {
-                textAlign: pickerAlign,
-              } as React.CSSProperties
-            }
-          >
-            {selectedOption?.value}
-          </FormValue>
-        )}
-      </APicker>
-    </Cell>
+    <View className={prefixCls}>
+      <View onTap={handleTap}>{children}</View>
+      <Popup position="bottom" open={open} onClose={() => setOpen(false)}>
+        <PickerView>aa</PickerView>
+      </Popup>
+    </View>
   );
 };
 

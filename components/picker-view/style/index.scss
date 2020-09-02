@@ -1,0 +1,29 @@
+@import '../../style/theme/index';
+
+$picker-prefix-cls: #{$anna-prefix}-picker-view;
+
+.#{$picker-prefix-cls} {
+  &-toolbar {
+    height: 88px;
+    line-height: 88px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-cancel {
+    padding: 0 24px;
+    color: #999;
+  }
+  &-title {
+    color: #333;
+    font-weight: 500;
+  }
+  &-confirm {
+    padding: 0 24px;
+    color: $brand-color;
+  }
+  &-columns {
+    position: relative;
+    display: flex;
+    height: 440px;
+  }
+}
