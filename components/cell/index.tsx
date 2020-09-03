@@ -20,7 +20,7 @@ export interface CellProps {
   required?: boolean;
   border?: boolean;
   arrow?: boolean;
-  field?: string;
+  field?: boolean;
   defaultNullValue?: string;
   onTap?: () => void;
 }
