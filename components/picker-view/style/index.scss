@@ -1,8 +1,8 @@
 @import '../../style/theme/index';
 
-$picker-prefix-cls: #{$anna-prefix}-picker-view;
+$picker-view-prefix-cls: #{$anna-prefix}-picker-view;
 
-.#{$picker-prefix-cls} {
+.#{$picker-view-prefix-cls} {
   &-toolbar {
     height: 88px;
     line-height: 88px;
@@ -25,5 +25,28 @@ $picker-prefix-cls: #{$anna-prefix}-picker-view;
     position: relative;
     display: flex;
     height: 440px;
+  }
+  &-selected {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 176px;
+    width: 100%;
+    height: 88px;
+    background-color: rgba(102, 204, 255, 0.08);
+    pointer-events: none;
+  }
+  &-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4)),
+      linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.4));
+    background-repeat: no-repeat;
+    background-position: top, bottom; // 此处逗号隔开对应多个background-image
+    background-size: 100% 176px;
+    pointer-events: none;
   }
 }

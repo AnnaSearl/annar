@@ -1,0 +1,8 @@
+@import '../../style/theme/index';
+
+$picker-prefix-cls: #{$anna-prefix}-picker;
+
+.#{$picker-prefix-cls} {
+  font-size: 28px;
+  color: #000;
+}

@@ -1,8 +1,8 @@
 @import '../../style/theme/index';
 
-$picker-prefix-cls: #{$anna-prefix}-picker-view-column;
+$picker-view-column-prefix-cls: #{$anna-prefix}-picker-view-column;
 
-.#{$picker-prefix-cls} {
+.#{$picker-view-column-prefix-cls} {
   flex: 1;
   backface-visibility: hidden;
   touch-action: none;

@@ -32,6 +32,10 @@ export { default as Input } from './input/index';
 
 export { default as Picker } from './picker';
 
+export { default as PickerView } from './picker-view';
+
+export { default as PickerViewColumn } from './picker-view-column';
+
 export { default as Radio } from './radio';
 
 export { default as Checkbox } from './checkbox';

@@ -11,7 +11,7 @@ export interface PickerViewProps {
   onCancel?: (e: any) => void;
 }
 
-const Picker: React.FC<PickerViewProps> = (props: PickerViewProps) => {
+const PickerView: React.FC<PickerViewProps> = (props: PickerViewProps) => {
   const { title, children, onOK, onCancel } = props;
   return (
     <View className={`${prefixCls}`}>
@@ -33,4 +33,4 @@ const Picker: React.FC<PickerViewProps> = (props: PickerViewProps) => {
   );
 };
 
-export default Picker;
+export default PickerView;

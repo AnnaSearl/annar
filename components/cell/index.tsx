@@ -8,7 +8,7 @@ import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('cell');
 
-export interface CellPureProps {
+export interface CellProps {
   label?: React.ReactNode;
   children?: React.ReactNode;
   description?: React.ReactNode;
@@ -25,7 +25,7 @@ export interface CellPureProps {
   onTap?: () => void;
 }
 
-const CellPure: React.FC<CellPureProps> = (props: CellPureProps) => {
+const Cell = (props: CellProps) => {
   const {
     label,
     style,
@@ -100,71 +100,72 @@ const CellPure: React.FC<CellPureProps> = (props: CellPureProps) => {
   );
 };
 
-export interface CellProps extends CellPureProps {
-  options?: any[];
+export interface CellPickerProps extends CellProps {
+  range?: any[];
+  rangeKey?: string;
+  disabled?: boolean;
   [propName: string]: any;
 }
 
-const Cell: React.FC<CellProps> = (props: CellProps) => {
+Cell.Picker = (props: CellPickerProps) => {
   const {
     label,
     border,
     required,
     icon,
     align = 'left',
-    options,
     value,
     onChange,
     placeholder,
     children,
     disabled,
-    field,
+    range,
+    rangeKey = 'text',
   } = props;
 
-  const handleChangePicker = (e: any) => {
-    if (e.detail.value < 0) {
-      return;
-    }
-    onChange?.(options?.[e.detail.value]);
-  };
-
-  const valueIndex = options?.findIndex((item: any) => item['key'] === value) || 0;
-  const selectedOption = options?.find(option => option.key === value);
-
-  if (field === 'picker') {
-    return (
-      <CellPure
-        label={label}
-        labelStyle={{ width: '180px' }}
-        border={border}
-        required={required}
-        icon={icon}
-      >
-        <Picker
-          wechat-mode="selector"
-          range={options}
-          rangeKey="value"
-          disabled={disabled}
-          value={valueIndex}
-          onChange={handleChangePicker}
-        >
-          {children ?? (
-            <FormValue
-              placeholder={placeholder}
-              style={
-                {
-                  textAlign: align,
-                } as React.CSSProperties
-              }
-            >
-              {selectedOption?.value}
-            </FormValue>
-          )}
-        </Picker>
-      </CellPure>
-    );
+  let selectedText = '';
+  if (Array.isArray(value)) {
+    const selected = value.map((i, columnIndex) => range?.[columnIndex]?.[i]);
+    selectedText = selected
+      .map((i: any) => (typeof i === 'object' ? i[rangeKey] || '' : i))
+      .join(' ');
+  } else {
+    const selected = range?.[value];
+    selectedText = typeof selected === 'object' ? selected[rangeKey] || '' : selected;
   }
-  return <CellPure {...props}>{children}</CellPure>;
+
+  return (
+    <Cell
+      label={label}
+      labelStyle={{ width: '180px' }}
+      border={border}
+      required={required}
+      icon={icon}
+      {...props}
+    >
+      <Picker
+        range={range}
+        rangeKey={rangeKey}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+      >
+        {children ?? (
+          <FormValue
+            placeholder={placeholder}
+            style={
+              {
+                textAlign: align,
+                color: disabled ? '#999' : undefined,
+              } as React.CSSProperties
+            }
+          >
+            {selectedText}
+          </FormValue>
+        )}
+      </Picker>
+    </Cell>
+  );
 };
 
 export default Cell;

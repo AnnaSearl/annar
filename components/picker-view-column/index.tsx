@@ -6,24 +6,22 @@ const prefixCls = getPrefixCls('picker-view-column');
 
 const heightUnit = 44;
 
-export interface RangeObjProps {
+export interface OptionObjProps {
   [propName: string]: string;
 }
 
-type RangeProps = string | RangeObjProps;
+type OptionProps = string | OptionObjProps;
 
-export interface PickerViewColProps {
+export interface PickerViewColumnProps {
   value?: number;
-  range?: RangeProps[];
-  rangeKey?: string;
+  options?: OptionProps[];
+  optionsKey?: string;
   children?: React.ReactNode;
-  onTouchStart?: (e: any) => void;
-  onTouchMove?: (e: any) => void;
-  onTouchEnd?: (e: any) => void;
+  onChange?: (value: number) => void;
 }
 
-const Picker: React.FC<PickerViewColProps> = (props: PickerViewColProps) => {
-  const { value = 0, range = [], rangeKey = 'value' } = props;
+const PickerViewColumn: React.FC<PickerViewColumnProps> = (props: PickerViewColumnProps) => {
+  const { value = 0, options = [], optionsKey = 'text', onChange } = props;
 
   const [initial, setInitial] = useState(heightUnit * 2);
   const [start, setStart] = useState(0);
@@ -32,8 +30,8 @@ const Picker: React.FC<PickerViewColProps> = (props: PickerViewColProps) => {
   const [isTransition, setIsTransition] = useState(false);
 
   useEffect(() => {
-    setColumnHeight(range.length * heightUnit);
-  }, [range]);
+    setColumnHeight(options.length * heightUnit);
+  }, [options]);
 
   useEffect(() => {
     if (!value || value <= 0) {
@@ -67,30 +65,39 @@ const Picker: React.FC<PickerViewColProps> = (props: PickerViewColProps) => {
   const handleTouchEnd = (e: any) => {
     e.preventDefault();
     if (y < -columnHeight + heightUnit * 3) {
-      setY(-columnHeight + heightUnit * 3);
-      setInitial(-columnHeight + heightUnit * 3);
+      const val = -columnHeight + heightUnit * 3;
+      setY(val);
+      setInitial(val);
       setIsTransition(true);
+
+      const v = Math.floor((val - heightUnit * 2) / -heightUnit);
+      onChange?.(v);
       return;
     }
     if (y > heightUnit * 2) {
-      setY(heightUnit * 2);
-      setInitial(heightUnit * 2);
+      const val = heightUnit * 2;
+      setY(val);
+      setInitial(val);
       setIsTransition(true);
+
+      const v = Math.floor((val - heightUnit * 2) / -heightUnit);
+      onChange?.(v);
       return;
     }
     if (y % heightUnit !== 0) {
       const r = Math.round(y / heightUnit) - Math.floor(y / heightUnit);
+      let val = 0;
       if (r === 1) {
-        const updateY = Math.ceil(y / heightUnit) * heightUnit;
-        setY(updateY);
-        setInitial(updateY);
-        setIsTransition(true);
+        val = Math.ceil(y / heightUnit) * heightUnit;
       } else {
-        const updateY = Math.floor(y / heightUnit) * heightUnit;
-        setY(updateY);
-        setInitial(updateY);
-        setIsTransition(true);
+        val = Math.floor(y / heightUnit) * heightUnit;
       }
+      setY(val);
+      setInitial(val);
+      setIsTransition(true);
+
+      const v = Math.floor((val - heightUnit * 2) / -heightUnit);
+      onChange?.(v);
       return;
     }
     setInitial(y);
@@ -110,9 +117,9 @@ const Picker: React.FC<PickerViewColProps> = (props: PickerViewColProps) => {
           } 0.2s cubic-bezier(0.645, 0.045, 0.355, 1)`,
         }}
       >
-        {range?.map((option, index: number) => (
+        {options?.map((option, index: number) => (
           <View key={index} className={`${prefixCls}-item`}>
-            {(option as RangeObjProps)?.[rangeKey] || option}
+            {typeof option === 'object' ? (option as OptionObjProps)?.[optionsKey] : option}
           </View>
         ))}
       </View>
@@ -120,4 +127,4 @@ const Picker: React.FC<PickerViewColProps> = (props: PickerViewColProps) => {
   );
 };
 
-export default Picker;
+export default PickerViewColumn;
