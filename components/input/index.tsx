@@ -9,7 +9,7 @@ const prefixCls = getPrefixCls('input');
 export interface InputProps {
   label?: React.ReactNode;
   name?: string;
-  type?: 'text' | 'number';
+  type?: 'text' | 'number' | 'password';
   placeholder?: string;
   value?: string;
   className?: string;
@@ -47,6 +47,8 @@ const AInput = (props: InputProps) => {
     onChange?.(e);
   };
 
+  const _type = type === 'password' ? 'text' : type;
+
   const inputElement = (
     <Input
       className={classNames({
@@ -55,8 +57,9 @@ const AInput = (props: InputProps) => {
         [`${prefixCls}-align-center`]: inputAlign === 'center',
         [className]: true,
       })}
+      password={type === 'password'}
       name={name}
-      type={type}
+      type={_type}
       value={value}
       placeholder={placeholder}
       onInput={handleChangeInput}

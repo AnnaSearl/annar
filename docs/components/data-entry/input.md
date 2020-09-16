@@ -14,7 +14,7 @@ Demo:
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | ---- | --- |
 | value | 输入框内容 | string | - |
-| type | 输入框类型 | `text` \| `number`| - |
+| type | 输入框类型 | `text` \| `number` \| `password`| - |
 | className | 输入框类名 | string| - |
 | placeholder | 占位提示文字 | string | - |
 | disabled | 是否禁用 | boolean | `false` |
