@@ -41,6 +41,7 @@ const tabs2 = [
         <Text className={styles.total}>7</Text>
       </View>
     ),
+    content: <View>www</View>,
   },
   {
     key: '2',
