@@ -44,7 +44,7 @@ const getTabContents = (
   children: React.ReactNode,
   activeKey?: string | number,
   animated?: boolean,
-): [TabTitleProps[], string, any[]] => {
+): [TabTitleProps[], any[]] => {
   const tabContents: any[] = [];
   const tabs: TabTitleProps[] = [];
   React.Children.forEach(children, (node: any, index: number) => {
@@ -67,8 +67,7 @@ const getTabContents = (
       );
     }
   });
-  const tabsJsonStr = JSON.stringify(tabs);
-  return [tabs, tabsJsonStr, tabContents];
+  return [tabs, tabContents];
 };
 
 const getTabIndex = (tabs: TabTitleProps[], activeKey?: string | number) => {
@@ -100,12 +99,11 @@ const Tabs = (props: TabProps): React.ReactElement => {
 
   // 针对同一个页面出现两个Tabs，给每个Tabs一个 UniqueID
   const TABS_TITLE_ID = useMemo(guid, []);
-  const [tabs, tabsJsonStr, tabContents] = useMemo(
-    () => getTabContents(children, activeKey, animated),
-    [children],
-  );
+  const [tabs, tabContents] = useMemo(() => getTabContents(children, activeKey, animated), [
+    children,
+  ]);
   // 将 activeKey 实时转化成当前 selected 的Tab，后面都将以 selected 作为当前选择的 Tab 的标志符
-  const selected = useMemo(() => getTabIndex(tabs, activeKey), [activeKey, tabsJsonStr]);
+  const selected = useMemo(() => getTabIndex(tabs, activeKey), [activeKey, tabs]);
 
   const [titleWrapperLeft, setTitleWrapperLeft] = useState(0);
   const [titleNodes, setTitleNodes] = useState<any[]>([]);
@@ -143,7 +141,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
           });
       }, 100);
     }
-  }, [tabsJsonStr]);
+  }, [tabs]);
 
   const handleTabClick = (item: any) => {
     onTabClick?.(item);
