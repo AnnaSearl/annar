@@ -86,6 +86,8 @@ export { default as Spin } from './spin';
 
 export { default as Skeleton } from './skeleton';
 
+export { default as Progress } from './progress';
+
 // 手势
 
 export { default as SwipeAction } from './swipe-action';
