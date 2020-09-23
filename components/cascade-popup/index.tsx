@@ -1,7 +1,6 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View } from 'remax/one';
-import Cascade from '../cascade';
+import Cascade, { valueType, OptionProps } from '../cascade';
 import Loading from '../loading';
 import Popup from '../popup';
 import Icon from '../icon';
@@ -18,19 +17,14 @@ export interface CascadePopupProps {
   placeholder?: string;
   options: any[];
   prompt?: (e: any) => string;
-  onChange: (e: any, v: any) => void;
-  onComplete?: (e: any, values?: any[]) => void;
+  onChange: (v: any, s: any) => void;
+  [restProps: string]: any;
 }
 
 const CascadePopup = (props: CascadePopupProps) => {
-  const { value, text, disabled, placeholder, options, onComplete } = props;
+  const { value, text, disabled, placeholder, options, onChange } = props;
 
   const [show, setShow] = useState(false);
-
-  const handleComplete = (value: any, values?: any[]) => {
-    onComplete?.(value, values);
-    setShow(false);
-  };
 
   const handleTap = () => {
     if (disabled) {
@@ -41,6 +35,13 @@ const CascadePopup = (props: CascadePopupProps) => {
 
   const handleClose = () => {
     setShow(false);
+  };
+
+  const handleChange = (v: valueType[], s?: OptionProps[], isLast?: boolean) => {
+    onChange(v, s);
+    if (isLast) {
+      setShow(false);
+    }
   };
 
   if (!options || options.length === 0) {
@@ -66,7 +67,7 @@ const CascadePopup = (props: CascadePopupProps) => {
               <Icon type="close" color="#999" />
             </View>
           </View>
-          <Cascade {...props} onComplete={handleComplete} />
+          <Cascade {...props} onChange={handleChange} />
         </View>
       </Popup>
     </View>

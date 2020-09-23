@@ -21,53 +21,49 @@ const options1 = [
 
 export default () => {
   const [selector, setSelector] = React.useState<any[]>([]);
-  const [selector1, setSelector1] = React.useState<any[]>([]);
-  const [selector2, setSelector2] = React.useState<any[]>([]);
 
   const [value3, setValue3] = React.useState('0');
 
-  const handleChangeCategory = (value: any[], last: any) => {
+  const handleBasicChange = (value: any[]) => {
+    console.log(value);
+  };
+
+  const handleChange = (value: any[]) => {
+    console.log(value);
     setSelector(value);
   };
 
-  const handleCompleteCategory = (value: any[], last: any) => {};
-
-  const handleChangeCategory1 = (value: any[], last: any) => {
-    setSelector1(value);
+  const handleChange1 = (value: any[]) => {
+    console.log(value);
   };
-
-  const handleCompleteCategory1 = (value: any[], last: any) => {};
 
   // Filter
   const seletorRef = useRef<any>();
-  const handleChangeCategory2 = (value: any, valueStr: any) => {
-    setSelector2(value);
-  };
-  const handleCompleteCategory2 = (value: any, valueStr: any) => {
-    seletorRef.current.toggle();
+  const handleChange2 = (value: any[], selectOptions: any[], isLast: boolean) => {
+    console.log(value);
+    if (isLast) {
+      seletorRef.current.toggle();
+    }
   };
 
   return (
     <Frame grayBg style={{ overflow: 'hidden' }}>
       <Block title="Basic">
+        <Cascade name="品类" options={Categorys} onChange={handleBasicChange} />
+      </Block>
+      <Block title="ChangeOnSelect">
         <Cascade
           name="品类"
+          changeOnSelect
           options={Categorys}
-          onChange={handleChangeCategory}
-          onComplete={handleCompleteCategory}
+          onChange={handleChange}
           value={selector}
         />
       </Block>
       <Block title="With Filter">
         <Filter zIndex={998}>
           <Filter.Item title="品类" ref={seletorRef}>
-            <Cascade
-              name="品类"
-              options={Categorys}
-              onChange={handleChangeCategory2}
-              onComplete={handleCompleteCategory2}
-              value={selector2}
-            />
+            <Cascade name="品类" options={Categorys} onChange={handleChange2} />
           </Filter.Item>
           <Filter.Item
             label="价格"
@@ -78,15 +74,13 @@ export default () => {
         </Filter>
       </Block>
       <View style={{ height: '500px' }} />
-      <Block title="With Cell and Popup">
+      <Block title="With Popup">
         <Cell label="品类" arrow>
           <CascadePopup
             name="品类"
             placeholder="请选择"
             options={Categorys}
-            onChange={handleChangeCategory1}
-            onComplete={handleCompleteCategory1}
-            value={selector1}
+            onChange={handleChange1}
             height="1024px"
           />
         </Cell>

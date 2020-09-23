@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { View, Text } from 'remax/one';
 import { ScrollView } from '../one';
 import classNames from 'classnames';
@@ -7,108 +7,160 @@ import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('cascade');
 
+const getMatchLevelOptions = (value: valueType, level: number, data: OptionProps[]): any => {
+  let r = null;
+  const currentLevel = level - 1;
+  for (let i = 0; i < data.length; i += 1) {
+    const item = data[i];
+    if (currentLevel === 0) {
+      if (value === item.value) {
+        r = data;
+      }
+    }
+    if (currentLevel > 0) {
+      if (item.children) {
+        r = getMatchLevelOptions(value, currentLevel, item.children);
+      }
+    }
+    if (r) {
+      return r;
+    }
+  }
+  return r;
+};
+
+const getSelectedOptions = (value: valueType[], options: OptionProps[]) => {
+  if (!Array.isArray(value) || !Array.isArray(options)) {
+    return [];
+  }
+  let level = 0;
+  const selectedOptions: any[] = [];
+  const recursion = (levelOptions: OptionProps[]): any => {
+    for (let i = 0; i < levelOptions.length; i += 1) {
+      const option = levelOptions[i];
+      if (option.value === value[level]) {
+        selectedOptions.push(option);
+        level += 1;
+        if (selectedOptions.length === value.length) {
+          return selectedOptions;
+        } else if (selectedOptions.length < value.length) {
+          return recursion(option.children || []);
+        }
+      }
+    }
+    return selectedOptions;
+  };
+
+  return recursion(options);
+};
+
+export type valueType = string | number;
+
 export interface OptionProps {
-  key: string;
-  value: string;
-  parentKey: string;
+  value: valueType;
+  text: React.ReactNode;
   children?: OptionProps[];
 }
 
 export interface CascadeProps {
   name?: string;
-  value: OptionProps[];
+  value: valueType[];
   options: OptionProps[];
+  changeOnSelect?: boolean;
   height?: string;
   className?: string;
   prompt?: (e: any) => string;
-  onChange: (v: any[], last?: any) => void;
-  onComplete?: (v: any[], last?: any) => void;
+  onChange: (v: valueType[], selectedOptions?: OptionProps[], isLast?: boolean) => void;
 }
 
-let flag = false;
 const Cascade = (props: CascadeProps) => {
   const {
     name,
     value = [],
     options = [],
+    changeOnSelect,
     height = '80vh',
     className = '',
     prompt,
     onChange,
-    onComplete,
   } = props;
 
-  const [showedOptions, setShowedOptions] = useState(options);
-  const [sign, setSign] = useState(false);
+  const [levelOptions, setLevelOptions] = useState(options);
   const [scrollTop, setScrollTop] = useState(0);
+  const [localValue, setLocalValue] = useState<valueType[]>([]);
+
+  const rechoose = useRef(false);
+
+  const val = changeOnSelect ? value : localValue;
+
+  const selectedOptions = getSelectedOptions(val, options);
 
   // useEffect(() => {
   //   if (options && options.length > 0) {
-  //     setShowedOptions(options);
+  //     setLevelOptions(options);
   //   }
   // }, [options]) // 无法使用此 useEffect，使用后会报错。
 
-  useEffect(() => {
-    if (sign && value.length > 0 && flag) {
-      setSign(false);
-      flag = false;
-      const item = value[value.length - 1];
-      onComplete?.(value, {
-        key: item.key,
-        value: item.value,
-      });
-    }
-  }, [value, sign]);
-
   const handleClick = async (i: any) => {
     let nextValue = [];
-    const nextOption = {
-      key: i.key,
-      value: i.value,
-      parentKey: i.parentKey,
-    };
-    if (value.length > 0 && value[value.length - 1].parentKey === i.parentKey) {
-      nextValue = [...value.slice(0, value.length - 1), nextOption];
+    let nextSelectedOption = [];
+    const lastIndex = val.length - 1;
+    const lastSelectedOption = selectedOptions[lastIndex] || {};
+
+    if (
+      val.length > 0 &&
+      (!lastSelectedOption.children || lastSelectedOption.children.length === 0)
+    ) {
+      nextValue = [...val.slice(0, lastIndex), i.value];
+      nextSelectedOption = [...selectedOptions.slice(0, lastIndex), i];
+    } else if (val.length > 0 && rechoose.current) {
+      nextValue = [...val.slice(0, lastIndex), i.value];
+      nextSelectedOption = [...selectedOptions.slice(0, lastIndex), i];
     } else {
-      nextValue = [...value, nextOption];
+      nextValue = [...val, i.value];
+      nextSelectedOption = [...selectedOptions, i];
     }
-    onChange(nextValue, nextOption);
+    if (changeOnSelect) {
+      let isLast = false;
+      if (!Array.isArray(i.children) || i.children.length === 0) {
+        isLast = true;
+      }
+      onChange(nextValue, nextSelectedOption, isLast);
+    }
+    if (!changeOnSelect) {
+      if (!Array.isArray(i.children) || i.children.length === 0) {
+        setLocalValue(nextValue);
+        onChange(nextValue, nextSelectedOption, true);
+      } else {
+        setLocalValue(nextValue);
+      }
+    }
+
+    rechoose.current = false;
+
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
     if (Array.isArray(i.children) && i.children.length > 0) {
-      setShowedOptions(i.children);
-    } else {
-      flag = true;
-      setSign(true);
+      setLevelOptions(i.children);
     }
-  };
-
-  const getMatchLevelOptions = (key: string, data: any[]): any => {
-    let r = null;
-    for (let i = 0; i < data.length; i++) {
-      const item = data[i];
-      if (key === item.key) {
-        r = data;
-      } else if (item.children) {
-        r = getMatchLevelOptions(key, item.children);
-      }
-      if (r) {
-        return r;
-      }
-    }
-    return r;
   };
 
   const handleReChoose = (item: any, index: number) => {
-    onChange(value.slice(0, index + 1));
-    setShowedOptions(getMatchLevelOptions(item.key, options));
+    rechoose.current = true;
+    if (changeOnSelect) {
+      onChange(val.slice(0, index + 1));
+    }
+    if (!changeOnSelect) {
+      setLocalValue(val.slice(0, index + 1));
+    }
+    setLevelOptions(getMatchLevelOptions(item.value, index + 1, options));
     setScrollTop(top => {
       return top === 0 ? 1 : 0;
     });
   };
 
-  const h = value.length > 1 ? 90 * value.length + 40 - 30 : 130;
+  const h = val.length > 1 ? 90 * val.length + 40 - 30 : 130;
 
   return (
     <View
@@ -121,23 +173,23 @@ const Cascade = (props: CascadeProps) => {
       }}
     >
       <View className={`${prefixCls}-selected`}>
-        {value.map((item, index) => (
+        {selectedOptions.map((item: OptionProps, index: number) => (
           <View
-            key={item.key}
+            key={item.value}
             className={`${prefixCls}-step`}
             onTap={() => {
               handleReChoose(item, index);
             }}
           >
             <View className={`${prefixCls}-step-line`}>
-              {index === value.length - 1 ? null : (
+              {index === val.length - 1 ? null : (
                 <View className={`${prefixCls}-step-line-active`} />
               )}
               <Text className={`${prefixCls}-step-dot`} />
             </View>
             <View className={`${prefixCls}-step-container`}>
               <View className={`${prefixCls}-step-content`}>
-                <View className={`${prefixCls}-step-left`}>{item.value}</View>
+                <View className={`${prefixCls}-step-left`}>{item.text}</View>
                 <View className={`${prefixCls}-step-right`}>
                   <View className={`${prefixCls}-step-right-text`}>{prompt?.(index)}</View>
                   <View className={`${prefixCls}-step-right-arrow`}>
@@ -159,15 +211,15 @@ const Cascade = (props: CascadeProps) => {
           }}
         >
           <View className={`${prefixCls}-showed-title`}>{`选择${name}`}</View>
-          {showedOptions.map(i => (
+          {levelOptions?.map(i => (
             <View
-              key={i.key}
+              key={i.value}
               className={`${prefixCls}-showed-category`}
               onTap={() => {
                 handleClick(i);
               }}
             >
-              {i.value}
+              {i.text}
             </View>
           ))}
         </ScrollView>
