@@ -9,39 +9,39 @@ const { CheckableTag } = Tag;
 
 const options = [
   {
-    key: '0',
-    value: '装饰片',
+    value: '0',
+    text: '装饰片',
   },
   {
-    key: '1',
-    value: '织带',
+    value: '1',
+    text: '织带',
   },
   {
-    key: '2',
-    value: '缝纫线',
+    value: '2',
+    text: '缝纫线',
   },
   {
-    key: '3',
-    value: '花边',
+    value: '3',
+    text: '花边',
   },
   {
-    key: '4',
-    value: '珠钻',
+    value: '4',
+    text: '珠钻',
   },
 ];
 
 const options1 = [
   {
-    key: '0',
-    value: '1000',
+    value: '0',
+    text: '1000',
   },
   {
-    key: '1',
-    value: '2000',
+    value: '1',
+    text: '2000',
   },
   {
-    key: '2',
-    value: '3000',
+    value: '2',
+    text: '3000',
   },
 ];
 
@@ -74,13 +74,13 @@ export default () => {
             title="品类"
             value={value}
             options={options}
-            onChange={e => setValue(e.key)}
+            onChange={e => setValue(e.value)}
           />
           <Filter.Item
             title="价格"
             value={value1}
             options={options1}
-            onChange={e => setValue1(e.key)}
+            onChange={e => setValue1(e.value)}
           />
         </Filter>
       </Block>
@@ -90,7 +90,7 @@ export default () => {
             title="品类"
             value={value2}
             options={options}
-            onChange={e => setValue2(e.key)}
+            onChange={e => setValue2(e.value)}
           />
           <Filter.Item title="更多" ref={moreRef}>
             <View className={styles.custom}>
@@ -144,14 +144,14 @@ export default () => {
             title="品类"
             value={value}
             options={options}
-            onChange={e => setValue(e.key)}
+            onChange={e => setValue(e.value)}
             activeColor="#FF7777"
           />
           <Filter.Item
             title="价格"
             value={value1}
             options={options1}
-            onChange={e => setValue1(e.key)}
+            onChange={e => setValue1(e.value)}
             activeColor="#FF7777"
           />
         </Filter>
@@ -162,14 +162,14 @@ export default () => {
             title="品类"
             value={value}
             options={options}
-            onChange={e => setValue(e.key)}
+            onChange={e => setValue(e.value)}
             disabled
           />
           <Filter.Item
             title="价格"
             value={value1}
             options={options1}
-            onChange={e => setValue1(e.key)}
+            onChange={e => setValue1(e.value)}
             disabled
           />
         </Filter>

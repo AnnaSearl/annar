@@ -97,7 +97,7 @@ const Item = (props: ItemProps, ref: any): React.ReactElement => {
           onTap={handleTap}
         >
           <Text className={`${prefixCls}-label-text`}>
-            {options?.find(option => option.key === value)?.value || title}
+            {options?.find(option => option.value === value)?.text || title}
           </Text>
           {open ? (
             <Text className={`${prefixCls}-label-chevronUp`} />

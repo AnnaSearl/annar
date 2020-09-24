@@ -6,16 +6,16 @@ import { ReturnDeliveryWay } from '../../mock';
 
 const options1 = [
   {
-    key: '0',
-    value: '1000',
+    value: '0',
+    text: '1000',
   },
   {
-    key: '1',
-    value: '2000',
+    value: '1',
+    text: '2000',
   },
   {
-    key: '2',
-    value: '3000',
+    value: '2',
+    text: '3000',
   },
 ];
 
@@ -79,7 +79,7 @@ export default () => {
               label="价格"
               value={value3}
               options={options1}
-              onChange={e => setValue3(e.key)}
+              onChange={e => setValue3(e.value)}
             />
           </Filter>
         </View>

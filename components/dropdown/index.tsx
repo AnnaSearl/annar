@@ -5,8 +5,8 @@ import { getPrefixCls } from '../common';
 const prefixCls = getPrefixCls('dropdown');
 
 export interface OptionProps {
-  key: string;
   value: string;
+  text: string;
 }
 
 export interface DropdownProps {
@@ -25,10 +25,10 @@ const Dropdown = (props: DropdownProps) => {
         {options.map(item => (
           <View
             className={`${prefixCls}-content-option`}
-            key={item.key}
+            key={item.value}
             onTap={() => onChange?.(item)}
             style={
-              item.key === value
+              item.value === value
                 ? {
                     color: activeColor,
                     fontWeight: 500,
@@ -36,7 +36,7 @@ const Dropdown = (props: DropdownProps) => {
                 : undefined
             }
           >
-            {item.value}
+            {item.text}
           </View>
         ))}
       </View>
