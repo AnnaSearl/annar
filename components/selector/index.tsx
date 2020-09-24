@@ -7,7 +7,7 @@ import { getPrefixCls } from '../common';
 const prefixCls = getPrefixCls('selector');
 
 export interface OptionProps {
-  value: string;
+  value: string | number;
   text: string;
   children?: OptionProps[];
 }
@@ -28,7 +28,7 @@ const Selector = (props: SelectorProps) => {
 
   const [parentData, setParentData] = useState<OptionProps[]>([]);
   const [childrenData, setChildrenData] = useState<OptionProps[]>([]);
-  const [activeParent, setActiveParent] = useState('');
+  const [activeParent, setActiveParent] = useState<string | number>('');
 
   useEffect(() => {
     if (options.length > 0) {

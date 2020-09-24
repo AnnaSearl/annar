@@ -8,12 +8,22 @@ const prefixCls = getPrefixCls('icon');
 export interface IconProps {
   type?: string;
   color?: string;
-  size?: string;
+  size?: string | number;
   style?: React.CSSProperties;
 }
 
 const Icon = (props: IconProps) => {
   const { type, color, size, style } = props;
+
+  let fontSize = '28px';
+  if (size) {
+    if (typeof size === 'string') {
+      fontSize = size;
+    }
+    if (typeof size === 'number') {
+      fontSize = size + 'px';
+    }
+  }
 
   return (
     <Text
@@ -25,7 +35,7 @@ const Icon = (props: IconProps) => {
       style={{
         ...style,
         color,
-        fontSize: size ? size : '28px',
+        fontSize,
       }}
     />
   );

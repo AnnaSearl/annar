@@ -36,7 +36,7 @@ export default () => {
             <Icon type="favorfill" size="50px" />
           </GridItem>
           <GridItem name="default">
-            <Icon type="favorfill" size="28px" />
+            <Icon type="favorfill" />
           </GridItem>
         </Grid>
       </Block>

@@ -5,7 +5,7 @@ import { getPrefixCls } from '../common';
 const prefixCls = getPrefixCls('dropdown');
 
 export interface OptionProps {
-  value: string;
+  value: string | number;
   text: string;
 }
 

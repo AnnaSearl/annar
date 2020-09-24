@@ -13,7 +13,7 @@ export interface RateProps {
   readOnly?: boolean;
   icon?: string;
   iconFill?: string;
-  size?: string;
+  size?: string | number;
   color?: string;
   onChange?: (e: any) => void;
 }
