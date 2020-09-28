@@ -30,6 +30,7 @@ export interface ButtonProps {
   color?: string;
   icon?: string | React.ReactNode;
   ghost?: boolean;
+  nativeType?: string;
   onTap?: (e: any) => void;
   [restProps: string]: any;
 }
@@ -55,6 +56,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     color,
     icon,
     ghost,
+    nativeType,
     ...restProps
   } = props;
 
@@ -137,6 +139,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
   return (
     <Button
       className={classes}
+      type={nativeType}
       disabled={disabled}
       onTap={handleTap}
       style={{

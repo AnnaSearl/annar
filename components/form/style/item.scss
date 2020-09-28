@@ -1,0 +1,14 @@
+@import '../../style/theme/index';
+
+$form-item-prefix-cls: #{$anna-prefix}-form-item;
+
+.#{$form-item-prefix-cls} {
+  &-explain {
+    font-size: 24px;
+    color: $red-base;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    transition: height 0.3s;
+  }
+}

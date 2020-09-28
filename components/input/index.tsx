@@ -22,6 +22,8 @@ export interface InputProps {
   maxLength?: number;
   cellStyle?: React.CSSProperties;
   onChange?: (e: any) => void;
+  onFocus?: (e: any) => void;
+  onBlur?: (e: any) => void;
 }
 
 const AInput = (props: InputProps) => {
@@ -33,7 +35,6 @@ const AInput = (props: InputProps) => {
     className = '',
     inputAlign,
     placeholder,
-    onChange,
     disabled,
     border = true,
     required,
@@ -41,11 +42,10 @@ const AInput = (props: InputProps) => {
     extra,
     maxLength,
     cellStyle,
+    onChange,
+    onFocus,
+    onBlur,
   } = props;
-
-  const handleChangeInput = (e: any) => {
-    onChange?.(e);
-  };
 
   const inputElement = (
     <Input
@@ -59,9 +59,11 @@ const AInput = (props: InputProps) => {
       type={type}
       value={value}
       placeholder={placeholder}
-      onInput={handleChangeInput}
       disabled={disabled}
       maxLength={maxLength}
+      onInput={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 
