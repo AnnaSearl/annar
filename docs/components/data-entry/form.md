@@ -13,13 +13,11 @@ Demo:
 
 #### Form
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| onFinish | 提交表单并且数据验证成功的回调函数 | (values) => void | - |
-| onFinishFailed | 提交表单但数据验证未通过的回调函数 | (values, errorFields) => void | - |
-| onReset | 表单重置时会触发 reset 事件 | () => void | - |
-| style | 自定义 Radio 样式 | CSSProperties | - |
-| onChange | Radio 变化时的回调函数 | (checked: boolean, e: any) => void | - |
+| 属性           | 说明                               | 类型                          | 默认值 |
+| -------------- | ---------------------------------- | ----------------------------- | ------ |
+| onFinish       | 提交表单并且数据验证成功的回调函数 | (values) => void              | -      |
+| onFinishFailed | 提交表单但数据验证未通过的回调函数 | (values, errorFields) => void | -      |
+| onReset        | 表单重置时会触发 reset 事件        | () => void                    | -      |
 
 #### Form.Item
 

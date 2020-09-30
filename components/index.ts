@@ -90,6 +90,8 @@ export { default as Skeleton } from './skeleton';
 
 export { default as Progress } from './progress';
 
+export { default as Ling } from './ling';
+
 // 手势
 
 export { default as SwipeAction } from './swipe-action';
