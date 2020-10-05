@@ -76,7 +76,7 @@ const Line: React.FC<LineProps> = (props: LineProps) => {
   }
 
   let borderRadius: any = '';
-  if (shape === 'edge') {
+  if (shape === 'sharp') {
     borderRadius = 0;
   }
   if (shape === 'square') {

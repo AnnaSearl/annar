@@ -87,7 +87,7 @@
     "cssnano": "^4.1.10",
     "cz-conventional-changelog": "^3.1.0",
     "directory-named-webpack-plugin": "^4.0.1",
-    "dumi": "^1.0.31",
+    "dumi": "^1.1.0-beta.24",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "eslint": "^6.8.0",

@@ -1,10 +1,10 @@
 ---
 title: Annar - 优雅、简洁的 Remax 组件库
 hero:
-  title: Annar
-  desc: 优雅、简洁的 Remax 组件库
+  title: ANNAR
+  desc: ELEGANT AND SIMPLE
   actions:
-    - text: 开始使用
+    - text: Getting Started
       link: /components/general/button
 features:
   - title: 基于 Remax

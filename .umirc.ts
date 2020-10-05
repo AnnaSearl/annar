@@ -25,9 +25,10 @@ export default defineConfig({
   },
   extraPostCSSPlugins: [
     require('postcss-preset-env')(),
+    // CSS 文件 px2rem
     require('postcss-plugin-px2rem')({
       rootValue: 32,
-      exclude: '@umijs/preset-dumi',
+      exclude: /(.dumi)/,
     }),
   ],
   extraBabelPlugins: [
@@ -45,6 +46,7 @@ export default defineConfig({
     '../one': path.resolve(__dirname, 'components/web/index.ts'),
   },
   chainWebpack(memo, { env, webpack, createCSSRule }) {
+    // jsx 内联样式 px2rem
     memo.module
       .rule('px2rem')
       .test(/\.tsx$/i)
@@ -63,10 +65,10 @@ export default defineConfig({
     .icon.icon-link { 
       display: none;
     }
-    .__dumi-default-navbar{
-      background-color: #FFEEEE !important;
-      box-shadow: unset !important;
-    }
+    // .__dumi-default-navbar{
+    //   background-color: #FFEEEE !important;
+    //   box-shadow: unset !important;
+    // }
     .__dumi-default-navbar-logo{
       font-size: 20px !important;
       padding-left: 52px !important;
@@ -74,9 +76,9 @@ export default defineConfig({
     .__dumi-default-search-input{
       background-color: #FFFFFF !important;
     }
-    .__dumi-default-layout-hero { 
-      background-color: #FFEEEE !important;
-    }
+    // .__dumi-default-layout-hero { 
+    //   background-color: #FFEEEE !important;
+    // }
     .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a.active{
       background: linear-gradient(to left, rgba(255, 238, 238, 0.5), rgba(248, 250, 255, 0)) !important;
     }

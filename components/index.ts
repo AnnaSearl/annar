@@ -66,6 +66,8 @@ export { default as Card } from './card';
 
 export { default as Cell } from './cell';
 
+export { default as Swiper } from './swiper';
+
 export { default as Images } from './images';
 
 export { default as ProgressBar } from './progress-bar';
