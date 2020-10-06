@@ -19,6 +19,7 @@ export default () => {
       </Block>
       <Block title="Type">
         <Input label="Number" placeholder="Please enter" border={false} type="number" />
+        <Input label="Password" placeholder="Please enter" border={false} type="password" />
       </Block>
       <Block title="Disabled">
         <Input label="Text" disabled placeholder="Please enter" value="read only" />
