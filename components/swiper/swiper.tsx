@@ -29,6 +29,7 @@ const getIndicatorsNode = (
   position: string,
   color?: [string, string?],
   style?: [React.CSSProperties, React.CSSProperties?],
+  look?: 'light' | 'dark' | 'anna',
 ) => {
   let defaultColor: any = undefined;
   let activeColor: any = undefined;
@@ -39,6 +40,15 @@ const getIndicatorsNode = (
     if (color[1] && typeof color[1] === 'string') {
       defaultColor = color[1];
     }
+  }
+
+  if (look === 'dark') {
+    activeColor = '#000';
+    defaultColor = 'rgba(0, 0, 0, 0.13)';
+  }
+  if (look === 'anna') {
+    activeColor = '#ff7777';
+    defaultColor = 'rgba(255, 119, 119, 0.2)';
   }
 
   let defaultStyle: any = {};
@@ -91,6 +101,7 @@ export interface SwiperProps {
   vertical?: boolean;
   curve?: string;
   showIndicators?: boolean;
+  indicatorLook: 'light' | 'dark' | 'anna';
   indicatorPosition?: string;
   indicatorColor?: [string, string?];
   indicatorStyle?: [React.CSSProperties, React.CSSProperties?];
@@ -109,9 +120,10 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
     vertical,
     curve = 'ease',
     showIndicators = true,
+    indicatorLook = 'light',
     indicatorColor,
     indicatorStyle,
-    indicatorPosition = 'bottom',
+    indicatorPosition = vertical ? 'right' : 'bottom',
     style,
     children,
   } = props;
@@ -311,6 +323,7 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
         indicatorPosition,
         indicatorColor,
         indicatorStyle,
+        indicatorLook,
       ),
     [
       childrenArray.length,
@@ -318,6 +331,7 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
       indicatorPosition,
       indicatorColor,
       indicatorStyle,
+      indicatorLook,
     ],
   );
 
