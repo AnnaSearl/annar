@@ -41,6 +41,7 @@ const handleGradient = (color: any) => {
 export interface LineProps {
   percent?: number;
   color?: string;
+  bgColor?: string;
   size?: string;
   width?: number;
   shape?: string;
@@ -48,16 +49,7 @@ export interface LineProps {
 }
 
 const Line: React.FC<LineProps> = (props: LineProps) => {
-  const {
-    percent,
-    successPercent,
-    width,
-    size,
-    color,
-    shape = 'round',
-    children,
-    trailColor,
-  } = props;
+  const { percent, width, size, color, bgColor, shape = 'round', successPercent, children } = props;
 
   let backgroundProps;
   if (color && typeof color !== 'string') {
@@ -68,29 +60,46 @@ const Line: React.FC<LineProps> = (props: LineProps) => {
     };
   }
 
-  let trailStyle;
-  if (trailColor && typeof trailColor === 'string') {
-    trailStyle = {
-      backgroundColor: trailColor,
-    };
-  }
+  let bgStyle;
 
-  let borderRadius: any = '';
+  let borderRadius: any = null;
   if (shape === 'sharp') {
     borderRadius = 0;
   }
   if (shape === 'square') {
-    borderRadius = 4;
+    borderRadius = '4px';
   }
+
+  if (borderRadius || borderRadius === 0) {
+    bgStyle = {
+      borderRadius,
+    };
+  }
+
+  if (bgColor && typeof bgColor === 'string') {
+    bgStyle = {
+      ...bgStyle,
+      backgroundColor: bgColor,
+    };
+  }
+
+  let sizeWidth = '16px';
+  if (size === 'small') {
+    sizeWidth = '12px';
+  }
+  if (size === 'large') {
+    sizeWidth = '20px';
+  }
+
   const percentStyle = {
     width: `${validProgress(percent)}%`,
-    height: width || (size === 'small' ? 12 : 16),
+    height: width || sizeWidth,
     borderRadius,
     ...backgroundProps,
   };
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
-    height: width || (size === 'small' ? 12 : 16),
+    height: width || sizeWidth,
     borderRadius,
   };
 
@@ -102,7 +111,7 @@ const Line: React.FC<LineProps> = (props: LineProps) => {
   return (
     <>
       <View className={`${prefixCls}-outer`}>
-        <View className={`${prefixCls}-inner`} style={trailStyle}>
+        <View className={`${prefixCls}-inner`} style={bgStyle}>
           <View className={`${prefixCls}-bg`} style={percentStyle} />
           {successSegment}
         </View>

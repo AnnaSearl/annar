@@ -70,6 +70,8 @@ export { default as Swiper } from './swiper';
 
 export { default as Images } from './images';
 
+export { default as Progress } from './progress';
+
 export { default as ProgressBar } from './progress-bar';
 
 export { default as Tag } from './tag';
@@ -89,8 +91,6 @@ export { default as Result } from './result';
 export { default as Spin } from './spin';
 
 export { default as Skeleton } from './skeleton';
-
-export { default as Progress } from './progress';
 
 export { default as Ling } from './ling';
 
