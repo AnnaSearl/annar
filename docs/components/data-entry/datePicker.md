@@ -5,8 +5,6 @@ order: 7
 
 ## DatePicker
 
-Demo:
-
 <code src="./date-picker/index.tsx" />
 
 ## API

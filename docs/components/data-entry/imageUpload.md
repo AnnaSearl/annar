@@ -5,8 +5,6 @@ order: 22
 
 ## ImageUpload
 
-Demo:
-
 <code src="./image-upload/index.tsx" />
 
 ## API

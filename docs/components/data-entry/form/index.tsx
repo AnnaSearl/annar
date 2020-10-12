@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Form, Input, Button, Card } from 'annar';
+import { Form, Cell, Button, Card } from 'annar';
 import { Block, Frame } from '../../common';
 
 export default () => {
@@ -16,11 +16,11 @@ export default () => {
       <Block title="Basic" noTitlePadding>
         <Card contentStyle={{ padding: '20px 0 20px' }}>
           <Form onFinish={handleFinish} onFinishFailed={handleFinishFailed}>
-            <Form.Item name="phone" rules={[{ pattern: /\d{6}/ }]}>
-              <Input label="Phone" placeholder="Please enter" border={false} />
+            <Form.Item name="phone" rules={[{ pattern: /\d{1}/ }]}>
+              <Cell.Input label="Phone" placeholder="Please enter" border={false} />
             </Form.Item>
             <Form.Item name="password" rules={[{ validator: v => v > 3 }]}>
-              <Input label="Password" placeholder="Please enter" border={false} />
+              <Cell.Input label="Password" placeholder="Please enter" border={false} />
             </Form.Item>
             <Form.Item style={{ marginTop: 20, padding: '0 20px' }}>
               <Button

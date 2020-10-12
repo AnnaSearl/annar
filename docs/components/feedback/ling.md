@@ -5,8 +5,6 @@ order: 7
 
 ## Ling
 
-Demo:
-
 <code src="./ling/index.tsx" />
 
 ## API

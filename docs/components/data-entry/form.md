@@ -5,8 +5,6 @@ order: 1
 
 ## Form
 
-Demo:
-
 <code src="./form/index.tsx" />
 
 ## API

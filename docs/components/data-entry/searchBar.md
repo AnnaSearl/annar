@@ -8,8 +8,6 @@ group:
 
 ## SearchBar
 
-Demo:
-
 <code src="./search-bar/index.tsx" />
 
 ## API

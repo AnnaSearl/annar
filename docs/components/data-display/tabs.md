@@ -5,8 +5,6 @@ order: 20
 
 ## Tabs
 
-Demo:
-
 <code src="./tabs/index.tsx" />
 
 ## API

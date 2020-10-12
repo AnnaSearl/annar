@@ -5,8 +5,6 @@ order: 10
 
 ## Two-dimensional
 
-Demo:
-
 <code src="./two-dimensional/index.tsx" />
 
 ## API

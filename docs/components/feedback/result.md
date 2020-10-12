@@ -5,8 +5,6 @@ order: 20
 
 ## Result
 
-Demo:
-
 <code src="./result/index.tsx" />
 
 ## API

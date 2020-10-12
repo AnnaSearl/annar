@@ -5,8 +5,6 @@ order: 7
 
 ## Swiper
 
-Demo:
-
 <code src="./swiper/index.tsx" />
 
 ## API

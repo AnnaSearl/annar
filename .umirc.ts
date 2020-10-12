@@ -65,22 +65,12 @@ export default defineConfig({
     .icon.icon-link { 
       display: none;
     }
-    // .__dumi-default-navbar{
-    //   background-color: #FFEEEE !important;
-    //   box-shadow: unset !important;
-    // }
     .__dumi-default-navbar-logo{
       font-size: 20px !important;
       padding-left: 52px !important;
     }
-    .__dumi-default-search-input{
-      background-color: #FFFFFF !important;
-    }
-    // .__dumi-default-layout-hero { 
-    //   background-color: #FFEEEE !important;
-    // }
     .__dumi-default-menu[data-mode='site'] .__dumi-default-menu-list > li > a.active{
-      background: linear-gradient(to left, rgba(255, 238, 238, 0.5), rgba(248, 250, 255, 0)) !important;
+      background: rgba(255, 119, 119, 0.1) !important;
     }
     .markdown *:not(pre) code {
       margin: 0 1px;

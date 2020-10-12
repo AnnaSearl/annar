@@ -5,8 +5,6 @@ order: 10
 
 ## Steps
 
-Demo:
-
 <code src="./steps/index.tsx" />
 
 ## API

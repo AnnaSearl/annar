@@ -1,17 +1,17 @@
 @import '../../../../components/style/theme/index.scss';
 
-.app{
+.app {
   margin-bottom: 30px;
   box-sizing: border-box;
   width: 720px;
   min-height: 1280px;
-  background: $light-base;
+  background: #feffff;
   overflow: scroll;
   border-radius: 16px;
-  box-shadow: #EEE 0 8px 24px;
+  box-shadow: #eee 0 8px 24px;
   transform: translateZ(0); // 利用CSS3的transform使fixed相对于app定位
   -webkit-transform: translateZ(0);
-  .title{
+  .title {
     box-sizing: border-box;
     height: 112px;
     line-height: 112px;
@@ -20,11 +20,10 @@
     font-weight: 500;
     color: $light-base;
   }
-  .content{
-    
+  .content {
   }
 }
 
-.padding{
+.padding {
   padding: 28px;
 }

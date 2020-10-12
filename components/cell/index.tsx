@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import FormValue from '../form-value';
 import Picker from '../picker';
+import Input, { InputProps } from '../input';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('cell');
@@ -20,6 +21,7 @@ export interface CellProps {
   required?: boolean;
   border?: boolean;
   arrow?: boolean;
+  extra?: React.ReactNode;
   field?: boolean;
   defaultNullValue?: string;
   onTap?: () => void;
@@ -37,6 +39,7 @@ const Cell = (props: CellProps) => {
     icon,
     border = true,
     arrow,
+    extra,
     required,
     field,
     defaultNullValue = '',
@@ -88,6 +91,7 @@ const Cell = (props: CellProps) => {
             <View className={`${prefixCls}-container-main-right-value`} style={valueStyle}>
               {children || children === 0 ? children : defaultNullValue}
             </View>
+            {extra ? <View className={`${prefixCls}-extra`}>{extra}</View> : null}
             {arrow ? <Icon type="right" style={{ marginLeft: '10px' }} color="#666" /> : null}
           </View>
         </View>
@@ -109,10 +113,6 @@ export interface CellPickerProps extends CellProps {
 
 Cell.Picker = (props: CellPickerProps) => {
   const {
-    label,
-    border,
-    required,
-    icon,
     align = 'left',
     value,
     onChange,
@@ -135,14 +135,7 @@ Cell.Picker = (props: CellPickerProps) => {
   }
 
   return (
-    <Cell
-      label={label}
-      labelStyle={{ width: '180px' }}
-      border={border}
-      required={required}
-      icon={icon}
-      {...props}
-    >
+    <Cell labelStyle={{ width: '180px' }} {...props}>
       <Picker
         range={range}
         rangeKey={rangeKey}
@@ -164,6 +157,30 @@ Cell.Picker = (props: CellPickerProps) => {
           </FormValue>
         )}
       </Picker>
+    </Cell>
+  );
+};
+
+export interface CellInputProps extends CellProps, InputProps {
+  [propName: string]: any;
+}
+
+const defaultInputWrapperStyle = {
+  display: 'flex',
+  padding: 0,
+  border: 0,
+};
+
+const defaultInputStyle = {
+  height: '48px',
+  lineHeight: '48px',
+  minHeight: '48px',
+};
+
+Cell.Input = (props: CellInputProps) => {
+  return (
+    <Cell field labelStyle={{ width: '180px' }} {...props}>
+      <Input {...props} style={defaultInputWrapperStyle} inputStyle={defaultInputStyle} />
     </Cell>
   );
 };

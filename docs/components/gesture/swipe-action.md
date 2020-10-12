@@ -7,8 +7,6 @@ group:
 
 ## SwipeAction
 
-Demo:
-
 <code src="./swipe-action/index.tsx" />
 
 ## API

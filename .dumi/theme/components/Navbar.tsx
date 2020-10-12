@@ -6,11 +6,12 @@ import './Navbar.less';
 
 interface INavbarProps {
   location: any;
+  isHome?: boolean;
   navPrefix?: React.ReactNode;
   onMobileMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Navbar: FC<INavbarProps> = ({ onMobileMenuClick, navPrefix, location }) => {
+const Navbar: FC<INavbarProps> = ({ onMobileMenuClick, navPrefix, location, isHome }) => {
   const {
     base,
     config: { mode, title, logo },
@@ -18,7 +19,11 @@ const Navbar: FC<INavbarProps> = ({ onMobileMenuClick, navPrefix, location }) =>
   } = useContext(context);
 
   return (
-    <div className="__dumi-default-navbar" data-mode={mode}>
+    <div
+      className="__dumi-default-navbar"
+      data-mode={mode}
+      style={isHome ? {} : { backgroundColor: '#fff', boxShadow: '0 2px 8px #f0f1f2' }}
+    >
       {/* menu toogle button (only for mobile) */}
       <button className="__dumi-default-navbar-toggle" onClick={onMobileMenuClick} />
       {/* logo & title */}

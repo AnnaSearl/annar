@@ -5,8 +5,6 @@ order: 10
 
 ## Radio
 
-Demo:
-
 <code src="./radio/index.tsx" />
 
 ## API

@@ -2,7 +2,7 @@
 
 .@{prefix}-code-block {
   position: relative;
-  background-color: @c-light-bg;
+  border: 1px solid #f0f0f0;
 
   & + & {
     margin-top: 16px;
@@ -11,6 +11,8 @@
   > pre[class*='language-'] {
     margin: 0;
     background: transparent;
+    font-size: 14px;
+    font-family: Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 
     .token-line:not(:last-child) .plain:empty {
       display: inline-block;

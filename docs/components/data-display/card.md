@@ -8,8 +8,6 @@ group:
 
 ## Card
 
-Demo:
-
 <code src="./card/index.tsx" />
 
 ## API

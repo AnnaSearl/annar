@@ -5,8 +5,6 @@ order: 25
 
 ## Cascade
 
-Demo:
-
 <code src="./cascade/index.tsx" />
 
 ## API

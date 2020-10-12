@@ -5,8 +5,6 @@ order: 20
 
 ## Popup
 
-Demo:
-
 <code src="./popup/index.tsx" />
 
 ## API

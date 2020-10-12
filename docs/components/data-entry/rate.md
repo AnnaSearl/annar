@@ -5,8 +5,6 @@ order: 30
 
 ## Rate
 
-Demo:
-
 <code src="./rate/index.tsx" />
 
 ## API

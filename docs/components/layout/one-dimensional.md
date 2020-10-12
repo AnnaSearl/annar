@@ -7,8 +7,6 @@ group:
 
 ## One-dimensional
 
-Demo:
-
 <code src="./one-dimensional/index.tsx" />
 
 ## API

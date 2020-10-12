@@ -5,8 +5,6 @@ order: 15
 
 ## Switch
 
-Demo:
-
 <code src="./switch/index.tsx" />
 
 ## API

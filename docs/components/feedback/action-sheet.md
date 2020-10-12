@@ -5,8 +5,6 @@ order: 3
 
 ## ActionSheet
 
-Demo:
-
 <code src="./action-sheet/index.tsx" />
 
 ## API

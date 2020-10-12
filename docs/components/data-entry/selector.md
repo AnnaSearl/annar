@@ -5,8 +5,6 @@ order: 20
 
 ## Selector
 
-Demo:
-
 <code src="./selector/index.tsx" />
 
 ## API

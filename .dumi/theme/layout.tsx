@@ -78,8 +78,9 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
       onClick={() => setMenuCollapsed(true)}
     >
       <Navbar
+        isHome={showHero}
         location={location}
-        navPrefix={<SearchBar />}
+        navPrefix={<SearchBar isHome={showHero} />}
         onMobileMenuClick={ev => {
           setMenuCollapsed(val => !val);
           ev.stopPropagation();
@@ -90,6 +91,7 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
       {showHero && Hero(meta.hero)}
       {showFeatures && Features(meta.features)}
       <div className="__dumi-default-layout-content">
+        <div style={{ height: 64 }} />
         {children}
         {!showHero && !showFeatures && meta.filePath && !meta.gapless && (
           <div className="__dumi-default-layout-footer-meta"></div>

@@ -74,7 +74,9 @@ export default () => {
             <View className={styles.left}>
               <Icon type="time" size="36px" color="#333" />
               <Text className={styles.title}>Annar</Text>
-              <Text className={styles.description}>10/07 18:00 2.2万人预订</Text>
+              <Text className={styles.description}>
+                10/07 18:00 <Text className={styles.number}>2.2万</Text>人预订
+              </Text>
             </View>
             <Button size="small" plain hairline color="#ff4f00">
               预订

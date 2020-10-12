@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearch, AnchorLink } from 'dumi/theme';
 import './SearchBar.less';
 
-export default () => {
+export default ({ isHome }) => {
   const [keywords, setKeywords] = useState<string>('');
   const [items, setItems] = useState([]);
   const input = useRef<HTMLInputElement>();
@@ -25,6 +25,7 @@ export default () => {
         {...(Array.isArray(result)
           ? { value: keywords, onChange: ev => setKeywords(ev.target.value) }
           : {})}
+        style={isHome ? { backgroundColor: '#FFFFFF' } : {}}
       />
       <ul>
         {items.map(meta => (

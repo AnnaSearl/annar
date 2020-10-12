@@ -5,8 +5,6 @@ order: 6
 
 ## Picker
 
-Demo:
-
 <code src="./picker/index.tsx" />
 
 ## API

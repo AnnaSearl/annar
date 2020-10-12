@@ -8,8 +8,6 @@ group:
 
 ## Filter
 
-Demo:
-
 <code src="./filter/index.tsx" />
 
 ## API

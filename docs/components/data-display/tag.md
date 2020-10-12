@@ -5,8 +5,6 @@ order: 15
 
 ## Tag
 
-Demo:
-
 <code src="./tag/index.tsx" />
 
 ## API

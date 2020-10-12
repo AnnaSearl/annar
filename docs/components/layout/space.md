@@ -5,8 +5,6 @@ order: 15
 
 ## Space
 
-Demo:
-
 <code src="./space/index.tsx" />
 
 ## API

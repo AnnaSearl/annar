@@ -5,8 +5,6 @@ order: 35
 
 ## Stepper
 
-Demo:
-
 <code src="./stepper/index.tsx" />
 
 ## API

@@ -97,7 +97,7 @@
   }
 
   code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   }
 
   // code block
@@ -146,16 +146,39 @@
     th,
     td {
       padding: 10px 24px;
-      border: 1px solid @c-border;
+      border-style: solid;
+      border-color: #f0f0f0;
+      border-width: 1px 0;
+      font-size: 13px;
+      vertical-align: middle;
+      padding: 12px;
+      line-height: 1.5715;
     }
 
     th {
       font-weight: 600;
-      background: @c-light-bg;
+      background: #fafafa;
+      white-space: nowrap;
+      text-align: left;
+      color: #555;
     }
 
     td:first-child {
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 14px;
+      width: 18%;
+    }
+
+    td:nth-child(2) {
+      width: 55%;
+    }
+
+    td:nth-child(3) {
+      width: 30%;
+    }
+
+    td:nth-child(4) {
+      width: 15%;
     }
   }
 

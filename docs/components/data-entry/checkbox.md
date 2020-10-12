@@ -5,8 +5,6 @@ order: 15
 
 ## Checkbox
 
-Demo:
-
 <code src="./checkbox/index.tsx" />
 
 ## API
