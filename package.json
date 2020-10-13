@@ -47,7 +47,9 @@
     "esm/**/style/*",
     "web/**/style/*",
     "*.scss",
-    "components/**/style/*"
+    "components/**/style/*",
+    "*.less",
+    "dumi/theme/**/*.less"
   ],
   "author": "Annar",
   "license": "ISC",
