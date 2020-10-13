@@ -6,10 +6,6 @@
 
 <div align="center">优雅、简洁的 Remax 组件库</div>
 
-## :tada: Next
-
-查看 `next` 分支，发现 Annar 的最新组件及特性！
-
 ## 💫 特性
 
 - 基于 `Remax` 开发 UI 组件
@@ -130,4 +126,4 @@ Annar 维护 `master` 和 `feature` 两个分支，如果您是修复 bug，请�
 
 ## 🍻 钉钉交流群
 
-<img width="320" src="https://smebimage.fuliaoyi.com/FnY4Dm9zaIpe06ZrMklsG6Qb6Hnt">
+<img width="320" src="https://smebimage.fuliaoyi.com/FlE5Sr6AX5iVyynjozrVkEeBzVMR">

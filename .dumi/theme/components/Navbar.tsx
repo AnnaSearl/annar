@@ -18,6 +18,9 @@ const Navbar: FC<INavbarProps> = ({ onMobileMenuClick, navPrefix, location, isHo
     nav: navItems,
   } = useContext(context);
 
+  const configCtx = useContext(context);
+  console.log('configCtx----', configCtx);
+
   return (
     <div
       className="__dumi-default-navbar"
@@ -52,7 +55,7 @@ const Navbar: FC<INavbarProps> = ({ onMobileMenuClick, navPrefix, location, isHo
           );
 
           return nav.path ? (
-            <NavButton to={nav.path} key={nav.path}>
+            <NavButton to={nav.path} key={nav.path} base={base}>
               {nav.title}
             </NavButton>
           ) : (

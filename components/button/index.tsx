@@ -30,7 +30,7 @@ export interface ButtonProps {
   color?: string;
   icon?: string | React.ReactNode;
   ghost?: boolean;
-  nativeType?: string;
+  nativeType?: 'submit' | 'reset' | undefined;
   onTap?: (e: any) => void;
   [restProps: string]: any;
 }
