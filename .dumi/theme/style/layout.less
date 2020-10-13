@@ -21,6 +21,33 @@ body {
   box-shadow: 0px 1px 10px 0px #eaecee;
 }
 
+.anna-theme-feature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  line-height: 300px;
+  font-size: 48px;
+  font-weight: 500;
+  color: #333;
+  & > div:nth-child(1) {
+    color: #ff7777;
+  }
+  & > div:nth-child(2) {
+    margin: 0 20px;
+  }
+  & > div:nth-child(3) {
+    color: #3375f1;
+  }
+
+  &-connector {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+}
+
 .@{prefix}-layout {
   box-sizing: border-box;
   min-height: 100vh;

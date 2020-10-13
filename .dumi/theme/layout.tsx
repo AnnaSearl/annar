@@ -89,7 +89,17 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
       <SideMenu mobileMenuCollapsed={menuCollapsed} location={location} />
       {showSlugs && <SlugList slugs={meta.slugs} className="__dumi-default-layout-toc" />}
       {showHero && Hero(meta.hero)}
-      {showFeatures && Features(meta.features)}
+      {showFeatures && (
+        <div className="anna-theme-feature">
+          <div>Annar</div>
+          <div>
+            <div className="anna-theme-feature-connector" />
+          </div>
+          <div>Remax</div>
+        </div>
+      )}
+
+      {/* {showFeatures && Features(meta.features)} */}
       <div className="__dumi-default-layout-content">
         <div style={{ height: 64 }} />
         {children}
