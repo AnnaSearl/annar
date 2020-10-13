@@ -18,8 +18,7 @@ const Navbar: FC<INavbarProps> = ({ onMobileMenuClick, navPrefix, location, isHo
     nav: navItems,
   } = useContext(context);
 
-  const configCtx = useContext(context);
-  console.log('configCtx----', configCtx);
+  console.log(process.env.NODE_ENV);
 
   return (
     <div
