@@ -43,8 +43,8 @@ const AnnarForm: React.FC<FormProps> = (props: FormProps) => {
   const [errors, setErrors] = useState<any>(nullValuesObj);
 
   const handleSubmit = (e: any) => {
-    e?.preventDefault();
-    e?.stopPropagation();
+    e?.preventDefault?.();
+    e?.stopPropagation?.();
     let errorFlag = false;
     const errorState: any = {};
     const errorFields: any = {};
