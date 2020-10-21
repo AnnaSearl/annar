@@ -42,13 +42,13 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = (props: PickerViewColu
   }, [value]);
 
   const handleTouchStart = (e: any) => {
-    e.preventDefault();
+    e.preventDefault?.();
     setIsTransition(false);
     setStart(e.targetTouches[0].clientY);
   };
 
   const handleTouchMove = (e: any) => {
-    e.preventDefault();
+    e.preventDefault?.();
     const diff = e.targetTouches[0].clientY - start;
     const updateY = diff + initial;
     if (updateY < -columnHeight + heightUnit * 2) {
@@ -63,7 +63,7 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = (props: PickerViewColu
   };
 
   const handleTouchEnd = (e: any) => {
-    e.preventDefault();
+    e.preventDefault?.();
     if (y < -columnHeight + heightUnit * 3) {
       const val = -columnHeight + heightUnit * 3;
       setY(val);

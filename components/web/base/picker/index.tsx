@@ -64,13 +64,13 @@ const Picker = (props: PickerProps) => {
   };
 
   const handleTouchStart = (e: any) => {
-    e.preventDefault();
+    e.preventDefault?.();
     setIsTransition(false);
     setStart(e.targetTouches[0].clientY);
   };
 
   const handleTouchMove = (e: any) => {
-    e.preventDefault();
+    e.preventDefault?.();
     const diff = e.targetTouches[0].clientY - start;
     const updateY = diff + initial;
     if (updateY < -columnHeight + heightUnit * 2) {
@@ -85,7 +85,7 @@ const Picker = (props: PickerProps) => {
   };
 
   const handleTouchEnd = (e: any) => {
-    e.preventDefault();
+    e.preventDefault?.();
     if (y < -columnHeight + heightUnit * 3) {
       setY(-columnHeight + heightUnit * 3);
       setInitial(-columnHeight + heightUnit * 3);
