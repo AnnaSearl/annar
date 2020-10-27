@@ -45,7 +45,7 @@ export default () => {
             </Form.Item>
             <Form.Item
               name="password"
-              rules={[{ validator: v => v.length >= 6, message: '密码至少6位' }]}
+              rules={[{ validator: (v: string) => v?.length >= 6, message: '密码至少6位' }]}
             >
               <Cell.Input label="Password" placeholder="Please enter" border={false} />
             </Form.Item>

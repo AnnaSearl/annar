@@ -57,6 +57,7 @@ const Picker: React.FC<PickerProps> = (props: PickerProps) => {
           {multiple ? (
             range?.map((columnData: any[], index: number) => (
               <PickerViewColumn
+                key={index}
                 value={(value as number[])[index]}
                 options={columnData}
                 optionsKey={rangeKey}

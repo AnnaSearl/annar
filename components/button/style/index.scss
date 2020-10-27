@@ -67,10 +67,11 @@ $large-height: 80px;
     border-radius: 80px;
   }
   &-superlarge {
-    font-size: 30px;
+    padding: 0 40px;
     height: 84px;
     line-height: 80px;
     border-radius: 84px;
+    font-size: 30px;
   }
   &-primary {
     border-color: $brand-color;

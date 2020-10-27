@@ -28,6 +28,7 @@ export interface ErrorProps {
 }
 
 export interface FormProps {
+  initialValues?: { [name: string]: any };
   children?: React.ReactNode;
   onFinish?: (v: any) => void;
   onFinishFailed?: (v: any, errorFields: any) => void;
@@ -35,11 +36,11 @@ export interface FormProps {
 }
 
 const AnnarForm: React.FC<FormProps> = (props: FormProps) => {
-  const { children, onFinish, onFinishFailed, onReset } = props;
+  const { initialValues, children, onFinish, onFinishFailed, onReset } = props;
 
   const [itemRulesObj, nullValuesObj] = getItemRulesObject(children);
 
-  const [values, setValues] = useState<any>(nullValuesObj);
+  const [values, setValues] = useState<any>(Object.assign({}, nullValuesObj, initialValues));
   const [errors, setErrors] = useState<any>(nullValuesObj);
 
   const handleSubmit = (e: any) => {
