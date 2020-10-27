@@ -116,7 +116,7 @@ Annar 维护 `master` 和 `feature` 两个分支，如果您是修复 bug，请�
 
 ## 🌰 示例
 
-[Examples for Annar](https://github.com/AnnaSearl/examples-annar)
+[Examples for Annar](https://github.com/AnnaSearl/examples-anna-remax-ui)
 
 ## 🍭 体验
 
