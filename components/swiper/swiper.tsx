@@ -166,6 +166,9 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
         });
     };
     getSwiperWidth();
+    return () => {
+          clearInterval(intervalId.current);
+    }
   }, []);
 
   // Seamless switching
