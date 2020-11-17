@@ -167,8 +167,8 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
     };
     getSwiperWidth();
     return () => {
-          clearInterval(intervalId.current);
-    }
+      clearInterval(intervalId.current);
+    };
   }, []);
 
   // Seamless switching
@@ -283,7 +283,7 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
     if (childrenArray.length <= 1) {
       return;
     }
-    const touch = e.changedTouches[0];
+    const touch = e.changedTouches[0] || e.nativeEvent.changedTouches[0];
     const diff = (vertical ? touch.pageY : touch.pageX) - startPoint.current;
     const speed = diff / (Date.now() - startTime.current);
     const harfSideLength = sideLength.current / 2;
