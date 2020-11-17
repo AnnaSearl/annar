@@ -129,7 +129,7 @@ const ImageUpload = (props: ImageUploadProps) => {
               </View>
             </View>
           ) : null}
-          <Image mode="widthFix" src={(item as ImageProps).url || (item as string)} />
+          <Image mode="widthFix" style={{ width: '100%' }} src={(item as ImageProps).url || (item as string)} />
         </View>
       ))}
       {!maxCount || files.length < maxCount ? (
