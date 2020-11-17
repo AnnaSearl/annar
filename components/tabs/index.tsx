@@ -139,9 +139,9 @@ const Tabs = (props: TabProps): React.ReactElement => {
             // 解决切换tabbar导致页面渲染找不到相关节点(因为此时已经在跳转后一个页面，所以找不到)，从而使nodes这个数组为空，继而导致Tabs下标left重置为0。
             nodes.length > 0 && setTitleNodes(nodes);
           });
-      }, 100);
+      }, 200);
     }
-  }, [tabs]);
+  }, [tabs.length]);
 
   const handleTabClick = (item: any) => {
     onTabClick?.(item);

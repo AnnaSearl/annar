@@ -1,6 +1,6 @@
 {
   "name": "annar",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "优雅、简洁的 Remax 组件库",
   "main": "web/index.js",
   "esnext": "esm/index.js",
