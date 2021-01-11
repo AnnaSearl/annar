@@ -42,18 +42,24 @@ const Steps = (props: StepsProps): React.ReactElement => {
         </View> */}
         {steps?.map((item, index) => (
           <View key={index} className={`${prefixCls}-step`}>
-            {index === 0 ? (
+            {index === current ? (
               <View className={`${prefixCls}-circle_current`}>
                 <Text className={`${prefixCls}-circle_current-icon`}>
-                  <Icon type="roundcheckfill" size="40px" color="#1890FF" />
+                  <Icon type={statusIconType} size="40px" color={statusIconColor} />
                 </Text>
               </View>
+            ) : index > current ? (
+              <View className={`${prefixCls}-circle-ahead`} />
             ) : (
               <View className={`${prefixCls}-circle`} />
             )}
-            <View className={`${prefixCls}-line`} />
+            {index < current ? (
+              <View className={`${prefixCls}-line`} />
+            ) : (
+              <View className={`${prefixCls}-line-ahead`} />
+            )}
             <View className={`${prefixCls}-step-header`}>
-              <View className={`${prefixCls}-step-header-title`}>{item.title}</View>
+              <View className={`${prefixCls}-step-header-title`}>{getTitle(item, index)}</View>
               <View className={`${prefixCls}-step-header-extra`}>{item.extra}</View>
             </View>
             <View className={`${prefixCls}-step-description`}>{item.description}</View>
