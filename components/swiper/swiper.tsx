@@ -101,7 +101,7 @@ export interface SwiperProps {
   vertical?: boolean;
   curve?: string;
   showIndicators?: boolean;
-  indicatorLook: 'light' | 'dark' | 'anna';
+  indicatorLook?: 'light' | 'dark' | 'anna';
   indicatorPosition?: string;
   indicatorColor?: [string, string?];
   indicatorStyle?: [React.CSSProperties, React.CSSProperties?];

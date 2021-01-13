@@ -1,6 +1,6 @@
 {
   "name": "annar",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "优雅、简洁的 Remax 组件库",
   "main": "web/index.js",
   "esnext": "esm/index.js",
@@ -52,7 +52,7 @@
     "dumi/theme/**/*.less"
   ],
   "author": "Annar",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.1",
     "classnames": "^2.2.6",

@@ -30,7 +30,7 @@ export interface ButtonProps {
   color?: string;
   icon?: string | React.ReactNode;
   ghost?: boolean;
-  nativeType?: 'submit' | 'reset' | undefined;
+  nativeType?: 'submit' | 'reset' | 'button';
   onTap?: (e: any) => void;
   [restProps: string]: any;
 }
@@ -56,7 +56,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     color,
     icon,
     ghost,
-    nativeType,
+    nativeType = 'button',
     ...restProps
   } = props;
 

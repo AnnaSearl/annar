@@ -8,7 +8,6 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
   font-size: 28px;
   line-height: 48px;
   background-color: $light-base;
-  margin-bottom: 1px;
   &-verticality {
     &-required {
       color: #f5222d;
@@ -60,6 +59,12 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
           width: 100%;
           text-align: right;
         }
+        &-value-left {
+          text-align: left;
+        }
+        &-value-center {
+          text-align: center;
+        }
       }
     }
     &-description {
@@ -69,15 +74,18 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
     }
   }
   &-border {
-    position: absolute;
-    left: 32px;
-    right: 0;
-    bottom: -1px;
-    height: 1px;
-    background-color: #e8e8e8;
-    -webkit-transform: scaleY(0.5);
-    -ms-transform: scaleY(0.5);
-    transform: scaleY(0.5);
+    &::after {
+      box-sizing: border-box;
+      position: absolute;
+      left: 32px;
+      right: 0;
+      bottom: -1px;
+      content: '';
+      border-bottom: 1px solid #e8e8e8;
+      transform: scaleY(0.5);
+      pointer-events: none; // 这样伪类元素可以点击穿透, 也就是能看到, 但是不触发任何默认事件(click等);
+      z-index: 9;
+    }
   }
 
   &-input {

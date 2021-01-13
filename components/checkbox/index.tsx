@@ -42,16 +42,18 @@ const Checkbox = (props: CheckboxProps) => {
 const getCheckboxs = (
   children: React.ReactNode,
   value: CheckboxValue[] = [],
-  onChange?: (v: CheckboxValue[], e?: any) => void,
+  onChange?: (v?: CheckboxValue[], e?: any) => void,
 ) => {
   const onGroupChange = (checked: any, e: any, v: CheckboxValue) => {
-    const newValue = value?.includes(v) ? value?.filter(i => i !== v) : value?.concat(v);
+    const val = value || [];
+    const newVal = val?.includes(v) ? val?.filter(i => i !== v) : val?.concat(v);
+    const newValue = !Array.isArray(newVal) || newVal.length === 0 ? undefined : newVal;
     onChange?.(newValue, e);
   };
   const checkboxs = React.Children.map(children, (checkbox: any) => {
     const p = checkbox?.props || {};
     let checked = p.checked;
-    if ((p.value || p.value === 0) && (value as CheckboxValue[])?.includes(p.value)) {
+    if ((p.value || p.value === 0) && (value as CheckboxValue[])?.includes?.(p.value)) {
       checked = !checked;
     }
     return {
@@ -71,7 +73,7 @@ export interface GroupProps {
   value?: CheckboxValue[];
   children?: React.ReactNode;
   direction?: string;
-  onChange?: (v: CheckboxValue[]) => void;
+  onChange?: (v?: CheckboxValue[]) => void;
 }
 
 Checkbox.Group = (props: GroupProps) => {

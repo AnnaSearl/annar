@@ -82,6 +82,7 @@ export default () => {
             options={Categorys}
             onChange={handleChange1}
             height="1024px"
+            textAlign="right"
           />
         </Cell>
       </Block>

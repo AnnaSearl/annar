@@ -8,13 +8,15 @@ export interface ValueProps {
   placeholder?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  textAlign?: 'left' | 'right' | 'center';
+  onTap?: (e: any) => void;
 }
 
 const Value = (props: ValueProps) => {
-  const { placeholder, style, children } = props;
+  const { placeholder, style, textAlign, children, onTap } = props;
 
   return (
-    <View className={prefixCls} style={style}>
+    <View className={prefixCls} style={{ ...style, textAlign }} onTap={onTap}>
       {children || children === 0 ? (
         children
       ) : (

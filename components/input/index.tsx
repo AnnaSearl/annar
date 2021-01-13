@@ -8,6 +8,7 @@ const prefixCls = getPrefixCls('input');
 export interface InputProps {
   name?: string;
   value?: string;
+  defaultValue?: string;
   type?: 'text' | 'number' | 'idcard' | 'digit' | 'password';
   size?: 'large' | 'middle' | 'small';
   prefix?: React.ReactNode;
@@ -16,6 +17,7 @@ export interface InputProps {
   className?: string;
   style?: React.CSSProperties;
   inputStyle?: React.CSSProperties;
+  placeholderStyle?: React.CSSProperties;
   align?: string;
   disabled?: boolean;
   maxLength?: number;
@@ -27,14 +29,16 @@ export interface InputProps {
 const AnnarInput = (props: InputProps) => {
   const {
     name,
-    type,
+    type = 'text',
     size,
     value,
+    defaultValue,
     prefix,
     suffix,
     className,
     style,
     inputStyle,
+    placeholderStyle,
     align,
     placeholder,
     disabled,
@@ -52,11 +56,13 @@ const AnnarInput = (props: InputProps) => {
         [`${prefixCls}-align-${align}`]: align,
       })}
       style={inputStyle}
+      placeholderStyle={{ color: '#bfbfbf', ...placeholderStyle }}
       name={name}
       // @ts-ignore
       type={_type}
       password={type === 'password'}
       value={value}
+      defaultValue={defaultValue}
       placeholder={placeholder}
       disabled={disabled}
       maxLength={maxLength}

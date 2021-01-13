@@ -15,6 +15,7 @@ export interface CascadePopupProps {
   text?: string;
   disabled?: boolean;
   placeholder?: string;
+  textAlign?: 'left' | 'right' | 'center';
   options: any[];
   prompt?: (e: any) => string;
   onChange: (v: any, s: any) => void;
@@ -22,7 +23,7 @@ export interface CascadePopupProps {
 }
 
 const CascadePopup = (props: CascadePopupProps) => {
-  const { value, text, disabled, placeholder, options, onChange } = props;
+  const { value, text, disabled, placeholder, textAlign, options, onChange } = props;
 
   const [show, setShow] = useState(false);
 
@@ -38,7 +39,7 @@ const CascadePopup = (props: CascadePopupProps) => {
   };
 
   const handleChange = (v: valueType[], s?: OptionProps[], isLast?: boolean) => {
-    onChange(v, s);
+    onChange(s, v);
     if (isLast) {
       setShow(false);
     }
@@ -54,11 +55,14 @@ const CascadePopup = (props: CascadePopupProps) => {
     );
   }
 
+  const cascadeValue = value?.map(i => i.value) || [];
+  const cascadeText = value?.map(i => i.text).join(' ');
+
   return (
     <View className={prefixCls}>
-      <View className={`${prefixCls}-formitem`} onTap={handleTap}>
-        <FormValue placeholder={placeholder}>{text || value?.map(i => i.name).join(' ')}</FormValue>
-      </View>
+      <FormValue textAlign={textAlign} placeholder={placeholder} onTap={handleTap}>
+        {text || cascadeText}
+      </FormValue>
       <Popup position="bottom" open={show}>
         <View className={`${prefixCls}-container`}>
           <View className={`${prefixCls}-container-header`}>
@@ -67,7 +71,7 @@ const CascadePopup = (props: CascadePopupProps) => {
               <Icon type="close" color="#999" />
             </View>
           </View>
-          <Cascade {...props} onChange={handleChange} />
+          <Cascade {...props} value={cascadeValue} onChange={handleChange} />
         </View>
       </Popup>
     </View>

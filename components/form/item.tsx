@@ -1,22 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import { FormContext } from './context';
+import Cell from '../cell';
+import { FormContext, HOOK_KEY } from './context';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('form-item');
 
-export interface FormProps {
+export interface FormItemProps {
+  label?: React.ReactNode;
+  border?: boolean;
+  valueAlign?: 'left' | 'right' | 'center';
+  required?: boolean;
   name?: string;
+  icon?: string;
   rules?: any[];
   style?: React.CSSProperties;
+  noStyle?: boolean;
+  valuePropName?: string;
+  trigger?: string;
   children?: React.ReactNode;
 }
 
-const FormItem: React.FC<FormProps> = (props: FormProps) => {
-  const { name, rules, style, children } = props;
+const count = 0;
 
-  const { values, errors, onChange, onChangeError }: any = useContext(FormContext);
+const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
+  const {
+    label,
+    border = false,
+    icon,
+    required,
+    valueAlign = 'right',
+    name,
+    rules,
+    style,
+    noStyle,
+    valuePropName = 'value',
+    trigger = 'onChange',
+    children,
+  } = props;
+
+  const { onChange, onChangeError, formInstance }: any = useContext(FormContext);
+
+  const { getFieldsValue, getFieldsError } = formInstance;
+
+  const { registerField } = formInstance.getInternalHooks(HOOK_KEY);
+
+  const store = getFieldsValue();
+
+  const errors = getFieldsError();
+
+  useEffect(() => {
+    if (name) {
+      registerField(props);
+    }
+  }, []);
 
   const handleChange = (e: any) => {
     const error = name ? errors[name] || {} : {};
@@ -71,12 +109,17 @@ const FormItem: React.FC<FormProps> = (props: FormProps) => {
   if (typeof children === 'object' && children !== null) {
     const { props: childrenProps } = children as any;
     if (childrenProps && name) {
+      const onTrigger = (e: any) => {
+        handleChange(e);
+        childrenProps?.[trigger]?.(e);
+      };
+      // 这里给input的 value 赋值为 undefined 是不会改变显示的值，必须要设置为空字符串 ''
       childrenNode = {
         ...children,
         props: {
           ...childrenProps,
-          value: values[name],
-          onChange: handleChange,
+          [valuePropName]: store[name],
+          [trigger]: onTrigger,
           onBlur: handleBlur,
         },
       };
@@ -98,11 +141,36 @@ const FormItem: React.FC<FormProps> = (props: FormProps) => {
     );
   };
 
+  // count += 1;
+
+  if (noStyle) {
+    return (
+      <React.Fragment key={count}>
+        <View className={classNames(prefixCls)} style={style}>
+          {childrenNode}
+          {renderErrorNode()}
+        </View>
+      </React.Fragment>
+    );
+  }
+
   return (
-    <View className={classNames(prefixCls)} style={style}>
-      {childrenNode}
-      {renderErrorNode()}
-    </View>
+    <React.Fragment key={count}>
+      <View className={classNames(prefixCls)} style={style}>
+        <Cell
+          label={label}
+          border={border}
+          icon={icon}
+          required={required}
+          field
+          labelStyle={{ width: '180px' }}
+          valueAlign={valueAlign}
+        >
+          {childrenNode}
+        </Cell>
+        {renderErrorNode()}
+      </View>
+    </React.Fragment>
   );
 };
 

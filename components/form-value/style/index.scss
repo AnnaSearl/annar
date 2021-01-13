@@ -6,7 +6,8 @@ $form-value-prefix-cls: #{$anna-prefix}-form-value;
   min-height: 42px;
   font-size: 28px;
   color: $font-color-1;
-  &-placeholder{
-    color: $font-color-2;
+  text-align: left;
+  &-placeholder {
+    color: $placeholder-color;
   }
 }

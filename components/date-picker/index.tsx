@@ -145,7 +145,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
 
   return (
     <Picker value={pickerValue} onChange={handleChange} range={range} disabled={disabled}>
-      {children}
+      {typeof children === 'function' ? children?.(value) : children}
     </Picker>
   );
 };

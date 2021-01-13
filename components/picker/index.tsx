@@ -51,7 +51,9 @@ const Picker: React.FC<PickerProps> = (props: PickerProps) => {
 
   return (
     <View className={prefixCls}>
-      <View onTap={handleTap}>{children}</View>
+      <View className={`${prefixCls}-content`} onTap={handleTap}>
+        {children}
+      </View>
       <Popup position="bottom" open={open} onClose={() => setOpen(false)}>
         <PickerView onOK={handleOK} onCancel={() => setOpen(false)}>
           {multiple ? (

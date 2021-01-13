@@ -80,10 +80,10 @@ export default () => {
               large
             </Button>
             <Button type="primary">default</Button>
-            <Button type="primary" size="small">
-              small
-            </Button>
           </View>
+          <Button type="primary" size="small">
+            small
+          </Button>
         </Block>
         <Block noTitlePadding title="Icon">
           <View className={styles.group}>

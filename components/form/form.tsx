@@ -1,27 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { Form } from 'remax/one';
 import classNames from 'classnames';
-import { FormContext } from './context';
+import { FormContext, HOOK_KEY } from './context';
+import useForm from './useForm';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('form');
-
-const getItemRulesObject = (children: React.ReactNode) => {
-  const rules = React.Children.toArray(children).map((i: any) => ({
-    name: i?.props?.name,
-    rules: i?.props?.rules,
-  }));
-  const itemRulesObj: any = {};
-  const nullValuesObj: any = {};
-  rules.forEach(i => {
-    if (i.name && i.rules && Array.isArray(i.rules)) {
-      itemRulesObj[i.name] = i.rules;
-      nullValuesObj[i.name] = undefined;
-    }
-  });
-  return [itemRulesObj, nullValuesObj];
-};
-
 export interface ErrorProps {
   error?: boolean;
   message?: string;
@@ -29,6 +13,7 @@ export interface ErrorProps {
 
 export interface FormProps {
   initialValues?: { [name: string]: any };
+  form?: any;
   children?: React.ReactNode;
   onFinish?: (v: any) => void;
   onFinishFailed?: (v: any, errorFields: any) => void;
@@ -36,91 +21,47 @@ export interface FormProps {
 }
 
 const AnnarForm: React.FC<FormProps> = (props: FormProps) => {
-  const { initialValues, children, onFinish, onFinishFailed, onReset } = props;
+  const { initialValues, form, children, onFinish, onFinishFailed, onReset } = props;
 
-  const [itemRulesObj, nullValuesObj] = getItemRulesObject(children);
+  const [formInstance] = useForm(form);
 
-  const [values, setValues] = useState<any>(Object.assign({}, nullValuesObj, initialValues));
-  const [errors, setErrors] = useState<any>(nullValuesObj);
+  const { setFieldsValue, submit } = formInstance;
+
+  const { initStore, setErrors, setCallbacks } = formInstance.getInternalHooks(HOOK_KEY);
+
+  useEffect(() => {
+    initStore(initialValues);
+
+    setCallbacks({
+      onFinish,
+      onFinishFailed,
+    });
+    // 卸载时不要忘了手动清理内存 FormStore
+  }, []);
 
   const handleSubmit = (e: any) => {
     e?.preventDefault?.();
     e?.stopPropagation?.();
-    let errorFlag = false;
-    const errorState: any = {};
-    const errorFields: any = {};
-    const names = Object.keys(values);
-    for (let i = 0; i < names.length; i += 1) {
-      const name = names[i];
-      const value = values[name];
-      const rules = itemRulesObj[name];
-      if (rules) {
-        for (let j = 0; j < rules.length; j += 1) {
-          const rule = rules[j] || {};
-          const { required, pattern, validator, message = `${name} is required` } = rule;
-          if (required) {
-            if (!value && value !== 0) {
-              errorState[name] = { error: true, message };
-              errorFields[name] = value;
-              errorFlag = true;
-              break;
-            }
-          }
-          if (pattern) {
-            const isPass = pattern.test(value);
-            if (!isPass) {
-              errorState[name] = { error: true, message };
-              errorFields[name] = value;
-              errorFlag = true;
-              break;
-            }
-          }
-          if (validator && typeof validator === 'function') {
-            const result = validator(value);
-            if (!result) {
-              errorState[name] = { error: true, message };
-              errorFields[name] = value;
-              errorFlag = true;
-              break;
-            }
-          }
-        }
-      }
-    }
-    if (errorFlag) {
-      setErrors({
-        ...nullValuesObj,
-        ...errorState,
-      });
-      onFinishFailed?.(values, errorFields);
-      return;
-    }
-    if (!errorFlag) {
-      setErrors(nullValuesObj);
-    }
 
-    onFinish?.(values);
+    submit();
   };
 
   const handleChange = (e: any, name: string) => {
-    const t = e.target;
-    setValues((state: any) => ({
-      ...state,
-      [name]: t.value,
-    }));
+    // 适配 e.target 不存在的情况(如radio 和 checkbox), 如果 e.target 不存在则组装一个对象
+    const t = e?.target || { value: e };
+    setFieldsValue({ [name]: t?.value });
   };
 
   const handleChangeError = (v: any, name: string) => {
-    setErrors((state: any) => ({
-      ...state,
-      [name]: v,
-    }));
+    setErrors({ [name]: v });
   };
 
-  const providerValue = useMemo(
-    () => ({ values, errors, onChange: handleChange, onChangeError: handleChangeError }),
-    [values, errors],
-  );
+  // 这里不用 useMemo 来优化，因为只有每次 providerValue 都是一个新的对象，子组件才会重新渲染（useContext收到更新通知）
+  const providerValue = {
+    formInstance,
+    onChange: handleChange,
+    onChangeError: handleChangeError,
+  };
 
   return (
     <FormContext.Provider value={providerValue}>

@@ -16,6 +16,7 @@ export interface CellProps {
   style?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
   valueStyle?: React.CSSProperties;
+  valueAlign?: 'left' | 'right' | 'center';
   verticality?: boolean;
   icon?: string;
   required?: boolean;
@@ -33,6 +34,7 @@ const Cell = (props: CellProps) => {
     style,
     labelStyle,
     valueStyle,
+    valueAlign = 'right',
     children,
     description,
     verticality,
@@ -65,7 +67,13 @@ const Cell = (props: CellProps) => {
   }
 
   return (
-    <View className={prefixCls} style={style} onTap={onTap}>
+    <View
+      className={classNames(prefixCls, {
+        [`${prefixCls}-border`]: border,
+      })}
+      style={style}
+      onTap={onTap}
+    >
       <View className={`${prefixCls}-container`}>
         <View className={`${prefixCls}-container-main`}>
           <View
@@ -88,7 +96,13 @@ const Cell = (props: CellProps) => {
             </View>
           </View>
           <View className={`${prefixCls}-container-main-right`}>
-            <View className={`${prefixCls}-container-main-right-value`} style={valueStyle}>
+            <View
+              className={classNames(
+                `${prefixCls}-container-main-right-value`,
+                `${prefixCls}-container-main-right-value-${valueAlign}`,
+              )}
+              style={valueStyle}
+            >
               {children || children === 0 ? children : defaultNullValue}
             </View>
             {extra ? <View className={`${prefixCls}-extra`}>{extra}</View> : null}
@@ -99,7 +113,6 @@ const Cell = (props: CellProps) => {
           <View className={`${prefixCls}-container-description`}>{description}</View>
         ) : null}
       </View>
-      {border ? <View className={`${prefixCls}-border`} /> : null}
     </View>
   );
 };
@@ -135,7 +148,7 @@ Cell.Picker = (props: CellPickerProps) => {
   }
 
   return (
-    <Cell labelStyle={{ width: '180px' }} {...props}>
+    <Cell field labelStyle={{ width: '180px' }} {...props}>
       <Picker
         range={range}
         rangeKey={rangeKey}
