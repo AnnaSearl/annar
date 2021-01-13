@@ -30,7 +30,7 @@ export interface ButtonProps {
   color?: string;
   icon?: string | React.ReactNode;
   ghost?: boolean;
-  nativeType?: 'submit' | 'reset' | 'button';
+  nativeType?: 'submit' | 'reset' | 'button' | undefined; // 这里其实还缺少 'button',但是 ‘button’ 在remax/one 中未定义，yarn run build 时TS类型检查会报错
   onTap?: (e: any) => void;
   [restProps: string]: any;
 }
@@ -139,6 +139,7 @@ const AButton = (props: ButtonProps): React.ReactElement => {
   return (
     <Button
       className={classes}
+      // @ts-ignore
       type={nativeType}
       disabled={disabled}
       onTap={handleTap}
