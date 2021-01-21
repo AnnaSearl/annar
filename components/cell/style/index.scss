@@ -22,49 +22,47 @@ $cell-prefix-cls: #{$anna-prefix}-cell;
     }
   }
   &-container {
-    &-main {
+    display: flex;
+    &-left {
+      box-sizing: border-box;
+      flex: 1;
       display: flex;
-      &-left {
+      align-items: center;
+      &-input {
+        flex: none;
+      }
+      &-label {
         box-sizing: border-box;
+        color: $font-color-1;
+        font-weight: 500;
         flex: 1;
         display: flex;
         align-items: center;
-        &-input {
-          flex: none;
+        &-required {
+          color: #f5222d;
+          margin-right: 4px;
         }
-        &-label {
-          box-sizing: border-box;
-          color: $font-color-1;
-          font-weight: 500;
-          flex: 1;
-          display: flex;
-          align-items: center;
-          &-required {
-            color: #f5222d;
-            margin-right: 4px;
-          }
-          &-value {
-            margin-right: 20px;
-          }
+        &-value {
+          margin-right: 20px;
         }
       }
-      &-right {
-        flex: 1;
-        color: $font-color-3;
-        display: flex;
-        // align-items: flex-start;
-        align-items: center;
-        justify-content: flex-end;
-        &-value {
-          width: 100%;
-          text-align: right;
-        }
-        &-value-left {
-          text-align: left;
-        }
-        &-value-center {
-          text-align: center;
-        }
+    }
+    &-right {
+      flex: 1;
+      color: $font-color-3;
+      display: flex;
+      // align-items: flex-start;
+      align-items: center;
+      justify-content: flex-end;
+      &-value {
+        width: 100%;
+        text-align: right;
+      }
+      &-value-left {
+        text-align: left;
+      }
+      &-value-center {
+        text-align: center;
       }
     }
     &-description {

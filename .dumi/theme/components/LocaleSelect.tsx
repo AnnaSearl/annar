@@ -37,7 +37,7 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
             ))}
           </select>
         ) : (
-          <Link to={getLocaleTogglePath(firstDiffLocale.name)}>{firstDiffLocale.label}</Link>
+          <Link to={getLocaleTogglePath(firstDiffLocale?.name)}>{firstDiffLocale?.label}</Link>
         )}
       </div>
     )

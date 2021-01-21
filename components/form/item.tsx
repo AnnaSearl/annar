@@ -22,7 +22,7 @@ export interface FormItemProps {
   children?: React.ReactNode;
 }
 
-const count = 0;
+// const count = 0;
 
 const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   const {
@@ -42,17 +42,17 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
 
   const { onChange, onChangeError, formInstance }: any = useContext(FormContext);
 
-  const { getFieldsValue, getFieldsError } = formInstance;
+  const { getFieldsValue, getFieldsError } = formInstance || {};
 
-  const { registerField } = formInstance.getInternalHooks(HOOK_KEY);
+  const { registerField } = formInstance?.getInternalHooks(HOOK_KEY) || {};
 
-  const store = getFieldsValue();
+  const store = getFieldsValue?.();
 
-  const errors = getFieldsError();
+  const errors = getFieldsError?.();
 
   useEffect(() => {
     if (name) {
-      registerField(props);
+      registerField?.(props);
     }
   }, []);
 
@@ -145,32 +145,31 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
 
   if (noStyle) {
     return (
-      <React.Fragment key={count}>
-        <View className={classNames(prefixCls)} style={style}>
-          {childrenNode}
-          {renderErrorNode()}
-        </View>
-      </React.Fragment>
+      // <React.Fragment key={count}>
+      <View className={classNames(prefixCls)} style={style}>
+        {childrenNode}
+        {renderErrorNode()}
+      </View>
+      // </React.Fragment>
     );
   }
 
   return (
-    <React.Fragment key={count}>
-      <View className={classNames(prefixCls)} style={style}>
-        <Cell
-          label={label}
-          border={border}
-          icon={icon}
-          required={required}
-          field
-          labelStyle={{ width: '180px' }}
-          valueAlign={valueAlign}
-        >
-          {childrenNode}
-        </Cell>
-        {renderErrorNode()}
-      </View>
-    </React.Fragment>
+    <>
+      <Cell
+        style={style}
+        label={label}
+        border={border}
+        icon={icon}
+        required={required}
+        field
+        labelStyle={{ width: '180px' }}
+        valueAlign={valueAlign}
+      >
+        {childrenNode}
+      </Cell>
+      {renderErrorNode()}
+    </>
   );
 };
 

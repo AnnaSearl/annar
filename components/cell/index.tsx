@@ -75,44 +75,42 @@ const Cell = (props: CellProps) => {
       onTap={onTap}
     >
       <View className={`${prefixCls}-container`}>
-        <View className={`${prefixCls}-container-main`}>
-          <View
-            className={classNames(`${prefixCls}-container-main-left`, {
-              [`${prefixCls}-container-main-left-input`]: field,
-            })}
-          >
-            <View className={`${prefixCls}-container-main-left-label`}>
-              {required ? (
-                <Text className={`${prefixCls}-container-main-left-label-required`}>*</Text>
-              ) : null}
-              {icon ? (
-                <Icon type={icon} size="32px" style={{ marginRight: '10px' }} color="#333" />
-              ) : null}
-              {label ? (
-                <Text className={`${prefixCls}-container-main-left-label-value`} style={labelStyle}>
-                  {label}
-                </Text>
-              ) : null}
-            </View>
-          </View>
-          <View className={`${prefixCls}-container-main-right`}>
-            <View
-              className={classNames(
-                `${prefixCls}-container-main-right-value`,
-                `${prefixCls}-container-main-right-value-${valueAlign}`,
-              )}
-              style={valueStyle}
-            >
-              {children || children === 0 ? children : defaultNullValue}
-            </View>
-            {extra ? <View className={`${prefixCls}-extra`}>{extra}</View> : null}
-            {arrow ? <Icon type="right" style={{ marginLeft: '10px' }} color="#666" /> : null}
+        <View
+          className={classNames(`${prefixCls}-container-left`, {
+            [`${prefixCls}-container-left-input`]: field,
+          })}
+        >
+          <View className={`${prefixCls}-container-left-label`}>
+            {required ? (
+              <Text className={`${prefixCls}-container-left-label-required`}>*</Text>
+            ) : null}
+            {icon ? (
+              <Icon type={icon} size="32px" style={{ marginRight: '10px' }} color="#333" />
+            ) : null}
+            {label ? (
+              <Text className={`${prefixCls}-container-left-label-value`} style={labelStyle}>
+                {label}
+              </Text>
+            ) : null}
           </View>
         </View>
-        {description ? (
-          <View className={`${prefixCls}-container-description`}>{description}</View>
-        ) : null}
+        <View className={`${prefixCls}-container-right`}>
+          <View
+            className={classNames(
+              `${prefixCls}-container-right-value`,
+              `${prefixCls}-container-right-value-${valueAlign}`,
+            )}
+            style={valueStyle}
+          >
+            {children || children === 0 ? children : defaultNullValue}
+          </View>
+          {extra ? <View className={`${prefixCls}-extra`}>{extra}</View> : null}
+          {arrow ? <Icon type="right" style={{ marginLeft: '10px' }} color="#666" /> : null}
+        </View>
       </View>
+      {description ? (
+        <View className={`${prefixCls}-container-description`}>{description}</View>
+      ) : null}
     </View>
   );
 };
