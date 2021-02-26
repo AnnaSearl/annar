@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Radio } from 'anna-remax-ui';
+import { Radio } from 'annar';
 import { Block, Frame } from '../../common';
 
 const radioStyle = { paddingBottom: '30px' };
@@ -18,14 +18,14 @@ export default () => {
         </Radio>
       </Block>
       <Block title="Group" noTitlePadding>
-        <Radio.Group value={value} onChange={(c, v) => setValue(v)}>
+        <Radio.Group value={value} onChange={(v: any) => setValue(v)}>
           <Radio value={0}>Apple</Radio>
           <Radio value={1}>Cherry</Radio>
           <Radio value={2}>Watermelon</Radio>
         </Radio.Group>
       </Block>
       <Block title="Direction & Extra" noTitlePadding>
-        <Radio.Group value={value1} onChange={(c, v) => setValue1(v)} direction="column">
+        <Radio.Group value={value1} onChange={(v: any) => setValue1(v)} direction="column">
           <Radio value={0} style={radioStyle}>
             Apple
           </Radio>

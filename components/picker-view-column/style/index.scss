@@ -1,0 +1,21 @@
+@import '../../style/theme/index';
+
+$picker-view-column-prefix-cls: #{$anna-prefix}-picker-view-column;
+
+.#{$picker-view-column-prefix-cls} {
+  flex: 1;
+  backface-visibility: hidden;
+  touch-action: none;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  &-items {
+    transform: translate3d(0, 176px, 0);
+  }
+  &-item {
+    height: 88px;
+    line-height: 88px;
+    padding: 0 24px;
+    text-align: center;
+  }
+}

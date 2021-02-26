@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Cell } from 'anna-remax-ui';
+import { Cell } from 'annar';
 import { Block, Frame } from '../../common';
 
 export default () => {

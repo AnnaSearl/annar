@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Grid } from 'anna-remax-ui';
+import { Grid } from 'annar';
 import { Block, Frame } from '../../common';
 import './index.scss';
 

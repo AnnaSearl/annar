@@ -1,0 +1,41 @@
+@import '../../style/theme/index';
+
+$progress-prefix-cls: #{$anna-prefix}-progress;
+
+.#{$progress-prefix-cls} {
+  &-outer {
+    display: inline-block;
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+    .#{$progress-prefix-cls}-show-info & {
+      padding-right: calc(56px + 16px);
+      margin-right: calc(-56px - 16px);
+    }
+  }
+
+  &-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-radius: 200px;
+    background-color: #f5f5f5;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  &-success-bg,
+  &-bg {
+    position: relative;
+    border-radius: 200px;
+    background-color: #1890ff;
+    transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+  }
+
+  &-success-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #52c41a;
+  }
+}

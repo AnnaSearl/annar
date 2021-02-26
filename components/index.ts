@@ -28,9 +28,15 @@ export { default as Selector } from './selector';
 
 // 数据录入
 
-export { default as Input } from './input/index';
+export { default as Form } from './form';
+
+export { default as Input } from './input';
 
 export { default as Picker } from './picker';
+
+export { default as PickerView } from './picker-view';
+
+export { default as PickerViewColumn } from './picker-view-column';
 
 export { default as Radio } from './radio';
 
@@ -62,7 +68,11 @@ export { default as Card } from './card';
 
 export { default as Cell } from './cell';
 
+export { default as Swiper } from './swiper';
+
 export { default as Images } from './images';
+
+export { default as Progress } from './progress';
 
 export { default as ProgressBar } from './progress-bar';
 
@@ -83,6 +93,8 @@ export { default as Result } from './result';
 export { default as Spin } from './spin';
 
 export { default as Skeleton } from './skeleton';
+
+export { default as Ling } from './ling';
 
 // 手势
 

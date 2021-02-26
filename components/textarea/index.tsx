@@ -43,8 +43,7 @@ const ATextarea = (props: TextareaProps) => {
   } = props;
 
   const handleChangeInput = (e: any) => {
-    const v = e.detail.value;
-    onChange?.(v);
+    onChange?.(e);
   };
 
   return (

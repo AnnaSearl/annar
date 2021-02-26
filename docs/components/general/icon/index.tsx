@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon } from 'anna-remax-ui';
+import { Icon } from 'annar';
 import { Block, Frame, Grid, GridItem } from '../../common';
 
 export default () => {
@@ -36,7 +36,7 @@ export default () => {
             <Icon type="favorfill" size="50px" />
           </GridItem>
           <GridItem name="default">
-            <Icon type="favorfill" size="28px" />
+            <Icon type="favorfill" />
           </GridItem>
         </Grid>
       </Block>

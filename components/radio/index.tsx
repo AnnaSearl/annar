@@ -5,20 +5,22 @@ import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('radio');
 
+type RadioValue = string | number;
+
 export interface RadioProps {
   children?: React.ReactNode;
   checked?: boolean;
-  value?: any;
+  value?: RadioValue;
   extra?: React.ReactNode;
   style?: React.CSSProperties;
-  onChange?: (e: any, v?: any) => void;
+  onChange?: (checked: boolean, e?: any, v?: RadioValue) => void;
 }
 
 const Radio = (props: RadioProps) => {
   const { children, checked, value, extra, style, onChange } = props;
 
-  const handleClick = () => {
-    onChange?.(!checked, value);
+  const handleClick = (e: any) => {
+    onChange?.(!checked, e, value);
   };
 
   return (
@@ -38,19 +40,15 @@ const Radio = (props: RadioProps) => {
   );
 };
 
-export interface GroupProps {
-  value?: any;
-  children?: React.ReactNode;
-  direction?: string;
-  onChange?: (e: any, v: any) => void;
-  style?: React.CSSProperties;
-}
-
 const getRadios = (
   children: React.ReactNode,
-  value?: string,
-  onChange?: (e: any, v: any) => void,
+  value?: RadioValue,
+  onChange?: (v: RadioValue, e?: any) => void,
 ) => {
+  const onGroupChange = (checked: any, e: any, v: RadioValue) => {
+    const newValue = v;
+    onChange?.(newValue as RadioValue, e);
+  };
   const radios = React.Children.map(children, (radio: any) => {
     const newRadio = radio;
     let checked = false;
@@ -63,7 +61,7 @@ const getRadios = (
       } else {
         checked = false;
       }
-      return <Radio {...newRadio.props} checked={checked} onChange={onChange} />;
+      return <Radio {...newRadio.props} checked={checked} onChange={onGroupChange} />;
     }
     return newRadio;
   });
@@ -71,9 +69,16 @@ const getRadios = (
   return radios;
 };
 
+export interface GroupProps {
+  value?: RadioValue;
+  children?: React.ReactNode;
+  direction?: string;
+  onChange?: (v: RadioValue, e?: any) => void;
+  style?: React.CSSProperties;
+}
+
 Radio.Group = (props: GroupProps) => {
   const { value, children, direction = 'row', onChange, style } = props;
-
   const radios = getRadios(children, value, onChange);
 
   return (

@@ -1,81 +1,82 @@
-import * as React from 'react';
-import { Picker as APicker } from '../one';
-import Cell from '../cell';
-import FormValue from '../form-value';
-import find from 'lodash-es/find';
-import get from 'lodash-es/get';
+import React, { useState, useRef } from 'react';
+import { View } from 'remax/one';
+import Popup from '../popup';
+import PickerView from '../picker-view';
+import PickerViewColumn from '../picker-view-column';
+import { getPrefixCls } from '../common';
+
+const prefixCls = getPrefixCls('picker');
 
 export interface PickerProps {
-  label?: React.ReactNode;
-  border?: boolean;
-  required?: boolean;
-  icon?: string;
+  value?: number | number[];
+  range?: any[];
+  rangeKey?: string;
   disabled?: boolean;
-  pickerAlign?: string;
-  options?: any[];
-  value?: string;
-  placeholder?: string;
   children?: React.ReactNode;
-  onChange?: (e: any) => void;
+  onChange?: (v: number | number[], e: any) => void;
 }
 
-const Picker = (props: PickerProps) => {
-  const {
-    label,
-    border,
-    required,
-    icon,
-    pickerAlign = 'left',
-    options,
-    value,
-    onChange,
-    placeholder,
-    children,
-    disabled,
-  } = props;
+const Picker: React.FC<PickerProps> = (props: PickerProps) => {
+  const { value = 0, range, rangeKey = 'text', disabled, children, onChange } = props;
 
-  const handleChangePicker = (e: any) => {
-    if (e.detail.value < 0) {
+  const [open, setOpen] = useState(false);
+
+  const val = useRef<number | number[]>(value < 0 ? 0 : value);
+
+  const handleTap = () => {
+    if (disabled) {
       return;
     }
-    onChange?.(options?.[e.detail.value]);
+    setOpen(state => !state);
   };
 
-  const valueIndex = options?.findIndex((item: any) => item['key'] === value) || 0;
+  const handleOK = (e: any) => {
+    onChange?.(val.current, e);
+    setOpen(false);
+  };
+
+  const handleChangeColumn = (multiple: boolean, v: number, index?: number) => {
+    if (multiple) {
+      val.current = [...(Array.isArray(val.current) ? val.current : [val.current])];
+      val.current[index as number] = v;
+      return;
+    }
+    val.current = v;
+  };
+
+  let multiple = false;
+  if (Array.isArray(range?.[0])) {
+    multiple = true;
+  }
 
   return (
-    <Cell
-      label={label}
-      labelStyle={{ width: '180px' }}
-      border={border}
-      required={required}
-      icon={icon}
-      field
-    >
-      <APicker
-        wechat-mode="selector"
-        range={options}
-        rangeKey="value"
-        disabled={disabled}
-        value={valueIndex}
-        onChange={handleChangePicker}
-      >
-        {children || children === 0 ? (
-          children
-        ) : (
-          <FormValue
-            placeholder={placeholder}
-            style={
-              {
-                textAlign: pickerAlign,
-              } as React.CSSProperties
-            }
-          >
-            {get(find(options, { key: value }), 'value')}
-          </FormValue>
-        )}
-      </APicker>
-    </Cell>
+    <View className={prefixCls}>
+      <View className={`${prefixCls}-content`} onTap={handleTap}>
+        {children}
+      </View>
+      <Popup position="bottom" open={open} onClose={() => setOpen(false)}>
+        <PickerView onOK={handleOK} onCancel={() => setOpen(false)}>
+          {multiple ? (
+            range?.map((columnData: any[], index: number) => (
+              <PickerViewColumn
+                key={index}
+                value={(value as number[])[index]}
+                options={columnData}
+                optionsKey={rangeKey}
+                onChange={v => handleChangeColumn(true, v, index)}
+              />
+            ))
+          ) : (
+            <PickerViewColumn
+              value={value as number}
+              options={range}
+              optionsKey={rangeKey}
+              onChange={v => handleChangeColumn(false, v)}
+            />
+          )}
+        </PickerView>
+      </Popup>
+    </View>
   );
 };
 

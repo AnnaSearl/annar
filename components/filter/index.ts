@@ -1,12 +1,12 @@
 import InternalFilter from './filter';
 import Item from './item';
 
-type InternalFilter = typeof InternalFilter;
-interface Filter extends InternalFilter {
+type InternalFilterType = typeof InternalFilter;
+interface FilterInterface extends InternalFilterType {
   Item: typeof Item;
 }
 
-const Filter: Filter = InternalFilter as Filter;
+const Filter = InternalFilter as FilterInterface;
 
 Filter.Item = Item;
 

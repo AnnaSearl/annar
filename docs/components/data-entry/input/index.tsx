@@ -1,39 +1,71 @@
 import * as React from 'react';
-import { Input, Button } from 'anna-remax-ui';
-import { Block, Frame } from '../../common';
+import { Input, Button, Icon, Cell } from 'annar';
+import { Block, Frame, Br } from '../../common';
+
+const cStyle = { padding: '0 400px 0 20px' };
 
 export default () => {
   return (
     <Frame grayBg>
-      <Block title="Basic">
+      <Block title="Basic" contentStyle={cStyle}>
         <Input placeholder="Please enter" border={false} />
       </Block>
-      <Block title="With Label">
-        <Input label="Text" placeholder="Please enter" border={false} />
+
+      <Block title="Type" contentStyle={cStyle}>
+        <Input placeholder="number" type="number" />
       </Block>
-      <Block title="maxLength">
-        <Input label="Text" placeholder="You can input 4 charapter" maxLength={4} />
+
+      <Block title="Size" contentStyle={cStyle}>
+        <Input placeholder="large" size="large" />
+        <Br />
+        <Input placeholder="default" />
+        <Br />
+        <Input placeholder="small" size="small" />
       </Block>
-      <Block title="inputAlign">
-        <Input label="Text" placeholder="Please enter" border={false} inputAlign="right" />
+
+      <Block title="Prefix" contentStyle={cStyle}>
+        <Input placeholder="Acount" align="right" prefix={<Icon type="people" size="32px" />} />
+        <Br />
+        <Input placeholder="Phone" align="right" type="number" prefix="+86" />
       </Block>
-      <Block title="Type">
-        <Input label="Number" placeholder="Please enter" border={false} type="number" />
-        <Input label="Password" placeholder="Please enter" border={false} type="password" />
+
+      <Block title="Suffix" contentStyle={cStyle}>
+        <Input placeholder="Email" suffix={<Icon type="mail" size="32px" />} />
+        <Br />
+        <Input placeholder="Amount" type="number" suffix="元" />
       </Block>
-      <Block title="Disabled">
-        <Input label="Text" disabled placeholder="Please enter" value="read only" />
-        <Input label="Text" disabled placeholder="Has been disabled" border={false} />
+
+      <Block title="MaxLength" contentStyle={cStyle}>
+        <Input placeholder="You can input 4 charapter" maxLength={4} />
       </Block>
-      <Block title="With Required">
-        <Input label="Phone" placeholder="Please enter" border={false} required />
+
+      <Block title="Align" contentStyle={cStyle}>
+        <Input placeholder="Please enter" align="right" />
       </Block>
-      <Block title="With Icon">
-        <Input label="location" placeholder="Please enter" border={false} icon="location" />
+
+      <Block title="Disabled" contentStyle={cStyle}>
+        <Input disabled placeholder="Please enter" value="read only" />
+        <Br />
+        <Input disabled placeholder="Has been disabled" />
       </Block>
-      <Block title="With Extra">
-        <Input label="Amount" placeholder="Please enter" extra="元" />
-        <Input
+
+      <Block title="Cell.Input">
+        <Cell.Input placeholder="Please enter" border={false} />
+        <Br />
+        <Cell.Input label="Text" placeholder="Please enter" border={false} />
+        <Br />
+        <Cell.Input
+          label="location"
+          placeholder="Please enter"
+          icon="location"
+          align="right"
+          border={false}
+        />
+        <Br />
+        <Cell.Input required label="Amount" placeholder="Please enter" extra="元" />
+        <Br />
+        <Cell.Input
+          required
           label="phone"
           placeholder="Please enter"
           border={false}

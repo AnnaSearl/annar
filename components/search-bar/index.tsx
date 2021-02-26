@@ -12,6 +12,8 @@ export interface SearchBarProps {
   placeholder?: string;
   shape?: string;
   size?: string;
+  type?: string;
+  confirmType?: string;
   style?: React.CSSProperties;
   inputStyle?: React.CSSProperties;
   actionName?: string;
@@ -39,6 +41,8 @@ const SearchBar = (props: SearchBarProps) => {
     onSubmit,
     inputStyle,
     shape,
+    type = 'text',
+    confirmType = 'search',
     style,
     focus,
     actionName = '取消',
@@ -123,7 +127,8 @@ const SearchBar = (props: SearchBarProps) => {
         <Input
           className={`${prefixCls}-input-value`}
           // @ts-ignore
-          type="search"
+          type={type}
+          confirmType={confirmType}
           value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View } from 'remax/one';
-import { createSelectorQuery } from '../one';
 import classNames from 'classnames';
+import { createSelectorQuery } from '../one';
 import { throttle, guid } from '../_util';
 import { getPrefixCls } from '../common';
 
@@ -23,7 +23,7 @@ export interface SwipeActionProps {
   onClosed?: (e: any) => void;
 }
 
-const SwipeAction: React.FC = (props: SwipeActionProps): React.ReactElement => {
+const SwipeAction: React.FC<SwipeActionProps> = (props: SwipeActionProps): React.ReactElement => {
   const { open, options = [], onTouchStart, onOpened, onClosed, children } = props;
 
   const [x, setX] = useState(0);

@@ -3,22 +3,58 @@
 $input-prefix-cls: #{$anna-prefix}-input;
 
 .#{$input-prefix-cls} {
-  display: block;
-  min-height: 48px;
-  line-height: inherit;
-  padding: 0;
-  text-align: left;
+  &-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background-color: $light-base;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    overflow: hidden;
+    padding: 8px 20px;
+    font-size: 28px;
+    &-small {
+      padding: 0 12px;
+    }
+    &-large {
+      padding: 12px 20px;
+    }
+    &-small > .#{$input-prefix-cls} {
+      font-size: 24px;
+    }
+    &-large > .#{$input-prefix-cls} {
+      height: 50px;
+      line-height: 50px;
+      font-size: 32px;
+    }
+  }
+
+  &-prefix {
+    margin-right: 8px;
+  }
+
+  &-suffix {
+    margin-left: 8px;
+  }
+
+  display: inline-block;
   width: 100%;
+  height: 44px;
+  line-height: 44px;
+  text-align: left;
   color: $font-color-1;
-  background-color: $light-base;
-  outline: none;  
+  text-overflow: ellipsis;
+
+  padding: 0;
+  outline: none;
   border: none;
-  font-size: 28px;
+
   &-align {
-    &-right{
+    &-right {
       text-align: right;
     }
-    &-center{
+    &-center {
       text-align: center;
     }
   }

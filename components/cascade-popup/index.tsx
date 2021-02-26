@@ -1,7 +1,6 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View } from 'remax/one';
-import Cascade from '../cascade';
+import Cascade, { valueType, OptionProps } from '../cascade';
 import Loading from '../loading';
 import Popup from '../popup';
 import Icon from '../icon';
@@ -16,21 +15,17 @@ export interface CascadePopupProps {
   text?: string;
   disabled?: boolean;
   placeholder?: string;
+  textAlign?: 'left' | 'right' | 'center';
   options: any[];
   prompt?: (e: any) => string;
-  onChange: (e: any, v: any) => void;
-  onComplete?: (e: any, values?: any[]) => void;
+  onChange: (v: any, s: any) => void;
+  [restProps: string]: any;
 }
 
 const CascadePopup = (props: CascadePopupProps) => {
-  const { value, text, disabled, placeholder, options, onComplete } = props;
+  const { value, text, disabled, placeholder, textAlign, options, onChange } = props;
 
   const [show, setShow] = useState(false);
-
-  const handleComplete = (value: any, values?: any[]) => {
-    onComplete?.(value, values);
-    setShow(false);
-  };
 
   const handleTap = () => {
     if (disabled) {
@@ -43,6 +38,13 @@ const CascadePopup = (props: CascadePopupProps) => {
     setShow(false);
   };
 
+  const handleChange = (v: valueType[], s?: OptionProps[], isLast?: boolean) => {
+    onChange(s, v);
+    if (isLast) {
+      setShow(false);
+    }
+  };
+
   if (!options || options.length === 0) {
     return (
       <View className={prefixCls}>
@@ -53,11 +55,14 @@ const CascadePopup = (props: CascadePopupProps) => {
     );
   }
 
+  const cascadeValue = value?.map(i => i.value) || [];
+  const cascadeText = value?.map(i => i.text).join(' ');
+
   return (
     <View className={prefixCls}>
-      <View className={`${prefixCls}-formitem`} onTap={handleTap}>
-        <FormValue placeholder={placeholder}>{text || value?.map(i => i.name).join(' ')}</FormValue>
-      </View>
+      <FormValue textAlign={textAlign} placeholder={placeholder} onTap={handleTap}>
+        {text || cascadeText}
+      </FormValue>
       <Popup position="bottom" open={show}>
         <View className={`${prefixCls}-container`}>
           <View className={`${prefixCls}-container-header`}>
@@ -66,7 +71,7 @@ const CascadePopup = (props: CascadePopupProps) => {
               <Icon type="close" color="#999" />
             </View>
           </View>
-          <Cascade {...props} onComplete={handleComplete} />
+          <Cascade {...props} value={cascadeValue} onChange={handleChange} />
         </View>
       </Popup>
     </View>

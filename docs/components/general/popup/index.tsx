@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Popup, Button } from 'anna-remax-ui';
+import { Popup, Button } from 'annar';
 import { Block, Frame } from '../../common';
 
 export default () => {

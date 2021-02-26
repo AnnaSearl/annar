@@ -12,7 +12,7 @@ $large-height: 80px;
   background-color: $btn-default-bg;
   height: 64px;
   line-height: 60px;
-  border: 1PX solid $btn-default-bg;
+  border: 1px solid $btn-default-bg;
   border-radius: 64px;
   color: $brand-color;
   font-weight: 500;
@@ -33,13 +33,13 @@ $large-height: 80px;
   // -webkit-tap-highlight-color: unset;
   &:not(&-disabled):active {
     // 由于absolute是相对于border以内的内容，不包括border, 所以要设置-1PX才能把border也罩住。
-    .#{$button-prefix-cls}-mask{
+    .#{$button-prefix-cls}-mask {
       box-sizing: border-box;
       position: absolute;
-      top: -1PX;
-      right: -1PX;
-      bottom: -1PX;
-      left: -1PX;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
       content: '';
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: inherit;
@@ -52,47 +52,47 @@ $large-height: 80px;
   }
   &-text {
     font-weight: 500;
-    font-size: 28px;
   }
-  &-small{
+  &-small {
     font-size: 24px;
     padding: 0 24px;
     height: 48px;
     line-height: 44px;
     border-radius: 52px;
   }
-  &-large{
+  &-large {
     padding: 0 40px;
     height: 80px;
     line-height: 76px;
     border-radius: 80px;
   }
-  &-superlarge{
-    font-size: 30px;
+  &-superlarge {
+    padding: 0 40px;
     height: 84px;
     line-height: 80px;
     border-radius: 84px;
+    font-size: 30px;
   }
-  &-primary{
+  &-primary {
     border-color: $brand-color;
     background-color: $brand-color;
     color: $light-base;
   }
 
   // plain
-  &-plain{
+  &-plain {
     font-weight: 400;
     color: #666;
-    border: 1PX solid #DDD;
+    border: 1px solid #ddd;
     background-color: $light-base;
   }
-  &-plain.#{$button-prefix-cls}-primary{
+  &-plain.#{$button-prefix-cls}-primary {
     border-color: $brand-color;
     color: $brand-color;
   }
 
   // hairline
-  &-hairline{
+  &-hairline {
     line-height: 64px;
     border-width: 0;
     &:before {
@@ -103,143 +103,144 @@ $large-height: 80px;
       bottom: -50%;
       left: -50%;
       content: '';
-      border: 1PX solid #DDD;
+      border: 1px solid #ddd;
       border-color: inherit;
       border-radius: inherit;
       transform: scale(0.5);
       pointer-events: none; // 这样伪类元素可以点击穿透, 也就是能看到, 但是不触发任何默认事件(click等);
     }
   }
-  &-small.#{$button-prefix-cls}-hairline{
+  &-small.#{$button-prefix-cls}-hairline {
     line-height: 48px;
   }
-  &-large.#{$button-prefix-cls}-hairline{
+  &-large.#{$button-prefix-cls}-hairline {
     line-height: 80px;
   }
-  &-superlarge.#{$button-prefix-cls}-hairline{
+  &-superlarge.#{$button-prefix-cls}-hairline {
     line-height: 84px;
   }
 
   // square
-  &-square{
+  &-square {
     padding: 0 30px;
     border-radius: 12px;
   }
   &-square.#{$button-prefix-cls}-small {
     padding: 0 14px;
   }
-  &-circle{
+  &-circle {
     padding: 0;
     min-width: 64px;
     border-radius: 50%;
     z-index: 9;
   }
-  &-circle.#{$button-prefix-cls}-small{
+  &-circle.#{$button-prefix-cls}-small {
     min-width: 48px;
   }
-  &-circle.#{$button-prefix-cls}-large{
+  &-circle.#{$button-prefix-cls}-large {
     min-width: 80px;
   }
-  &-circle.#{$button-prefix-cls}-superlarge{
+  &-circle.#{$button-prefix-cls}-superlarge {
     min-width: 84px;
   }
-  &-disabled{
+  &-disabled {
     cursor: default;
     opacity: 0.4;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
   }
-  &-danger-default{
+  &-danger-default {
     color: $danger-color;
   }
-  &-danger{
+  &-danger {
     border-color: $danger-color;
     background-color: $danger-color;
     color: $light-base;
   }
-  &-look{
-    &-secondary{
+  &-look {
+    &-secondary {
       color: $brand-color;
-      background-color: #ECF5FF;
-      border-color: #ECF5FF;
+      background-color: #ecf5ff;
+      border-color: #ecf5ff;
     }
-    &-secure{
+    &-secure {
       color: $light-base;
-      background-color: #07C160;
-      border-color: #07C160;
+      background-color: #07c160;
+      border-color: #07c160;
     }
-    &-warning{
+    &-warning {
       color: $dark-base;
-      background-color: #FFC409;
-      border-color: #FFC409;
+      background-color: #ffc409;
+      border-color: #ffc409;
     }
-    &-light{
+    &-light {
       color: $dark-base;
-      background-color:#F4F5F8;
-      border-color: #F4F5F8;
+      background-color: #f4f5f8;
+      border-color: #f4f5f8;
     }
-    &-medium{
+    &-medium {
       color: $light-base;
       background-color: #92949c;
       border-color: #92949c;
     }
-    &-dark{
+    &-dark {
       color: $light-base;
       background-color: #222428;
       border-color: #222428;
     }
-    &-anna{
+    &-anna {
       color: $light-base;
-      background-color: #FF7777;
-      border-color: #FF7777;
+      background-color: #ff7777;
+      border-color: #ff7777;
     }
-    &-orange{
+    &-orange {
       color: $light-base;
       background-color: #ff4f00;
       border-color: #ff4f00;
     }
   }
-  &-block{
+  &-block {
     width: 100%;
   }
-  &-float{
+  &-float {
     position: fixed;
-    box-shadow: 0 6px 24px #CCC;
+    box-shadow: 0 6px 24px #ccc;
     // box-shadow: 0 6px 16px -8px rgba(0,0,0,.12), 0 12px 32px 0 rgba(0,0,0,.08), 0 18px 56px 16px rgba(0,0,0,.05);
-    &-center{
+    &-center {
       left: 50%;
       bottom: 60px;
       transform: translateX(-50%);
     }
-    &-left{
+    &-left {
       left: 24px;
       bottom: 60px;
     }
-    &-right{
+    &-right {
       right: 24px;
       bottom: 60px;
     }
   }
-  &-loading{
+  &-loading {
     padding-left: 32px + 36px + 16px;
-    transition: padding .3s cubic-bezier(.645,.045,.355,1);
+    transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     // 用flex布局使icon和text垂直居中会导致移动端动画不渲染的问题，故改为verticalAlign
-    &-icon{ //微信小程序text标签下包含view标签导致loading不显示
+    &-icon {
+      //微信小程序text标签下包含view标签导致loading不显示
       display: inline;
       padding-right: 16px;
       margin-left: -36px - 16px;
     }
   }
-  &-ghost{
+  &-ghost {
     border-color: transparent;
     background-color: transparent;
   }
 }
 
-.width-fix{
+.width-fix {
   height: $large-height;
   display: inline-block;
   overflow: hidden;
-  .default{
+  .default {
     display: inline-block;
     width: 200%;
     height: 200%;
@@ -248,16 +249,16 @@ $large-height: 80px;
     transform-origin: 0 0;
     text-align: center;
   }
-  .large{
+  .large {
     line-height: $large-height * 2;
     border-radius: $large-height * 2;
   }
-  .primary{
+  .primary {
     background-color: $brand-color;
     color: $light-base;
   }
-  .disabled{
+  .disabled {
     opacity: 0.4;
-    color: hsla(0,0%,100%,.6) !important;
+    color: hsla(0, 0%, 100%, 0.6) !important;
   }
 }

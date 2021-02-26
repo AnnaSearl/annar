@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Steps } from 'anna-remax-ui';
+import { Steps } from 'annar';
 import { Block, Frame } from '../../common';
 
 export default () => {
@@ -50,13 +50,13 @@ export default () => {
             direction="vertical"
             steps={[
               {
-                title: '报价成功',
+                title: '待处理',
               },
               {
                 title: '询价中',
               },
               {
-                title: '待处理',
+                title: '报价成功',
               },
             ]}
           />
@@ -70,11 +70,13 @@ export default () => {
         >
           <Steps
             direction="vertical"
+            current={1}
+            status="error"
             steps={[
               {
-                title: '报价成功',
-                description: '客户已接受报价',
-                extra: '2020-5-1',
+                title: '待处理',
+                description: '客户已下单，订单等待销售处理',
+                extra: '2020-4-23',
               },
               {
                 title: '询价中',
@@ -82,9 +84,9 @@ export default () => {
                 extra: '2020-4-27',
               },
               {
-                title: '待处理',
-                description: '客户已下单，订单等待销售处理',
-                extra: '2020-4-23',
+                title: '报价成功',
+                description: '客户已接受报价',
+                extra: '2020-5-1',
               },
             ]}
           />

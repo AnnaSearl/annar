@@ -11,14 +11,14 @@ const prefixCls = getPrefixCls('filter-item');
 export interface ItemProps {
   title?: string;
   height?: string;
-  onTap?: (open: boolean) => void;
-  onShowMask?: (show: boolean) => void;
   children?: React.ReactNode;
   value?: string;
   options?: OptionProps[];
   activeColor?: string;
-  onChange?: (e: OptionProps) => void;
   disabled?: boolean;
+  onChange?: (e: OptionProps) => void;
+  onTap?: (open: boolean) => void;
+  onShowMask?: (show: boolean) => void;
 }
 
 const Item = (props: ItemProps, ref: any): React.ReactElement => {
@@ -33,8 +33,8 @@ const Item = (props: ItemProps, ref: any): React.ReactElement => {
     activeColor,
     disabled,
   } = props;
+
   const [open, setOpen] = useState(false);
-  // const [height, setHeight] = useState("0");
 
   useImperativeHandle(
     ref,
@@ -77,15 +77,6 @@ const Item = (props: ItemProps, ref: any): React.ReactElement => {
     onShowMask?.(false);
   };
 
-  // React.useEffect(() => {
-  //   wx.createSelectorQuery()
-  //   .select(`#anna-filter-item-${id}`)
-  //   .boundingClientRect((rect: any) => {
-  //     setHeight(`${rect.height * 2}px`);
-  //   })
-  //   .exec()
-  // }, [])
-
   return (
     <View className={prefixCls}>
       <View style={{ backgroundColor: '#FDFFFD' }}>
@@ -97,7 +88,7 @@ const Item = (props: ItemProps, ref: any): React.ReactElement => {
           onTap={handleTap}
         >
           <Text className={`${prefixCls}-label-text`}>
-            {options?.find(option => option.key === value)?.value || title}
+            {options?.find(option => option.value === value)?.text || title}
           </Text>
           {open ? (
             <Text className={`${prefixCls}-label-chevronUp`} />

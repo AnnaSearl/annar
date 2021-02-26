@@ -1,25 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "strict": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "jsx": "preserve",
-    "outDir": "./esm",
-    "rootDir": "./components",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["./components/*"]
-    },
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable",
-      "ScriptHost",
-    ],
-  },
+  "extends": "./tsconfig.json",
   "include": [
     "components/**/*",
     "typings/**/*",

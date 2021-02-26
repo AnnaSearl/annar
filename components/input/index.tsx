@@ -1,86 +1,91 @@
 import * as React from 'react';
 import { Input, View } from 'remax/one';
 import classNames from 'classnames';
-import Cell from '../cell';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('input');
 
 export interface InputProps {
-  label?: React.ReactNode;
   name?: string;
-  type?: 'text' | 'number' | 'password';
-  placeholder?: string;
   value?: string;
+  defaultValue?: string;
+  type?: 'text' | 'number' | 'idcard' | 'digit' | 'password';
+  size?: 'large' | 'middle' | 'small';
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  placeholder?: string;
   className?: string;
-  inputAlign?: string;
-  icon?: string;
+  style?: React.CSSProperties;
+  inputStyle?: React.CSSProperties;
+  placeholderStyle?: React.CSSProperties;
+  align?: string;
   disabled?: boolean;
-  border?: boolean;
-  required?: boolean;
-  extra?: React.ReactNode;
   maxLength?: number;
   onChange?: (e: any) => void;
+  onFocus?: (e: any) => void;
+  onBlur?: (e: any) => void;
 }
 
-const AInput = (props: InputProps) => {
+const AnnarInput = (props: InputProps) => {
   const {
-    label,
     name,
-    type,
+    type = 'text',
+    size,
     value,
-    className = '',
-    inputAlign,
+    defaultValue,
+    prefix,
+    suffix,
+    className,
+    style,
+    inputStyle,
+    placeholderStyle,
+    align,
     placeholder,
-    onChange,
     disabled,
-    border = true,
-    required,
-    icon,
-    extra,
     maxLength,
+    onChange,
+    onFocus,
+    onBlur,
   } = props;
-
-  const handleChangeInput = (e: any) => {
-    onChange?.(e);
-  };
 
   const _type = type === 'password' ? 'text' : type;
 
   const inputElement = (
     <Input
-      className={classNames({
-        [prefixCls]: true,
-        [`${prefixCls}-align-right`]: inputAlign === 'right',
-        [`${prefixCls}-align-center`]: inputAlign === 'center',
-        [className]: true,
+      className={classNames(prefixCls, {
+        [`${prefixCls}-align-${align}`]: align,
       })}
+      style={inputStyle}
+      placeholderStyle={{ color: '#bfbfbf', ...placeholderStyle }}
       name={name}
-      password={type === 'password'}
+      // @ts-ignore
       type={_type}
+      password={type === 'password'}
       value={value}
+      defaultValue={defaultValue}
       placeholder={placeholder}
-      onInput={handleChangeInput}
       disabled={disabled}
       maxLength={maxLength}
+      onInput={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 
   return (
-    <Cell
-      label={label}
-      labelStyle={{ width: '180px' }}
-      border={border}
-      required={required}
-      icon={icon}
-      field
+    <View
+      className={classNames(
+        `${prefixCls}-wrapper`,
+        { [`${prefixCls}-wrapper-${size}`]: size },
+        className,
+      )}
+      style={style}
     >
-      <View className={`${prefixCls}-container`}>
-        {inputElement}
-        {extra && <View className={`${prefixCls}-extra`}>{extra}</View>}
-      </View>
-    </Cell>
+      <View className={`${prefixCls}-prefix`}>{prefix}</View>
+      {inputElement}
+      <View className={`${prefixCls}-suffix`}>{suffix}</View>
+    </View>
   );
 };
 
-export default AInput;
+export default AnnarInput;

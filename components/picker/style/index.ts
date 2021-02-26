@@ -1,5 +1,7 @@
-import '../../web/base/picker/style';
+import '../../style/index.scss';
+import './index.scss';
 
 // dependencies
-import '../../cell/style';
-import '../../form-value/style';
+import '../../popup/style';
+import '../../picker-view/style';
+import '../../picker-view-column/style';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Card, Icon } from 'anna-remax-ui';
+import { Card, Icon } from 'annar';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 
@@ -94,7 +94,7 @@ export default () => {
           </View>
         </Card>
       </Block>
-      <Block noTitlePadding title="Shadow">
+      <Block noTitlePadding className={styles.whiteBg} title="Shadow">
         <Card
           title="淡彩"
           description="花边-蕾丝花边-睫毛花边"
@@ -105,7 +105,7 @@ export default () => {
           }
           direction="horizontal"
           shadow
-        ></Card>
+        />
       </Block>
     </Frame>
   );

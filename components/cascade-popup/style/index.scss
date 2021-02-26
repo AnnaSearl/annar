@@ -5,24 +5,16 @@ $cascade-popup-prefix-cls: #{$anna-prefix}-cascade-popup;
 .#{$cascade-popup-prefix-cls} {
   height: 100%;
   width: 100%;
-  &-loading{
+  &-loading {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 100%;
     width: 100%;
   }
-  &-formitem{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100%;
-    width: 100%;
-    font-size: 26px;
-  }
-  &-container{
+  &-container {
     overflow: hidden;
-    &-header{
+    &-header {
       position: relative;
       text-align: center;
       height: 80px;
@@ -33,7 +25,7 @@ $cascade-popup-prefix-cls: #{$anna-prefix}-cascade-popup;
       color: #333;
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
-      &-close{
+      &-close {
         position: absolute;
         right: 30px;
         top: 30px;
@@ -46,4 +38,3 @@ $cascade-popup-prefix-cls: #{$anna-prefix}-cascade-popup;
     }
   }
 }
-

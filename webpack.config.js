@@ -4,31 +4,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WebpackBar = require('webpackbar');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pkg = require('./package.json');
 
-const replaces = [
-  { search: /<View/g, replace: '<div' },
-  { search: /<\/View>/g, replace: '</div>' },
-  { search: /<Text/g, replace: '<span' },
-  { search: /<\/Text>/g, replace: '</span>' },
-  { search: /<Input/g, replace: '<input' },
-  { search: /<\/Input>/g, replace: '</input>' },
-  { search: /<Image/g, replace: '<img' },
-  { search: /<\/Image>/g, replace: '</img>' },
-  { search: /<Textarea/g, replace: '<textarea' },
-  { search: /<\/Textarea>/g, replace: '</textarea>' },
-  { search: /onTap/g, replace: 'onClick' },
-];
 const entry = ['./index'];
-const libName = "anna";
-const exts = ['.web.ts','.web.tsx','.ts', '.tsx', '.js', '.jsx'];
+const libName = 'annar';
+const exts = ['.web.ts', '.web.tsx', '.ts', '.tsx', '.js', '.jsx'];
 
 const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'anna',
+    library: libName,
     libraryTarget: 'umd',
   },
   externals: {
@@ -50,7 +36,7 @@ const config = {
       commonjs2: 'lodash-es',
       amd: 'lodash-es',
     },
-    'remax': {
+    remax: {
       root: 'Remax',
       commonjs: 'remax',
       commonjs2: 'remax',
@@ -75,14 +61,14 @@ const config = {
           {
             loader: 'babel-loader',
             options: {
-              envName: "web"
-            }
+              envName: 'web',
+            },
           },
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.webpack.json'
-            }
+              configFile: 'tsconfig.webpack.json',
+            },
           },
         ],
       },
@@ -135,11 +121,8 @@ const config = {
       openAnalyzer: false,
       reportFilename: '../report.html',
     }),
-    // new HtmlWebpackPlugin({
-    //   title: 'Anna Remax UI',
-    // }),
   ],
-}
+};
 
 const uncompressedConfig = merge({}, config, {
   mode: 'development',
@@ -148,14 +131,14 @@ const uncompressedConfig = merge({}, config, {
   },
   optimization: {
     usedExports: true,
-  }
-})
+  },
+});
 
 const productionConfig = merge({}, config, {
   mode: 'production',
   entry: {
     [`${libName}.min`]: entry,
   },
-})
+});
 
 module.exports = [productionConfig, uncompressedConfig];

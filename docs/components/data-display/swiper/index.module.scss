@@ -1,0 +1,24 @@
+.miniItem {
+  background-color: #feffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26px;
+  padding: 0 24px;
+  .left {
+    display: flex;
+    align-items: center;
+    .title {
+      color: #333;
+      margin-left: 10px;
+    }
+    .description {
+      font-size: 24px;
+      color: #666;
+      margin-left: 16px;
+    }
+    .number {
+      color: #ff4f00;
+    }
+  }
+}

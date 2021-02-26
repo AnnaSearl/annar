@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { View, Image } from 'remax/one';
 import { previewImage, chooseImage } from '../one';
-import cloneDeep from 'lodash-es/cloneDeep';
-import { sync, to } from '../_util';
+import { sync, to, deepClone } from '../_util';
 import { getPrefixCls } from '../common';
 import Icon from '../icon';
 
@@ -17,7 +16,6 @@ export type DataItem = ImageProps | string;
 
 export interface ImageUploadProps {
   files?: DataItem[];
-  onChange?: (e: DataItem[]) => void;
   multiple?: boolean;
   multipleCount?: number;
   sizeType?: string[];
@@ -25,6 +23,8 @@ export interface ImageUploadProps {
   deletable?: boolean;
   disabled?: boolean;
   maxCount?: number;
+  children?: React.ReactNode;
+  onChange?: (e: DataItem[]) => void;
 }
 
 const ImageUpload = (props: ImageUploadProps) => {
@@ -38,6 +38,7 @@ const ImageUpload = (props: ImageUploadProps) => {
     deletable = true,
     disabled,
     maxCount,
+    children,
   } = props;
 
   const handleClickImage = (index: number) => {
@@ -56,7 +57,6 @@ const ImageUpload = (props: ImageUploadProps) => {
   };
 
   const handleAdd = async () => {
-    console.log('handleAdd');
     if (disabled) {
       return;
     }
@@ -87,7 +87,7 @@ const ImageUpload = (props: ImageUploadProps) => {
 
   const handleDelete = (e: any, index: number) => {
     e.stopPropagation();
-    let newValue = cloneDeep(files);
+    let newValue = deepClone(files);
     newValue.splice(index, 1);
     newValue = newValue.map((item: DataItem, index: number) => {
       const newItem = item;
@@ -133,8 +133,12 @@ const ImageUpload = (props: ImageUploadProps) => {
         </View>
       ))}
       {!maxCount || files.length < maxCount ? (
-        <View className={`${prefixCls}-add`} onTap={handleAdd}>
-          <Icon type="add" size="48px" color="#BABEC6" />
+        <View onTap={handleAdd}>
+          {children ?? (
+            <View className={`${prefixCls}-add`}>
+              <Icon type="add" size="48px" color="#BABEC6" />
+            </View>
+          )}
         </View>
       ) : null}
     </View>

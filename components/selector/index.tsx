@@ -7,8 +7,8 @@ import { getPrefixCls } from '../common';
 const prefixCls = getPrefixCls('selector');
 
 export interface OptionProps {
-  key: string;
-  value: string;
+  value: string | number;
+  text: string;
   children?: OptionProps[];
 }
 
@@ -28,13 +28,13 @@ const Selector = (props: SelectorProps) => {
 
   const [parentData, setParentData] = useState<OptionProps[]>([]);
   const [childrenData, setChildrenData] = useState<OptionProps[]>([]);
-  const [activeParent, setActiveParent] = useState('');
+  const [activeParent, setActiveParent] = useState<string | number>('');
 
   useEffect(() => {
     if (options.length > 0) {
       const data = options[0].children || [];
       currentParent = options[0];
-      setActiveParent(currentParent.key);
+      setActiveParent(currentParent.value);
       setParentData(options);
       setChildrenData(data);
     }
@@ -44,12 +44,12 @@ const Selector = (props: SelectorProps) => {
     const data = option.children || [];
     currentParent = option;
     setChildrenData(data);
-    setActiveParent(option.key);
+    setActiveParent(option.value);
     onChangeParentOption?.(option);
   };
 
   const handleClickChildrenOption = (option: OptionProps) => {
-    onChange?.([currentParent.key, option.key], `${currentParent.value} ${option.value}`);
+    onChange?.([currentParent.value, option.value], `${currentParent.text} ${option.text}`);
   };
 
   return (
@@ -57,22 +57,22 @@ const Selector = (props: SelectorProps) => {
       <View className={`${prefixCls}-parent`}>
         {parentData?.map((option, index) => (
           <View
-            key={option.key}
+            key={option.value}
             className={classNames({
               [`${prefixCls}-option`]: true,
-              [`${prefixCls}-active`]: activeParent === option.key,
+              [`${prefixCls}-active`]: activeParent === option.value,
             })}
             onTap={() => {
               handleClickParentOption(option);
             }}
           >
-            {option.value}
-            {activeParent === option.key && index !== 0 ? (
+            {option.text}
+            {activeParent === option.value && index !== 0 ? (
               <View className={`${prefixCls}-option-rounded_top`}>
                 <View className={`${prefixCls}-option-rounded_top-circle`} />
               </View>
             ) : null}
-            {activeParent === option.key ? (
+            {activeParent === option.value ? (
               <View className={`${prefixCls}-option-rounded_bottom`}>
                 <View className={`${prefixCls}-option-rounded_bottom-circle`} />
               </View>
@@ -83,16 +83,16 @@ const Selector = (props: SelectorProps) => {
       <View className={`${prefixCls}-children`}>
         {childrenData?.map(option => (
           <View
-            key={option.key}
+            key={option.value}
             className={classNames({
               [`${prefixCls}-option`]: true,
-              [`${prefixCls}-active`]: value?.[1] === option.key,
+              [`${prefixCls}-active`]: value?.[1] === option.value,
             })}
             onTap={() => {
               handleClickChildrenOption(option);
             }}
           >
-            {option.value}
+            {option.text}
           </View>
         ))}
       </View>

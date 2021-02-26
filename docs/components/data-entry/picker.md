@@ -5,8 +5,6 @@ order: 6
 
 ## Picker
 
-Demo:
-
 <code src="./picker/index.tsx" />
 
 ## API
@@ -14,22 +12,27 @@ Demo:
 #### Picker
 
 | 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | ---- | --- |
-| value | 表示选择了 options 中对应key值的选项 | string | - |
-| options | Picker的所有选项 | OptionProps | - |
-| placeholder | 占位提示文字 | string | - |
+| --- | --- | --- | --- |
+| range | 选项内容，单列选择为 `string[]` 或 `Object[]`，多列选择为 `Array[]` | string[] \| Object[] \| Array[] | - |
+| rangeKey | 选项对象中，选项文字对应的键名 | string | text |
+| value | 表示选择了 range 中的第几个（下标从 0 开始） | number \| number[] | 0 |
 | disabled | 是否禁用 | boolean | `false` |
-| pickerAlign | Picker对齐方式 | `center` \| `right`| - |
-| label | 左侧标签 | `string` \| `ReactNode` | - |
-| icon | 左侧图标名称 | string | - |
-| required | 是否显示表单必填星号 | boolean | `false` |
-| border | 是否显示内边框 | boolean | `true` |
-| onChange | value 改变时触发 change 事件 | (v: {key: string, value: string}) => void | - |
+| onChange | value 改变时触发 change 事件 | (v: number \| number[]) => void | - |
 
+#### PickerView
 
-#### OptionProps
+| 属性     | 说明                           | 类型             | 默认值 |
+| -------- | ------------------------------ | ---------------- | ------ |
+| title    | 标题                           | ReactNode        | -      |
+| children | 只可放置 PickerViewColumn 组件 | ReactNode        | -      |
+| onOK     | value 改变时触发 change 事件   | (e: any) => void | -      |
+| onChange | value 改变时触发 change 事件   | (e: any) => void | -      |
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | ---- | --- |
-| key | 此项必须设置（其值在整个选项范围内唯一）| string | - |
-| value | 值 | string | - |
+#### PickerViewColumn
+
+| 属性       | 说明                                           | 类型                 | 默认值 |
+| ---------- | ---------------------------------------------- | -------------------- | ------ |
+| options    | 选项列表                                       | string[] \| Object[] | []     |
+| optionsKey | 选项对象中，选项文字对应的键名                 | string               | text   |
+| value      | 表示选择了 options 中的第几个（下标从 0 开始） | number               | 0      |
+| onChange   | value 改变时触发 change 事件                   | (v: number) => void  | -      |

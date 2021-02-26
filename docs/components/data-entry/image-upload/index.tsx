@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { ImageUpload } from 'anna-remax-ui';
+import { Image, View } from 'remax/one';
+import { ImageUpload } from 'annar';
 import { Block, Frame } from '../../common';
 
-const url = 'https://smebimage.fuliaoyi.com/FkYCklRDGWpea9chxKsxPtYsrdtz';
 const logoUrl = 'https://smebimage.fuliaoyi.com/FoMXNlKdZt9UqufDkPony8ztWKsU';
+const fontUrl = 'https://smebimage.fuliaoyi.com/Fr53_6YFoikRWCgyOsRTcQ4f7CNB';
 
 export default () => {
   const [value, setValue] = React.useState([]);
@@ -11,8 +12,9 @@ export default () => {
   const [value2, setValue2] = React.useState([logoUrl]);
   const [value3, setValue3] = React.useState([logoUrl]);
   const [value4, setValue4] = React.useState([logoUrl]);
-  const [value5, setValue5] = React.useState([logoUrl, url]);
+  const [value5, setValue5] = React.useState([logoUrl]);
   const [value6, setValue6] = React.useState([]);
+  const [value7, setValue7] = React.useState([]);
 
   const handleChange = (files: any) => {
     setValue(files);
@@ -34,6 +36,9 @@ export default () => {
   };
   const handleChange6 = (files: any) => {
     setValue6(files);
+  };
+  const handleChange7 = (files: any) => {
+    setValue7(files);
   };
 
   return (
@@ -58,6 +63,11 @@ export default () => {
       </Block>
       <Block noTitlePadding title="Disabled">
         <ImageUpload files={value6} onChange={handleChange6} disabled />
+      </Block>
+      <Block noTitlePadding title="Children">
+        <ImageUpload files={value7} onChange={handleChange7} maxCount={1}>
+          <Image mode="widthFix" src={fontUrl} style={{ width: '221px', height: '144px' }} />
+        </ImageUpload>
       </Block>
     </Frame>
   );

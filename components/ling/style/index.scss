@@ -1,0 +1,45 @@
+@import '../../style/theme/index';
+
+$ling-prefix-cls: #{$anna-prefix}-ling;
+
+.#{$ling-prefix-cls} {
+  position: fixed;
+  z-index: 1010;
+  background-color: $light-2;
+  overflow: hidden;
+  box-shadow: 0px 2px 20px 0px #eaecee;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  &-top {
+    width: 400px;
+    height: 100px;
+    border-radius: 100px;
+    left: 50%;
+    top: 0;
+    transform: translate3d(-50%, calc(-100% - 10px), 0);
+  }
+  &-show {
+    transform: translate3d(-50%, 24px, 0);
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    height: 100%;
+    font-weight: 500;
+  }
+  &-title {
+    color: #666;
+  }
+  &-content {
+    color: #999;
+    margin-top: 10px;
+  }
+  &-icon {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ActionSheet, Button } from 'anna-remax-ui';
+import { ActionSheet, Button } from 'annar';
 import { Block, Frame } from '../../common';
 
 const actions = [
