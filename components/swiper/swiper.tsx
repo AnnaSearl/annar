@@ -287,8 +287,8 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
     const diff = (vertical ? touch.pageY : touch.pageX) - startPoint.current;
     const speed = diff / (Date.now() - startTime.current);
     const harfSideLength = sideLength.current / 2;
-    console.log('speed', speed);
 
+    // 快速滑动(即速度 > 0.3)时直接跳转到下一个item
     if (Math.abs(speed) > 0.3) {
       if (diff > 0) {
         move('right');

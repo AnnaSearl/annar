@@ -37,27 +37,22 @@ const Steps = (props: StepsProps): React.ReactElement => {
   if (direction === 'vertical') {
     return (
       <View className={prefixCls}>
-        {/* <View className={`${prefixCls}-first_step`}>
-          <View className={styles.line} />
-        </View> */}
-        {steps?.map((item, index) => (
+        {steps?.reverse?.()?.map((item, index) => (
           <View key={index} className={`${prefixCls}-step`}>
+            {index === steps?.length - 1 ? null : index < current ? (
+              <View className={`${prefixCls}-line-ahead`} />
+            ) : (
+              <View className={`${prefixCls}-line`} />
+            )}
             {index === current ? (
               <View className={`${prefixCls}-circle_current`}>
                 <Text className={`${prefixCls}-circle_current-icon`}>
                   <Icon type={statusIconType} size="40px" color={statusIconColor} />
                 </Text>
               </View>
-            ) : index > current ? (
-              <View className={`${prefixCls}-circle-ahead`} />
-            ) : (
-              <View className={`${prefixCls}-circle`} />
-            )}
-            {index < current ? (
-              <View className={`${prefixCls}-line`} />
-            ) : (
-              <View className={`${prefixCls}-line-ahead`} />
-            )}
+            ) : null}
+            {index < current ? <View className={`${prefixCls}-circle-ahead`} /> : null}
+            {index > current ? <View className={`${prefixCls}-circle`} /> : null}
             <View className={`${prefixCls}-step-header`}>
               <View className={`${prefixCls}-step-header-title`}>{getTitle(item, index)}</View>
               <View className={`${prefixCls}-step-header-extra`}>{item.extra}</View>
