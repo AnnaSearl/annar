@@ -60,8 +60,6 @@ export { default as FormValue } from './form-value';
 
 export { default as Stepper } from './stepper';
 
-export { default as Slider } from './slider';
-
 // 数据展示
 
 export { default as Card } from './card';
