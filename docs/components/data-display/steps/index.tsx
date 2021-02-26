@@ -70,6 +70,8 @@ export default () => {
         >
           <Steps
             direction="vertical"
+            current={1}
+            status='error'
             steps={[
               {
                 title: '报价成功',

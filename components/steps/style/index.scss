@@ -45,6 +45,18 @@ $steps-prefix-cls: #{$anna-prefix}-steps;
     z-index: 1;
     transform: translate(-50%, -50%);
   }
+  &-circle-ahead{
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
   &-circle_current{
     box-sizing: border-box;
     position: absolute;
@@ -73,6 +85,15 @@ $steps-prefix-cls: #{$anna-prefix}-steps;
     bottom: 0;
     width: 2px;
     background-color: $brand-color;
+    transform: translateX(-50%);
+  }
+  &-line-ahead{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color:#f0f0f0;
     transform: translateX(-50%);
   }
 }
