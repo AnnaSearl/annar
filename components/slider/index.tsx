@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View } from 'remax/one';
+import classnames from 'classnames';
 import { createSelectorQuery } from '../one';
 import { getPrefixCls } from '../common';
 
@@ -8,6 +9,12 @@ const prefixCls = getPrefixCls('slider');
 export interface SliderProps {
   // 设置初始取值。
   defaultValue?: number;
+  // 可拖动的元素样式
+  handleClassName?: string;
+  // 轨道颜色
+  trackColor?: string;
+  // 整体轨道样式
+  railClassName?: string;
   // 值为 true 时，滑块为禁用状态
   disabled?: boolean;
   // 最大值
@@ -21,10 +28,24 @@ export interface SliderProps {
 }
 
 const Slider = (props: SliderProps) => {
-  const { defaultValue = 0, disabled = false, max = 100, min = 0, value = 0, onChange } = props;
+  const {
+    defaultValue = 0,
+    handleClassName,
+    trackColor,
+    railClassName,
+    disabled = false,
+    max = 100,
+    min = 0,
+    value = 0,
+    onChange,
+  } = props;
   const [rectW, setRectW] = useState(0);
-  const [step, setStep] = useState(defaultValue);
+  const [step, setStep] = useState(Math.round((defaultValue / (max - min)) * 100));
   const [startX, setStartX] = useState(0);
+  const isFirstMount = useRef(true);
+  useEffect(() => {
+    !isFirstMount.current && setStep(value);
+  }, [value]);
   useEffect(() => {
     const handleSliderWidth = () => {
       createSelectorQuery()
@@ -39,10 +60,8 @@ const Slider = (props: SliderProps) => {
         });
     };
     handleSliderWidth();
+    isFirstMount.current = false;
   }, []);
-  useEffect(() => {
-    setStep(value);
-  }, [value]);
   const getStepValues = (step: number) => {
     if (step < 0) {
       return 0;
@@ -57,20 +76,23 @@ const Slider = (props: SliderProps) => {
       const percent = offsetX / rectW;
       const stepValue = Math.round(percent * 100);
       setStep(getStepValues(stepValue));
-      onChange && onChange(((max - min) * stepValue) / 100);
+      onChange && onChange(Math.abs(getStepValues(((max - min) * stepValue) / 100)));
     }
   };
   return (
     <View className={`${prefixCls}`}>
-      <View className={`${prefixCls}-rail`}></View>
+      <View className={classnames(`${prefixCls}-rail`, railClassName)}></View>
       <View
         className={`${prefixCls}-track`}
-        style={{
-          width: `${step}%`,
-        }}
+        style={Object.assign(
+          {
+            width: `${step}%`,
+          },
+          trackColor ? { backgroundColor: trackColor } : {},
+        )}
       ></View>
       <View
-        className={`${prefixCls}-handle`}
+        className={classnames(`${prefixCls}-handle`, handleClassName)}
         style={{
           left: `${step}%`,
         }}

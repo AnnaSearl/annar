@@ -1,0 +1,15 @@
+.app {
+  padding: 30px 0;
+  .container{
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    .rail {
+      background-color: red;
+    }
+    .handle {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
