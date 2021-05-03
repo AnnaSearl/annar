@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'remax/one';
+import { throttle } from '../_util';
 import { getPrefixCls } from '../common';
 
 const prefixCls = getPrefixCls('picker-view-column');
@@ -47,19 +48,27 @@ const PickerViewColumn: React.FC<PickerViewColumnProps> = (props: PickerViewColu
     setStart(e.touches[0].clientY);
   };
 
+  const throttleTouchMove = throttle(
+    (e: any) => {
+      e.preventDefault?.();
+      const diff = e.touches[0].clientY - start;
+      const updateY = diff + initial;
+      if (updateY < -columnHeight + heightUnit * 2) {
+        setY(-columnHeight + heightUnit * 2);
+        return;
+      }
+      if (updateY > heightUnit * 3) {
+        setY(heightUnit * 3);
+        return;
+      }
+      setY(updateY);
+    },
+    120,
+    { trailing: false },
+  );
+
   const handleTouchMove = (e: any) => {
-    e.preventDefault?.();
-    const diff = e.touches[0].clientY - start;
-    const updateY = diff + initial;
-    if (updateY < -columnHeight + heightUnit * 2) {
-      setY(-columnHeight + heightUnit * 2);
-      return;
-    }
-    if (updateY > heightUnit * 3) {
-      setY(heightUnit * 3);
-      return;
-    }
-    setY(updateY);
+    throttleTouchMove(e);
   };
 
   const handleTouchEnd = (e: any) => {

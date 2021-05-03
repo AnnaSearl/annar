@@ -23,16 +23,17 @@ export const throttle = (func: any, wait: any, options?: any) => {
     previous = options.leading === false ? 0 : new Date().getTime();
     timeout = null;
     func.apply(context, args);
-    if (!timeout) context = args = null;
+    if (!timeout) {
+      context = null;
+      args = [];
+    }
   };
 
-  const throttled = function (this: any) {
+  const throttled = function (this: any, ...args: any[]) {
     const now = new Date().getTime();
     if (!previous && options.leading === false) previous = now;
     const remaining = wait - (now - previous);
     context = this;
-    // eslint-disable-next-line prefer-rest-params
-    args = arguments;
     if (remaining <= 0 || remaining > wait) {
       if (timeout) {
         clearTimeout(timeout);
@@ -40,7 +41,10 @@ export const throttle = (func: any, wait: any, options?: any) => {
       }
       previous = now;
       func.apply(context, args);
-      if (!timeout) context = args = null;
+      if (!timeout) {
+        context = null;
+        args = [];
+      }
     } else if (!timeout && options.trailing !== false) {
       timeout = setTimeout(later, remaining);
     }

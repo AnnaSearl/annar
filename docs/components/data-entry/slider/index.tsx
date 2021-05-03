@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Slider } from 'anna-remax-ui';
+import { Slider } from 'annar';
 import { Block, Frame } from '../../common';
 import styles from './index.module.scss';
 

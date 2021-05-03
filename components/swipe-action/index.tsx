@@ -67,7 +67,7 @@ const SwipeAction: React.FC<SwipeActionProps> = (props: SwipeActionProps): React
       }
       setX(total);
     },
-    30,
+    90,
     { trailing: false },
   );
 
@@ -80,7 +80,6 @@ const SwipeAction: React.FC<SwipeActionProps> = (props: SwipeActionProps): React
   };
 
   const handleTouchMove = (e: any) => {
-    // @ts-ignore
     throttleTouchMove(e);
   };
 

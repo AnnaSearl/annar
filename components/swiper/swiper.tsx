@@ -255,7 +255,7 @@ const InternalSwiper: React.FC<SwiperProps> = (props: SwiperProps) => {
           setTransition('none');
         }
       },
-      10,
+      60,
       { trailing: false },
     ),
     [startPoint.current, origin.current],
