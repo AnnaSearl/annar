@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Slider } from 'anna-remax-ui';
+import { Slider } from 'annar';
 
 export default () => {
-  return (
-    <Slider />
-  )
-}
+  return <Slider />;
+};

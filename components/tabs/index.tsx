@@ -25,6 +25,7 @@ export interface TabProps {
   titleWidth?: number;
   titleSquare?: boolean;
   titleAlign?: string;
+  titleStyle?: React.CSSProperties;
   onTabClick?: (i: any) => void;
 }
 
@@ -95,6 +96,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
     titleWidth,
     titleSquare,
     titleAlign,
+    titleStyle,
   } = props;
 
   // 针对同一个页面出现两个Tabs，给每个Tabs一个 UniqueID
@@ -174,6 +176,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 [`${prefixCls}-plain-title`]: true,
                 [`${prefixCls}-plain-center-title`]: titleAlign === 'center',
               })}
+              style={titleStyle}
               onTap={() => handleTabClick(item)}
             >
               {item.tab}
@@ -198,6 +201,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 [`${prefixCls}-card-title`]: true,
                 [`${prefixCls}-card-active`]: activeKeyStr === item.key,
               })}
+              style={titleStyle}
               onTap={() => handleTabClick(item)}
             >
               {item.tab}
@@ -221,6 +225,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 className={`${prefixCls}-slider-title`}
                 style={
                   {
+                    ...titleStyle,
                     fontWeight: activeKeyStr === item.key ? 500 : 400,
                     width: titleWidth ? `${titleWidth}px` : null,
                   } as React.CSSProperties
@@ -256,6 +261,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 key={item.key}
                 className={`${prefixCls}-vertical-sidebar-item`}
                 style={{
+                  ...titleStyle,
                   fontWeight: selected === index ? 500 : 400,
                   backgroundColor: selected === index ? '#FDFFFD' : '#FAFAFA',
                 }}
