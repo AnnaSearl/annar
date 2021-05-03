@@ -48,5 +48,5 @@ export default () => {
         </View>
       </Block>
     </Frame>
-  )
-}
+  );
+};
