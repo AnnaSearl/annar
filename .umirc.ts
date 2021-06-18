@@ -12,6 +12,7 @@ export default defineConfig({
   favicon: 'https://smebimage.fuliaoyi.com/Fger7VZclDUaXDJuqg42MlsUqV-w',
   navs: [
     null,
+    { title: 'Anna Native', path: 'https://annasearl.github.io/anna-native/' },
     { title: 'Eurus', path: 'https://github.com/AnnaSearl/eurus' },
     { title: 'GitHub', path: 'https://github.com/AnnaSearl/annar' },
   ],
