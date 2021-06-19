@@ -15,7 +15,7 @@ $ling-prefix-cls: #{$anna-prefix}-ling;
     border-radius: 100px;
     left: 50%;
     top: 0;
-    transform: translate3d(-50%, calc(-100% - 10px), 0);
+    transform: translate3d(-50%, calc(-100% - 20px), 0);
   }
   &-show {
     transform: translate3d(-50%, 24px, 0);
