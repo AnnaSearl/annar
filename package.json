@@ -1,8 +1,8 @@
 {
   "name": "annar",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "优雅、简洁的 Remax 组件库",
-  "main": "web/index.js",
+  "main": "esm/index.js",
   "esnext": "esm/index.js",
   "module": "esm/index.js",
   "keywords": [
@@ -24,7 +24,7 @@
     "compile": "gulp",
     "precompile": "npm run clean",
     "watch:web": "webpack --watch",
-    "clean": "rimraf esm web",
+    "clean": "rimraf esm",
     "pub": "sh shell/pub.sh",
     "commit": "sh shell/commit.sh",
     "lint": "eslint components --fix --ext .ts,.tsx",
@@ -39,13 +39,11 @@
   "homepage": "https://annasearl.github.io/annar",
   "files": [
     "dist",
-    "esm",
-    "web"
+    "esm"
   ],
   "sideEffects": [
     "dist/*",
     "esm/**/style/*",
-    "web/**/style/*",
     "*.scss",
     "components/**/style/*",
     "*.less",
@@ -106,6 +104,7 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.1.0",
     "html-webpack-plugin": "^4.3.0",
@@ -133,6 +132,9 @@
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2",
     "webpackbar": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "*"
   },
   "types": "./esm/index.d.ts",
   "config": {

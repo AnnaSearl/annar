@@ -5,6 +5,8 @@ export { default as Checkbox } from './checkbox';
 export { default as Picker } from './picker';
 
 // remax/one
+export { default as Button } from './button';
+
 export { default as View } from './view';
 
 export { default as Text } from './text';

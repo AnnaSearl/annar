@@ -26,8 +26,6 @@ yarn add annar
 
 ## 🎀 使用
 
-#### 小程序
-
 ```jsx
 import { Button } from 'annar';
 
@@ -46,26 +44,10 @@ import 'annar/dist/annar.css';
 
 #### Web
 
-使用 Web 组件开发需要依赖 `remax/one`
+注意：使用 Web 组件开发需要依赖 `@remax/one`
 
 ```bash
-npm install remax/one
-```
-
-```jsx
-import { Button } from 'annar/web';
-
-const App = () => (
-  <>
-    <Button>Click Annar</Button>
-  </>
-);
-```
-
-引入样式：
-
-```jsx
-import 'annar/dist/annar.css';
+npm install @remax/one
 ```
 
 ## 🥡 按需加载
