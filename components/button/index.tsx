@@ -13,20 +13,20 @@ export type ButtonType = typeof ButtonTypes[number];
 
 export interface ButtonProps {
   type?: ButtonType;
-  size?: string;
+  size?: 'small' | 'large' | 'superlarge';
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   disabled?: boolean;
   danger?: boolean;
-  shape?: string;
+  shape?: 'square' | 'circle';
   block?: boolean;
-  float?: boolean | string;
+  float?: boolean | 'center' | 'left' | 'right';
   loading?: boolean;
   loadingText?: string;
   plain?: boolean;
   hairline?: boolean;
-  look?: string;
+  look?: 'secondary' | "secure' | 'warning' | 'light' | 'medium' | 'dark' | 'orange' | 'anna";
   color?: string;
   icon?: string | React.ReactNode;
   ghost?: boolean;
